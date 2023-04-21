@@ -85,6 +85,20 @@
           "x": 203,
           "y": 98
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_yo",
+          "text": "yo",
+          "onClick": {
+            "name": "Uploaderdebug"
+          },
+          "width": 35,
+          "height": 20,
+          "x": 254,
+          "y": 76
+        }
       }
     ],
     "gridSettings": {

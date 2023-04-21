@@ -5,6 +5,10 @@ import palamod.world.inventory.UploaderguiMenu;
 
 import palamod.procedures.Grindertrans0Procedure;
 
+import palamod.network.UploaderguiButtonMessage;
+
+import palamod.PalamodMod;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -12,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
@@ -24,6 +29,7 @@ public class UploaderguiScreen extends AbstractContainerScreen<UploaderguiMenu> 
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	Button button_yo;
 
 	public UploaderguiScreen(UploaderguiMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -91,5 +97,13 @@ public class UploaderguiScreen extends AbstractContainerScreen<UploaderguiMenu> 
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
+		button_yo = new Button(this.leftPos + 128, this.topPos + 39, 35, 20, new TranslatableComponent("gui.palamod.uploadergui.button_yo"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new UploaderguiButtonMessage(0, x, y, z));
+				UploaderguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
+		});
+		guistate.put("button:button_yo", button_yo);
+		this.addRenderableWidget(button_yo);
 	}
 }

@@ -1,17 +1,18 @@
 package palamod.procedures;
 
+import palamod.init.PalamodModItems;
+
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
 
-import java.util.Random;
-
 public class Moneyprocess2Procedure {
-	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
 		if (!world.isClientSide()) {
@@ -30,12 +31,9 @@ public class Moneyprocess2Procedure {
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
-		{
-			ItemStack _ist = itemstack;
-			if (_ist.hurt(1, new Random(), null)) {
-				_ist.shrink(1);
-				_ist.setDamageValue(0);
-			}
+		if (entity instanceof Player _player) {
+			ItemStack _stktoremove = new ItemStack(PalamodModItems.MONEYE_1K_1.get());
+			_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
 		}
 	}
 }

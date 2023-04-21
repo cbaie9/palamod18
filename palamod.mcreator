@@ -18719,6 +18719,7 @@
       "metadata": {
         "files": [
           "src/main/java/palamod/network/UploaderguiSlotMessage.java",
+          "src/main/java/palamod/network/UploaderguiButtonMessage.java",
           "src/main/java/palamod/world/inventory/UploaderguiMenu.java",
           "src/main/java/palamod/client/gui/UploaderguiScreen.java"
         ]
@@ -22933,10 +22934,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
           },
           {
             "name": "world",
@@ -36020,6 +36017,41 @@
           }
         ]
       }
+    },
+    {
+      "name": "Uploaderdebug",
+      "type": "procedure",
+      "sortid": 1729,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "uploaderdebug",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/UploaderdebugProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -36952,6 +36984,7 @@
       "gui.palamod.uploaderguipalahelp.label_this_page_is_working_in_progress": "This page is working in progress",
       "item.palamod.paladiumarmorcustom_3_boots": "Paladium Boots",
       "advancements.palamodavancement.descr": "A new dimension of adventure",
+      "gui.palamod.uploadergui.button_yo": "yo",
       "gui.palamod.palahelpnotsupported.button_back": "back",
       "item.palamod.paladiumarmorcustom_2_chestplate": "Paladium Chestplate",
       "gui.palamod.adminshopblockgrass.label_buy_price_15": "Buy price : 15",
@@ -38254,6 +38287,7 @@
       "gui.palamod.uploaderguipalahelp.label_this_page_is_working_in_progress": "This page is working in progress",
       "item.palamod.paladiumarmorcustom_3_boots": "Paladium Boots",
       "advancements.palamodavancement.descr": "A nouvelle dimention pour l\u0027advanture",
+      "gui.palamod.uploadergui.button_yo": "yo",
       "gui.palamod.palahelpnotsupported.button_back": "back",
       "item.palamod.paladiumarmorcustom_2_chestplate": "Paladium Chestplate",
       "gui.palamod.adminshopblockgrass.label_buy_price_15": "Buy price : 15",

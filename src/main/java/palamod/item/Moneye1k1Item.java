@@ -15,7 +15,7 @@ import net.minecraft.world.InteractionHand;
 
 public class Moneye1k1Item extends Item {
 	public Moneye1k1Item() {
-		super(new Item.Properties().tab(null).durability(1).rarity(Rarity.EPIC));
+		super(new Item.Properties().tab(null).stacksTo(64).rarity(Rarity.EPIC));
 	}
 
 	@Override
@@ -26,14 +26,14 @@ public class Moneye1k1Item extends Item {
 		double y = entity.getY();
 		double z = entity.getZ();
 
-		Moneyprocess2Procedure.execute(world, entity, itemstack);
+		Moneyprocess2Procedure.execute(world, entity);
 		return ar;
 	}
 
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		super.useOn(context);
-		Moneyprocess2Procedure.execute(context.getLevel(), context.getPlayer(), context.getItemInHand());
+		Moneyprocess2Procedure.execute(context.getLevel(), context.getPlayer());
 		return InteractionResult.SUCCESS;
 	}
 }
