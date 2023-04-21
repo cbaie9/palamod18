@@ -1,0 +1,127 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 150,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_palahelp_block_menu",
+          "text": {
+            "fixedValue": "Palahelp : block menu"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 137,
+          "y": 48
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ore",
+          "text": "ore",
+          "onClick": {
+            "name": "Connectpalahelpore"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 222,
+          "y": 68
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_trees",
+          "text": "trees",
+          "width": 50,
+          "height": 20,
+          "x": 222,
+          "y": 93
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 132,
+          "y": 132
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_machine",
+          "text": "Machine",
+          "onClick": {
+            "name": "Machineconnectpalahelp"
+          },
+          "width": 60,
+          "height": 20,
+          "x": 221,
+          "y": 120
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_fluid",
+          "text": "fluid",
+          "onClick": {
+            "name": "Connectfluidpalahelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 222,
+          "y": 149
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "pack.png",
+          "use1Xscale": true,
+          "x": 132,
+          "y": 61
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_close",
+          "text": "Close",
+          "onClick": {
+            "name": "Closepalahelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 132,
+          "y": 159
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

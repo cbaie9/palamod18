@@ -1,0 +1,216 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 220,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 18,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium_le_minerais_le_plus_pu",
+          "text": {
+            "fixedValue": "Paladium :Le minerais le plus puissant",
+            "name": "Palahelporetrans3"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tres_rare_sert_a_quelque_craft",
+          "text": {
+            "fixedValue": "Tres rare sert a quelque craft",
+            "name": "Palahelporetrans4"
+          },
+          "color": {
+            "value": -205,
+            "falpha": 0.0
+          },
+          "x": 91,
+          "y": 113
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "amethyst_ingot.png",
+          "use1Xscale": true,
+          "x": 73,
+          "y": 165
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_ingot.png",
+          "use1Xscale": true,
+          "x": 74,
+          "y": 87
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "findium.png",
+          "use1Xscale": true,
+          "x": 74,
+          "y": 109
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "titane_ingot.png",
+          "use1Xscale": true,
+          "x": 74,
+          "y": 133
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_resitanttres_bon_pour_ses_premi",
+          "text": {
+            "fixedValue": "Resitant,tres bon pour ses premiers",
+            "name": "Palahelporetrans5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 136
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Blockback"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 313,
+          "y": 14
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 68,
+          "y": 14
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_amthyste",
+          "text": {
+            "fixedValue": "Am�thyste :",
+            "name": "Palahelporetrans6"
+          },
+          "color": {
+            "value": -6750055,
+            "falpha": 0.0
+          },
+          "x": 93,
+          "y": 168
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_green_ingot.png",
+          "use1Xscale": true,
+          "x": 74,
+          "y": 66
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium_vert_equivalent_en_pl",
+          "text": {
+            "fixedValue": "Paladium vert : equivalent en plus rare",
+            "name": "Palahelporetrans2"
+          },
+          "color": {
+            "value": -10027213,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 69
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "endium_ingot.png",
+          "use1Xscale": true,
+          "x": 74,
+          "y": 38
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_endium_le_materiau_ultime_obte",
+          "text": {
+            "fixedValue": "Endium : Le materiau ultime obtenable",
+            "name": "Palahelporetrans0"
+          },
+          "color": {
+            "value": -13434727,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 37
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_via_le_paladium_crusher_voir_m",
+          "text": {
+            "fixedValue": "via le paladium crusher ( voir machine)",
+            "name": "Palahelporetrans1"
+          },
+          "color": {
+            "value": -13434727,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 51
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 31,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

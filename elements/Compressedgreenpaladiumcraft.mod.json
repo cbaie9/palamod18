@@ -1,0 +1,46 @@
+{
+  "_fv": 39,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreeningot"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenblock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Compressedgreenpaladum"
+    },
+    "name": "compressedgreenpaladiumcraft",
+    "namespace": "mod"
+  }
+}

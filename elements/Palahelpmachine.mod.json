@@ -1,0 +1,166 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "golem64.png",
+          "use1Xscale": false,
+          "x": 133,
+          "y": 56
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_palahelp_machine_menu",
+          "text": {
+            "fixedValue": "Palahelp : Machine menu"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 160,
+          "y": 41
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Blockconnecthelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 133,
+          "y": 122
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "Menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 133,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_close",
+          "text": "close",
+          "onClick": {
+            "name": "Closepalahelp"
+          },
+          "width": 50,
+          "height": 20,
+          "x": 133,
+          "y": 168
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_grinder",
+          "text": "Grinder",
+          "onClick": {
+            "name": "Connectgrinderpag1"
+          },
+          "width": 75,
+          "height": 20,
+          "x": 213,
+          "y": 56
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_palamachine",
+          "text": "Palamachine",
+          "onClick": {
+            "name": "Connectpalamachinepalahelp"
+          },
+          "width": 75,
+          "height": 20,
+          "x": 213,
+          "y": 78
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_crusher",
+          "text": "Crusher",
+          "onClick": {
+            "name": "Connectpalahelpcrusher"
+          },
+          "width": 75,
+          "height": 20,
+          "x": 213,
+          "y": 100
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_forge",
+          "text": "forge",
+          "onClick": {
+            "name": "Connectforgepalahelp"
+          },
+          "width": 75,
+          "height": 20,
+          "x": 213,
+          "y": 122
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_uploader",
+          "text": "Uploader",
+          "width": 76,
+          "height": 20,
+          "x": 213,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_downloader",
+          "text": "Downloader",
+          "width": 75,
+          "height": 20,
+          "x": 213,
+          "y": 167
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

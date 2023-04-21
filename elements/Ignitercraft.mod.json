@@ -1,0 +1,46 @@
+{
+  "_fv": 39,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "CUSTOM:PaladiumPickaxe"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      },
+      {
+        "value": "Items.FIRE_CHARGE"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Forceminagedim"
+    },
+    "name": "ignitercraft",
+    "namespace": "mod"
+  }
+}

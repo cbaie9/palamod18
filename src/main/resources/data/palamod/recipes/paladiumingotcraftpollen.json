@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:paladiumpollen"
+    },
+    "1": {
+      "item": "palamod:paladiumpollen"
+    },
+    "2": {
+      "item": "palamod:paladiumpollen"
+    },
+    "3": {
+      "item": "palamod:paladiumpollen"
+    },
+    "4": {
+      "item": "palamod:paladiumpollen"
+    },
+    "5": {
+      "item": "palamod:paladiumpollen"
+    },
+    "6": {
+      "item": "palamod:paladiumpollen"
+    },
+    "7": {
+      "item": "palamod:paladiumpollen"
+    },
+    "8": {
+      "item": "palamod:paladiumpollen"
+    }
+  },
+  "result": {
+    "item": "palamod:paladium_ingot",
+    "count": 1
+  }
+}

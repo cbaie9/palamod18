@@ -1,0 +1,9 @@
+{
+  "_fv": 39,
+  "_type": "function",
+  "definition": {
+    "code": "# Enter the function code here\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:dirt\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:tuff\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:stone\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:andersite\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:diorite\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:water\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:lava\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:deepslate\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:granite\nfill ~1 ~ ~ ~3 ~-64 ~2 minecraft:air 0 replace minecraft:grass_block\nmsg @s \"Done!!! ( work only with worldedit)\"",
+    "name": "clearnoore",
+    "namespace": "mod"
+  }
+}

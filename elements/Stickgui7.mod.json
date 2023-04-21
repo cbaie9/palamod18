@@ -1,0 +1,145 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "1amage.png",
+          "use1Xscale": true,
+          "x": 14,
+          "y": 85
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_damage_stick_cre_un_effet_de",
+          "text": {
+            "fixedValue": "Damage stick : cr�e un effet de knockback autout de vous"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 17,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "image27.png",
+          "use1Xscale": true,
+          "x": 277,
+          "y": 109
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_craft_du_spike_en_paladium",
+          "text": {
+            "fixedValue": "craft du spike en paladium"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 278,
+          "y": 97
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "(--"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 363,
+          "y": 110
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stick_prcdant",
+          "text": "stick pr�c�dant",
+          "onClick": {
+            "name": "Connectstickgui6"
+          },
+          "width": 100,
+          "height": 20,
+          "x": 21,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_item_menu",
+          "text": "item menu",
+          "onClick": {
+            "name": "Connectitemmenu"
+          },
+          "width": 70,
+          "height": 20,
+          "x": 139,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 226,
+          "y": 44
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "damagestick.png",
+          "use1Xscale": false,
+          "x": 301,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "damagestick.png",
+          "use1Xscale": true,
+          "x": 136,
+          "y": 172
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

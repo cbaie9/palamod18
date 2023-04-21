@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "palamod:blocks/endium_nugget_ore_deepslate",
+    "particle": "palamod:blocks/endium_nugget_ore_deepslate"
+  }
+}

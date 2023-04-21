@@ -1,0 +1,326 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 420,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_beta_nochange_0004",
+          "text": {
+            "fixedValue": "beta no-change 0004 before crusherT2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 7,
+          "y": 204
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium_crusher_wiki",
+          "text": {
+            "fixedValue": "Paladium crusher wiki"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 115,
+          "y": 23
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crusher_front.png",
+          "use1Xscale": false,
+          "x": 10,
+          "y": 25
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_voici_le_crusher_la_machine_per",
+          "text": {
+            "fixedValue": "Voici le crusher, la machine permetant, avec",
+            "name": "Palahelpcrusher0"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 48
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_des_fruit_de_fabriquer_des_miner",
+          "text": {
+            "fixedValue": "des fruit de fabriquer des minerais dont",
+            "name": "Palahelpcrusher1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_lendium_entre_autre_le_princip",
+          "text": {
+            "fixedValue": "l'endium entre autre. Le principe est simple",
+            "name": "Palahelpcrusher2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 7,
+          "y": 72
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_il_faut_mettre_du_fuel_et_des_f",
+          "text": {
+            "fixedValue": "Il faut mettre du fuel* et des fruit dans le",
+            "name": "Palahelpcrusher3"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 84
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_crusher_le_fuel_est_soit_le_gol",
+          "text": {
+            "fixedValue": "crusher. Le fuel est soit le gold mixed coal,",
+            "name": "Palahelpcrusher4"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 95
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_titane_soit_le_titane_mixed",
+          "text": {
+            "fixedValue": "( titane ) soit le titane mixed coal ( paladium) ou le palamixed coal pour",
+            "name": "Palahelpcrusher6"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 7,
+          "y": 108
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_lendium_pour_celuici_il_faudr",
+          "text": {
+            "fixedValue": "L'endium. Pour celui-ci il faudra insérer 128 palamixed et 128 orangeblue puis",
+            "name": "Palahelpcrusher7"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 7,
+          "y": 121
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_fruit_ici",
+          "text": {
+            "fixedValue": "Fruit ici",
+            "name": "Palahelpcrusher10"
+          },
+          "color": {
+            "value": -256,
+            "falpha": 0.0
+          },
+          "x": 251,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_rsultat_ici",
+          "text": {
+            "fixedValue": "Résultat ici",
+            "name": "Palahelpcrusher11"
+          },
+          "color": {
+            "value": -16776961,
+            "falpha": 0.0
+          },
+          "x": 345,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_appuyer_sur_le_bouton_start_fus",
+          "text": {
+            "fixedValue": "Appuyer sur le bouton \"start fusion\" vous donnera 1 nugget quand tout les",
+            "name": "Palahelpcrusher8"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 7,
+          "y": 133
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_lment_auront_t_insrs",
+          "text": {
+            "fixedValue": "élément auront été insérés.",
+            "name": "Palahelpcrusher9"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 147
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_note_vous_ntes_pas_obliger_d",
+          "text": {
+            "fixedValue": "Note : vous n'êtes pas obliger d'inséré 128 de chaque mais il aura une chance",
+            "name": "Palahelpcrusher12"
+          },
+          "color": {
+            "value": -26368,
+            "falpha": 0.0
+          },
+          "x": 9,
+          "y": 170
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_que_le_nugget_napparaise_prob",
+          "text": {
+            "fixedValue": "que le nugget n'apparaise [ probabilité tant la chance que le nugget appairaise",
+            "name": "Palahelpcrusher13"
+          },
+          "color": {
+            "value": -26368,
+            "falpha": 0.0
+          },
+          "x": 8,
+          "y": 181
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Machineconnectpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 215,
+          "y": 192
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 264,
+          "y": 192
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_11_v1",
+          "text": {
+            "fixedValue": "1/1 v2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 378,
+          "y": 203
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gui",
+          "text": "Full_screengui",
+          "onClick": {
+            "name": "Connectephcrusher"
+          },
+          "width": 86,
+          "height": 20,
+          "x": 245,
+          "y": 39
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

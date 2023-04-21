@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "palamod:amethyste"
+    }
+  ],
+  "result": {
+    "item": "palamod:amethystparticle",
+    "count": 9
+  }
+}

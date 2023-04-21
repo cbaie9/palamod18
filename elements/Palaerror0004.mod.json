@@ -1,0 +1,66 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 70,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_err0r_0004_hdv",
+          "text": {
+            "fixedValue": "Err0r 0004 - Hdv"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 171,
+          "y": 88
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_this_item_has_already_been_bough",
+          "text": {
+            "fixedValue": "This item has already been bought"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 99
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_return_to_hdv",
+          "text": "return to hdv",
+          "onClick": {
+            "name": "Hdv_open"
+          },
+          "width": 92,
+          "height": 20,
+          "x": 165,
+          "y": 127
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

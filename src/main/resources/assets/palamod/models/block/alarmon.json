@@ -1,0 +1,8 @@
+{
+  "parent": "palamod:custom/alarm_v2red",
+  "textures": {
+    "all": "palamod:blocks/alarm_v2red",
+    "particle": "palamod:blocks/alarm_v2red",
+    "0": "palamod:blocks/alarm_v2red"
+  }
+}

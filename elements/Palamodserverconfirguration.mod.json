@@ -1,0 +1,380 @@
+{
+  "_fv": 39,
+  "_type": "config",
+  "definition": {
+    "pools": [
+      {
+        "category": "machine : Crusher",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "crusher_cheats",
+            "varname": "crusher_custom",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 16.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cc_ame",
+            "varname": "crusher_amethyst",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 32.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cc_tt",
+            "varname": "crusher_titane",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 64.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cc_pala",
+            "varname": "crusher_paladium",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 128.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cc_end",
+            "varname": "crusher_endium",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "Crusher custom outputs (variable < 64 )",
+            "vardisplay": "cout",
+            "varname": "comment_output",
+            "enablecomment": true,
+            "onlyComment": true,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 5.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cco_ame",
+            "varname": "crusher_out_amethyst",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 15.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cco_tt",
+            "varname": "crusher_out_titane",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 15.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cco_pala",
+            "varname": "crusher_out_paladium",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "cco_end",
+            "varname": "crusher_out_endium",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "loading time ( time to smelt the fruits ), must be superior to 0",
+            "vardisplay": "com_crush",
+            "varname": "crusher_comment2",
+            "enablecomment": true,
+            "onlyComment": true,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "loadingtime",
+            "varname": "crusher_state",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          }
+        ]
+      },
+      {
+        "category": "Machine : Grinder",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "Grinder Settings",
+            "vardisplay": "com_grind",
+            "varname": "grinder_comment1",
+            "enablecomment": true,
+            "onlyComment": true,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 100.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "Grinder capacty",
+            "varname": "gnum_max",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "loading time ( time to smelt the ingot , create a hammer ), must be superior to 0",
+            "vardisplay": "gc2",
+            "varname": "grinder_comment2",
+            "enablecomment": true,
+            "onlyComment": true,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 4.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "loading_time1",
+            "varname": "grinder_state1",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "loading_time2",
+            "varname": "grinder_state2",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 10.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "loading_time3",
+            "varname": "grinder_state3",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "beta_mult1",
+            "varname": "mult_entry",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "grinder_cheats",
+            "varname": "grinder_custom",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          }
+        ]
+      }
+    ],
+    "file": "palamod_server_conf",
+    "configType": 1
+  }
+}

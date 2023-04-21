@@ -1,0 +1,12 @@
+{
+  "goofy_alarm": {
+    "category": "block",
+    "subtitle": "subtitles.goofy_alarm",
+    "sounds": [
+      {
+        "name": "palamod:goofyalarm",
+        "stream": false
+      }
+    ]
+  }
+}

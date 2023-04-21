@@ -1,0 +1,78 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_faction_home",
+          "text": {
+            "fixedValue": "Faction home"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 180,
+          "y": 23
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_level_varfaction_max_xp",
+          "text": {
+            "fixedValue": "Level -  <VAR:Faction_max_xp> / <VAR:integer:Faction_max_xp> xp"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 69,
+          "y": 51
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": ""
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 83,
+          "y": 91
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_invite",
+          "text": "Invite",
+          "width": 56,
+          "height": 20,
+          "x": 72,
+          "y": 191
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

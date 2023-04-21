@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:goldparticle"
+    },
+    "1": {
+      "item": "palamod:goldparticle"
+    },
+    "2": {
+      "item": "palamod:goldparticle"
+    },
+    "3": {
+      "item": "palamod:goldparticle"
+    },
+    "4": {
+      "item": "palamod:goldparticle"
+    },
+    "5": {
+      "item": "palamod:goldparticle"
+    },
+    "6": {
+      "item": "palamod:goldparticle"
+    },
+    "7": {
+      "item": "palamod:goldparticle"
+    },
+    "8": {
+      "item": "palamod:goldparticle"
+    }
+  },
+  "result": {
+    "item": "minecraft:gold_ingot",
+    "count": 1
+  }
+}

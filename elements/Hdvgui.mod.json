@@ -1,0 +1,272 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 300,
+    "height": 225,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 200,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_hotel_de_vente",
+          "text": {
+            "fixedValue": "Hôtel de vente"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 111,
+          "y": 13
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_wip_build_0031",
+          "text": {
+            "fixedValue": "Wip build 0031"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 284,
+          "y": 12
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_suivant",
+          "text": "suivant",
+          "width": 61,
+          "height": 20,
+          "x": 298,
+          "y": 202
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_aide",
+          "text": "aide",
+          "onClick": {
+            "name": "Hdvaide"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 242,
+          "y": 202
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy",
+          "text": "buy",
+          "onClick": {
+            "name": "Hdvbuy"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 298,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_premium",
+          "text": {
+            "fixedValue": "Premium "
+          },
+          "color": {
+            "value": -26368,
+            "falpha": 0.0
+          },
+          "x": 71,
+          "y": 67
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_mettre_en_vente_un_article",
+          "text": "mettre en vente un article",
+          "onClick": {
+            "name": "Openhdvsell"
+          },
+          "width": 160,
+          "height": 20,
+          "x": 73,
+          "y": 202
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 90,
+          "y": 81
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 90,
+          "y": 105
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 90,
+          "y": 128
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": false,
+          "x": 90,
+          "y": 153
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy1",
+          "text": "buy",
+          "onClick": {
+            "name": "Hdvbuy1"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 298,
+          "y": 102
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy2",
+          "text": "buy",
+          "onClick": {
+            "name": "Hdvbuy2"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 298,
+          "y": 127
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy3",
+          "text": "buy",
+          "onClick": {
+            "name": "Hdvbuy3"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 298,
+          "y": 151
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_barre_de_recherche",
+          "text": {
+            "fixedValue": "Barre de recherche"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 74,
+          "y": 28
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "que veut tu rechercher ajourd'hui",
+          "name": "recs",
+          "width": 120,
+          "height": 20,
+          "x": 71,
+          "y": 41
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "beta_block.png",
+          "use1Xscale": false,
+          "x": 71,
+          "y": 82
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "HdvguiThisGUIIsOpened"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

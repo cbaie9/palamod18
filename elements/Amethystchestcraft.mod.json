@@ -1,0 +1,46 @@
+{
+  "_fv": 39,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Amethyste"
+      },
+      {
+        "value": "CUSTOM:Compressedamethyste"
+      },
+      {
+        "value": "CUSTOM:Amethyste"
+      },
+      {
+        "value": "CUSTOM:Compressedamethyste"
+      },
+      {
+        "value": "Blocks.CHEST"
+      },
+      {
+        "value": "CUSTOM:Compressedamethyste"
+      },
+      {
+        "value": "CUSTOM:Amethyste"
+      },
+      {
+        "value": "CUSTOM:Compressedamethyste"
+      },
+      {
+        "value": "CUSTOM:Amethyste"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Amethystchest"
+    },
+    "name": "amethystchestcraft",
+    "namespace": "mod"
+  }
+}

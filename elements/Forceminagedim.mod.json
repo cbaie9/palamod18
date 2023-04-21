@@ -1,0 +1,57 @@
+{
+  "_fv": 39,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "plains"
+      },
+      {
+        "value": "lush_caves"
+      },
+      {
+        "value": "dripstone_caves"
+      },
+      {
+        "value": "savanna_rock"
+      },
+      {
+        "value": "mutated_plains"
+      },
+      {
+        "value": "meadow"
+      }
+    ],
+    "worldGenType": "Normal world gen",
+    "mainFillerBlock": {
+      "value": "Blocks.STONE#0"
+    },
+    "fluidBlock": {
+      "value": "CUSTOM:Angelicwater"
+    },
+    "canRespawnHere": true,
+    "hasFog": false,
+    "isDark": false,
+    "doesWaterVaporize": false,
+    "sleepResult": "ALLOW",
+    "hasSkyLight": true,
+    "imitateOverworldBehaviour": false,
+    "portalFrame": {
+      "value": "Blocks.DEEPSLATE_BRICKS"
+    },
+    "portalParticles": {
+      "value": "PORTAL"
+    },
+    "portalLuminance": 7,
+    "portalSound": {
+      "value": "block.portal.ambient"
+    },
+    "igniterName": "Minage Portal Igniter",
+    "igniterTab": {
+      "value": "CUSTOM:Palamod"
+    },
+    "texture": "igniter_minage",
+    "portalTexture": "angelic_water_still",
+    "enablePortal": true
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 175,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium_forge",
+          "text": {
+            "fixedValue": "Paladium Forge"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 69,
+          "y": 35
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "5forge.png",
+          "use1Xscale": true,
+          "x": 190,
+          "y": 34
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_la_forge_est_un_machine_permetta",
+          "text": {
+            "fixedValue": "La forge est un machine permettant de recycler ses outils",
+            "name": "Palahelpforge0"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 66,
+          "y": 129
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "forge_front_on.png",
+          "use1Xscale": false,
+          "x": 71,
+          "y": 89
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_en_amthyste_titane_paladium",
+          "text": {
+            "fixedValue": "en am�thyste, titane , paladium et... endium pour les",
+            "name": "Palahelpforge1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 67,
+          "y": 139
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_pour_cela_il_suffi_dinsr_du_c",
+          "text": {
+            "fixedValue": "Pour cela il suffi d'ins�r� du charbon ou du palamixed coal",
+            "name": "Palahelpforge2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 67,
+          "y": 150
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_dane_le_slot_1_et_mettre_les_out",
+          "text": {
+            "fixedValue": "dane le slot 1 et mettre les outil que vous voulez recycler",
+            "name": "Palahelpforge3"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 68,
+          "y": 161
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Machineconnectpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 66,
+          "y": 47
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 66,
+          "y": 68
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

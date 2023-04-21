@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23",
+    "45"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:judeecercis_planks"
+    },
+    "1": {
+      "item": "palamod:judeecercis_planks"
+    },
+    "2": {
+      "item": "palamod:judeecercis_planks"
+    },
+    "3": {
+      "item": "palamod:judeecercis_planks"
+    },
+    "4": {
+      "item": "palamod:judeecercis_planks"
+    },
+    "5": {
+      "item": "palamod:judeecercis_planks"
+    }
+  },
+  "result": {
+    "item": "palamod:judeecercisdoor",
+    "count": 3
+  }
+}

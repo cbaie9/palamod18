@@ -1,0 +1,177 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_ore",
+          "text": {
+            "fixedValue": "Adminshop ore"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 171,
+          "y": 42
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_paladium",
+          "text": "paladium",
+          "onClick": {
+            "name": "Connectadhorepala"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 132,
+          "y": 61
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_titane",
+          "text": "titane",
+          "onClick": {
+            "name": "Connectadhoretitane"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 226,
+          "y": 62
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_amethyst",
+          "text": "amethyst",
+          "onClick": {
+            "name": "Connectadhoreame"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 137,
+          "y": 83
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_findium",
+          "text": "findium",
+          "onClick": {
+            "name": "Connectadhorefindium"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 226,
+          "y": 83
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_diamond",
+          "text": "diamond",
+          "onClick": {
+            "name": "Connectadhorediamond"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 143,
+          "y": 108
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_iron",
+          "text": "iron",
+          "onClick": {
+            "name": "Connectadhoreiron"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 226,
+          "y": 108
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gold",
+          "text": "gold",
+          "onClick": {
+            "name": "Connectadhoregold"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 158,
+          "y": 131
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_coal",
+          "text": "coal",
+          "onClick": {
+            "name": "Connectadhorecoal"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 226,
+          "y": 131
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 158,
+          "y": 172
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 226,
+          "y": 172
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

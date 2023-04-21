@@ -1,0 +1,367 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 195,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 17,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 133,
+          "y": 40
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 133,
+          "y": 59
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_1red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n0"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arr0.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowinsertn0"
+          },
+          "x": 263,
+          "y": 104
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 242,
+          "y": 102
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varg_num_100",
+          "text": {
+            "fixedValue": "<VAR:g_num> /100",
+            "name": "Grindertrans1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 208,
+          "y": 123
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_inventory",
+          "text": {
+            "fixedValue": "Inventory",
+            "name": "Grindertrans0"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 124
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "gnew_indicator.png",
+          "use1Xscale": false,
+          "x": 228,
+          "y": 35
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 191,
+          "y": 48
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_upgrade",
+          "text": "Upgrades",
+          "onClick": {
+            "name": "Connectgrindersplit"
+          },
+          "width": 76,
+          "height": 20,
+          "x": 133,
+          "y": 100
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_3red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n1"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_5red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n2"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_7red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n3"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_9red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n4"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_11red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n5"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_13red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n6"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_15red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n7"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_17red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n8"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_18red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n9"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arr1.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowinsertn1"
+          },
+          "x": 263,
+          "y": 104
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arr2.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowinsertn2"
+          },
+          "x": 263,
+          "y": 104
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arr3.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowinsertn3"
+          },
+          "x": 263,
+          "y": 104
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arr4.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowinsertn4"
+          },
+          "x": 263,
+          "y": 104
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_19red_new.png",
+          "use1Xscale": true,
+          "displayCondition": {
+            "name": "Grinderguiarrow2n10"
+          },
+          "x": 159,
+          "y": 53
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_help",
+          "text": "help",
+          "onClick": {
+            "name": "Connectgrinderpag1"
+          },
+          "width": 42,
+          "height": 20,
+          "x": 133,
+          "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_grinder_v41_noautotick",
+          "text": {
+            "fixedValue": "Grinder - v4.1 noautotick"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 24
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "Grinderadvancementreq"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

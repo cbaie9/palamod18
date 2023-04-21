@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:paladiumparticle"
+    },
+    "1": {
+      "item": "palamod:paladiumparticle"
+    },
+    "2": {
+      "item": "palamod:paladiumparticle"
+    },
+    "3": {
+      "item": "palamod:paladiumparticle"
+    },
+    "4": {
+      "item": "palamod:paladiumparticle"
+    },
+    "5": {
+      "item": "palamod:paladiumparticle"
+    },
+    "6": {
+      "item": "palamod:paladiumparticle"
+    },
+    "7": {
+      "item": "palamod:paladiumparticle"
+    },
+    "8": {
+      "item": "palamod:paladiumparticle"
+    }
+  },
+  "result": {
+    "item": "palamod:paladium_ingot",
+    "count": 1
+  }
+}

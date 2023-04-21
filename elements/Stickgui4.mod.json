@@ -1,0 +1,159 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 400,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "1hea.png",
+          "use1Xscale": true,
+          "x": 14,
+          "y": 82
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_heal_stick_vous_donne_soin_ins",
+          "text": {
+            "fixedValue": "Heal stick : vous donne soin instantan�e"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 17,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "1orbheal.png",
+          "use1Xscale": true,
+          "x": 267,
+          "y": 114
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_craft_de_la_heal_orb",
+          "text": {
+            "fixedValue": "craft de la heal orb"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 275,
+          "y": 99
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "(--"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 355,
+          "y": 113
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stick_prcdant",
+          "text": "stick pr�c�dant",
+          "onClick": {
+            "name": "Connectstickjump"
+          },
+          "width": 100,
+          "height": 20,
+          "x": 21,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stick_suivant",
+          "text": "stick suivant",
+          "onClick": {
+            "name": "Connectstickgui5"
+          },
+          "width": 90,
+          "height": 20,
+          "x": 126,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_item_menu",
+          "text": "item menu",
+          "onClick": {
+            "name": "Connectitemmenu"
+          },
+          "width": 70,
+          "height": 20,
+          "x": 221,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 296,
+          "y": 45
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "jumpstick.png",
+          "use1Xscale": false,
+          "x": 301,
+          "y": 67
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "jumpstick.png",
+          "use1Xscale": true,
+          "x": 136,
+          "y": 172
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

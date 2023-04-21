@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="Custom license, https://pastebin.com/47smwufD"
+
+[[mods]]
+modId="palamod"
+version="1.19.016"
+displayName="Palamod renew"
+credits="Codée par des mecs qui voulais juste sortir de la warzone vivant"
+displayURL=" https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA"
+logoFile="logo.png"
+authors="cb9, FufuBS1( + Paladium Team pour le mod orginale)"
+description='''
+Certifié sans lag ( apparent ) 
+'''
+
+[[dependencies.palamod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+[[dependencies.palamod]]
+    modId="just_enough_items"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+

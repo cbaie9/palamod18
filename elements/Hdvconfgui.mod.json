@@ -1,0 +1,110 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 255,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_revenir_au_shop",
+          "text": "revenir au shop",
+          "onClick": {
+            "name": "Hdv_open"
+          },
+          "width": 103,
+          "height": 20,
+          "x": 91,
+          "y": 173
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter",
+          "text": "Acheter",
+          "onClick": {
+            "name": "Hdvtruebuyv2"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 274,
+          "y": 173
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_vous_allez_acheter",
+          "text": {
+            "fixedValue": "Vous allez acheter"
+          },
+          "color": {
+            "value": -13369600,
+            "falpha": 0.0
+          },
+          "x": 93,
+          "y": 50
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varmarket_conf_name",
+          "text": {
+            "fixedValue": "<VAR:market_conf_name>"
+          },
+          "color": {
+            "value": -16764058,
+            "falpha": 0.0
+          },
+          "x": 195,
+          "y": 51
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_a_varmarket_conf_price",
+          "text": {
+            "fixedValue": "à <VAR:market_conf_price> $"
+          },
+          "color": {
+            "value": -13369600,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 63
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_cette_action_est_irreversible",
+          "text": {
+            "fixedValue": "Cette action est irréversible "
+          },
+          "color": {
+            "value": -3407821,
+            "falpha": 0.0
+          },
+          "x": 139,
+          "y": 153
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

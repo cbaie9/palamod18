@@ -1,0 +1,171 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 275,
+    "height": 225,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_palamod_not_in_working_in_prog",
+          "text": {
+            "fixedValue": "Palamod - Not in working in progress"
+          },
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "x": 121,
+          "y": 14
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_beta_2_build_t1_0026",
+          "text": {
+            "fixedValue": "Beta 2 : build T1 0026"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 229,
+          "y": 217
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acces_hdv",
+          "text": "acces hdv",
+          "onClick": {
+            "name": "Hdv_open"
+          },
+          "width": 186,
+          "height": 20,
+          "x": 114,
+          "y": 187
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_lhotel_des_vente_ou_hdv_a_ete_a",
+          "text": {
+            "fixedValue": "l'hotel des vente ou hdv a ete abandonne "
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 106,
+          "y": 49
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_a_cause_dun_bug_de_stockage_di",
+          "text": {
+            "fixedValue": "a cause d'un bug de stockage d'item"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 106,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_le_projet_etant_en_open_source",
+          "text": {
+            "fixedValue": "le projet etant en open- source vous pouvez nous"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 81,
+          "y": 94
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_aider_conctacter_les_devloppeu",
+          "text": {
+            "fixedValue": "aider : conctacter les devloppeurs sur github"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 84,
+          "y": 104
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_httpsgithubcomcbaie9palamo",
+          "text": {
+            "fixedValue": "https://github.com/cbaie9/palamod19"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 85,
+          "y": 121
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_le_hdv_ses_processus_ont_ete_ret",
+          "text": {
+            "fixedValue": "le hdv ses processus ont ete retirer en partie"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 82,
+          "y": 144
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_de_lag_et_de_compilation_code",
+          "text": {
+            "fixedValue": "de lag et de compilation ( code trop long )"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 83,
+          "y": 153
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

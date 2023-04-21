@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    " 45",
+    "678"
+  ],
+  "key": {
+    "2": {
+      "item": "palamod:titane_ingot"
+    },
+    "4": {
+      "item": "palamod:titane_ingot"
+    },
+    "5": {
+      "item": "palamod:titane_ingot"
+    },
+    "6": {
+      "item": "palamod:titane_ingot"
+    },
+    "7": {
+      "item": "palamod:titane_ingot"
+    },
+    "8": {
+      "item": "palamod:titane_ingot"
+    }
+  },
+  "result": {
+    "item": "palamod:titanestairs",
+    "count": 4
+  }
+}

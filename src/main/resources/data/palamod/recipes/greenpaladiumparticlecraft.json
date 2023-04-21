@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "palamod:paladium_greeningot"
+    }
+  ],
+  "result": {
+    "item": "palamod:greenpaladiumparticle",
+    "count": 9
+  }
+}

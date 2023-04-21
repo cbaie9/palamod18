@@ -1,0 +1,42 @@
+{
+  "_fv": 39,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Mediumring"
+      },
+      {
+        "value": "CUSTOM:Smallring"
+      },
+      {
+        "value": "CUSTOM:Bigring"
+      },
+      {
+        "value": "CUSTOM:Endiumsmallring"
+      },
+      {
+        "value": "CUSTOM:Endiummediumring"
+      },
+      {
+        "value": "CUSTOM:Endiumbigring"
+      },
+      {
+        "value": "CUSTOM:Smallringgreenpaladium"
+      },
+      {
+        "value": "CUSTOM:Mediumringgreenpaladium"
+      },
+      {
+        "value": "CUSTOM:Bigringgreenpaladium"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "entities": [],
+    "biomes": [],
+    "name": "rings",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "palamod:block/forceminagedim_portal_ew"
+    },
+    "axis=x": {
+      "model": "palamod:block/forceminagedim_portal_ns"
+    }
+  }
+}

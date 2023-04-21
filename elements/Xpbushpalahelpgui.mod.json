@@ -1,0 +1,188 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 200,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_xp_bush",
+          "text": {
+            "fixedValue": "Xp bush "
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 186,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_xp_bush_est_une_plant_qui_fait_p",
+          "text": {
+            "fixedValue": "Xp bush est une plant qui fait pousser"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 116,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_des_xp_berries_qui_vous_donne_de",
+          "text": {
+            "fixedValue": "des xp berries qui vous donne de xp"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 116,
+          "y": 69
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_quand_vous_faites_clique_droit_d",
+          "text": {
+            "fixedValue": "quand vous faites clique droit dessus"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 117,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_vous_pouvez_les_compresser_en",
+          "text": {
+            "fixedValue": "Vous pouvez les compresser en"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 115,
+          "y": 90
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_compressed_xp_berries",
+          "text": {
+            "fixedValue": "compressed xp berries"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 114,
+          "y": 102
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "xp_berry.png",
+          "use1Xscale": false,
+          "x": 118,
+          "y": 117
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "berry_xp_bush_fancy.png",
+          "use1Xscale": false,
+          "x": 118,
+          "y": 156
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_xp_berry",
+          "text": {
+            "fixedValue": "xp berry"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 152,
+          "y": 121
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_xp_bush1",
+          "text": {
+            "fixedValue": "xp bush"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 157,
+          "y": 163
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Connectitemmenu"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 250,
+          "y": 128
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 250,
+          "y": 150
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

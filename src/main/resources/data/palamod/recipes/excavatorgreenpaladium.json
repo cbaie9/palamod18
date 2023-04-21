@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:paladium_greeningot"
+    },
+    "1": {
+      "item": "palamod:titaneexcavator"
+    },
+    "2": {
+      "item": "palamod:paladium_greeningot"
+    },
+    "3": {
+      "item": "palamod:titaneexcavator"
+    },
+    "5": {
+      "item": "palamod:titaneexcavator"
+    },
+    "6": {
+      "item": "palamod:paladium_greeningot"
+    },
+    "7": {
+      "item": "palamod:titaneexcavator"
+    },
+    "8": {
+      "item": "palamod:paladium_greeningot"
+    }
+  },
+  "result": {
+    "item": "palamod:greenpaladumexcator",
+    "count": 1
+  }
+}

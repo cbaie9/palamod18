@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "palamod:titane_ingot"
+    }
+  ],
+  "result": {
+    "item": "palamod:titaneparticle",
+    "count": 9
+  }
+}

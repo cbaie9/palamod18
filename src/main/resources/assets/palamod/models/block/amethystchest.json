@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "palamod:blocks/amethyst_down",
+    "up": "palamod:blocks/amethyst_up",
+    "north": "palamod:blocks/amethyst_voila",
+    "east": "palamod:blocks/amethyst_side",
+    "south": "palamod:blocks/amethyst_side",
+    "west": "palamod:blocks/amethyst_side",
+    "particle": "palamod:blocks/amethyst_down"
+  }
+}

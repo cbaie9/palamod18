@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top",
+  "textures": {
+    "bottom": "palamod:blocks/door_5",
+    "top": "palamod:blocks/door_6"
+  }
+}

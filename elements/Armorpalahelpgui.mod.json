@@ -1,0 +1,575 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 300,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "amethyst_helmet.png",
+          "use1Xscale": false,
+          "x": 68,
+          "y": 26
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "amethyst_chestplate.png",
+          "use1Xscale": false,
+          "x": 68,
+          "y": 60
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "amethyst_leggings.png",
+          "use1Xscale": false,
+          "x": 69,
+          "y": 97
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "amethyst_boots.png",
+          "use1Xscale": false,
+          "x": 69,
+          "y": 141
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "endium_helmet.png",
+          "use1Xscale": false,
+          "x": 280,
+          "y": 32
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "endium_chestplate.png",
+          "use1Xscale": false,
+          "x": 281,
+          "y": 65
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "endium_leggings.png",
+          "use1Xscale": false,
+          "x": 280,
+          "y": 100
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "endium_boots.png",
+          "use1Xscale": false,
+          "x": 284,
+          "y": 137
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_chestplate.png",
+          "use1Xscale": false,
+          "x": 214,
+          "y": 64
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_green_chestplate.png",
+          "use1Xscale": false,
+          "x": 178,
+          "y": 62
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_green_boots.png",
+          "use1Xscale": false,
+          "x": 178,
+          "y": 138
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_green_helmet.png",
+          "use1Xscale": false,
+          "x": 178,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_green_leggings.png",
+          "use1Xscale": false,
+          "x": 178,
+          "y": 99
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_helmet.png",
+          "use1Xscale": false,
+          "x": 214,
+          "y": 33
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_leggings.png",
+          "use1Xscale": false,
+          "x": 213,
+          "y": 101
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "paladium_boots.png",
+          "use1Xscale": false,
+          "x": 216,
+          "y": 138
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_45",
+          "text": {
+            "fixedValue": "+ 4.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 99,
+          "y": 38
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_5",
+          "text": {
+            "fixedValue": "+ 5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 100,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_4",
+          "text": {
+            "fixedValue": "+ 4"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 100,
+          "y": 103
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_451",
+          "text": {
+            "fixedValue": "+ 4.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 101,
+          "y": 150
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "titane_helmet.png",
+          "use1Xscale": false,
+          "x": 120,
+          "y": 26
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "titane_chestplate.png",
+          "use1Xscale": false,
+          "x": 123,
+          "y": 61
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "titane_leggings.png",
+          "use1Xscale": false,
+          "x": 124,
+          "y": 99
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "titane_boots.png",
+          "use1Xscale": false,
+          "x": 124,
+          "y": 137
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_452",
+          "text": {
+            "fixedValue": "+ 4.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 146,
+          "y": 36
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_453",
+          "text": {
+            "fixedValue": "+ 4.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 152,
+          "y": 144
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_51",
+          "text": {
+            "fixedValue": "+ 5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 152,
+          "y": 108
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_52",
+          "text": {
+            "fixedValue": "+ 5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 154,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_454",
+          "text": {
+            "fixedValue": "+ 4.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 243,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_night_vision_ii",
+          "text": {
+            "fixedValue": "Night Vision II"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 223,
+          "y": 27
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_65",
+          "text": {
+            "fixedValue": "+ 6.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 247,
+          "y": 70
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_force",
+          "text": {
+            "fixedValue": "Force"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 245,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_55",
+          "text": {
+            "fixedValue": "+ 5.5 "
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 243,
+          "y": 105
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_haste",
+          "text": {
+            "fixedValue": "Haste"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 244,
+          "y": 118
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_5_speed",
+          "text": {
+            "fixedValue": "+ 5 Speed"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 243,
+          "y": 144
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_53",
+          "text": {
+            "fixedValue": "+ 5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 312,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_7",
+          "text": {
+            "fixedValue": "+ 7"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 312,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_551",
+          "text": {
+            "fixedValue": "+ 5.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 307,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_552",
+          "text": {
+            "fixedValue": "+ 5.5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 311,
+          "y": 142
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_night_vision_ii1",
+          "text": {
+            "fixedValue": "Night Vision II"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 282,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_force1",
+          "text": {
+            "fixedValue": "Force"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 312,
+          "y": 82
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_haste1",
+          "text": {
+            "fixedValue": "Haste"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 313,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_speed",
+          "text": {
+            "fixedValue": "Speed"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 317,
+          "y": 151
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Connectitemmenu"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 73,
+          "y": 175
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 126,
+          "y": 175
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

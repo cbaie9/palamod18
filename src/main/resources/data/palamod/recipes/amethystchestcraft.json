@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:amethyste"
+    },
+    "1": {
+      "item": "palamod:compressedamethyste"
+    },
+    "2": {
+      "item": "palamod:amethyste"
+    },
+    "3": {
+      "item": "palamod:compressedamethyste"
+    },
+    "4": {
+      "item": "minecraft:chest"
+    },
+    "5": {
+      "item": "palamod:compressedamethyste"
+    },
+    "6": {
+      "item": "palamod:amethyste"
+    },
+    "7": {
+      "item": "palamod:compressedamethyste"
+    },
+    "8": {
+      "item": "palamod:amethyste"
+    }
+  },
+  "result": {
+    "item": "palamod:amethystchest",
+    "count": 1
+  }
+}

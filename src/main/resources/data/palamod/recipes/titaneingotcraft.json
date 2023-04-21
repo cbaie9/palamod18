@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:titanepollen"
+    },
+    "1": {
+      "item": "palamod:titanepollen"
+    },
+    "2": {
+      "item": "palamod:titanepollen"
+    },
+    "3": {
+      "item": "palamod:titanepollen"
+    },
+    "4": {
+      "item": "palamod:titanepollen"
+    },
+    "5": {
+      "item": "palamod:titanepollen"
+    },
+    "6": {
+      "item": "palamod:titanepollen"
+    },
+    "7": {
+      "item": "palamod:titanepollen"
+    },
+    "8": {
+      "item": "palamod:titanepollen"
+    }
+  },
+  "result": {
+    "item": "palamod:titane_ingot",
+    "count": 1
+  }
+}

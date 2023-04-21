@@ -1,0 +1,33 @@
+{
+  "_fv": 39,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "crea_hammer",
+    "customModelName": "Normal",
+    "name": "Creative trixium hammer",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Palamod"
+    },
+    "toolType": "MultiTool",
+    "harvestLevel": 99,
+    "efficiency": 99999.0,
+    "attackSpeed": 1.0,
+    "enchantability": 999,
+    "damageVsEntity": 0.0,
+    "usageCount": 0,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedOnBlock": {
+      "name": "Smeltplus"
+    },
+    "onBlockDestroyedWithTool": {
+      "name": "Smeltplus"
+    }
+  }
+}

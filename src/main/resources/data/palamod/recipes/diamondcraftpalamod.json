@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:diamondparticle"
+    },
+    "1": {
+      "item": "palamod:diamondparticle"
+    },
+    "2": {
+      "item": "palamod:diamondparticle"
+    },
+    "3": {
+      "item": "palamod:diamondparticle"
+    },
+    "4": {
+      "item": "palamod:diamondparticle"
+    },
+    "5": {
+      "item": "palamod:diamondparticle"
+    },
+    "6": {
+      "item": "palamod:diamondparticle"
+    },
+    "7": {
+      "item": "palamod:diamondparticle"
+    },
+    "8": {
+      "item": "palamod:diamondparticle"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond",
+    "count": 1
+  }
+}

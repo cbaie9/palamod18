@@ -1,0 +1,90 @@
+{
+  "_fv": 39,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_palasnap_v190003",
+          "text": {
+            "fixedValue": "palasnap v19.0016"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Devsnapfalse"
+          },
+          "x": 339,
+          "y": 230
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_dev_version",
+          "text": {
+            "fixedValue": "Snapshot version"
+          },
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Devchecksnap"
+          },
+          "x": 344,
+          "y": 219
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium_creator_footage_devlopp",
+          "text": {
+            "fixedValue": "Paladium Renew dev"
+          },
+          "color": {
+            "value": -26368,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Devchecksnap"
+          },
+          "x": 1,
+          "y": 1
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_build_v1900036",
+          "text": {
+            "fixedValue": "DEVLOPPER VERSION - Cbaie9 - 19e0016"
+          },
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "Devchecksnap"
+          },
+          "x": 239,
+          "y": 230
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

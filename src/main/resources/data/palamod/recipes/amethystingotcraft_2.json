@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:amethystparticle"
+    },
+    "1": {
+      "item": "palamod:amethystparticle"
+    },
+    "2": {
+      "item": "palamod:amethystparticle"
+    },
+    "3": {
+      "item": "palamod:amethystparticle"
+    },
+    "4": {
+      "item": "palamod:amethystparticle"
+    },
+    "5": {
+      "item": "palamod:amethystparticle"
+    },
+    "6": {
+      "item": "palamod:amethystparticle"
+    },
+    "7": {
+      "item": "palamod:amethystparticle"
+    },
+    "8": {
+      "item": "palamod:amethystparticle"
+    }
+  },
+  "result": {
+    "item": "palamod:amethyste",
+    "count": 1
+  }
+}

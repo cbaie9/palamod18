@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:ironparticle"
+    },
+    "1": {
+      "item": "palamod:ironparticle"
+    },
+    "2": {
+      "item": "palamod:ironparticle"
+    },
+    "3": {
+      "item": "palamod:ironparticle"
+    },
+    "4": {
+      "item": "palamod:ironparticle"
+    },
+    "5": {
+      "item": "palamod:ironparticle"
+    },
+    "6": {
+      "item": "palamod:ironparticle"
+    },
+    "7": {
+      "item": "palamod:ironparticle"
+    },
+    "8": {
+      "item": "palamod:ironparticle"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_ingot",
+    "count": 1
+  }
+}

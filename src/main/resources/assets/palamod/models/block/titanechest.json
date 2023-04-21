@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "palamod:blocks/titane_face2",
+    "up": "palamod:blocks/titane_face1",
+    "north": "palamod:blocks/titane_face3v2",
+    "east": "palamod:blocks/titane_face4",
+    "south": "palamod:blocks/titane_face4",
+    "west": "palamod:blocks/titane_face4",
+    "particle": "palamod:blocks/titane_face2"
+  }
+}

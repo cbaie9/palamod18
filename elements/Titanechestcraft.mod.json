@@ -1,0 +1,46 @@
+{
+  "_fv": 39,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:TitaneIngot"
+      },
+      {
+        "value": "CUSTOM:Compressedtitane"
+      },
+      {
+        "value": "CUSTOM:TitaneIngot"
+      },
+      {
+        "value": "CUSTOM:Compressedtitane"
+      },
+      {
+        "value": "CUSTOM:Amethystchest"
+      },
+      {
+        "value": "CUSTOM:Compressedtitane"
+      },
+      {
+        "value": "CUSTOM:TitaneIngot"
+      },
+      {
+        "value": "CUSTOM:Compressedtitane"
+      },
+      {
+        "value": "CUSTOM:TitaneIngot"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Titanechest"
+    },
+    "name": "titanechestcraft",
+    "namespace": "mod"
+  }
+}

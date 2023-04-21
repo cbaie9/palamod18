@@ -1,0 +1,92 @@
+{
+  "_fv": 39,
+  "_type": "config",
+  "definition": {
+    "pools": [
+      {
+        "category": "Client",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 2,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "french or english, default is english",
+            "vardisplay": "",
+            "varname": "language_comment",
+            "enablecomment": false,
+            "onlyComment": true,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 2,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "english",
+            "comment": "",
+            "vardisplay": "language",
+            "varname": "language",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          }
+        ]
+      },
+      {
+        "category": "Devlopper settings",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "devmod",
+            "varname": "devmod",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 0,
+            "block": {
+              "value": ""
+            },
+            "logicField": 1,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "",
+            "vardisplay": "nvv2crusher",
+            "varname": "crusher_v2",
+            "enablecomment": false,
+            "onlyComment": false,
+            "entityType": "CUSTOM:Bigdynamiteentity"
+          }
+        ]
+      }
+    ],
+    "file": "Palamod_client_settings",
+    "configType": 2
+  }
+}

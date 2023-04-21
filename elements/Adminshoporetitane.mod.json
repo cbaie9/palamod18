@@ -1,0 +1,135 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_titane",
+          "text": {
+            "fixedValue": "Titane"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 184,
+          "y": 43
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "number here",
+          "name": "number_buy",
+          "width": 120,
+          "height": 20,
+          "x": 152,
+          "y": 124
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_mode_set",
+          "text": {
+            "fixedValue": "Mode set :"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 154,
+          "y": 108
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy",
+          "text": "buy",
+          "onClick": {
+            "name": "Adhorestitane"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 151,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sell",
+          "text": "sell",
+          "onClick": {
+            "name": "Adhtsoretitane"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 226,
+          "y": 145
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Connectadhore"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 133,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_sell_price_100",
+          "text": {
+            "fixedValue": "Sell price : 100"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 152,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_buy_price_110",
+          "text": {
+            "fixedValue": "Buy Price : 110"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 158,
+          "y": 75
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

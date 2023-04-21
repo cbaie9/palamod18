@@ -1,0 +1,190 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 205,
+    "height": 190,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_dirt",
+          "text": "Dirt",
+          "onClick": {
+            "name": "Connectadhblkdirt"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 133,
+          "y": 31
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_grass",
+          "text": "Grass",
+          "onClick": {
+            "name": "Connectadhblkgrass"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 257,
+          "y": 33
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stone",
+          "text": "Stone",
+          "onClick": {
+            "name": "Connectadhblkstone"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 133,
+          "y": 57
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_netherrack",
+          "text": "Netherrack",
+          "onClick": {
+            "name": "Adhblksellnetherrack"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 133,
+          "y": 83
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_soul_sand",
+          "text": "Soul sand",
+          "onClick": {
+            "name": "Connectadhblksoulsand"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 132,
+          "y": 109
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sand",
+          "text": "Sand",
+          "onClick": {
+            "name": "Connectadhblksand"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 262,
+          "y": 58
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gravel",
+          "text": "Gravel",
+          "onClick": {
+            "name": "Connectadhblkgravel"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 252,
+          "y": 82
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_glowstone",
+          "text": "Glowstone",
+          "onClick": {
+            "name": "Connectadhblkglowstone"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 132,
+          "y": 138
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_oak_wood",
+          "text": "Oak wood",
+          "onClick": {
+            "name": "Connectadhblkoakwood"
+          },
+          "width": 66,
+          "height": 20,
+          "x": 132,
+          "y": 166
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_blackstone",
+          "text": "blackstone",
+          "onClick": {
+            "name": "Connectadhblkblackstone"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 231,
+          "y": 109
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 262,
+          "y": 162
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 263,
+          "y": 184
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

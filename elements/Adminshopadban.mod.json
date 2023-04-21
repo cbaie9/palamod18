@@ -1,0 +1,81 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 130,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_work_in_progress",
+          "text": {
+            "fixedValue": "Work in progress"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 174,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_may_crash",
+          "text": {
+            "fixedValue": "may Crash"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 188,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_v_u1",
+          "text": {
+            "fixedValue": "v_u1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 248,
+          "y": 159
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_beta_adminshop",
+          "text": "beta adminshop",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 98,
+          "height": 20,
+          "x": 165,
+          "y": 176
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

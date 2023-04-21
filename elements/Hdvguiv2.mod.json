@@ -1,0 +1,287 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 300,
+    "height": 200,
+    "inventoryOffsetX": 60,
+    "inventoryOffsetY": 20,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_hdv_v2_build_170038",
+          "text": {
+            "fixedValue": "Hdv v2 build 170038"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 69,
+          "y": 26
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 73,
+          "y": 39
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "beta_block.png",
+          "use1Xscale": false,
+          "x": 340,
+          "y": 24
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter",
+          "text": "Acheter",
+          "onClick": {
+            "name": "Hdvbuy"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 73,
+          "y": 60
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 219,
+          "y": 39
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter1",
+          "text": "Acheter",
+          "onClick": {
+            "name": "Hdvbuy1"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 217,
+          "y": 59
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "Search in Hdv",
+          "name": "bdr_hdv",
+          "width": 120,
+          "height": 20,
+          "x": 68,
+          "y": 174
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_rechercher",
+          "text": "Rechercher",
+          "width": 77,
+          "height": 20,
+          "x": 86,
+          "y": 195
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_vendre",
+          "text": "Vendre",
+          "onClick": {
+            "name": "Openhdvsell"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 74,
+          "y": 151
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_aide",
+          "text": "Aide",
+          "onClick": {
+            "name": "Hdvaide"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 132,
+          "y": 151
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 73,
+          "y": 82
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": true
+          },
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": true
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 219,
+          "y": 82
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter2",
+          "text": "acheter",
+          "onClick": {
+            "name": "Hdvbuy2"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 73,
+          "y": 101
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter3",
+          "text": "acheter",
+          "onClick": {
+            "name": "Hdvbuy3"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 217,
+          "y": 101
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varintegerhdv_price1",
+          "text": {
+            "fixedValue": "<VAR:integer:hdv_price1> $"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 95,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varintegerhdv_price2",
+          "text": {
+            "fixedValue": "<VAR:integer:hdv_price2> $"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 92,
+          "y": 83
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varintegerhdv_price3",
+          "text": {
+            "fixedValue": "<VAR:integer:hdv_price3> $"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 240,
+          "y": 39
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_varintegerhdv_price4",
+          "text": {
+            "fixedValue": "<VAR:integer:hdv_price4> $"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 237,
+          "y": 86
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "HdvguiThisGUIIsOpened"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

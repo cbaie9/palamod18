@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23",
+    "45"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:jacaranda_planks"
+    },
+    "1": {
+      "item": "palamod:jacaranda_planks"
+    },
+    "2": {
+      "item": "palamod:jacaranda_planks"
+    },
+    "3": {
+      "item": "palamod:jacaranda_planks"
+    },
+    "4": {
+      "item": "palamod:jacaranda_planks"
+    },
+    "5": {
+      "item": "palamod:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "palamod:jacarandadoor",
+    "count": 3
+  }
+}

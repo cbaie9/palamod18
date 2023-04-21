@@ -1,0 +1,214 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 220,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "erable_log.png",
+          "use1Xscale": false,
+          "x": 108,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_erable_permet_de_crafter_le",
+          "text": {
+            "fixedValue": "Erable : permet de crafter le",
+            "name": "Palahelptree0"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_portail_en_paladium",
+          "text": {
+            "fixedValue": "portail en paladium",
+            "name": "Palahelptree1"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 57
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "jacaranda_log.png",
+          "use1Xscale": false,
+          "x": 108,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_jacaranda_permet_de_crafter",
+          "text": {
+            "fixedValue": "Jacaranda : permet de crafter",
+            "name": "Palahelptree2"
+          },
+          "color": {
+            "value": -6750055,
+            "falpha": 0.0
+          },
+          "x": 139,
+          "y": 76
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_le_portail_en_amthyste",
+          "text": {
+            "fixedValue": "le portail en am�thyste",
+            "name": "Palahelptree3"
+          },
+          "color": {
+            "value": -6750055,
+            "falpha": 0.0
+          },
+          "x": 141,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "judeecercis_log.png",
+          "use1Xscale": false,
+          "x": 108,
+          "y": 105
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_judeecercis_permet_de",
+          "text": {
+            "fixedValue": "Judeecercis : permet de",
+            "name": "Palahelptree4"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 142,
+          "y": 108
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_crafter_le_portail_en_titane",
+          "text": {
+            "fixedValue": "Crafter le portail en titane",
+            "name": "Palahelptree5"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 143,
+          "y": 119
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ostrya_log.png",
+          "use1Xscale": false,
+          "x": 108,
+          "y": 137
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_ostrya_permet_de_crafter_le",
+          "text": {
+            "fixedValue": "Ostrya : permet de crafter le",
+            "name": "Palahelptree6"
+          },
+          "color": {
+            "value": -13434727,
+            "falpha": 0.0
+          },
+          "x": 142,
+          "y": 138
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_portail_en_endium",
+          "text": {
+            "fixedValue": "portail en endium",
+            "name": "Palahelptree7"
+          },
+          "color": {
+            "value": -13434727,
+            "falpha": 0.0
+          },
+          "x": 142,
+          "y": 150
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Blockback"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 125,
+          "y": 171
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_menu",
+          "text": "menu",
+          "onClick": {
+            "name": "Backpalahelp"
+          },
+          "width": 45,
+          "height": 20,
+          "x": 171,
+          "y": 171
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

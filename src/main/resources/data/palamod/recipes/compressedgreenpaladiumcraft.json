@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "1": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "2": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "3": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "4": {
+      "item": "palamod:paladium_greeningot"
+    },
+    "5": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "6": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "7": {
+      "item": "palamod:paladium_greenblock"
+    },
+    "8": {
+      "item": "palamod:paladium_greenblock"
+    }
+  },
+  "result": {
+    "item": "palamod:compressedgreenpaladum",
+    "count": 1
+  }
+}

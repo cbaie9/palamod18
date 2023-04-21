@@ -1,0 +1,149 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 400,
+    "height": 230,
+    "inventoryOffsetX": 110,
+    "inventoryOffsetY": 30,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 34,
+          "y": 22
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 34,
+          "y": 60
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 34,
+          "y": 104
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter",
+          "text": "acheter",
+          "onClick": {
+            "name": "Hdvbuy"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 57,
+          "y": 21
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter1",
+          "text": "acheter",
+          "onClick": {
+            "name": "Hdvbuy1"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 60,
+          "y": 59
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_acheter2",
+          "text": "acheter",
+          "onClick": {
+            "name": "Hdvbuy2"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 58,
+          "y": 102
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sell",
+          "text": "sell",
+          "onClick": {
+            "name": "Openhdvsell"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 187,
+          "y": 201
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_help",
+          "text": "help",
+          "onClick": {
+            "name": "Hdvaide"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 128,
+          "y": 203
+        }
+      }
+    ],
+    "onOpen": {
+      "name": "HdvguiThisGUIIsOpened"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

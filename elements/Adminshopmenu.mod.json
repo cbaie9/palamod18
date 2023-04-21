@@ -1,0 +1,98 @@
+{
+  "_fv": 39,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 190,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop",
+          "text": {
+            "fixedValue": "Adminshop"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 182,
+          "y": 29
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ores",
+          "text": "Ores",
+          "onClick": {
+            "name": "Connectadhore"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 184,
+          "y": 78
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_seed",
+          "text": "seed",
+          "width": 46,
+          "height": 20,
+          "x": 184,
+          "y": 108
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_utilities",
+          "text": "utilities",
+          "width": 72,
+          "height": 20,
+          "x": 173,
+          "y": 172
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_mobss_items",
+          "text": "Mobs's items ",
+          "width": 92,
+          "height": 20,
+          "x": 164,
+          "y": 140
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_block",
+          "text": "Block",
+          "onClick": {
+            "name": "Adminshopblockconnect"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 182,
+          "y": 49
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}
