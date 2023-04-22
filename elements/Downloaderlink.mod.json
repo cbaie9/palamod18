@@ -74,6 +74,9 @@
         "data": {
           "name": "button_process",
           "text": "Process",
+          "onClick": {
+            "name": "Downloaderlinkprocess"
+          },
           "width": 61,
           "height": 20,
           "x": 210,

@@ -4,6 +4,7 @@ package palamod.client.gui;
 import palamod.world.inventory.DownloaderguiMenu;
 
 import palamod.procedures.Grindertrans0Procedure;
+import palamod.procedures.DownloadercheckedProcedure;
 
 import palamod.network.DownloaderguiButtonMessage;
 
@@ -84,7 +85,7 @@ public class DownloaderguiScreen extends AbstractContainerScreen<DownloaderguiMe
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloadergui.label_filter"), 138, 6, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloadergui.label_filter"), 138, 3, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloadergui.label_output"), 70, 31, -12829636);
 		this.font.draw(poseStack,
 
@@ -101,7 +102,7 @@ public class DownloaderguiScreen extends AbstractContainerScreen<DownloaderguiMe
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_reload = new Button(this.leftPos + 113, this.topPos + 58, 56, 20, new TranslatableComponent("gui.palamod.downloadergui.button_reload"), e -> {
+		button_reload = new Button(this.leftPos + 113, this.topPos + 60, 56, 20, new TranslatableComponent("gui.palamod.downloadergui.button_reload"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderguiButtonMessage(0, x, y, z));
 				DownloaderguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
@@ -117,7 +118,9 @@ public class DownloaderguiScreen extends AbstractContainerScreen<DownloaderguiMe
 		});
 		guistate.put("button:button_link", button_link);
 		this.addRenderableWidget(button_link);
-		download_state = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, new TranslatableComponent("gui.palamod.downloadergui.download_state"), false);
+		download_state = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, new TranslatableComponent("gui.palamod.downloadergui.download_state"),
+
+				DownloadercheckedProcedure.execute(world, x, y, z));
 		guistate.put("checkbox:download_state", download_state);
 		this.addRenderableWidget(download_state);
 	}

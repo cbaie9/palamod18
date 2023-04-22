@@ -3,6 +3,7 @@ package palamod.network;
 
 import palamod.world.inventory.DownloaderlinkMenu;
 
+import palamod.procedures.DownloaderlinkprocessProcedure;
 import palamod.procedures.ConnectdownloaderProcedure;
 
 import palamod.PalamodMod;
@@ -67,6 +68,10 @@ public class DownloaderlinkButtonMessage {
 		if (buttonID == 0) {
 
 			ConnectdownloaderProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 1) {
+
+			DownloaderlinkprocessProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

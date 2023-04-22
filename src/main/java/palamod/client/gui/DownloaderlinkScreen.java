@@ -102,6 +102,10 @@ public class DownloaderlinkScreen extends AbstractContainerScreen<Downloaderlink
 		guistate.put("button:button_no", button_no);
 		this.addRenderableWidget(button_no);
 		button_process = new Button(this.leftPos + 84, this.topPos + 71, 61, 20, new TranslatableComponent("gui.palamod.downloaderlink.button_process"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderlinkButtonMessage(1, x, y, z));
+				DownloaderlinkButtonMessage.handleButtonAction(entity, 1, x, y, z);
+			}
 		});
 		guistate.put("button:button_process", button_process);
 		this.addRenderableWidget(button_process);

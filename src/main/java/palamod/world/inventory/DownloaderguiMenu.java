@@ -1,11 +1,7 @@
 
 package palamod.world.inventory;
 
-import palamod.network.DownloaderguiSlotMessage;
-
 import palamod.init.PalamodModMenus;
-
-import palamod.PalamodMod;
 
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -79,18 +75,13 @@ public class DownloaderguiMenu extends AbstractContainerMenu implements Supplier
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 150, 18) {
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(0, 0, 0);
-			}
-		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 79, 44) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
+		}));
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 120, 24) {
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
@@ -230,13 +221,6 @@ public class DownloaderguiMenu extends AbstractContainerMenu implements Supplier
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
-		}
-	}
-
-	private void slotChanged(int slotid, int ctype, int meta) {
-		if (this.world != null && this.world.isClientSide()) {
-			PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderguiSlotMessage(slotid, x, y, z, ctype, meta));
-			DownloaderguiSlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 
