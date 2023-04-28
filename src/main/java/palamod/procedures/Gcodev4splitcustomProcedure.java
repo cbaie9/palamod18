@@ -618,7 +618,7 @@ public class Gcodev4splitcustomProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 4)).getItem() == PalamodModItems.BIGHOLEUPGRADE.get() && (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.BIGHOLE.get(), (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 4)).getItem() == PalamodModItems.BIGHOLEUPGRADE.get() && !(EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.BIGHOLE.get(), (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -626,18 +626,7 @@ public class Gcodev4splitcustomProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5))) != 0
-					&& 2 > EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.BIGHOLE.get(),
-							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY))
-					|| !(EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.BIGHOLE.get(), (new Object() {
-						public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
-							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-							BlockEntity _ent = world.getBlockEntity(pos);
-							if (_ent != null)
-								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
-							return _retval.get();
-						}
-					}.getItemStack(world, new BlockPos(x, y, z), 5))) != 0))) {
+			}.getItemStack(world, new BlockPos(x, y, z), 5))) != 0)) {
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);

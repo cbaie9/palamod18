@@ -85,14 +85,14 @@ public class GrindersplitentityMenu extends AbstractContainerMenu implements Sup
 				}
 			}
 		}
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 45, 11) {
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 58, 11) {
 			@Override
 			public void setChanged() {
 				super.setChanged();
 				slotChanged(4, 0, 0);
 			}
 		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 120, 11) {
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 133, 11) {
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -101,9 +101,9 @@ public class GrindersplitentityMenu extends AbstractContainerMenu implements Sup
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
-				this.addSlot(new Slot(inv, sj + (si + 1) * 9, -3 + 8 + sj * 18, -46 + 84 + si * 18));
+				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 10 + 8 + sj * 18, -46 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
-			this.addSlot(new Slot(inv, si, -3 + 8 + si * 18, -46 + 142));
+			this.addSlot(new Slot(inv, si, 10 + 8 + si * 18, -46 + 142));
 	}
 
 	@Override

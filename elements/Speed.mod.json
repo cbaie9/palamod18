@@ -8,14 +8,7 @@
     "minLevel": 1,
     "maxLevel": 3,
     "damageModifier": 0,
-    "compatibleEnchantments": [
-      {
-        "value": "CUSTOM:Hammerforturne"
-      },
-      {
-        "value": "CUSTOM:Smelt"
-      }
-    ],
+    "compatibleEnchantments": [],
     "excludeEnchantments": false,
     "compatibleItems": [
       {
@@ -23,6 +16,12 @@
       },
       {
         "value": "CUSTOM:Paladiumhammer"
+      },
+      {
+        "value": "CUSTOM:Creativehammer"
+      },
+      {
+        "value": "CUSTOM:Greenpaladiumhammer"
       }
     ],
     "excludeItems": false,

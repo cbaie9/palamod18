@@ -126,13 +126,13 @@
           "disablePlacement": {
             "fixedValue": false
           },
-          "id": 0,
+          "id": 3,
           "disablePickup": {
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 245,
-          "y": 60
+          "x": 270,
+          "y": 53
         }
       }
     ],

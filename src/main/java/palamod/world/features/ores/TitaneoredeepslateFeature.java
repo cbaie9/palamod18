@@ -45,7 +45,7 @@ public class TitaneoredeepslateFeature extends OreFeature {
 		FEATURE = new TitaneoredeepslateFeature();
 		CONFIGURED_FEATURE = FeatureUtils.register("palamod:titaneoredeepslate", FEATURE, new OreConfiguration(TitaneoredeepslateFeatureRuleTest.INSTANCE, PalamodModBlocks.TITANEOREDEEPSLATE.get().defaultBlockState(), 4));
 		PLACED_FEATURE = PlacementUtils.register("palamod:titaneoredeepslate", CONFIGURED_FEATURE,
-				List.of(CountPlacement.of(40), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0)), BiomeFilter.biome()));
+				List.of(CountPlacement.of(35), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0)), BiomeFilter.biome()));
 		return FEATURE;
 	}
 

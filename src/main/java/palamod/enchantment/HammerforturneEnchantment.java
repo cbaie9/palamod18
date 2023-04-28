@@ -24,7 +24,7 @@ public class HammerforturneEnchantment extends Enchantment {
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		Item item = stack.getItem();
-		return List.of(PalamodModItems.PALADIUMHAMMER.get()).contains(item);
+		return List.of(PalamodModItems.PALADIUMHAMMER.get(), PalamodModItems.ENDIUMHAMMER.get(), PalamodModItems.GREENPALADIUMHAMMER.get(), PalamodModItems.CREATIVEHAMMER.get()).contains(item);
 	}
 
 	@Override

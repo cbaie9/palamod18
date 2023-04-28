@@ -2,7 +2,6 @@
 package palamod.enchantment;
 
 import palamod.init.PalamodModItems;
-import palamod.init.PalamodModEnchantments;
 
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -23,14 +22,9 @@ public class SpeedEnchantment extends Enchantment {
 	}
 
 	@Override
-	protected boolean checkCompatibility(Enchantment ench) {
-		return List.of(PalamodModEnchantments.HAMMERFORTURNE.get(), PalamodModEnchantments.SMELT.get()).contains(ench);
-	}
-
-	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		Item item = stack.getItem();
-		return List.of(PalamodModItems.ENDIUMHAMMER.get(), PalamodModItems.PALADIUMHAMMER.get()).contains(item);
+		return List.of(PalamodModItems.ENDIUMHAMMER.get(), PalamodModItems.PALADIUMHAMMER.get(), PalamodModItems.CREATIVEHAMMER.get(), PalamodModItems.GREENPALADIUMHAMMER.get()).contains(item);
 	}
 
 	@Override

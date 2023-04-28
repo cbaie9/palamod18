@@ -45,7 +45,7 @@ public class PaladiumoredeepslateFeature extends OreFeature {
 		FEATURE = new PaladiumoredeepslateFeature();
 		CONFIGURED_FEATURE = FeatureUtils.register("palamod:paladiumoredeepslate", FEATURE, new OreConfiguration(PaladiumoredeepslateFeatureRuleTest.INSTANCE, PalamodModBlocks.PALADIUMOREDEEPSLATE.get().defaultBlockState(), 4));
 		PLACED_FEATURE = PlacementUtils.register("palamod:paladiumoredeepslate", CONFIGURED_FEATURE,
-				List.of(CountPlacement.of(35), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0)), BiomeFilter.biome()));
+				List.of(CountPlacement.of(24), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0)), BiomeFilter.biome()));
 		return FEATURE;
 	}
 

@@ -3,7 +3,7 @@
   "_type": "gui",
   "definition": {
     "type": 1,
-    "width": 170,
+    "width": 196,
     "height": 120,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": -23,
@@ -57,8 +57,145 @@
         "data": {
           "image": "arrow_1red_new.png",
           "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit1"
+          },
           "x": 195,
-          "y": 67
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_3red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit1"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_5red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit2"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_7red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit3"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_9red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit4"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_11red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit5"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_13red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit6"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_15red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit7"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_17red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit8"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_18red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit9"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "arrow_19red_new.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Grindersubprocessarrowsplit10"
+          },
+          "x": 195,
+          "y": 68
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_code",
+          "text": "code",
+          "onClick": {
+            "name": "Gcodev4split"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 119,
+          "y": 70
         }
       }
     ],

@@ -23,7 +23,7 @@ public class DownloaderresetProcedure {
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).is(ItemTags.create(new ResourceLocation("forge:uploadersellable")))) {
+		}.getItemStack(world, new BlockPos(x, y, z), 3)).is(ItemTags.create(new ResourceLocation("forge:uploadersellable")))) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);

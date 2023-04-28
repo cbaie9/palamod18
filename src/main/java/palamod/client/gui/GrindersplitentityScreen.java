@@ -3,12 +3,29 @@ package palamod.client.gui;
 
 import palamod.world.inventory.GrindersplitentityMenu;
 
+import palamod.procedures.Grindersubprocessarrowsplit9Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit8Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit7Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit6Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit5Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit4Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit3Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit2Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit1Procedure;
+import palamod.procedures.Grindersubprocessarrowsplit10Procedure;
+
+import palamod.network.GrindersplitentityButtonMessage;
+
+import palamod.PalamodMod;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
@@ -21,6 +38,7 @@ public class GrindersplitentityScreen extends AbstractContainerScreen<Grinderspl
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	Button button_code;
 
 	public GrindersplitentityScreen(GrindersplitentityMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -29,7 +47,7 @@ public class GrindersplitentityScreen extends AbstractContainerScreen<Grinderspl
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 170;
+		this.imageWidth = 196;
 		this.imageHeight = 120;
 	}
 
@@ -49,10 +67,50 @@ public class GrindersplitentityScreen extends AbstractContainerScreen<Grinderspl
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.setShaderTexture(0, texture);
 		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_1red_new.png"));
-		this.blit(ms, this.leftPos + 66, this.topPos + 7, 0, 0, 48, 20, 48, 20);
-
+		if (Grindersubprocessarrowsplit1Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_1red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit1Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_3red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit2Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_5red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit3Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_7red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit4Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_9red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit5Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_11red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit6Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_13red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit7Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_15red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit8Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_17red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit9Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_18red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
+		if (Grindersubprocessarrowsplit10Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_19red_new.png"));
+			this.blit(ms, this.leftPos + 79, this.topPos + 8, 0, 0, 48, 20, 48, 20);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -84,5 +142,13 @@ public class GrindersplitentityScreen extends AbstractContainerScreen<Grinderspl
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
+		button_code = new Button(this.leftPos + 3, this.topPos + 10, 46, 20, new TranslatableComponent("gui.palamod.grindersplitentity.button_code"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new GrindersplitentityButtonMessage(0, x, y, z));
+				GrindersplitentityButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
+		});
+		guistate.put("button:button_code", button_code);
+		this.addRenderableWidget(button_code);
 	}
 }

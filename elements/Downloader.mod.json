@@ -103,7 +103,7 @@
     "hasInventory": true,
     "guiBoundTo": "Downloadergui",
     "openGUIOnRightClick": true,
-    "inventorySize": 3,
+    "inventorySize": 4,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": false,
@@ -124,6 +124,9 @@
     "fluidRestrictions": [],
     "onBlockAdded": {
       "name": "Downloadersetup"
+    },
+    "onTickUpdate": {
+      "name": "Downloaderprocess"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

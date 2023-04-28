@@ -13,6 +13,15 @@
     "compatibleItems": [
       {
         "value": "CUSTOM:Paladiumhammer"
+      },
+      {
+        "value": "CUSTOM:Endiumhammer"
+      },
+      {
+        "value": "CUSTOM:Greenpaladiumhammer"
+      },
+      {
+        "value": "CUSTOM:Creativehammer"
       }
     ],
     "excludeItems": false,

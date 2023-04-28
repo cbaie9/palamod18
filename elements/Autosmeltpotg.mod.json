@@ -10,7 +10,23 @@
     "damageModifier": 0,
     "compatibleEnchantments": [],
     "excludeEnchantments": false,
-    "compatibleItems": [],
+    "compatibleItems": [
+      {
+        "value": "CUSTOM:Pickaxeofthegodslv18"
+      },
+      {
+        "value": "CUSTOM:Pickaxeofthegodslv19"
+      },
+      {
+        "value": "CUSTOM:Pickaxeofthegodslv17"
+      },
+      {
+        "value": "CUSTOM:Pickaxeofthegodslv20"
+      },
+      {
+        "value": "CUSTOM:Creativepotg"
+      }
+    ],
     "excludeItems": false,
     "isTreasureEnchantment": false,
     "isCurse": false,

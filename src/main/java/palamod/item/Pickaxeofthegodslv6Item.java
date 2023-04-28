@@ -97,7 +97,7 @@ public class Pickaxeofthegodslv6Item extends TieredItem {
 	@Override
 	public boolean mineBlock(ItemStack itemstack, Level world, BlockState blockstate, BlockPos pos, LivingEntity entity) {
 		itemstack.hurtAndBreak(1, entity, i -> i.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-		Upgradepotgv2Procedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity, itemstack);
+		Upgradepotgv2Procedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 		return true;
 	}
 

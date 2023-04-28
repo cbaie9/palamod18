@@ -12308,10 +12308,6 @@
             "type": "entity"
           },
           {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
             "name": "x",
             "type": "number"
           },
@@ -34568,6 +34564,7 @@
       "registry_name": "grindersplitentity",
       "metadata": {
         "files": [
+          "src/main/java/palamod/network/GrindersplitentityButtonMessage.java",
           "src/main/java/palamod/world/inventory/GrindersplitentityMenu.java",
           "src/main/java/palamod/network/GrindersplitentitySlotMessage.java",
           "src/main/java/palamod/client/gui/GrindersplitentityScreen.java"
@@ -36083,6 +36080,358 @@
           }
         ]
       }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit0",
+      "type": "procedure",
+      "sortid": 1731,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_0",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit0Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit1",
+      "type": "procedure",
+      "sortid": 1732,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_1",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit2",
+      "type": "procedure",
+      "sortid": 1733,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_2",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit3",
+      "type": "procedure",
+      "sortid": 1734,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit4",
+      "type": "procedure",
+      "sortid": 1735,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_4",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit5",
+      "type": "procedure",
+      "sortid": 1736,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_5",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit6",
+      "type": "procedure",
+      "sortid": 1737,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_6",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit6Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit7",
+      "type": "procedure",
+      "sortid": 1738,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_7",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit7Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit8",
+      "type": "procedure",
+      "sortid": 1739,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_8",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit8Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit9",
+      "type": "procedure",
+      "sortid": 1740,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_9",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit9Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Grindersubprocessarrowsplit10",
+      "type": "procedure",
+      "sortid": 1741,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "grindersubprocessarrowsplit_10",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/palamod/procedures/Grindersubprocessarrowsplit10Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -36786,7 +37135,7 @@
       "gui.palamod.palaerror0002.label_is_not_the_case_for_the_descript": "Is not the case for the description",
       "advancements.avancementlittlekitforalchimist.title": "A little kit for alchimist",
       "gui.palamod.stockhdv.label_inventory": "Inventory ",
-      "gui.palamod.snapshot.label_build_v1900036": "DEVLOPPER VERSION - Cbaie9 - 19e0017",
+      "gui.palamod.snapshot.label_build_v1900036": "DEVLOPPER VERSION - Cbaie9 - 19e0020",
       "item.palamod.scuba_boots": "Scuba Boots",
       "gui.palamod.dynamicorelayer.label_empty4": "----------------------------",
       "gui.palamod.dynamicorelayer.label_paladium_64_15": "Paladium :  -64 --) 15",
@@ -36811,6 +37160,7 @@
       "gui.palamod.hdvsellgui.button_vendre": "vendre",
       "gui.palamod.hdvgui.button_mettre_en_vente_un_article": "mettre en vente un article",
       "item.palamod.hammerpatern": "Hammer patern",
+      "gui.palamod.grindersplitentity.button_code": "code",
       "item.palamod.endiumdynamite_spawn_egg": "Endium dynamite Spawn Egg",
       "item.palamod.withershard": "Wither shard",
       "gui.palamod.downloaderlink.button_no": "No",
@@ -37207,7 +37557,7 @@
       "block.palamod.falsetresure": "False tresure",
       "gui.palamod.adminshoporepaladium.label_sell_price_120": "Sell price :  120",
       "gui.palamod.palamachinepalahelpgui.label_effets_diffrent_force_soin": "effets diff�rent ( force, soin, sant�,",
-      "gui.palamod.snapshot.label_palasnap_v190003": "palasnap v19.0017",
+      "gui.palamod.snapshot.label_palasnap_v190003": "palasnap v19.0020",
       "gui.palamod.statusdevnote.label_httpsdiscordcominvitedv": "-) https://discord.com/invite/dVvNDrQENA",
       "item.palamod.amethystehammer": "Amethyste hammer",
       "gui.palamod.armorpalahelpgui.label_haste": "Haste",
@@ -37390,7 +37740,7 @@
       "gui.palamod.armorpalahelpgui.label_4": "+ 4",
       "gui.palamod.adminshoporediamond.label_diamond": "Diamond",
       "gui.palamod.adminshopblockstone.number_buy": "number here",
-      "block.palamod.trixiumore": "Trxium ore",
+      "block.palamod.trixiumore": "Trixium ore",
       "gui.palamod.armorpalahelpgui.label_5": "+ 5",
       "advancements.avancementendiumingot.descr": "Obtain a Endium Nugget",
       "gui.palamod.xpbushpalahelpgui.label_xp_bush": "Xp bush ",
@@ -37625,7 +37975,7 @@
       "gui.palamod.crusherpalahelpgui.label_11_v1": "1/1 v2",
       "gui.palamod.golemtreec.golem_v_hunter1": "la voie hunter",
       "gui.palamod.adminshopore.button_diamond": "diamond",
-      "block.palamod.trixiumblock": "Trxium block",
+      "block.palamod.trixiumblock": "Trixium block",
       "gui.palamod.stickgui_5.button_item_menu": "item menu",
       "gui.palamod.factioncreategui.button_annuler": "Annuler",
       "gui.palamod.analyserresult.label_varanaly_ores": "\u003cVAR:analy_ores\u003e",
@@ -37650,8 +38000,8 @@
       "gui.palamod.analyserresult.label_varanaly_logs": "\u003cVAR:analy_logs\u003e"
     },
     "fr_fr": {
-      "gui.palamod.megasafechestfirstsetup.label_this_account_bypass_the_code": "this account ( bypass the code ",
       "block.palamod.loadblock_1t": "Block de chargement 1 tick",
+      "gui.palamod.megasafechestfirstsetup.label_this_account_bypass_the_code": "this account ( bypass the code ",
       "gui.palamod.hdvconfgui.button_revenir_au_shop": "revenir au shop",
       "gui.palamod.grinderpalahelp_2gui.label_layer_2": "Layer 2",
       "gui.palamod.grinderpalahelpgui.label_empty": "",
@@ -37664,17 +38014,17 @@
       "gui.palamod.adminshopblockstone.button_back": "back",
       "gui.palamod.armorpalahelpgui.label_speed": "Speed",
       "gui.palamod.grinderpalahelp_2gui.label_assemblage_final": "Assemblage final",
-      "gamerule.logsall.description": "Logs tout les action que font les joueur ",
-      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
       "advancements.achmringchest.descr": "Repair something with endium ring",
+      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
+      "gamerule.logsall.description": "Logs tout les action que font les joueur ",
       "gui.palamod.grinderpalahelp_2gui.label_layer_1": "Layer 1",
       "gui.palamod.uploaderguipalahelp.button_gui_example_wip": "gui example ( wip )",
-      "item.palamod.paladiumgreenshovel": "épée en paladium vert",
       "block.palamod.titane_ore": "Minerais de titane",
+      "item.palamod.paladiumgreenshovel": "épée en paladium vert",
       "gui.palamod.alchemycreatorgui.label_varintegeralchemy": "\u003cVAR:integer:alchemy\u003e",
-      "gui.palamod.orelayer.label_endium_64_128_customs_p": "Endium : -64 --) 128 ; customs palamod biomes",
-      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
       "advancements.avancementluckytoday.descr": "Fabrique un lucky block",
+      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
+      "gui.palamod.orelayer.label_endium_64_128_customs_p": "Endium : -64 --) 128 ; customs palamod biomes",
       "item.palamod.pickaxeofthegodslv_8": "Pioche des dieux",
       "gui.palamod.stickgui_4.label_craft_de_la_heal_orb": "craft de la heal orb",
       "gui.palamod.hdvconfgui.label_a_varmarket_conf_price": "à \u003cVAR:market_conf_price\u003e $",
@@ -37703,10 +38053,10 @@
       "item.palamod.headgreensword": "Green sword head",
       "gui.palamod.grinderpalahelpgui.label_2_min_12": "2 min 1/2",
       "gui.palamod.xpbushpalahelpgui.label_xp_bush1": "xp bush",
-      "item.palamod.greenpaladumexcator": "Titane Exavator",
       "advancements.avancementendiumingot.title": "Nugget très rare",
-      "item.palamod.scuba_helmet": "Scuba Helmet",
+      "item.palamod.greenpaladumexcator": "Titane Exavator",
       "gui.palamod.assembleurend.label_bouton": "-) bouton ( lucky block )",
+      "item.palamod.scuba_helmet": "Scuba Helmet",
       "gui.palamod.palahelpmachine.button_menu": "Menu",
       "gui.palamod.factionhomegui.label_empty": "",
       "advancements.achmchestpaladium.descr": "Obtain or craft a titane chest",
@@ -37718,8 +38068,8 @@
       "advancements.achmpotg_17.descr": "Obtain a pickaxe of the gods ( lv13)",
       "item.palamod.paladium_greeningot": "Lingot de paladium vert",
       "gui.palamod.palaerror_0006.label_come_soon_to_have_more": "Come soon to have more",
-      "gui.palamod.stickgui_2.button_stick_suivant": "stick suivant",
       "enchantment.palamod.bighole": "Big hole ",
+      "gui.palamod.stickgui_2.button_stick_suivant": "stick suivant",
       "block.palamod.ametystespike": "Spike en amétyste",
       "gui.palamod.adminshopblock.button_soul_sand": "Soul sand",
       "gui.palamod.adminshopblock_netherrack.label_sell_price_01": "Sell price : 0.1",
@@ -37742,8 +38092,8 @@
       "gui.palamod.adminshopblock.button_stone": "Stone",
       "gui.palamod.crushergui.button_placeholder_tt": "placeholder_tt",
       "block.palamod.endiumstairs": "Endium stairs",
-      "gui.palamod.palahelptree.label_erable_permet_de_crafter_le": "Erable : permet de crafter le",
       "gui.palamod.orelayerfat.label_findium_64_150": "Findium : -64 --) 150",
+      "gui.palamod.palahelptree.label_erable_permet_de_crafter_le": "Erable : permet de crafter le",
       "block.palamod.slimepad": "Slime pad",
       "item.palamod.fakewater_bucket": "Seau de Fakewater",
       "gui.palamod.specialmoneypanel.label_specific_player": "Specific player",
@@ -37752,13 +38102,13 @@
       "gui.palamod.next_palahelpgui.label_palahelp": "Palahelp",
       "gui.palamod.armorpalahelpgui.label_haste1": "Haste",
       "item.palamod.spacefood": "Spacefood",
-      "item.palamod.titane_armor_leggings": "Jambière en titane",
       "gui.palamod.assembleurend.label_une_maj_sera_bientot_faite": "Une maj sera bientot faite",
+      "item.palamod.titane_armor_leggings": "Jambière en titane",
       "gui.palamod.adminshopblock.button_blackstone": "blackstone",
       "gui.palamod.stickgui_2.label_empty": "(--",
       "gui.palamod.downloadergui.download_state": "turned on",
-      "gui.palamod.guardiangui.button_arbre_de_competance": "Arbre de compétance",
       "gui.palamod.adminshopmenu.button_mobss_items": "Mobs\u0027s items ",
+      "gui.palamod.guardiangui.button_arbre_de_competance": "Arbre de compétance",
       "block.palamod.paladiumoredeepslate": "Paladium Ore",
       "gui.palamod.stickgui_4.label_empty": "(--",
       "gui.palamod.xpbushpalahelpgui.label_xp_berry": "xp berry",
@@ -38112,6 +38462,7 @@
       "gui.palamod.hdvsellgui.button_vendre": "vendre",
       "gui.palamod.hdvgui.button_mettre_en_vente_un_article": "mettre en vente un article",
       "item.palamod.hammerpatern": "Entête de hammer en paladium",
+      "gui.palamod.grindersplitentity.button_code": "code",
       "item.palamod.endiumdynamite_spawn_egg": "Dynamite en endium",
       "item.palamod.withershard": "Wither shard",
       "gui.palamod.downloaderlink.button_no": "No",
@@ -38966,7 +39317,7 @@
   "workspaceSettings": {
     "modid": "palamod",
     "modName": "Palamod renew",
-    "version": "1.19.017",
+    "version": "1.19.020",
     "description": "Certifié sans lag ( apparent ) ",
     "author": "cb9, FufuBS1( + Paladium Team pour le mod orginale)",
     "websiteURL": " https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA",

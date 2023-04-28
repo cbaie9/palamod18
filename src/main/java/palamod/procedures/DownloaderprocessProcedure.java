@@ -38,7 +38,7 @@ public class DownloaderprocessProcedure {
 			{
 				BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
 				if (_ent != null) {
-					final int _slotid = 0;
+					final int _slotid = 1;
 					final ItemStack _setstack = (new Object() {
 						public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -47,7 +47,7 @@ public class DownloaderprocessProcedure {
 								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 							return _retval.get();
 						}
-					}.getItemStack(world, new BlockPos(x, y, z), 1));
+					}.getItemStack(world, new BlockPos(x, y, z), 3));
 					_setstack.setCount((int) (1 + new Object() {
 						public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 							AtomicInteger _retval = new AtomicInteger(0);
@@ -56,7 +56,7 @@ public class DownloaderprocessProcedure {
 								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos(x, y, z), 0)));
+					}.getAmount(world, new BlockPos(x, y, z), 1)));
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable)
 							((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);

@@ -37,7 +37,7 @@ public class DownloaderguiMenu extends AbstractContainerMenu implements Supplier
 		super(PalamodModMenus.DOWNLOADERGUI, id);
 		this.entity = inv.player;
 		this.world = inv.player.level;
-		this.internal = new ItemStackHandler(2);
+		this.internal = new ItemStackHandler(4);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -81,7 +81,7 @@ public class DownloaderguiMenu extends AbstractContainerMenu implements Supplier
 				return false;
 			}
 		}));
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 120, 24) {
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 145, 17) {
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
