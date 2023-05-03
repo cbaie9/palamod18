@@ -3,7 +3,7 @@
   "_type": "tool",
   "definition": {
     "renderType": 0,
-    "texture": "endium_pack_shovel",
+    "texture": "spoiler_endium_shovel",
     "customModelName": "Normal",
     "name": "Endium Shovel",
     "specialInfo": [],

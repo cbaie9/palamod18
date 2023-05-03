@@ -84,7 +84,7 @@ public class EndiumnuggetoredeepslateFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE);
+				base_blocks = List.of(Blocks.STONE, PalamodModBlocks.PROTODEEPSLATE.get());
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

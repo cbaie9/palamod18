@@ -22,6 +22,15 @@ import palamod.procedures.Palafurnacesubprocess12Procedure;
 import palamod.procedures.Palafurnacesubprocess11Procedure;
 import palamod.procedures.Palafurnacesubprocess10Procedure;
 import palamod.procedures.Palafurnacesubprocess0Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining9Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining8Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining7Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining6Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining5Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining4Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining3Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining2Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining10Procedure;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
@@ -73,36 +82,6 @@ public class PaladumfurnaceScreen extends AbstractContainerScreen<Paladumfurnace
 
 		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/big_slot.png"));
 		this.blit(ms, this.leftPos + 117, this.topPos + 33, 0, 0, 26, 26, 26, 26);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire.png"));
-		this.blit(ms, this.leftPos + 58, this.topPos + 42, 0, 0, 17, 14, 17, 14);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire01.png"));
-		this.blit(ms, this.leftPos + 58, this.topPos + 40, 0, 0, 21, 17, 21, 17);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire02.png"));
-		this.blit(ms, this.leftPos + 61, this.topPos + 41, 0, 0, 18, 16, 18, 16);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire03.png"));
-		this.blit(ms, this.leftPos + 61, this.topPos + 41, 0, 0, 17, 15, 17, 15);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire04.png"));
-		this.blit(ms, this.leftPos + 60, this.topPos + 43, 0, 0, 17, 13, 17, 13);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire05.png"));
-		this.blit(ms, this.leftPos + 59, this.topPos + 42, 0, 0, 20, 16, 20, 16);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire06.png"));
-		this.blit(ms, this.leftPos + 60, this.topPos + 39, 0, 0, 19, 18, 19, 18);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire07.png"));
-		this.blit(ms, this.leftPos + 60, this.topPos + 41, 0, 0, 18, 17, 18, 17);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire08.png"));
-		this.blit(ms, this.leftPos + 60, this.topPos + 43, 0, 0, 16, 14, 16, 14);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire09.png"));
-		this.blit(ms, this.leftPos + 61, this.topPos + 41, 0, 0, 16, 16, 16, 16);
 
 		if (Palafurnacesubprocess0Procedure.execute(world, x, y, z)) {
 			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_1red_new.png"));
@@ -180,6 +159,42 @@ public class PaladumfurnaceScreen extends AbstractContainerScreen<Paladumfurnace
 			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_19red_new.png"));
 			this.blit(ms, this.leftPos + 85, this.topPos + 43, 0, 0, 24, 10, 24, 10);
 		}
+		if (Forgesubprocessfuelremaining2Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_2.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining3Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_3.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining4Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_4.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining5Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_5.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining6Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_6.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining7Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_7.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining8Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_8.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining9Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_9.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining10Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_10.png"));
+			this.blit(ms, this.leftPos + 60, this.topPos + 42, 0, 0, 16, 16, 16, 16);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -201,7 +216,7 @@ public class PaladumfurnaceScreen extends AbstractContainerScreen<Paladumfurnace
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.paladumfurnace.label_paladium_furnace"), 38, 3, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.paladumfurnace.label_inventory"), 7, 73, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.paladumfurnace.label_upgrades"), 2, 16, -65536);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.paladumfurnace.label_upgrades"), 8, 20, -65536);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.paladumfurnace.label_varintegerg_num"), 89, 66, -12829636);
 	}
 

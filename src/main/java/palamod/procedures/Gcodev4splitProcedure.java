@@ -71,7 +71,7 @@ public class Gcodev4splitProcedure {
 								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 							return _retval.get();
 						}
-					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUMHAMMER.get() || (new Object() {
+					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUM_HAMMER.get() || (new Object() {
 						public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 							BlockEntity _ent = world.getBlockEntity(pos);
@@ -79,7 +79,7 @@ public class Gcodev4splitProcedure {
 								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 							return _retval.get();
 						}
-					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREENPALADIUMHAMMER.get() || (new Object() {
+					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREEN_PALADIUM_HAMMER.get() || (new Object() {
 						public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 							BlockEntity _ent = world.getBlockEntity(pos);
@@ -87,7 +87,7 @@ public class Gcodev4splitProcedure {
 								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 							return _retval.get();
 						}
-					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUMHAMMER.get()) && (new Object() {
+					}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUM_HAMMER.get()) && (new Object() {
 						public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 							BlockEntity _ent = world.getBlockEntity(pos);
@@ -252,7 +252,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUMHAMMER.get() || (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUM_HAMMER.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -260,7 +260,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREENPALADIUMHAMMER.get() || (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREEN_PALADIUM_HAMMER.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -268,7 +268,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUMHAMMER.get()) && (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUM_HAMMER.get()) && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -411,7 +411,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5))) != 0) || EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMERFORTURNE.get(), (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5))) != 0) || EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -451,7 +451,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUMHAMMER.get() || (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.ENDIUM_HAMMER.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -459,7 +459,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREENPALADIUMHAMMER.get() || (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.GREEN_PALADIUM_HAMMER.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -467,7 +467,7 @@ public class Gcodev4splitProcedure {
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUMHAMMER.get()) && (new Object() {
+			}.getItemStack(world, new BlockPos(x, y, z), 5)).getItem() == PalamodModItems.PALADIUM_HAMMER.get()) && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
@@ -542,7 +542,7 @@ public class Gcodev4splitProcedure {
 						}
 					}
 					((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY))
-							.enchant(PalamodModEnchantments.HAMMERFORTURNE.get(), (int) (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMERFORTURNE.get(), (new Object() {
+							.enchant(PalamodModEnchantments.HAMMER_FORTUNE.get(), (int) (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), (new Object() {
 								public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 									AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 									BlockEntity _ent = world.getBlockEntity(pos);

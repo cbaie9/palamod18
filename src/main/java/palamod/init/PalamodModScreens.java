@@ -35,7 +35,6 @@ import palamod.client.gui.PalahelpnotsupportedScreen;
 import palamod.client.gui.PalahelpmachineScreen;
 import palamod.client.gui.Palahelpgui1Screen;
 import palamod.client.gui.PalahelpblockScreen;
-import palamod.client.gui.PalafurnaceguiScreen;
 import palamod.client.gui.PalaerrorScreen;
 import palamod.client.gui.Palaerror0006Screen;
 import palamod.client.gui.Palaerror0005Screen;
@@ -173,7 +172,6 @@ public class PalamodModScreens {
 			MenuScreens.register(PalamodModMenus.PALAERROR_0005, Palaerror0005Screen::new);
 			MenuScreens.register(PalamodModMenus.SPAWNPANEL, SpawnpanelScreen::new);
 			MenuScreens.register(PalamodModMenus.PALAERROR_0006, Palaerror0006Screen::new);
-			MenuScreens.register(PalamodModMenus.PALAFURNACEGUI, PalafurnaceguiScreen::new);
 			MenuScreens.register(PalamodModMenus.TRASHGUI, TrashguiScreen::new);
 			MenuScreens.register(PalamodModMenus.ADMINSHOPMENU, AdminshopmenuScreen::new);
 			MenuScreens.register(PalamodModMenus.ADMINSHOPBLOCK, AdminshopblockScreen::new);

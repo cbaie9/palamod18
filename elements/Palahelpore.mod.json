@@ -15,8 +15,7 @@
         "data": {
           "name": "label_paladium_le_minerais_le_plus_pu",
           "text": {
-            "fixedValue": "Paladium :Le minerais le plus puissant",
-            "name": "Palahelporetrans3"
+            "fixedValue": "Paladium : The more powerful mineable ore"
           },
           "color": {
             "value": -52480,
@@ -31,8 +30,7 @@
         "data": {
           "name": "label_tres_rare_sert_a_quelque_craft",
           "text": {
-            "fixedValue": "Tres rare sert a quelque craft",
-            "name": "Palahelporetrans4"
+            "fixedValue": "Findium : Ore that serves some crafts"
           },
           "color": {
             "value": -205,
@@ -83,8 +81,7 @@
         "data": {
           "name": "label_resitanttres_bon_pour_ses_premi",
           "text": {
-            "fixedValue": "Resitant,tres bon pour ses premiers",
-            "name": "Palahelporetrans5"
+            "fixedValue": "Titane: Durable, a very good start for his first"
           },
           "color": {
             "value": -12829636,
@@ -127,8 +124,7 @@
         "data": {
           "name": "label_amthyste",
           "text": {
-            "fixedValue": "Am�thyste :",
-            "name": "Palahelporetrans6"
+            "fixedValue": "Amethyst : Low level ore, easily findable in cave  "
           },
           "color": {
             "value": -6750055,
@@ -152,8 +148,7 @@
         "data": {
           "name": "label_paladium_vert_equivalent_en_pl",
           "text": {
-            "fixedValue": "Paladium vert : equivalent en plus rare",
-            "name": "Palahelporetrans2"
+            "fixedValue": "Green Paladium : equivalent but it more rare"
           },
           "color": {
             "value": -10027213,
@@ -177,8 +172,7 @@
         "data": {
           "name": "label_endium_le_materiau_ultime_obte",
           "text": {
-            "fixedValue": "Endium : Le materiau ultime obtenable",
-            "name": "Palahelporetrans0"
+            "fixedValue": "Endium : The ultimate obtenable ore"
           },
           "color": {
             "value": -13434727,
@@ -193,15 +187,44 @@
         "data": {
           "name": "label_via_le_paladium_crusher_voir_m",
           "text": {
-            "fixedValue": "via le paladium crusher ( voir machine)",
-            "name": "Palahelporetrans1"
+            "fixedValue": "-> through the crusher ( see the machine wiki )"
           },
           "color": {
             "value": -13434727,
             "falpha": 0.0
           },
           "x": 92,
-          "y": 51
+          "y": 48
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_tools",
+          "text": {
+            "fixedValue": "tools"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 93,
+          "y": 146
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_assez_facilement",
+          "text": {
+            "fixedValue": "assez facilement"
+          },
+          "color": {
+            "value": -6750055,
+            "falpha": 0.0
+          },
+          "x": 90,
+          "y": 180
         }
       }
     ],

@@ -19,7 +19,7 @@ public class SmeltEnchantment extends Enchantment {
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		Item item = stack.getItem();
-		return List.of(PalamodModItems.PALADIUMHAMMER.get(), PalamodModItems.CREATIVEHAMMER.get(), PalamodModItems.GREENPALADIUMHAMMER.get(), PalamodModItems.ENDIUMHAMMER.get()).contains(item);
+		return List.of(PalamodModItems.PALADIUM_HAMMER.get(), PalamodModItems.CREATIVE_HAMMER.get(), PalamodModItems.GREEN_PALADIUM_HAMMER.get(), PalamodModItems.ENDIUM_HAMMER.get()).contains(item);
 	}
 
 	@Override

@@ -1427,6 +1427,15 @@ public class Luckyprocessv1Procedure {
 				}
 				Luckyprocessv2Procedure.execute(world, x, y, z, entity);
 			} else {
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(x, y, z);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getTileData().putString("lucky_name", PalamodModVariables.lucky_name);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
 				LuckyexitProcedure.execute(world, x, y, z, entity);
 			}
 		}

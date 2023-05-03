@@ -136,43 +136,67 @@ public class Luckyprocessv2Procedure {
 		}
 		if (Random >= 600 && Random <= 166810) {
 			PalamodModVariables.lucky_name = "End";
-			if (entity instanceof ServerPlayer _player && !_player.level.isClientSide()) {
-				ResourceKey<Level> destinationType = Level.END;
-				if (_player.level.dimension() == destinationType)
-					return;
-				ServerLevel nextLevel = _player.server.getLevel(destinationType);
-				if (nextLevel != null) {
-					_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-					_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
-					_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-					for (MobEffectInstance _effectinstance : _player.getActiveEffects())
-						_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
-					_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
-				}
-			}
-			if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(Blocks.END_PORTAL_FRAME);
-				_setstack.setCount(1);
-				((Slot) _slots.get(3)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
-			if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(Blocks.END_PORTAL);
-				_setstack.setCount(1);
-				((Slot) _slots.get(4)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
-			if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-				ItemStack _setstack = new ItemStack(Blocks.END_PORTAL_FRAME);
-				_setstack.setCount(1);
-				((Slot) _slots.get(5)).set(_setstack);
-				_player.containerMenu.broadcastChanges();
-			}
-			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-				PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu l'event aux Lucky Block " + " End"));
-			}
 			PalamodModVariables.Lucky_destroy = 1;
 			illegal_operation_check = true;
+			new Object() {
+				private int ticks = 0;
+				private float waitTicks;
+				private LevelAccessor world;
+
+				public void start(LevelAccessor world, int waitTicks) {
+					this.waitTicks = waitTicks;
+					MinecraftForge.EVENT_BUS.register(this);
+					this.world = world;
+				}
+
+				@SubscribeEvent
+				public void tick(TickEvent.ServerTickEvent event) {
+					if (event.phase == TickEvent.Phase.END) {
+						this.ticks += 1;
+						if (this.ticks >= this.waitTicks)
+							run();
+					}
+				}
+
+				private void run() {
+					if (entity instanceof ServerPlayer _player && !_player.level.isClientSide()) {
+						ResourceKey<Level> destinationType = Level.END;
+						if (_player.level.dimension() == destinationType)
+							return;
+						ServerLevel nextLevel = _player.server.getLevel(destinationType);
+						if (nextLevel != null) {
+							_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+							_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), _player.getYRot(), _player.getXRot());
+							_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+							for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+								_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance));
+							_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+						}
+					}
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.END_PORTAL_FRAME);
+						_setstack.setCount(1);
+						((Slot) _slots.get(3)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
+					}
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.END_PORTAL);
+						_setstack.setCount(1);
+						((Slot) _slots.get(4)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
+					}
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.END_PORTAL_FRAME);
+						_setstack.setCount(1);
+						((Slot) _slots.get(5)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
+					}
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu l'event aux Lucky Block " + " End"));
+					}
+					MinecraftForge.EVENT_BUS.unregister(this);
+				}
+			}.start(world, 100);
 		}
 		if (Random >= 166800 && Random <= 168000) {
 			PalamodModVariables.lucky_name = "Endium beacon";
@@ -293,10 +317,11 @@ public class Luckyprocessv2Procedure {
 				_player.containerMenu.broadcastChanges();
 			}
 			if (world instanceof ServerLevel _level)
-				_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
+				_level.getServer().getCommands().performCommand(
+						new CommandSourceStack(CommandSource.NULL, new Vec3((entity.getX()), (entity.getY() - 1), (entity.getZ())), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 						"fill ~-3 ~ ~3 ~3 ~ ~-3 minecraft:obsidian");
 			{
-				BlockPos _bp = new BlockPos(x + 1, y + 1, z);
+				BlockPos _bp = new BlockPos(entity.getX() + 1, entity.getY() + 1, entity.getZ());
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -310,7 +335,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x + 1, y, z);
+				BlockPos _bp = new BlockPos(entity.getX() + 1, entity.getY(), entity.getZ());
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -324,7 +349,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x - 1, y + 1, z);
+				BlockPos _bp = new BlockPos(entity.getX() - 1, entity.getY() + 1, entity.getZ());
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -338,7 +363,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x - 1, y, z);
+				BlockPos _bp = new BlockPos(entity.getX() - 1, entity.getY(), entity.getZ());
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -352,7 +377,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x, y, z + 1);
+				BlockPos _bp = new BlockPos(entity.getX(), entity.getY(), entity.getZ() + 1);
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -366,7 +391,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x, y + 1, z + 1);
+				BlockPos _bp = new BlockPos(entity.getX(), entity.getY() + 1, entity.getZ() + 1);
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -380,7 +405,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x, y, z - 1);
+				BlockPos _bp = new BlockPos(entity.getX(), entity.getY(), entity.getZ() - 1);
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -394,7 +419,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x, y + 1, z - 1);
+				BlockPos _bp = new BlockPos(entity.getX(), entity.getY() + 1, entity.getZ() - 1);
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -408,7 +433,7 @@ public class Luckyprocessv2Procedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			{
-				BlockPos _bp = new BlockPos(x, y + 2, z);
+				BlockPos _bp = new BlockPos(entity.getX(), entity.getY() + 2, entity.getZ());
 				BlockState _bs = PalamodModBlocks.RENFORCEDOBSIDIAN.get().defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -598,6 +623,15 @@ public class Luckyprocessv2Procedure {
 			}
 			PalamodModVariables.Lucky_destroy = 1;
 			illegal_operation_check = false;
+		}
+		if (!world.isClientSide()) {
+			BlockPos _bp = new BlockPos(x, y, z);
+			BlockEntity _blockEntity = world.getBlockEntity(_bp);
+			BlockState _bs = world.getBlockState(_bp);
+			if (_blockEntity != null)
+				_blockEntity.getTileData().putString("lucky_name", PalamodModVariables.lucky_name);
+			if (world instanceof Level _level)
+				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 	}
 }

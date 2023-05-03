@@ -45,7 +45,7 @@ public abstract class RanbowarmorItem extends ArmorItem {
 
 			@Override
 			public String getName() {
-				return "ranbowarmor";
+				return "rainbowarmor";
 			}
 
 			@Override

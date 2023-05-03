@@ -24,7 +24,7 @@ public class SpeedEnchantment extends Enchantment {
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		Item item = stack.getItem();
-		return List.of(PalamodModItems.ENDIUMHAMMER.get(), PalamodModItems.PALADIUMHAMMER.get(), PalamodModItems.CREATIVEHAMMER.get(), PalamodModItems.GREENPALADIUMHAMMER.get()).contains(item);
+		return List.of(PalamodModItems.ENDIUM_HAMMER.get(), PalamodModItems.PALADIUM_HAMMER.get(), PalamodModItems.CREATIVE_HAMMER.get(), PalamodModItems.GREEN_PALADIUM_HAMMER.get()).contains(item);
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import palamod.world.features.ores.TrixiumoredeepslateFeature;
 import palamod.world.features.ores.TrixiumoreFeature;
 import palamod.world.features.ores.TitaneoredeepslateFeature;
 import palamod.world.features.ores.TitaneOreFeature;
+import palamod.world.features.ores.ProtodeepslateFeature;
 import palamod.world.features.ores.PaladiumoredeepslateFeature;
 import palamod.world.features.ores.PaladiumgreenoredeepslateFeature;
 import palamod.world.features.ores.PaladiumOreFeature;
@@ -19,6 +20,10 @@ import palamod.world.features.ores.EndiumnuggetoredeepslateFeature;
 import palamod.world.features.ores.EndiumnuggetoreFeature;
 import palamod.world.features.ores.AmethystoredeepslateFeature;
 import palamod.world.features.ores.AmethysteOreFeature;
+import palamod.world.features.TreeostryaFeature;
+import palamod.world.features.TreejudeecercisFeature;
+import palamod.world.features.TreejacarandaFeature;
+import palamod.world.features.TreeerableFeature;
 import palamod.world.features.IgloodestrFeature;
 import palamod.world.features.IglooFeature;
 import palamod.world.features.IcepicsFeature;
@@ -96,6 +101,16 @@ public class PalamodModFeatures {
 			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, IgloodestrFeature.GENERATE_BIOMES, IgloodestrFeature::placedFeature));
 	public static final RegistryObject<Feature<?>> CUSTOMTEMPLE = register("customtemple", CustomtempleFeature::feature,
 			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, CustomtempleFeature.GENERATE_BIOMES, CustomtempleFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> TREEJUDEECERCIS = register("treejudeecercis", TreejudeecercisFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreejudeecercisFeature.GENERATE_BIOMES, TreejudeecercisFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> TREEJACARANDA = register("treejacaranda", TreejacarandaFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreejacarandaFeature.GENERATE_BIOMES, TreejacarandaFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> TREEERABLE = register("treeerable", TreeerableFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreeerableFeature.GENERATE_BIOMES, TreeerableFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> TREEOSTRYA = register("treeostrya", TreeostryaFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreeostryaFeature.GENERATE_BIOMES, TreeostryaFeature::placedFeature));
+	public static final RegistryObject<Feature<?>> PROTODEEPSLATE = register("protodeepslate", ProtodeepslateFeature::feature,
+			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, ProtodeepslateFeature.GENERATE_BIOMES, ProtodeepslateFeature::placedFeature));
 
 	private static RegistryObject<Feature<?>> register(String registryname, Supplier<Feature<?>> feature, FeatureRegistration featureRegistration) {
 		FEATURE_REGISTRATIONS.add(featureRegistration);

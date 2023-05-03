@@ -3,7 +3,6 @@ package palamod.client.gui;
 
 import palamod.world.inventory.ForgeguiMenu;
 
-import palamod.procedures.Grindertrans0Procedure;
 import palamod.procedures.Forgesubprocessgui9Procedure;
 import palamod.procedures.Forgesubprocessgui8Procedure;
 import palamod.procedures.Forgesubprocessgui7Procedure;
@@ -23,6 +22,16 @@ import palamod.procedures.Forgesubprocessgui12Procedure;
 import palamod.procedures.Forgesubprocessgui11Procedure;
 import palamod.procedures.Forgesubprocessgui10Procedure;
 import palamod.procedures.Forgesubprocessgui0Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining9Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining8Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining7Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining6Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining5Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining4Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining3Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining2Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining1Procedure;
+import palamod.procedures.Forgesubprocessfuelremaining10Procedure;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
@@ -151,13 +160,46 @@ public class ForgeguiScreen extends AbstractContainerScreen<ForgeguiMenu> {
 			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/arrow_19red_new.png"));
 			this.blit(ms, this.leftPos + 81, this.topPos + 38, 0, 0, 24, 10, 24, 10);
 		}
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire.png"));
-		this.blit(ms, this.leftPos + 60, this.topPos + 36, 0, 0, 17, 14, 17, 14);
-
-		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire01.png"));
-		this.blit(ms, this.leftPos + 58, this.topPos + 34, 0, 0, 21, 17, 21, 17);
-
+		if (Forgesubprocessfuelremaining1Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_1.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining2Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_2.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining3Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_3.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining4Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_4.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining5Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_5.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining6Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_6.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining7Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_7.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining8Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_8.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining9Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_9.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
+		if (Forgesubprocessfuelremaining10Procedure.execute(world, x, y, z)) {
+			RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/fire_10.png"));
+			this.blit(ms, this.leftPos + 61, this.topPos + 35, 0, 0, 16, 16, 16, 16);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -178,9 +220,7 @@ public class ForgeguiScreen extends AbstractContainerScreen<ForgeguiMenu> {
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.forgegui.label_forge"), 79, 4, -13434676);
-		this.font.draw(poseStack,
-
-				Grindertrans0Procedure.execute(entity), 6, 69, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.forgegui.label_inventory"), 6, 69, -12829636);
 	}
 
 	@Override

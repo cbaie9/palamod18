@@ -445,19 +445,19 @@ public class PalamodModItems {
 	public static final RegistryObject<Item> INVISIBLEARMOR_CHESTPLATE = REGISTRY.register("invisiblearmor_chestplate", () -> new InvisiblearmorItem.Chestplate());
 	public static final RegistryObject<Item> INVISIBLEARMOR_LEGGINGS = REGISTRY.register("invisiblearmor_leggings", () -> new InvisiblearmorItem.Leggings());
 	public static final RegistryObject<Item> INVISIBLEARMOR_BOOTS = REGISTRY.register("invisiblearmor_boots", () -> new InvisiblearmorItem.Boots());
-	public static final RegistryObject<Item> RANBOWARMOR_HELMET = REGISTRY.register("ranbowarmor_helmet", () -> new RanbowarmorItem.Helmet());
-	public static final RegistryObject<Item> RANBOWARMOR_CHESTPLATE = REGISTRY.register("ranbowarmor_chestplate", () -> new RanbowarmorItem.Chestplate());
-	public static final RegistryObject<Item> RANBOWARMOR_LEGGINGS = REGISTRY.register("ranbowarmor_leggings", () -> new RanbowarmorItem.Leggings());
-	public static final RegistryObject<Item> RANBOWARMOR_BOOTS = REGISTRY.register("ranbowarmor_boots", () -> new RanbowarmorItem.Boots());
+	public static final RegistryObject<Item> RAINBOWARMOR_HELMET = REGISTRY.register("rainbowarmor_helmet", () -> new RanbowarmorItem.Helmet());
+	public static final RegistryObject<Item> RAINBOWARMOR_CHESTPLATE = REGISTRY.register("rainbowarmor_chestplate", () -> new RanbowarmorItem.Chestplate());
+	public static final RegistryObject<Item> RAINBOWARMOR_LEGGINGS = REGISTRY.register("rainbowarmor_leggings", () -> new RanbowarmorItem.Leggings());
+	public static final RegistryObject<Item> RAINBOWARMOR_BOOTS = REGISTRY.register("rainbowarmor_boots", () -> new RanbowarmorItem.Boots());
 	public static final RegistryObject<Item> FLYPOTION = REGISTRY.register("flypotion", () -> new FlypotionItem());
 	public static final RegistryObject<Item> UPLOADER = block(PalamodModBlocks.UPLOADER, PalamodModTabs.TAB_PALAMOD);
 	public static final RegistryObject<Item> DOWNLOADER = block(PalamodModBlocks.DOWNLOADER, PalamodModTabs.TAB_PALAMOD);
 	public static final RegistryObject<Item> ERABLETRAPDOOR = block(PalamodModBlocks.ERABLETRAPDOOR, PalamodModTabs.TAB_PALAMOD);
 	public static final RegistryObject<Item> PESYBLPOTION = REGISTRY.register("pesyblpotion", () -> new PesyblpotionItem());
 	public static final RegistryObject<Item> COMPRESSEDGREENPALADUM = REGISTRY.register("compressedgreenpaladum", () -> new CompressedgreenpaladumItem());
-	public static final RegistryObject<Item> CREATIVEHAMMER = REGISTRY.register("creativehammer", () -> new CreativehammerItem());
+	public static final RegistryObject<Item> CREATIVE_HAMMER = REGISTRY.register("creative_hammer", () -> new CreativehammerItem());
 	public static final RegistryObject<Item> FORCEMINAGEDIM = REGISTRY.register("forceminagedim", () -> new ForceminagedimItem());
-	public static final RegistryObject<Item> CREATIVETRIXIUMSWORD = REGISTRY.register("creativetrixiumsword", () -> new CreativetrixiumswordItem());
+	public static final RegistryObject<Item> CREATIVE_TRIXIUM_SWORD = REGISTRY.register("creative_trixium_sword", () -> new CreativetrixiumswordItem());
 	public static final RegistryObject<Item> POTATOBACKPACK = REGISTRY.register("potatobackpack", () -> new PotatobackpackItem());
 	public static final RegistryObject<Item> DIAMONDPARTICLE = REGISTRY.register("diamondparticle", () -> new DiamondparticleItem());
 	public static final RegistryObject<Item> GOLDPARTICLE = REGISTRY.register("goldparticle", () -> new GoldparticleItem());
@@ -477,8 +477,8 @@ public class PalamodModItems {
 	public static final RegistryObject<Item> BLACKLUCKYBLOCK = block(PalamodModBlocks.BLACKLUCKYBLOCK, PalamodModTabs.TAB_LUCKYBLOCKCREATIVETAB);
 	public static final RegistryObject<Item> CHUNKANASLYSER = REGISTRY.register("chunkanaslyser", () -> new ChunkanaslyserItem());
 	public static final RegistryObject<Item> ENDIUMLUCKYBLOCK = block(PalamodModBlocks.ENDIUMLUCKYBLOCK, PalamodModTabs.TAB_LUCKYBLOCKCREATIVETAB);
-	public static final RegistryObject<Item> TITANEHAMMER = REGISTRY.register("titanehammer", () -> new TitanehammerItem());
-	public static final RegistryObject<Item> AMETHYSTEHAMMER = REGISTRY.register("amethystehammer", () -> new AmethystehammerItem());
+	public static final RegistryObject<Item> TITANE_HAMMER = REGISTRY.register("titane_hammer", () -> new TitanehammerItem());
+	public static final RegistryObject<Item> AMETHYSTE_HAMMER = REGISTRY.register("amethyste_hammer", () -> new AmethystehammerItem());
 	public static final RegistryObject<Item> SOCKETPATERN = REGISTRY.register("socketpatern", () -> new SocketpaternItem());
 	public static final RegistryObject<Item> GRINDERBLOCK = block(PalamodModBlocks.GRINDERBLOCK, PalamodModTabs.TAB_GRINDERCREATIVETAB);
 	public static final RegistryObject<Item> GRINDERCASING = block(PalamodModBlocks.GRINDERCASING, PalamodModTabs.TAB_GRINDERCREATIVETAB);
@@ -489,9 +489,9 @@ public class PalamodModItems {
 	public static final RegistryObject<Item> FLAMEMODIFIER = REGISTRY.register("flamemodifier", () -> new FlamemodifierItem());
 	public static final RegistryObject<Item> FORTURNEMODIFIER = REGISTRY.register("forturnemodifier", () -> new ForturnemodifierItem());
 	public static final RegistryObject<Item> ONEMOREMODIFIER = REGISTRY.register("onemoremodifier", () -> new OnemoremodifierItem());
-	public static final RegistryObject<Item> PALADIUMHAMMER = REGISTRY.register("paladiumhammer", () -> new PaladiumhammerItem());
-	public static final RegistryObject<Item> ENDIUMHAMMER = REGISTRY.register("endiumhammer", () -> new EndiumhammerItem());
-	public static final RegistryObject<Item> GREENPALADIUMHAMMER = REGISTRY.register("greenpaladiumhammer", () -> new GreenpaladiumhammerItem());
+	public static final RegistryObject<Item> PALADIUM_HAMMER = REGISTRY.register("paladium_hammer", () -> new PaladiumhammerItem());
+	public static final RegistryObject<Item> ENDIUM_HAMMER = REGISTRY.register("endium_hammer", () -> new EndiumhammerItem());
+	public static final RegistryObject<Item> GREEN_PALADIUM_HAMMER = REGISTRY.register("green_paladium_hammer", () -> new GreenpaladiumhammerItem());
 	public static final RegistryObject<Item> ENDIUMBROADSWORD = REGISTRY.register("endiumbroadsword", () -> new EndiumbroadswordItem());
 	public static final RegistryObject<Item> GREENPALADIUMBROADSWORD = REGISTRY.register("greenpaladiumbroadsword", () -> new GreenpaladiumbroadswordItem());
 	public static final RegistryObject<Item> EGGPLANT = REGISTRY.register("eggplant", () -> new EggplantItem());
@@ -653,6 +653,8 @@ public class PalamodModItems {
 	public static final RegistryObject<Item> ENDIUMFASTSWORDHEAD = REGISTRY.register("endiumfastswordhead", () -> new EndiumfastswordheadItem());
 	public static final RegistryObject<Item> ENDIUMSHOVELHEAD = REGISTRY.register("endiumshovelhead", () -> new EndiumshovelheadItem());
 	public static final RegistryObject<Item> ENDIUMSHOVEL = REGISTRY.register("endiumshovel", () -> new EndiumshovelItem());
+	public static final RegistryObject<Item> CAVEBLOCK = block(PalamodModBlocks.CAVEBLOCK, PalamodModTabs.TAB_PALAMOD);
+	public static final RegistryObject<Item> PROTODEEPSLATE = block(PalamodModBlocks.PROTODEEPSLATE, PalamodModTabs.TAB_PALAMOD);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

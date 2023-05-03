@@ -132,8 +132,7 @@
         "data": {
           "name": "label_soon",
           "text": {
-            "fixedValue": "Soon",
-            "name": "Palahelpgui1Value"
+            "fixedValue": "Soon"
           },
           "color": {
             "value": -12829636,

@@ -532,7 +532,7 @@ public class ForgeprocessProcedure {
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.AMETHYSTEHAMMER.get() && ((new Object() {
+		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.AMETHYSTE_HAMMER.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
@@ -622,7 +622,7 @@ public class ForgeprocessProcedure {
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.TITANEHAMMER.get() && ((new Object() {
+		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.TITANE_HAMMER.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
@@ -667,7 +667,7 @@ public class ForgeprocessProcedure {
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.PALADIUMHAMMER.get() && ((new Object() {
+		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.PALADIUM_HAMMER.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);

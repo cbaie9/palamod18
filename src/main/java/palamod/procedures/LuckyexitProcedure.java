@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
 
@@ -37,7 +36,7 @@ public class LuckyexitProcedure {
 				world.setBlock(_bp, _bs, 3);
 			}
 			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL) == true) {
-				PalamodMod.LOGGER.info(("(" + entity.getDisplayName().getString() + " ) Fermeture de l'interface lucky block apr\uFFFDs ouverture [ code 1 ]"));
+				PalamodMod.LOGGER.info(("(" + entity.getDisplayName().getString() + " ) Fermeture de l'interface lucky block apr\u00E8s ouverture [ code 1 ]"));
 			}
 		} else if (PalamodModVariables.Lucky_destroy == 2) {
 			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL) == true) {
@@ -49,10 +48,8 @@ public class LuckyexitProcedure {
 			}
 		} else {
 			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL) == true) {
-				PalamodMod.LOGGER.info(("(" + entity.getDisplayName().getString() + " ) Fermeture de l'interface lucky block apr\uFFFDs ouverture sans renplacement [ code 3 ]"));
+				PalamodMod.LOGGER.info(("(" + entity.getDisplayName().getString() + " ) Fermeture de l'interface lucky block apr\u00E8s ouverture sans renplacement [ code 3 ]"));
 			}
 		}
-		if (entity instanceof Player _player)
-			_player.closeContainer();
 	}
 }

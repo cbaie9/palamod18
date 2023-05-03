@@ -3,14 +3,6 @@ package palamod.client.gui;
 
 import palamod.world.inventory.PalahelporeMenu;
 
-import palamod.procedures.Palahelporetrans6Procedure;
-import palamod.procedures.Palahelporetrans5Procedure;
-import palamod.procedures.Palahelporetrans4Procedure;
-import palamod.procedures.Palahelporetrans3Procedure;
-import palamod.procedures.Palahelporetrans2Procedure;
-import palamod.procedures.Palahelporetrans1Procedure;
-import palamod.procedures.Palahelporetrans0Procedure;
-
 import palamod.network.PalahelporeButtonMessage;
 
 import palamod.PalamodMod;
@@ -103,27 +95,15 @@ public class PalahelporeScreen extends AbstractContainerScreen<PalahelporeMenu> 
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack,
-
-				Palahelporetrans3Procedure.execute(entity), 28, 81, -52480);
-		this.font.draw(poseStack,
-
-				Palahelporetrans4Procedure.execute(entity), 27, 103, -205);
-		this.font.draw(poseStack,
-
-				Palahelporetrans5Procedure.execute(entity), 28, 126, -12829636);
-		this.font.draw(poseStack,
-
-				Palahelporetrans6Procedure.execute(entity), 29, 158, -6750055);
-		this.font.draw(poseStack,
-
-				Palahelporetrans2Procedure.execute(entity), 28, 59, -10027213);
-		this.font.draw(poseStack,
-
-				Palahelporetrans0Procedure.execute(entity), 28, 27, -13434727);
-		this.font.draw(poseStack,
-
-				Palahelporetrans1Procedure.execute(entity), 28, 41, -13434727);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_paladium_le_minerais_le_plus_pu"), 28, 81, -52480);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_tres_rare_sert_a_quelque_craft"), 27, 103, -205);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_resitanttres_bon_pour_ses_premi"), 28, 126, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_amthyste"), 29, 158, -6750055);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_paladium_vert_equivalent_en_pl"), 28, 59, -10027213);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_endium_le_materiau_ultime_obte"), 28, 27, -13434727);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_via_le_paladium_crusher_voir_m"), 28, 38, -13434727);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_tools"), 29, 136, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_assez_facilement"), 26, 170, -6750055);
 	}
 
 	@Override

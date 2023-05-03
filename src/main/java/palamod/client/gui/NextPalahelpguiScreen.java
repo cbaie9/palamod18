@@ -3,8 +3,6 @@ package palamod.client.gui;
 
 import palamod.world.inventory.NextPalahelpguiMenu;
 
-import palamod.procedures.Palahelpvalue0Procedure;
-
 import palamod.network.NextPalahelpguiButtonMessage;
 
 import palamod.PalamodMod;
@@ -85,9 +83,7 @@ public class NextPalahelpguiScreen extends AbstractContainerScreen<NextPalahelpg
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.next_palahelpgui.label_palahelp"), 5, 4, -52429);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.next_palahelpgui.label_22"), 4, 102, -16750951);
-		this.font.draw(poseStack,
-
-				Palahelpvalue0Procedure.execute(entity), 63, 111, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.next_palahelpgui.label_more_in_the_future"), 63, 111, -12829636);
 	}
 
 	@Override

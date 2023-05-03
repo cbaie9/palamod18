@@ -206,7 +206,8 @@
         "data": {
           "name": "label_varlucky_name",
           "text": {
-            "fixedValue": "<VAR:lucky_name>"
+            "fixedValue": "<VAR:lucky_name>",
+            "name": "Luckyblockgetname"
           },
           "color": {
             "value": -3407821,

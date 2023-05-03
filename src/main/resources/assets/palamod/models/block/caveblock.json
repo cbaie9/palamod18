@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod_:blocks/cave_block",
-    "particle": "palamod_:blocks/cave_block"
+    "all": "palamod:blocks/cave_block_vfufu",
+    "particle": "palamod:blocks/cave_block_vfufu"
   }
 }

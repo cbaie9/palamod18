@@ -162,6 +162,9 @@
     "blocksToReplace": [
       {
         "value": "Blocks.STONE#0"
+      },
+      {
+        "value": "CUSTOM:Protodeepslate"
       }
     ],
     "generationShape": "UNIFORM",

@@ -24,6 +24,7 @@ import palamod.block.StonyBlock;
 import palamod.block.SpikegoldBlock;
 import palamod.block.SlimepadBlock;
 import palamod.block.RenforcedobsidianBlock;
+import palamod.block.ProtodeepslateBlock;
 import palamod.block.PalalavaBlock;
 import palamod.block.PaladiumstairsBlock;
 import palamod.block.PaladiumspikeBlock;
@@ -153,6 +154,7 @@ import palamod.block.Chervil3Block;
 import palamod.block.Chervil2Block;
 import palamod.block.Chervil1Block;
 import palamod.block.Chervil0Block;
+import palamod.block.CaveblockBlock;
 import palamod.block.BlackluckyblockBlock;
 import palamod.block.AsemblingtableBlock;
 import palamod.block.AngelicwaterBlock;
@@ -343,6 +345,8 @@ public class PalamodModBlocks {
 	public static final RegistryObject<Block> CROWN = REGISTRY.register("crown", () -> new CrownBlock());
 	public static final RegistryObject<Block> FACTIONBLCK = REGISTRY.register("factionblck", () -> new FactionblckBlock());
 	public static final RegistryObject<Block> HDVBLOCK = REGISTRY.register("hdvblock", () -> new HdvblockBlock());
+	public static final RegistryObject<Block> CAVEBLOCK = REGISTRY.register("caveblock", () -> new CaveblockBlock());
+	public static final RegistryObject<Block> PROTODEEPSLATE = REGISTRY.register("protodeepslate", () -> new ProtodeepslateBlock());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {
@@ -391,6 +395,7 @@ public class PalamodModBlocks {
 			Orangeblue3Block.registerRenderLayer();
 			Orangeblue4Block.registerRenderLayer();
 			CrownBlock.registerRenderLayer();
+			CaveblockBlock.registerRenderLayer();
 		}
 	}
 }

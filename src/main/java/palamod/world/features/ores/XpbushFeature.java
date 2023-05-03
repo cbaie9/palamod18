@@ -45,7 +45,7 @@ public class XpbushFeature extends OreFeature {
 		FEATURE = new XpbushFeature();
 		CONFIGURED_FEATURE = FeatureUtils.register("palamod:xpbush", FEATURE, new OreConfiguration(XpbushFeatureRuleTest.INSTANCE, PalamodModBlocks.XPBUSH.get().defaultBlockState(), 1));
 		PLACED_FEATURE = PlacementUtils.register("palamod:xpbush", CONFIGURED_FEATURE,
-				List.of(CountPlacement.of(15), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(310)), BiomeFilter.biome()));
+				List.of(CountPlacement.of(45), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(310)), BiomeFilter.biome()));
 		return FEATURE;
 	}
 

@@ -87,8 +87,7 @@
         "data": {
           "name": "label_inventory",
           "text": {
-            "fixedValue": "Inventory",
-            "name": "Grindertrans0"
+            "fixedValue": "Inventory"
           },
           "color": {
             "value": -12829636,
@@ -338,19 +337,121 @@
       {
         "type": "image",
         "data": {
-          "image": "fire.png",
-          "use1Xscale": true,
-          "x": 186,
-          "y": 73
+          "image": "fire_1.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining1"
+          },
+          "x": 187,
+          "y": 72
         }
       },
       {
         "type": "image",
         "data": {
-          "image": "fire01.png",
-          "use1Xscale": true,
-          "x": 184,
-          "y": 71
+          "image": "fire_2.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining2"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_3.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining3"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_4.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining4"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining5"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_6.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining6"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_7.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining7"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_8.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining8"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_9.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining9"
+          },
+          "x": 187,
+          "y": 72
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_10.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining10"
+          },
+          "x": 187,
+          "y": 72
         }
       }
     ],

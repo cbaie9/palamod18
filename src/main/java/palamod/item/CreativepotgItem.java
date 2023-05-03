@@ -45,7 +45,7 @@ public class CreativepotgItem extends TieredItem {
 			}
 
 			public int getLevel() {
-				return 99;
+				return 5;
 			}
 
 			public int getEnchantmentValue() {
@@ -60,7 +60,7 @@ public class CreativepotgItem extends TieredItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState blockstate) {
-		int tier = 99;
+		int tier = 5;
 		if (tier < 3 && blockstate.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
 			return false;
 		} else if (tier < 2 && blockstate.is(BlockTags.NEEDS_IRON_TOOL)) {

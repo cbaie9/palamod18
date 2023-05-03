@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "palamod:items/endium_pack_shovel"
+    "layer0": "palamod:items/spoiler_endium_shovel"
   }
 }

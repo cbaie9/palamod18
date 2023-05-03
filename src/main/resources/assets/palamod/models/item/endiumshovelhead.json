@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/temp_endium_shovel_head"
+    "layer0": "palamod:items/endium_shovel_head"
   }
 }

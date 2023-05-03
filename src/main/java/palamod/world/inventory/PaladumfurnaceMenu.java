@@ -1,12 +1,8 @@
 
 package palamod.world.inventory;
 
-import palamod.network.PaladumfurnaceSlotMessage;
-
 import palamod.init.PalamodModMenus;
 import palamod.init.PalamodModItems;
-
-import palamod.PalamodMod;
 
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -42,7 +38,7 @@ public class PaladumfurnaceMenu extends AbstractContainerMenu implements Supplie
 		super(PalamodModMenus.PALADUMFURNACE, id);
 		this.entity = inv.player;
 		this.world = inv.player.level;
-		this.internal = new ItemStackHandler(4);
+		this.internal = new ItemStackHandler(5);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -81,29 +77,19 @@ public class PaladumfurnaceMenu extends AbstractContainerMenu implements Supplie
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 61, 22) {
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(0, 0, 0);
-			}
-		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 8, 31) {
-			@Override
-			public boolean mayPlace(ItemStack stack) {
-				return PalamodModItems.FURNACEUPGRADE.get() == stack.getItem();
-			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 60, 60) {
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(1, 0, 0);
-			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 122, 39) {
 			@Override
 			public boolean mayPlace(ItemStack stack) {
 				return false;
+			}
+		}));
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 14, 34) {
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return PalamodModItems.FURNACEUPGRADE.get() == stack.getItem();
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
@@ -239,26 +225,15 @@ public class PaladumfurnaceMenu extends AbstractContainerMenu implements Supplie
 				for (int j = 0; j < internal.getSlots(); ++j) {
 					if (j == 0)
 						continue;
-					if (j == 3)
-						continue;
 					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
 					if (i == 0)
 						continue;
-					if (i == 3)
-						continue;
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
-		}
-	}
-
-	private void slotChanged(int slotid, int ctype, int meta) {
-		if (this.world != null && this.world.isClientSide()) {
-			PalamodMod.PACKET_HANDLER.sendToServer(new PaladumfurnaceSlotMessage(slotid, x, y, z, ctype, meta));
-			PaladumfurnaceSlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

@@ -3,6 +3,8 @@ package palamod.client.gui;
 
 import palamod.world.inventory.LuckyguiMenu;
 
+import palamod.procedures.LuckyblockgetnameProcedure;
+
 import palamod.network.LuckyguiButtonMessage;
 
 import palamod.PalamodMod;
@@ -76,7 +78,9 @@ public class LuckyguiScreen extends AbstractContainerScreen<LuckyguiMenu> {
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.luckygui.label_lucky_block"), 56, 5, -65536);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.luckygui.label_varlucky_name"), 26, 84, -3407821);
+		this.font.draw(poseStack,
+
+				LuckyblockgetnameProcedure.execute(world, x, y, z), 26, 84, -3407821);
 	}
 
 	@Override

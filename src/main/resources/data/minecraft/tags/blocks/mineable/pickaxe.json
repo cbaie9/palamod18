@@ -85,6 +85,8 @@
     "palamod:paladiummachine",
     "palamod:paladiumfurnaceon",
     "palamod:trixiumnbtblock",
-    "palamod:hdvblock"
+    "palamod:hdvblock",
+    "palamod:caveblock",
+    "palamod:protodeepslate"
   ]
 }

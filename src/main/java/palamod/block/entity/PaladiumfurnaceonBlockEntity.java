@@ -1,6 +1,6 @@
 package palamod.block.entity;
 
-import palamod.world.inventory.PalafurnaceguiMenu;
+import palamod.world.inventory.PaladumfurnaceMenu;
 
 import palamod.init.PalamodModBlockEntities;
 
@@ -91,7 +91,7 @@ public class PaladiumfurnaceonBlockEntity extends RandomizableContainerBlockEnti
 
 	@Override
 	public AbstractContainerMenu createMenu(int id, Inventory inventory) {
-		return new PalafurnaceguiMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(this.worldPosition));
+		return new PaladumfurnaceMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(this.worldPosition));
 	}
 
 	@Override

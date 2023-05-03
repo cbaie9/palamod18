@@ -129,11 +129,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -247,11 +243,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x - 1, y, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -366,11 +358,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y, z + 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -403,11 +391,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -440,11 +424,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x - 1, y, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x - 1, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -586,11 +566,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 0, z + 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y, z + 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -623,11 +599,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 0, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 		} else if ((entity.getDirection()) == Direction.NORTH || (entity.getDirection()) == Direction.SOUTH) {
 			if ((world.getBlockState(new BlockPos(x + 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock() == Blocks.BEDROCK)) {
@@ -702,11 +674,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y + 0, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -780,11 +748,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x - 1, y + 0, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x - 1, y, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x - 1, y, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -858,11 +822,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y + 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -936,11 +896,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x + 1, y - 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x + 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1014,11 +970,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x - 1, y - 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x - 1, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1092,11 +1044,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x - 1, y + 0, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x - 1, y + 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x - 1, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1174,6 +1122,7 @@ public class Hamsf2Procedure {
 					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
 					world.destroyBlock(_pos, false);
 				}
+				world.setBlock(new BlockPos(x, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1246,11 +1195,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y - 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		} else if ((entity.getDirection()) == Direction.WEST || (entity.getDirection()) == Direction.EAST) {
 			if ((world.getBlockState(new BlockPos(x, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
@@ -1325,11 +1270,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 0, z + 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y, z + 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1362,11 +1303,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 0, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1440,11 +1377,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y + 1, z + 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y + 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z + 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1518,11 +1451,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y - 1, z + 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y - 1, z + 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1596,11 +1525,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y - 1, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y - 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z - 1))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1674,11 +1599,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y + 1, z - 1);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y + 1, z - 1), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1751,11 +1672,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y + 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y + 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
 				if (!(((world instanceof Level _lvlSmeltResult
@@ -1828,11 +1745,7 @@ public class Hamsf2Procedure {
 					}
 					world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 				}
-				{
-					BlockPos _pos = new BlockPos(x, y - 1, z);
-					Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
-					world.destroyBlock(_pos, false);
-				}
+				world.setBlock(new BlockPos(x, y - 1, z), Blocks.AIR.defaultBlockState(), 3);
 			}
 		}
 	}

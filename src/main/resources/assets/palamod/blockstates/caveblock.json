@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "palamod_:caveblock"
+    "": {
+      "model": "palamod:block/caveblock"
     }
   }
 }

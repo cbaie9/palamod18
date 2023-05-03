@@ -35,7 +35,6 @@ import palamod.world.inventory.PalahelpnotsupportedMenu;
 import palamod.world.inventory.PalahelpmachineMenu;
 import palamod.world.inventory.Palahelpgui1Menu;
 import palamod.world.inventory.PalahelpblockMenu;
-import palamod.world.inventory.PalafurnaceguiMenu;
 import palamod.world.inventory.PalaerrorMenu;
 import palamod.world.inventory.Palaerror0006Menu;
 import palamod.world.inventory.Palaerror0005Menu;
@@ -175,7 +174,6 @@ public class PalamodModMenus {
 	public static final MenuType<Palaerror0005Menu> PALAERROR_0005 = register("palaerror_0005", (id, inv, extraData) -> new Palaerror0005Menu(id, inv, extraData));
 	public static final MenuType<SpawnpanelMenu> SPAWNPANEL = register("spawnpanel", (id, inv, extraData) -> new SpawnpanelMenu(id, inv, extraData));
 	public static final MenuType<Palaerror0006Menu> PALAERROR_0006 = register("palaerror_0006", (id, inv, extraData) -> new Palaerror0006Menu(id, inv, extraData));
-	public static final MenuType<PalafurnaceguiMenu> PALAFURNACEGUI = register("palafurnacegui", (id, inv, extraData) -> new PalafurnaceguiMenu(id, inv, extraData));
 	public static final MenuType<TrashguiMenu> TRASHGUI = register("trashgui", (id, inv, extraData) -> new TrashguiMenu(id, inv, extraData));
 	public static final MenuType<AdminshopmenuMenu> ADMINSHOPMENU = register("adminshopmenu", (id, inv, extraData) -> new AdminshopmenuMenu(id, inv, extraData));
 	public static final MenuType<AdminshopblockMenu> ADMINSHOPBLOCK = register("adminshopblock", (id, inv, extraData) -> new AdminshopblockMenu(id, inv, extraData));

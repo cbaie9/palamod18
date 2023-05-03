@@ -2,8 +2,8 @@
 package palamod.block;
 
 import palamod.procedures.GrinderopenProcedure;
+import palamod.procedures.GrinderluncherProcedure;
 import palamod.procedures.Grinder_resetProcedure;
-import palamod.procedures.Gcodev4Procedure;
 
 import palamod.block.entity.GrinderblockBlockEntity;
 
@@ -102,7 +102,7 @@ public class GrinderblockBlock extends Block implements EntityBlock {
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
-		Gcodev4Procedure.execute(world, x, y, z);
+		GrinderluncherProcedure.execute(world, x, y, z);
 		world.scheduleTick(pos, this, 20);
 	}
 
@@ -122,7 +122,7 @@ public class GrinderblockBlock extends Block implements EntityBlock {
 	@Override
 	public void setPlacedBy(Level world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
 		super.setPlacedBy(world, pos, blockstate, entity, itemstack);
-		Gcodev4Procedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		GrinderluncherProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	@Override

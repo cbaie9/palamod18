@@ -8,6 +8,7 @@ import palamod.procedures.ToolopenportProcedure;
 import palamod.procedures.ToollockonProcedure;
 import palamod.procedures.ToolcloseportProcedure;
 import palamod.procedures.HdvlockoffProcedure;
+import palamod.procedures.ClearoreProcedure;
 import palamod.procedures.AdminshoppricesetupProcedure;
 
 import org.checkerframework.checker.units.qual.s;
@@ -111,7 +112,19 @@ public class PalatoolsCommand {
 
 					AdminshoppricesetupProcedure.execute(world);
 					return 0;
-				}))))).then(Commands.literal("defaultreset").executes(arguments -> {
+				}))))).then(Commands.literal("Clear").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					ClearoreProcedure.execute(world, x, y, z);
+					return 0;
+				})).then(Commands.literal("defaultreset").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

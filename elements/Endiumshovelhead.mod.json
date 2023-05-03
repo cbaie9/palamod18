@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "temp_endium_shovel_head",
+    "texture": "endium_shovel_head",
     "customModelName": "Normal",
     "name": "Endium shovel head",
     "rarity": "COMMON",

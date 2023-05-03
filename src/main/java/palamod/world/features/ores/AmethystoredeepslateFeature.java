@@ -82,7 +82,7 @@ public class AmethystoredeepslateFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE, Blocks.DEEPSLATE);
+				base_blocks = List.of(Blocks.STONE, Blocks.DEEPSLATE, PalamodModBlocks.PROTODEEPSLATE.get());
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

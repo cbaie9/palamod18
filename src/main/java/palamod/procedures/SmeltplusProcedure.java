@@ -22,7 +22,7 @@ public class SmeltplusProcedure {
 		world.destroyBlock(new BlockPos(x, y, z), false);
 		if (entity.getXRot() > 40 || entity.getXRot() < -40) {
 			if ((world.getBlockState(new BlockPos(x + 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -55,7 +55,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -88,7 +88,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -121,7 +121,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -154,7 +154,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -187,7 +187,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -220,7 +220,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -253,7 +253,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -286,7 +286,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -319,7 +319,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z - 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -353,7 +353,7 @@ public class SmeltplusProcedure {
 			}
 		} else if ((entity.getDirection()) == Direction.NORTH || (entity.getDirection()) == Direction.SOUTH) {
 			if ((world.getBlockState(new BlockPos(x + 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -386,7 +386,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -419,7 +419,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y + 1, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y + 1, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -452,7 +452,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x + 1, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x + 1, y - 1, z - 0))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y - 1, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 1, y - 1, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -485,7 +485,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y + 1, z - 0))).getBlock()))), _lvlSmeltResult).get()
@@ -518,7 +518,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y, z + 0))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z + 0)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y, z + 0)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z + 0))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y, z + 0))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -551,7 +551,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y + 1, z - 0))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y + 1, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y + 1, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -584,7 +584,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y - 1, z + 0))).getBlock()))), _lvlSmeltResult).get()
@@ -617,7 +617,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 0, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 0, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y - 1, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y - 1, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y - 1, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y - 1, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -650,7 +650,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x - 1, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x - 0, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y - 1, z)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 1, y - 1, z)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -684,7 +684,7 @@ public class SmeltplusProcedure {
 			}
 		} else if ((entity.getDirection()) == Direction.WEST || (entity.getDirection()) == Direction.EAST) {
 			if ((world.getBlockState(new BlockPos(x, y, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z + 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -717,7 +717,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y, z - 1))).getBlock()))), _lvlSmeltResult).get().getResultItem()
@@ -750,7 +750,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y + 1, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y + 1, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z + 1))).getBlock()))), _lvlSmeltResult).get()
@@ -783,7 +783,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z + 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z + 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y - 1, z + 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y - 1, z + 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y - 1, z + 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y - 1, z + 1))).getBlock()))), _lvlSmeltResult).get()
@@ -816,7 +816,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y - 1, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x - 0, y - 1, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y - 1, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x - 0, y - 1, z - 1))).getBlock()))), _lvlSmeltResult).get()
@@ -849,7 +849,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z - 1))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z - 1))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y + 1, z - 1)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y + 1, z - 1)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z - 1))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z - 1))).getBlock()))), _lvlSmeltResult).get()
@@ -882,7 +882,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y + 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y + 1, z - 0)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y + 1, z - 0)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z - 0))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y + 1, z - 0))).getBlock()))), _lvlSmeltResult).get()
@@ -915,7 +915,7 @@ public class SmeltplusProcedure {
 				}
 			}
 			if ((world.getBlockState(new BlockPos(x, y - 1, z))).getMaterial() == net.minecraft.world.level.material.Material.STONE && !((world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == Blocks.BEDROCK)) {
-				if (PalamodModItems.PALADIUMHAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y - 1, z - 0)))) == true) {
+				if (PalamodModItems.PALADIUM_HAMMER.get().isCorrectToolForDrops((world.getBlockState(new BlockPos(x + 0, y - 1, z - 0)))) == true) {
 					if (!(((world instanceof Level _lvlSmeltResult
 							&& _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y - 1, z - 0))).getBlock()))), _lvlSmeltResult).isPresent())
 									? _lvlSmeltResult.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer((new ItemStack((world.getBlockState(new BlockPos(x + 0, y - 1, z - 0))).getBlock()))), _lvlSmeltResult).get()

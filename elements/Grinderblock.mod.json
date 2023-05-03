@@ -130,7 +130,7 @@
       "name": "Grinder_reset"
     },
     "onTickUpdate": {
-      "name": "Gcodev4"
+      "name": "Grinderluncher"
     },
     "onDestroyedByPlayer": {
       "name": "Grinder_reset"
@@ -139,7 +139,7 @@
       "name": "Grinder_reset"
     },
     "onBlockPlayedBy": {
-      "name": "Gcodev4"
+      "name": "Grinderluncher"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

@@ -143,6 +143,9 @@
       },
       {
         "value": "Blocks.DEEPSLATE"
+      },
+      {
+        "value": "CUSTOM:Protodeepslate"
       }
     ],
     "generationShape": "UNIFORM",

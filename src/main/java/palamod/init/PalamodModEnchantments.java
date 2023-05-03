@@ -22,7 +22,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 public class PalamodModEnchantments {
 	public static final DeferredRegister<Enchantment> REGISTRY = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, PalamodMod.MODID);
 	public static final RegistryObject<Enchantment> SMELT = REGISTRY.register("smelt", () -> new SmeltEnchantment());
-	public static final RegistryObject<Enchantment> HAMMERFORTURNE = REGISTRY.register("hammerforturne", () -> new HammerforturneEnchantment());
+	public static final RegistryObject<Enchantment> HAMMER_FORTUNE = REGISTRY.register("hammer_fortune", () -> new HammerforturneEnchantment());
 	public static final RegistryObject<Enchantment> SPEED = REGISTRY.register("speed", () -> new SpeedEnchantment());
 	public static final RegistryObject<Enchantment> BIGHOLE = REGISTRY.register("bighole", () -> new BigholeEnchantment());
 	public static final RegistryObject<Enchantment> AUTOSMELTPOTG = REGISTRY.register("autosmeltpotg", () -> new AutosmeltpotgEnchantment());

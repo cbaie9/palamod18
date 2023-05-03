@@ -10,7 +10,7 @@
     "textureBack": "paladium_furnace_side",
     "renderType": 10,
     "customModelName": "Normal",
-    "rotationMode": 0,
+    "rotationMode": 1,
     "enablePitch": false,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
@@ -35,7 +35,7 @@
     ],
     "name": "Paladium furnace",
     "specialInfo": [
-      "work on it .......... one day"
+      "A L P H A"
     ],
     "hardness": 1.0,
     "resistance": 10.0,
@@ -103,7 +103,7 @@
     "breakHarvestLevel": 1,
     "isBonemealable": false,
     "hasInventory": true,
-    "guiBoundTo": "Palafurnacegui",
+    "guiBoundTo": "Paladumfurnace",
     "openGUIOnRightClick": true,
     "inventorySize": 4,
     "inventoryStackSize": 64,
@@ -125,9 +125,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onTickUpdate": {
-      "name": "PFurnaceprocessv2"
-    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

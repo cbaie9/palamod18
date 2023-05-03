@@ -1,5 +1,5 @@
 {
-  "parent": "palamod_:block/caveblock",
+  "parent": "palamod:block/caveblock",
   "display": {
     "thirdperson": {
       "rotation": [

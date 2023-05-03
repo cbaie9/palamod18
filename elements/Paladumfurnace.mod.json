@@ -39,9 +39,6 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": false,
-          "onSlotChanged": {
-            "name": "PFurnaceprocessv2"
-          },
           "x": 184,
           "y": 58
         }
@@ -72,8 +69,8 @@
             "value": -65536,
             "falpha": 0.0
           },
-          "x": 126,
-          "y": 53
+          "x": 132,
+          "y": 57
         }
       },
       {
@@ -83,96 +80,6 @@
           "use1Xscale": true,
           "x": 241,
           "y": 70
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire.png",
-          "use1Xscale": true,
-          "x": 182,
-          "y": 79
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire01.png",
-          "use1Xscale": true,
-          "x": 182,
-          "y": 77
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire02.png",
-          "use1Xscale": true,
-          "x": 185,
-          "y": 78
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire03.png",
-          "use1Xscale": true,
-          "x": 185,
-          "y": 78
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire04.png",
-          "use1Xscale": true,
-          "x": 184,
-          "y": 80
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire05.png",
-          "use1Xscale": true,
-          "x": 183,
-          "y": 79
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire06.png",
-          "use1Xscale": true,
-          "x": 184,
-          "y": 76
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire07.png",
-          "use1Xscale": true,
-          "x": 184,
-          "y": 78
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire08.png",
-          "use1Xscale": true,
-          "x": 184,
-          "y": 80
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "fire09.png",
-          "use1Xscale": true,
-          "x": 185,
-          "y": 78
         }
       },
       {
@@ -194,24 +101,6 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": "CUSTOM:Furnaceupgrade"
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 3,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": false,
-          "x": 131,
-          "y": 67
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
             "value": ""
           },
           "disablePlacement": {
@@ -222,9 +111,6 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "PFurnaceprocessv2"
-          },
           "x": 183,
           "y": 96
         }
@@ -467,6 +353,132 @@
           },
           "x": 209,
           "y": 80
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": "CUSTOM:Furnaceupgrade"
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "x": 137,
+          "y": 70
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_2.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining2"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_3.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining3"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_4.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining4"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_5.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining5"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_6.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining6"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_7.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining7"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_8.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining8"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_9.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining9"
+          },
+          "x": 184,
+          "y": 79
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire_10.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Forgesubprocessfuelremaining10"
+          },
+          "x": 184,
+          "y": 79
         }
       }
     ],

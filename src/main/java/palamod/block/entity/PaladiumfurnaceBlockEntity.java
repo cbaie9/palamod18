@@ -1,6 +1,6 @@
 package palamod.block.entity;
 
-import palamod.world.inventory.PalafurnaceguiMenu;
+import palamod.world.inventory.PaladumfurnaceMenu;
 
 import palamod.init.PalamodModBlockEntities;
 
@@ -33,7 +33,7 @@ import java.util.stream.IntStream;
 import io.netty.buffer.Unpooled;
 
 public class PaladiumfurnaceBlockEntity extends RandomizableContainerBlockEntity implements WorldlyContainer {
-	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
+	private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
 	private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
 
 	public PaladiumfurnaceBlockEntity(BlockPos position, BlockState state) {
@@ -91,7 +91,7 @@ public class PaladiumfurnaceBlockEntity extends RandomizableContainerBlockEntity
 
 	@Override
 	public AbstractContainerMenu createMenu(int id, Inventory inventory) {
-		return new PalafurnaceguiMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(this.worldPosition));
+		return new PaladumfurnaceMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(this.worldPosition));
 	}
 
 	@Override

@@ -5,11 +5,11 @@
     "structure": "desert_creeper",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First motion blocking block",
-    "spawnProbability": 500,
+    "spawnProbability": 420,
     "minCountPerChunk": 1,
     "maxCountPerChunk": 1,
     "spawnLocation": "Ground",
-    "spawnHeightOffset": -1,
+    "spawnHeightOffset": -6,
     "spawnXOffset": 0,
     "spawnZOffset": 0,
     "spawnWorldTypes": [
