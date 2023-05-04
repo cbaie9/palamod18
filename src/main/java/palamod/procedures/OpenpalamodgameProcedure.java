@@ -37,7 +37,7 @@ public class OpenpalamodgameProcedure {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent("Merci d'avoir installer le Palamod"), (false));
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Ver 1.19 dev series build 0020"), (false));
+				_player.displayClientMessage(new TextComponent("Ver 1.19 dev series build 0021"), (false));
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent("Cr\u00E9er par cb9 et fufu "), (false));
 			if (entity instanceof Player _player && !_player.level.isClientSide())

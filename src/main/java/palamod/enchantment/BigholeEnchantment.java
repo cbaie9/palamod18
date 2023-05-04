@@ -17,6 +17,11 @@ public class BigholeEnchantment extends Enchantment {
 	}
 
 	@Override
+	public int getMaxLevel() {
+		return 2;
+	}
+
+	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		Item item = stack.getItem();
 		return List.of(PalamodModItems.PICKAXEOFTHEGODSLV_18.get(), PalamodModItems.PICKAXEOFTHEGODSLV_19.get(), PalamodModItems.PICKAXEOFTHEGODSLV_20.get(), PalamodModItems.PICKAXEOFTHEGODSLV_17.get(), PalamodModItems.CREATIVEPOTG.get())

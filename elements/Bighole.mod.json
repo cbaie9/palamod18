@@ -6,7 +6,7 @@
     "type": "VANISHABLE",
     "rarity": "VERY_RARE",
     "minLevel": 1,
-    "maxLevel": 1,
+    "maxLevel": 2,
     "damageModifier": 0,
     "compatibleEnchantments": [],
     "excludeEnchantments": false,
