@@ -28,7 +28,7 @@ public class MvprocesspickaxeverProcedure {
 	private static void execute(@Nullable Event event, Entity entity) {
 		if (entity == null)
 			return;
-		for (int index0 = 0; index0 < (int) (1000); index0++) {
+		for (int index0 = 0; index0 < 1000; index0++) {
 			if ((entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(Blocks.STONE)) : false)
 					&& (entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(PalamodModItems.MINAGEVOIDSTONE.get())) : false)) {
 				entity.getPersistentData().putDouble("voidstone_count", (entity.getPersistentData().getDouble("voidstone_count") + 1));

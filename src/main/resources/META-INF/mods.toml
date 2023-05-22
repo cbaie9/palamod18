@@ -4,7 +4,7 @@ license="Custom license, https://pastebin.com/47smwufD"
 
 [[mods]]
 modId="palamod"
-version="1.19.021"
+version="1.19.023"
 displayName="Palamod renew"
 credits="Codée par des mecs qui voulais juste sortir de la warzone vivant  , Crédit complet sur le discord "
 displayURL=" https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA"
@@ -24,7 +24,7 @@ Certifié sans lag ( apparent )
 
 
 [[dependencies.palamod]]
-    modId="just_enough_items"
+    modId="allmods"
     mandatory=false
     versionRange="[0,)"
     ordering="NONE"

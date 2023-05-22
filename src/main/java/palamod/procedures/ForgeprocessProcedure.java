@@ -2857,7 +2857,7 @@ public class ForgeprocessProcedure {
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
-				for (int index0 = 0; index0 < (int) (100); index0++) {
+				for (int index0 = 0; index0 < 100; index0++) {
 					if (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);

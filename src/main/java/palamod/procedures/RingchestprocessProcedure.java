@@ -41,14 +41,14 @@ public class RingchestprocessProcedure {
 		loop2 = false;
 		loop3 = false;
 		if (version == 3) {
-			for (int index0 = 0; index0 < (int) (4); index0++) {
+			for (int index0 = 0; index0 < 4; index0++) {
 				if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 						.getItem() == PalamodModItems.SMALLRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.MEDIUMRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.BIGRING.get()) {
-					for (int index1 = 0; index1 < (int) (11); index1++) {
+					for (int index1 = 0; index1 < 11; index1++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -72,7 +72,7 @@ public class RingchestprocessProcedure {
 								.getItem() == PalamodModItems.ENDIUMMEDIUMRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.ENDIUMBIGRING.get()) {
-					for (int index2 = 0; index2 < (int) (11); index2++) {
+					for (int index2 = 0; index2 < 11; index2++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -96,7 +96,7 @@ public class RingchestprocessProcedure {
 								.getItem() == PalamodModItems.MEDIUMRINGGREENPALADIUM.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.BIGRINGGREENPALADIUM.get()) {
-					for (int index3 = 0; index3 < (int) (11); index3++) {
+					for (int index3 = 0; index3 < 11; index3++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -133,14 +133,14 @@ public class RingchestprocessProcedure {
 				}
 			}
 		} else if (version == 2) {
-			for (int index4 = 0; index4 < (int) (2); index4++) {
+			for (int index4 = 0; index4 < 2; index4++) {
 				if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 						.getItem() == PalamodModItems.SMALLRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.MEDIUMRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.BIGRING.get()) {
-					for (int index5 = 0; index5 < (int) (11); index5++) {
+					for (int index5 = 0; index5 < 11; index5++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -164,7 +164,7 @@ public class RingchestprocessProcedure {
 								.getItem() == PalamodModItems.ENDIUMMEDIUMRING.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.ENDIUMBIGRING.get()) {
-					for (int index6 = 0; index6 < (int) (11); index6++) {
+					for (int index6 = 0; index6 < 11; index6++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -188,7 +188,7 @@ public class RingchestprocessProcedure {
 								.getItem() == PalamodModItems.MEDIUMRINGGREENPALADIUM.get()
 						|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 								.getItem() == PalamodModItems.BIGRINGGREENPALADIUM.get()) {
-					for (int index7 = 0; index7 < (int) (11); index7++) {
+					for (int index7 = 0; index7 < 11; index7++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
 								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -216,7 +216,7 @@ public class RingchestprocessProcedure {
 							.getItem() == PalamodModItems.MEDIUMRING.get()
 					|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 							.getItem() == PalamodModItems.BIGRING.get()) {
-				for (int index8 = 0; index8 < (int) (11); index8++) {
+				for (int index8 = 0; index8 < 11; index8++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
 							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -240,7 +240,7 @@ public class RingchestprocessProcedure {
 							.getItem() == PalamodModItems.ENDIUMMEDIUMRING.get()
 					|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 							.getItem() == PalamodModItems.ENDIUMBIGRING.get()) {
-				for (int index9 = 0; index9 < (int) (11); index9++) {
+				for (int index9 = 0; index9 < 11; index9++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
 							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
@@ -264,7 +264,7 @@ public class RingchestprocessProcedure {
 							.getItem() == PalamodModItems.MEDIUMRINGGREENPALADIUM.get()
 					|| (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY)
 							.getItem() == PalamodModItems.BIGRINGGREENPALADIUM.get()) {
-				for (int index10 = 0; index10 < (int) (11); index10++) {
+				for (int index10 = 0; index10 < 11; index10++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
 							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))

@@ -26,12 +26,12 @@ public class Legendarystonepower_add_potionProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(PalamodModMobEffects.ANTIFAKE.get(), 10800, 1, (false), (false)));
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 10800, 1, (false), (false)));
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10800, 1, (false), (false)));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(PalamodModMobEffects.ANTIFAKE.get(), 10800, 1, false, false));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 10800, 1, false, false));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 10800, 1, false, false));
 			if (entity instanceof Player _player)
 				_player.getCooldowns().addCooldown(itemstack.getItem(), 48000);
 			itemstack.getOrCreateTag().putDouble("cooldown", 48000);

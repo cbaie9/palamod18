@@ -11,8 +11,8 @@ public class DelfactionProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		entity.getPersistentData().putBoolean("is_fac_deleted", (true));
-		entity.getPersistentData().putBoolean("is_fac_member", (false));
+		entity.getPersistentData().putBoolean("is_fac_deleted", true);
+		entity.getPersistentData().putBoolean("is_fac_member", false);
 		if (!world.isClientSide()) {
 			BlockPos _bp = new BlockPos(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -50,6 +50,6 @@ public class DelfactionProcedure {
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		entity.getPersistentData().putString(("fac_" + entity.getPersistentData().getString("fac_member_name") + "_owner"), "[deleted_faction]");
-		entity.getPersistentData().putBoolean(("owner_" + entity.getPersistentData().getString("fac_member_name") + "_fac"), (false));
+		entity.getPersistentData().putBoolean(("owner_" + entity.getPersistentData().getString("fac_member_name") + "_fac"), false);
 	}
 }

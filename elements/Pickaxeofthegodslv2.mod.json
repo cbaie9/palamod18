@@ -1,12 +1,14 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "tool",
   "definition": {
     "renderType": 0,
     "texture": "potg_of_2",
     "customModelName": "Normal",
-    "name": "Pickaxe of the gods lv 2",
-    "specialInfo": [],
+    "name": "Pickaxe of the gods",
+    "specialInfo": [
+      "Level 2"
+    ],
     "creativeTab": {
       "value": "CUSTOM:Pickaxeofgodstab"
     },

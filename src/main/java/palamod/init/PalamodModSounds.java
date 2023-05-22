@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class PalamodModSounds {
 	public static Map<ResourceLocation, SoundEvent> REGISTRY = new HashMap<>();
 	static {
-		REGISTRY.put(new ResourceLocation("palamod", "goofy_alarm"), new SoundEvent(new ResourceLocation("palamod", "goofy_alarm")));
+		REGISTRY.put(new ResourceLocation("palamod", "lucky_alarm"), new SoundEvent(new ResourceLocation("palamod", "lucky_alarm")));
 	}
 
 	@SubscribeEvent

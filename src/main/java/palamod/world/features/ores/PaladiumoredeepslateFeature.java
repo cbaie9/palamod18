@@ -82,7 +82,7 @@ public class PaladiumoredeepslateFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE, Blocks.OAK_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.DIORITE, Blocks.GRANITE, Blocks.ANDESITE, Blocks.COARSE_DIRT, Blocks.DEEPSLATE, PalamodModBlocks.PROTODEEPSLATE.get());
+				base_blocks = List.of(Blocks.OAK_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.DIORITE, Blocks.GRANITE, Blocks.ANDESITE, Blocks.COARSE_DIRT, Blocks.DEEPSLATE, PalamodModBlocks.PROTODEEPSLATE.get(), Blocks.STONE);
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

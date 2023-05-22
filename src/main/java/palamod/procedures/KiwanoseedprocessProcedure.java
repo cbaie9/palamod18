@@ -14,10 +14,11 @@ public class KiwanoseedprocessProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if ((world.getBlockState(new BlockPos(x, y, z))).getBlock() == Blocks.DIRT && ((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.CAVE_AIR || (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.AIR)) {
+		if (((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.DIRT || (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.FARMLAND)
+				&& ((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.CAVE_AIR || (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.AIR)) {
 			world.setBlock(new BlockPos(x, y + 1, z), PalamodModBlocks.KIWANO_0.get().defaultBlockState(), 3);
 			if (entity instanceof Player _player) {
-				ItemStack _stktoremove = new ItemStack(PalamodModItems.CHERVILSEED.get());
+				ItemStack _stktoremove = new ItemStack(PalamodModItems.KIWANOSEED.get());
 				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
 			}
 		}

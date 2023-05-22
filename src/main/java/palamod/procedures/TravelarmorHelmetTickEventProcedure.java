@@ -14,8 +14,8 @@ public class TravelarmorHelmetTickEventProcedure {
 			return;
 		if (!((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.AIR) || !((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.VOID_AIR)
 				|| !((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.CAVE_AIR)) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 1, (true), (false)));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 1, true, false));
 		}
 	}
 }

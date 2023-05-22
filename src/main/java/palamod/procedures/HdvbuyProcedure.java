@@ -63,7 +63,7 @@ public class HdvbuyProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_slot")) / (-1) + "-slot")), (false));
+			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_slot")) / (-1) + "-slot")), false);
 		if (!world.isClientSide()) {
 			BlockPos _bp = new BlockPos(x, 256, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);

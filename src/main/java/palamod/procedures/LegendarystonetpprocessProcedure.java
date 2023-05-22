@@ -36,8 +36,8 @@ public class LegendarystonetpprocessProcedure {
 				if (_ent instanceof ServerPlayer _serverPlayer)
 					_serverPlayer.connection.teleport(x, 255, z, _ent.getYRot(), _ent.getXRot());
 			}
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 9000, 1, (false), (true)));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 9000, 1, false, true));
 			if (entity instanceof Player _player)
 				_player.getCooldowns().addCooldown(itemstack.getItem(), 48000);
 			itemstack.getOrCreateTag().putDouble("cooldown", 48000);

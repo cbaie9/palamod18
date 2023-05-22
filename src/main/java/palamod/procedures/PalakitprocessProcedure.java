@@ -78,7 +78,7 @@ public class PalakitprocessProcedure {
 				_setstack.setCount(20);
 				ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 			}
-			entity.getPersistentData().putBoolean("take_palakit", (true));
+			entity.getPersistentData().putBoolean("take_palakit", true);
 		} else if (entity.hasPermissions(3)) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);

@@ -19,6 +19,6 @@ public class UploaderdebugProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "Stocked_money")))), (false));
+			}.getValue(world, new BlockPos(x, y, z), "Stocked_money")))), false);
 	}
 }

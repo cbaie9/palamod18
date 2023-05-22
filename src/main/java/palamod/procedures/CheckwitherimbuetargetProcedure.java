@@ -31,8 +31,8 @@ public class CheckwitherimbuetargetProcedure {
 		if (entity == null || sourceentity == null)
 			return;
 		if (sourceentity instanceof LivingEntity _livEnt ? _livEnt.hasEffect(PalamodModMobEffects.WITHERIMBU.get()) : false) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1, (false), (false)));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1, false, false));
 		}
 	}
 }

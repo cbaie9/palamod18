@@ -23,6 +23,6 @@ public class ClosegameProcedure {
 	private static void execute(@Nullable Event event, Entity entity) {
 		if (entity == null)
 			return;
-		entity.getPersistentData().putBoolean("Paladiumcredit", (false));
+		entity.getPersistentData().putBoolean("Paladiumcredit", false);
 	}
 }

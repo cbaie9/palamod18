@@ -1,11 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "tool",
   "definition": {
     "renderType": 0,
     "texture": "amethyst_pickaxe",
     "customModelName": "Normal",
-    "name": "Amethyste Pickaxe",
+    "name": "Amethyst Pickaxe",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:Palamod"

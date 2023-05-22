@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -135,7 +135,7 @@
         "data": {
           "image": "chest_ico32.png",
           "use1Xscale": false,
-          "x": 19,
+          "x": 17,
           "y": 145
         }
       },
@@ -273,7 +273,8 @@
         "data": {
           "name": "label_varanaly_ores",
           "text": {
-            "fixedValue": "<VAR:analy_ores>"
+            "fixedValue": "<VAR:analy_ores>",
+            "name": "Analyreturnores"
           },
           "color": {
             "value": -12829636,
@@ -288,7 +289,8 @@
         "data": {
           "name": "label_varintegeranaly_dirt",
           "text": {
-            "fixedValue": "<VAR:integer:analy_dirt>"
+            "fixedValue": "<VAR:integer:analy_dirt>",
+            "name": "Analyreturndirt"
           },
           "color": {
             "value": -12829636,
@@ -303,14 +305,15 @@
         "data": {
           "name": "label_varanaly_stone",
           "text": {
-            "fixedValue": "<VAR:analy_stone>"
+            "fixedValue": "<VAR:analy_stone>",
+            "name": "Analyreturnstone"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "x": 282,
-          "y": 37
+          "y": 32
         }
       },
       {
@@ -327,7 +330,8 @@
         "data": {
           "name": "label_varanaly_endstone",
           "text": {
-            "fixedValue": "<VAR:analy_endstone>"
+            "fixedValue": "<VAR:analy_endstone>",
+            "name": "Analyreturnendstone"
           },
           "color": {
             "value": -12829636,
@@ -342,7 +346,8 @@
         "data": {
           "name": "label_varanaly_air",
           "text": {
-            "fixedValue": "<VAR:analy_air>"
+            "fixedValue": "<VAR:analy_air>",
+            "name": "Analyreturnair"
           },
           "color": {
             "value": -12829636,
@@ -357,7 +362,8 @@
         "data": {
           "name": "label_varanaly_shulker",
           "text": {
-            "fixedValue": "<VAR:analy_shulker>"
+            "fixedValue": "<VAR:analy_shulker>",
+            "name": "Analyreturnshulker"
           },
           "color": {
             "value": -12829636,
@@ -372,7 +378,8 @@
         "data": {
           "name": "label_varanaly_chest",
           "text": {
-            "fixedValue": "<VAR:analy_chest>"
+            "fixedValue": "<VAR:analy_chest>",
+            "name": "Analyreturnchest"
           },
           "color": {
             "value": -12829636,
@@ -387,7 +394,8 @@
         "data": {
           "name": "label_varanaly_wool",
           "text": {
-            "fixedValue": "<VAR:analy_wool>"
+            "fixedValue": "<VAR:analy_wool>",
+            "name": "Analyreturnwool"
           },
           "color": {
             "value": -12829636,
@@ -402,7 +410,8 @@
         "data": {
           "name": "label_varanaly_bedrock",
           "text": {
-            "fixedValue": "<VAR:analy_bedrock>"
+            "fixedValue": "<VAR:analy_bedrock>",
+            "name": "Analyreturnbedrock"
           },
           "color": {
             "value": -12829636,
@@ -417,7 +426,8 @@
         "data": {
           "name": "label_varanaly_cobble",
           "text": {
-            "fixedValue": "<VAR:analy_cobble>"
+            "fixedValue": "<VAR:analy_cobble>",
+            "name": "Analyreturncobble"
           },
           "color": {
             "value": -12829636,
@@ -432,7 +442,8 @@
         "data": {
           "name": "label_varanaly_logs",
           "text": {
-            "fixedValue": "<VAR:analy_logs>"
+            "fixedValue": "<VAR:analy_logs>",
+            "name": "Analyreturnlogs"
           },
           "color": {
             "value": -12829636,
@@ -447,7 +458,8 @@
         "data": {
           "name": "label_varanaly_planks",
           "text": {
-            "fixedValue": "<VAR:analy_planks>"
+            "fixedValue": "<VAR:analy_planks>",
+            "name": "Analyreturnplanks"
           },
           "color": {
             "value": -12829636,
@@ -507,7 +519,8 @@
         "data": {
           "name": "label_varanaly_clay",
           "text": {
-            "fixedValue": "<VAR:analy_clay>"
+            "fixedValue": "<VAR:analy_clay>",
+            "name": "Analyreturnclay"
           },
           "color": {
             "value": -12829636,

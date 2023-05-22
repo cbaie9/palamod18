@@ -45,13 +45,13 @@ public class Hdvsetup_processProcedure {
 			}
 		}
 		num = 0;
-		for (int index0 = 0; index0 < (int) (100); index0++) {
+		for (int index0 = 0; index0 < 100; index0++) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean(("market_buyed" + num), (true));
+					_blockEntity.getTileData().putBoolean(("market_buyed" + num), true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -62,7 +62,7 @@ public class Hdvsetup_processProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("hdv_locked", (false));
+				_blockEntity.getTileData().putBoolean("hdv_locked", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

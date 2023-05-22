@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "block",
   "definition": {
     "texture": "paladium_ore",
@@ -124,9 +124,6 @@
     "restrictionBiomes": [],
     "blocksToReplace": [
       {
-        "value": "Blocks.STONE"
-      },
-      {
         "value": "Blocks.PLANKS#0"
       },
       {
@@ -146,6 +143,9 @@
       },
       {
         "value": "Blocks.DEEPSLATE"
+      },
+      {
+        "value": "Blocks.STONE#0"
       }
     ],
     "generationShape": "UNIFORM",

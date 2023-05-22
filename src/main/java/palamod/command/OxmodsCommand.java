@@ -2,6 +2,7 @@
 package palamod.command;
 
 import palamod.procedures.OxcommandProcedure;
+import palamod.procedures.Luckyprocess1adminProcedure;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +23,7 @@ public class OxmodsCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("oxmods")
 
-				.then(Commands.argument("code", StringArgumentType.word()).then(Commands.argument("quan", DoubleArgumentType.doubleArg()).executes(arguments -> {
+				.then(Commands.literal("code").then(Commands.argument("code", StringArgumentType.word()).then(Commands.argument("quan", DoubleArgumentType.doubleArg()).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -33,6 +34,18 @@ public class OxmodsCommand {
 					Direction direction = entity.getDirection();
 
 					OxcommandProcedure.execute(arguments, entity);
+					return 0;
+				})))).then(Commands.literal("lucky").then(Commands.argument("random", DoubleArgumentType.doubleArg()).executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					Luckyprocess1adminProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
 				}))));
 	}

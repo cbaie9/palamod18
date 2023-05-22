@@ -19,10 +19,10 @@ public class PalagiftQuandUneCommandeEstExecuteeProcedure {
 				_setstack.setCount(64);
 				ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 			}
-			entity.getPersistentData().putBoolean("ap4f_9ed3", (true));
+			entity.getPersistentData().putBoolean("ap4f_9ed3", true);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("msg @p Serieux tu en prend que 1"), (false));
+				_player.displayClientMessage(new TextComponent("msg @p Serieux tu en prend que 1"), false);
 		}
 	}
 }

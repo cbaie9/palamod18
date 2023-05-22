@@ -6,6 +6,6 @@ public class AntifakeEffect_add_nbtProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		entity.getPersistentData().putBoolean("antifake", (true));
+		entity.getPersistentData().putBoolean("antifake", true);
 	}
 }

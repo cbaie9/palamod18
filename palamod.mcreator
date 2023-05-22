@@ -22921,18 +22921,6 @@
       }
     },
     {
-      "name": "Minagedclayer",
-      "type": "gamerule",
-      "sortid": 1248,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "minagedclayer",
-      "metadata": {
-        "type": "logic",
-        "files": []
-      }
-    },
-    {
       "name": "Minageprocesssetlayeron",
       "type": "procedure",
       "sortid": 1249,
@@ -22947,10 +22935,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -22970,10 +22954,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23043,10 +23023,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23066,10 +23042,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23090,10 +23062,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23113,10 +23081,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23136,10 +23100,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23159,10 +23119,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23255,10 +23211,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23279,10 +23231,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23303,10 +23251,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23327,10 +23271,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23351,10 +23291,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23375,10 +23311,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23399,10 +23331,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -23423,30 +23351,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Swapminagecheck",
-      "type": "procedure",
-      "sortid": 1270,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "swapminagecheck",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/palamod/procedures/SwapminagecheckProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -36825,6 +36729,508 @@
           }
         ]
       }
+    },
+    {
+      "name": "DeathposValue",
+      "type": "procedure",
+      "sortid": 1776,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deathpos_value",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/DeathposValueProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Revivenbt",
+      "type": "procedure",
+      "sortid": 1777,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "revivenbt",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/RevivenbtProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Deathnbt",
+      "type": "procedure",
+      "sortid": 1778,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deathnbt",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/DeathnbtProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Paladiumfurnaceprocess",
+      "type": "procedure",
+      "sortid": 1779,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "paladiumfurnaceprocess",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/PaladiumfurnaceprocessProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Supremeendium",
+      "type": "procedure",
+      "sortid": 1780,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "supremeendium",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/SupremeendiumProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Analyreturnstone",
+      "type": "procedure",
+      "sortid": 1781,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnstone",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnstoneProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnair",
+      "type": "procedure",
+      "sortid": 1782,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnair",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnairProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnbedrock",
+      "type": "procedure",
+      "sortid": 1783,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnbedrock",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnbedrockProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnclay",
+      "type": "procedure",
+      "sortid": 1784,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnclay",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnclayProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnchest",
+      "type": "procedure",
+      "sortid": 1785,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnchest",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnchestProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnshulker",
+      "type": "procedure",
+      "sortid": 1786,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnshulker",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnshulkerProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnwool",
+      "type": "procedure",
+      "sortid": 1787,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnwool",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnwoolProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnores",
+      "type": "procedure",
+      "sortid": 1788,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnores",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnoresProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturndirt",
+      "type": "procedure",
+      "sortid": 1789,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturndirt",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturndirtProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnplanks",
+      "type": "procedure",
+      "sortid": 1790,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnplanks",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnplanksProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnendstone",
+      "type": "procedure",
+      "sortid": 1791,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnendstone",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnendstoneProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturncobble",
+      "type": "procedure",
+      "sortid": 1792,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturncobble",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturncobbleProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Analyreturnlogs",
+      "type": "procedure",
+      "sortid": 1793,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "analyreturnlogs",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/palamod/procedures/AnalyreturnlogsProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Luckyprocess1admin",
+      "type": "procedure",
+      "sortid": 1794,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "luckyprocess_1admin",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/Luckyprocess1adminProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Luckyprocess2admin",
+      "type": "procedure",
+      "sortid": 1795,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "luckyprocess_2admin",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/Luckyprocess2adminProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Consolesayprocess",
+      "type": "procedure",
+      "sortid": 1796,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "consolesayprocess",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/ConsolesayprocessProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/oxylib"
+    },
+    {
+      "name": "Consolesayprocessas",
+      "type": "procedure",
+      "sortid": 1797,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "consolesayprocessas",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/ConsolesayprocessasProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/oxylib"
+    },
+    {
+      "name": "Cs",
+      "type": "command",
+      "sortid": 1798,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cs",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/command/CsCommand.java"
+        ]
+      },
+      "path": "~/oxylib"
+    },
+    {
+      "name": "Moneyaddprocess",
+      "type": "procedure",
+      "sortid": 1799,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "moneyaddprocess",
+      "metadata": {
+        "files": [
+          "src/main/java/palamod/procedures/MoneyaddprocessProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -37083,12 +37489,12 @@
   ],
   "sound_elements": [
     {
-      "name": "goofy_alarm",
+      "name": "lucky_alarm",
       "files": [
         "goofyalarm"
       ],
       "category": "block",
-      "subtitle": "Alarm sound"
+      "subtitle": "Alarm"
     }
   ],
   "language_map": {
@@ -37107,18 +37513,18 @@
       "gui.palamod.adminshopblockstone.button_back": "back",
       "gui.palamod.armorpalahelpgui.label_speed": "Speed",
       "gui.palamod.grinderpalahelp_2gui.label_assemblage_final": "Assemblage final",
-      "advancements.achmringchest.descr": "Repair something in the chests",
-      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
       "gamerule.logsall.description": "logs all action executed by the player ",
+      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
+      "advancements.achmringchest.descr": "Repair something in the chests",
       "gui.palamod.grinderpalahelp_2gui.label_layer_1": "Layer 1",
       "gui.palamod.uploaderguipalahelp.button_gui_example_wip": "gui example ( wip )",
-      "item.palamod.paladiumgreenshovel": "Green Paladium Shovel",
-      "block.palamod.titane_ore": "Titane Ore",
       "enchantment.palamod.hammer_fortune": "Fortune",
+      "block.palamod.titane_ore": "Titane Ore",
+      "item.palamod.paladiumgreenshovel": "Green Paladium Shovel",
       "gui.palamod.alchemycreatorgui.label_varintegeralchemy": "\u003cVAR:integer:alchemy\u003e",
-      "advancements.avancementluckytoday.descr": "Craft a lucky block",
-      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
       "gui.palamod.orelayer.label_endium_64_128_customs_p": "Endium : -64 --) 128 ; customs palamod biomes",
+      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
+      "advancements.avancementluckytoday.descr": "Craft a lucky block",
       "item.palamod.pickaxeofthegodslv_8": "Pickaxe of the gods",
       "gui.palamod.stickgui_4.label_craft_de_la_heal_orb": "craft de la heal orb",
       "gui.palamod.hdvconfgui.label_a_varmarket_conf_price": "à \u003cVAR:market_conf_price\u003e $",
@@ -37137,7 +37543,7 @@
       "item.palamod.pickaxeofthegodslv_1": "Pickaxe of the gods lv 1",
       "gui.palamod.crusherpalahelpgui.label_et_128_tant_100_de_chance_p": "et 128 étant 100% de chance  ] pas",
       "gui.palamod.megasafechestfirstsetup.safe_code": "insert code ( chose something wou will not forget )",
-      "item.palamod.pickaxeofthegodslv_2": "Pickaxe of the gods lv 2",
+      "item.palamod.pickaxeofthegodslv_2": "Pickaxe of the gods",
       "item.palamod.pickaxeofthegodslv_3": "Pickaxe of the gods",
       "gui.palamod.adminshopblockoakwood.label_sell_price_05": "Sell price : 0.5",
       "gui.palamod.uploadergui.label_uploader": "Uploader",
@@ -37149,8 +37555,8 @@
       "gui.palamod.xpbushpalahelpgui.label_xp_bush1": "xp bush",
       "item.palamod.greenpaladumexcator": "Green Paladium Exavator",
       "advancements.avancementendiumingot.title": "Very rare blue nugget",
-      "gui.palamod.assembleurend.label_bouton": "-) bouton ( lucky block )",
       "item.palamod.scuba_helmet": "Scuba Helmet",
+      "gui.palamod.assembleurend.label_bouton": "-) bouton ( lucky block )",
       "gui.palamod.palahelpmachine.button_menu": "Menu",
       "gui.palamod.factionhomegui.label_empty": "",
       "advancements.achmchestpaladium.descr": "Obtain or craft a paladium chest",
@@ -37163,8 +37569,8 @@
       "item.palamod.paladium_greeningot": "Green Paladium ingot",
       "gui.palamod.palaerror_0006.label_come_soon_to_have_more": "Come soon to have more",
       "item.palamod.endium_hammer": "Endium hammer",
-      "enchantment.palamod.bighole": "Big hole ",
       "gui.palamod.stickgui_2.button_stick_suivant": "stick suivant",
+      "enchantment.palamod.bighole": "Big hole ",
       "block.palamod.ametystespike": "Ametyste spike",
       "gui.palamod.crushergui.label_empty": "[----------------]",
       "gui.palamod.adminshopblock_netherrack.label_sell_price_01": "Sell price : 0.1",
@@ -37186,8 +37592,8 @@
       "gui.palamod.adminshopblock.button_stone": "Stone",
       "gui.palamod.crushergui.button_placeholder_tt": "placeholder_tt",
       "block.palamod.endiumstairs": "Endium stairs",
-      "gui.palamod.orelayerfat.label_findium_64_150": "Findium : -64 --) 150",
       "gui.palamod.palahelptree.label_erable_permet_de_crafter_le": "Erable : permet de crafter le",
+      "gui.palamod.orelayerfat.label_findium_64_150": "Findium : -64 --) 150",
       "block.palamod.slimepad": "Slime pad",
       "item.palamod.fakewater_bucket": "Fake water Bucket",
       "gui.palamod.specialmoneypanel.label_specific_player": "Specific player",
@@ -37196,14 +37602,14 @@
       "gui.palamod.next_palahelpgui.label_palahelp": "Palahelp",
       "gui.palamod.armorpalahelpgui.label_haste1": "Haste",
       "item.palamod.spacefood": "Spacefood",
-      "gui.palamod.assembleurend.label_une_maj_sera_bientot_faite": "Une maj sera bientot faite",
       "item.palamod.titane_armor_leggings": "Titane Leggings",
+      "gui.palamod.assembleurend.label_une_maj_sera_bientot_faite": "Une maj sera bientot faite",
       "gui.palamod.adminshopblock.button_blackstone": "blackstone",
       "gui.palamod.palahelpore.label_unsed1": "dont le cave block et le spawn finder",
       "gui.palamod.stickgui_2.label_empty": "(--",
       "gui.palamod.downloadergui.download_state": "turned on",
-      "gui.palamod.guardiangui.button_arbre_de_competance": "Arbre de compétance",
       "gui.palamod.adminshopmenu.button_mobss_items": "Mobs\u0027s items ",
+      "gui.palamod.guardiangui.button_arbre_de_competance": "Arbre de compétance",
       "block.palamod.paladiumoredeepslate": "Paladium Ore",
       "gui.palamod.stickgui_4.label_empty": "(--",
       "gui.palamod.xpbushpalahelpgui.label_xp_berry": "xp berry",
@@ -37272,7 +37678,6 @@
       "block.palamod.grinderblock": "Grinder block",
       "gui.palamod.adminshoporepaladium.button_sell": "sell",
       "block.palamod.ostrya_wood_leaves": "Ostrya Leaves",
-      "gamerule.minagedclayer.description": "Disable the /minage command for servers using it",
       "gui.palamod.adminpanelmenu.button_spawn_panel": "Spawn Panel",
       "gui.palamod.palahelpblock.label_palahelp_block_menu": "Palahelp : block menu",
       "gamerule.gameruledisablewarning": "Palamod expermental features",
@@ -37288,7 +37693,7 @@
       "item.palamod.kiwano": "Kiwano",
       "gui.palamod.armorpalahelpgui.label_65": "+ 6.5",
       "gui.palamod.voidstoneminerconfig.label_de_la_pierre_dans_la_voidstone": "De la pierre dans la voidstone",
-      "item.palamod.amethyste_armor_helmet": "Amethyste Helmet",
+      "item.palamod.amethyste_armor_helmet": "Amethyst Helmet",
       "block.palamod.paladium_greenore": "Green Paladium Ore",
       "gui.palamod.forgepalahelpgui.label_la_forge_est_un_machine_permetta": "La forge est un machine permettant de recycler ses outils",
       "gui.palamod.hdvguiv_2.button_aide": "Aide",
@@ -37306,7 +37711,7 @@
       "gui.palamod.adminshopblockoakwood.button_buy": "buy",
       "item.palamod.legendarystoneinvisible": "Legendary stone invisible",
       "gui.palamod.adminshopblock_gravel.label_buy_price_15": "Buy price :  15",
-      "item.palamod.amethyste_pickaxe": "Amethyste Pickaxe",
+      "item.palamod.amethyste_pickaxe": "Amethyst Pickaxe",
       "item.palamod.moneyitem": "Money item",
       "gui.palamod.hdvconfgui.label_varmarket_conf_name": "\u003cVAR:market_conf_name\u003e",
       "item.palamod.greenpaladiumfastswordhead": "Green paladium fastsword head",
@@ -37328,7 +37733,7 @@
       "item.palamod.paladium_sword": "Paladium Sword",
       "gui.palamod.adminshopblock_glowstone.button_buy": "buy",
       "item.palamod.creative_hammer": "Creative trixium hammer",
-      "item.palamod.amethyste_sword": "Amethyste Sword",
+      "item.palamod.amethyste_sword": "Amethyst Sword",
       "gui.palamod.palamachinepalahelpgui.button_back": "back",
       "item.palamod.paladiumpollen": "Paladium pollen",
       "gui.palamod.adminshopblocksoulsand.button_sell": "sell",
@@ -37355,7 +37760,6 @@
       "item.palamod.headgreenpickaxe": "Green pickaxe head",
       "block.palamod.xpbush": "Xpbush",
       "item.palamod.endium_armor_leggings": "Endium Leggings",
-      "gamerule.minagedclayer": "Minage layer Manager",
       "gui.palamod.palamachinepalahelpgui.label_voir_bton_pour_les_craft": "Voir B�ton pour les craft",
       "block.palamod.titanespike": "Titane spike",
       "gui.palamod.adminshopblockblackstone.label_sell_price_1": "Sell price : 1",
@@ -37390,7 +37794,7 @@
       "gui.palamod.palahelpnotsupported.button_exit": "exit",
       "gui.palamod.stockhdv.button_quit_admin_panel": "Quit Admin Panel",
       "item.palamod.pickaxepatern": "Pickaxe patern",
-      "item.palamod.amethyste": "Amethyste ingot",
+      "item.palamod.amethyste": "Amethyst ingot",
       "gui.palamod.analyserresult.label_varanaly_chest": "\u003cVAR:analy_chest\u003e",
       "item.palamod.paladium_pickaxe": "Paladium Pickaxe",
       "gui.palamod.adminshopblockblackstone.button_back": "back",
@@ -37401,7 +37805,7 @@
       "item.palamod.luckybeta": "Lucky beta",
       "gui.palamod.palahelptree.label_judeecercis_permet_de": "Judeecercis : permet de",
       "gui.palamod.palahelpmachine.button_grinder": "Grinder",
-      "item.palamod.amethyste_armor_boots": "Amethyste Boots",
+      "item.palamod.amethyste_armor_boots": "Amethyst Boots",
       "gui.palamod.downloaderlink.label_money_account_to_this_block": "money account to this block",
       "gui.palamod.palahelpore.button_back": "back",
       "block.palamod.jacaranda_fence": "Jacaranda Fence",
@@ -37422,7 +37826,7 @@
       "gui.palamod.orelayer.label_paladium_64_15": "Paladium :  -64 --) 15",
       "advancements.avancementcoreloading.title": "core is loading, please wait",
       "gui.palamod.palahelpgui_1.label_12": "1/2",
-      "block.palamod.amethyste_ore": "Amethyste Ore",
+      "block.palamod.amethyste_ore": "Amethyst Ore",
       "gui.palamod.itemmenupalahelp.button_armor": "Armor",
       "block.palamod.jacaranda_wood": "Jacaranda Wood",
       "item.palamod.mediumringgreenpaladium": "Medium ring green paladium",
@@ -37461,7 +37865,7 @@
       "gui.palamod.adminshoporecoal.label_sell_price_3": "Sell price :  3",
       "gui.palamod.hdvguiv_2.button_acheter2": "acheter",
       "gui.palamod.hdvguiv_2.button_acheter3": "acheter",
-      "item.palamod.amethyste_shovel": "Amethyste Shovel",
+      "item.palamod.amethyste_shovel": "Amethyst Shovel",
       "gui.palamod.palamachinepalahelpgui.label_batn_qui_vous_permeteront_davo": "Bat�n qui vous permeteront d\u0027avoir des",
       "gui.palamod.hdvguiv_2.button_acheter1": "Acheter",
       "block.palamod.elevatorlightgreen": "Elevator light green",
@@ -37517,7 +37921,8 @@
       "item.palamod.pickaxeofthegodslv_16": "Pickaxe of the gods",
       "gui.palamod.analyserloading.label_please_wait": "Please wait",
       "item.palamod.hammerhead": "Hammer head",
-      "key.palamod.factionblinding": "Factionblinding",
+      "subtitles.lucky_alarm": "Alarm",
+      "key.palamod.factionblinding": "Open or create the faction menu ( wip )",
       "gui.palamod.adminshopblock.button_sand": "Sand",
       "block.palamod.obsidiandoor": "Obsidian door",
       "gui.palamod.fluidpalahelp.label_vous_fait_des_dgats_peut_peut": "vous fait des d�gats Peut peut �tre",
@@ -37534,7 +37939,7 @@
       "gui.palamod.palaerror0002.label_is_not_the_case_for_the_descript": "Is not the case for the description",
       "advancements.avancementlittlekitforalchimist.title": "A little kit for alchimist",
       "gui.palamod.stockhdv.label_inventory": "Inventory ",
-      "gui.palamod.snapshot.label_build_v1900036": "DEVLOPPER VERSION - Cbaie9 - 19e0021",
+      "gui.palamod.snapshot.label_build_v1900036": "DEVLOPPER VERSION - Cbaie9 - 19e0023",
       "item.palamod.scuba_boots": "Scuba Boots",
       "gui.palamod.dynamicorelayer.label_empty4": "----------------------------",
       "gui.palamod.dynamicorelayer.label_paladium_64_15": "Paladium :  -64 --) 15",
@@ -37712,7 +38117,7 @@
       "item.palamod.knockbackorb": "Knockback orb",
       "gui.palamod.palahelpmachine.button_close": "close",
       "item.palamod.paladiumarmorcustom_3_helmet": "Paladium Helmet",
-      "item.palamod.amethyste_armor_leggings": "Amethyste Leggings",
+      "item.palamod.amethyste_armor_leggings": "Amethyst Leggings",
       "gui.palamod.megasafechestfirstsetup.button_save": "save",
       "gui.palamod.orelayer.label_amethyst_64_80": "Amethyst : -64 --) 80",
       "itemGroup.tabpalamod": "Palamod Projet Renew",
@@ -37736,7 +38141,7 @@
       "gui.palamod.grinderpalahelpgui.label_broadsword1": "+ broadsword",
       "block.palamod.amethystslab": "Amethyst slab",
       "gui.palamod.factioncreategui.label_varfaction_create_ing": "\u003cVAR:faction_create_ing\u003e",
-      "item.palamod.palamixedcharcoal": "Palamixed charoal",
+      "item.palamod.palamixedcharcoal": "Palamixed charcoal",
       "block.palamod.endiumnuggetore": "Endium nugget ore",
       "block.palamod.grinderframe": "Grinder frame ",
       "gui.palamod.adminshopblock_dirt.number_buy": "number here",
@@ -37825,7 +38230,7 @@
       "gui.palamod.statusdevnote.label_25022023": "25/02/2023",
       "gui.palamod.languageselection.button_franais": "français",
       "gui.palamod.grinderpalahelpgui.button_next": "next",
-      "block.palamod.amethyste_block": "Block of Amethyste",
+      "block.palamod.amethyste_block": "Block of Amethyst",
       "block.palamod.findium_ore": "Findium Ore",
       "gui.palamod.moneypanel.label_player_to_change_money": "Player to change money",
       "gui.palamod.grinderpalahelpgui.label_broadsword": "Broadsword",
@@ -37867,7 +38272,7 @@
       "item.palamod.invisiblearmor_leggings": "Insivible Leggings",
       "block.palamod.paladiumgreenoredeepslate": "Green Paladium Ore",
       "gui.palamod.palahelpore.label_facilement": "facilement",
-      "item.palamod.compressedamethyste": "Compressed Amethyste",
+      "item.palamod.compressedamethyste": "Compressed Amethyst",
       "gui.palamod.adminshopadban.label_may_crash": "may Crash",
       "item.palamod.amethystparticle": "Amethyst particle",
       "block.palamod.ostrya_wood_fence": "Ostrya Fence",
@@ -37958,7 +38363,7 @@
       "block.palamod.falsetresure": "False tresure",
       "gui.palamod.adminshoporepaladium.label_sell_price_120": "Sell price :  120",
       "gui.palamod.palamachinepalahelpgui.label_effets_diffrent_force_soin": "effets diff�rent ( force, soin, sant�,",
-      "gui.palamod.snapshot.label_palasnap_v190003": "palasnap v19.0021",
+      "gui.palamod.snapshot.label_palasnap_v190003": "palasnap v19.0023",
       "gui.palamod.statusdevnote.label_httpsdiscordcominvitedv": "-) https://discord.com/invite/dVvNDrQENA",
       "gui.palamod.armorpalahelpgui.label_haste": "Haste",
       "gui.palamod.paladiumchestgui.label_inventory": "Inventory",
@@ -38029,7 +38434,7 @@
       "block.palamod.judeecercis_fence": "Judeecercis Fence",
       "block.palamod.paladiumspike": "Paladium spike",
       "item.palamod.flamemodifier": "Flame modifier",
-      "item.palamod.amethyste_axe": "Amethyste Axe",
+      "item.palamod.amethyste_axe": "Amethyst Axe",
       "block.palamod.trixiumnbtblock": "Trixiumnbtblock",
       "gui.palamod.stickgui_2.label_strenght_stick_vous_donne_forc": "Strenght stick : vous donne force 3 pendant 40 secondes",
       "item.palamod.titane_armor_chestplate": "Titane Chestplate",
@@ -38323,7 +38728,7 @@
       "gui.palamod.next_palahelpgui.button_lucky_stats": "Lucky Stats",
       "gui.palamod.stickgui_3.label_empty": "(--",
       "gui.palamod.adminshopblockgrass.button_back": "back",
-      "key.palamod.adminshopkeyblinding": "Adminshopkeyblinding",
+      "key.palamod.adminshopkeyblinding": "Open the Adminshop",
       "item.palamod.paladiumstick": "Paladium stick",
       "block.palamod.luckyblock": "Lucky block ",
       "gui.palamod.palaerror_0005.label_pala_err0r_0005": "Pala Err0r 0005",
@@ -38390,7 +38795,7 @@
       "gui.palamod.adminshoporetitane.label_mode_set": "Mode set :",
       "item.palamod.endium_sword": "Endium Sword",
       "gui.palamod.amethystchestgui.label_rings": "Rings",
-      "item.palamod.amethyste_armor_chestplate": "Amethyste Chestplate",
+      "item.palamod.amethyste_armor_chestplate": "Amethyst Chestplate",
       "block.palamod.erable_fence": "Erable Fence",
       "gui.palamod.analyserresult.label_varanaly_logs": "\u003cVAR:analy_logs\u003e"
     },
@@ -38409,18 +38814,18 @@
       "gui.palamod.adminshopblockstone.button_back": "back",
       "gui.palamod.armorpalahelpgui.label_speed": "Speed",
       "gui.palamod.grinderpalahelp_2gui.label_assemblage_final": "Assemblage final",
-      "advancements.achmringchest.descr": "Repair something with endium ring",
-      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
       "gamerule.logsall.description": "Logs tout les action que font les joueur ",
+      "gui.palamod.grinderpalahelpgui.label_damage_augmante_les_dgats": "Damage : augmante les d�gats -) fastsword",
+      "advancements.achmringchest.descr": "Repair something with endium ring",
       "gui.palamod.grinderpalahelp_2gui.label_layer_1": "Layer 1",
       "gui.palamod.uploaderguipalahelp.button_gui_example_wip": "gui example ( wip )",
-      "enchantment.palamod.hammer_fortune": "Fortune",
-      "block.palamod.titane_ore": "Minerais de titane",
       "item.palamod.paladiumgreenshovel": "épée en paladium vert",
+      "block.palamod.titane_ore": "Minerais de titane",
+      "enchantment.palamod.hammer_fortune": "Fortune",
       "gui.palamod.alchemycreatorgui.label_varintegeralchemy": "\u003cVAR:integer:alchemy\u003e",
-      "advancements.avancementluckytoday.descr": "Fabrique un lucky block",
-      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
       "gui.palamod.orelayer.label_endium_64_128_customs_p": "Endium : -64 --) 128 ; customs palamod biomes",
+      "gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret": "le hdv ses processus ont ete retirer en partie",
+      "advancements.avancementluckytoday.descr": "Fabrique un lucky block",
       "item.palamod.pickaxeofthegodslv_8": "Pioche des dieux",
       "gui.palamod.stickgui_4.label_craft_de_la_heal_orb": "craft de la heal orb",
       "gui.palamod.hdvconfgui.label_a_varmarket_conf_price": "à \u003cVAR:market_conf_price\u003e $",
@@ -38451,8 +38856,8 @@
       "gui.palamod.xpbushpalahelpgui.label_xp_bush1": "xp bush",
       "item.palamod.greenpaladumexcator": "Titane Exavator",
       "advancements.avancementendiumingot.title": "Nugget très rare",
-      "gui.palamod.assembleurend.label_bouton": "-) bouton ( lucky block )",
       "item.palamod.scuba_helmet": "Scuba Helmet",
+      "gui.palamod.assembleurend.label_bouton": "-) bouton ( lucky block )",
       "gui.palamod.palahelpmachine.button_menu": "Menu",
       "gui.palamod.factionhomegui.label_empty": "",
       "advancements.achmchestpaladium.descr": "Obtain or craft a titane chest",
@@ -38465,8 +38870,8 @@
       "item.palamod.paladium_greeningot": "Lingot de paladium vert",
       "gui.palamod.palaerror_0006.label_come_soon_to_have_more": "Come soon to have more",
       "item.palamod.endium_hammer": "Endium hammer",
-      "enchantment.palamod.bighole": "Big hole ",
       "gui.palamod.stickgui_2.button_stick_suivant": "stick suivant",
+      "enchantment.palamod.bighole": "Big hole ",
       "block.palamod.ametystespike": "Spike en amétyste",
       "gui.palamod.crushergui.label_empty": " [----------------]",
       "gui.palamod.adminshopblock_netherrack.label_sell_price_01": "Sell price : 0.1",
@@ -38488,8 +38893,8 @@
       "gui.palamod.adminshopblock.button_stone": "Stone",
       "gui.palamod.crushergui.button_placeholder_tt": "placeholder_tt",
       "block.palamod.endiumstairs": "Endium stairs",
-      "gui.palamod.orelayerfat.label_findium_64_150": "Findium : -64 --) 150",
       "gui.palamod.palahelptree.label_erable_permet_de_crafter_le": "Erable : permet de crafter le",
+      "gui.palamod.orelayerfat.label_findium_64_150": "Findium : -64 --) 150",
       "block.palamod.slimepad": "Slime pad",
       "item.palamod.fakewater_bucket": "Seau de Fakewater",
       "gui.palamod.specialmoneypanel.label_specific_player": "Specific player",
@@ -38498,8 +38903,8 @@
       "gui.palamod.next_palahelpgui.label_palahelp": "Palahelp",
       "gui.palamod.armorpalahelpgui.label_haste1": "Haste",
       "item.palamod.spacefood": "Spacefood",
-      "gui.palamod.assembleurend.label_une_maj_sera_bientot_faite": "Une maj sera bientot faite",
       "item.palamod.titane_armor_leggings": "Jambière en titane",
+      "gui.palamod.assembleurend.label_une_maj_sera_bientot_faite": "Une maj sera bientot faite",
       "gui.palamod.adminshopblock.button_blackstone": "blackstone",
       "gui.palamod.stickgui_2.label_empty": "(--",
       "gui.palamod.downloadergui.download_state": "turned on",
@@ -38573,7 +38978,6 @@
       "block.palamod.grinderblock": "Grinder block",
       "gui.palamod.adminshoporepaladium.button_sell": "sell",
       "block.palamod.ostrya_wood_leaves": "Feuille d\u0027ostrya",
-      "gamerule.minagedclayer.description": "Disable the /minage command for servers using it",
       "gui.palamod.adminpanelmenu.button_spawn_panel": "Spawn Panel",
       "gui.palamod.palahelpblock.label_palahelp_block_menu": "Palahelp : block menu",
       "gamerule.gameruledisablewarning": "Palamod expermental feature",
@@ -38656,7 +39060,6 @@
       "item.palamod.headgreenpickaxe": "Green pickaxe head",
       "block.palamod.xpbush": "Buisson d\u0027xp",
       "item.palamod.endium_armor_leggings": "Endium Leggings",
-      "gamerule.minagedclayer": "Minage layer Manager",
       "gui.palamod.palamachinepalahelpgui.label_voir_bton_pour_les_craft": "Voir B�ton pour les craft",
       "block.palamod.titanespike": "Spike en titane",
       "gui.palamod.adminshopblockblackstone.label_sell_price_1": "Sell price : 1",
@@ -38819,6 +39222,7 @@
       "item.palamod.pickaxeofthegodslv_16": "Pickaxe of the gods",
       "gui.palamod.analyserloading.label_please_wait": "Please wait",
       "item.palamod.hammerhead": "Tête de hammer en paladium",
+      "subtitles.lucky_alarm": "Alarm",
       "key.palamod.factionblinding": "Factionblinding",
       "gui.palamod.adminshopblock.button_sand": "Sand",
       "block.palamod.obsidiandoor": "Porte en obsidienne",
@@ -39714,7 +40118,7 @@
   "workspaceSettings": {
     "modid": "palamod",
     "modName": "Palamod renew",
-    "version": "1.19.021",
+    "version": "1.19.023",
     "description": "Certifié sans lag ( apparent ) ",
     "author": "cb9, FufuBS1( + Paladium Team pour le mod orginale)",
     "websiteURL": " https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA",
@@ -39726,12 +40130,12 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
-      "just_enough_items"
+      "allmods"
     ],
     "currentGenerator": "forge-1.18.2",
     "credits": "Codée par des mecs qui voulais juste sortir de la warzone vivant  , Crédit complet sur le discord ",
     "modElementsPackage": "palamod",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202300110610
+  "mcreatorVersion": 202300217118
 }

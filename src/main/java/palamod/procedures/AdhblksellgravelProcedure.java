@@ -73,7 +73,7 @@ public class AdhblksellgravelProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("You sell " + n2 + " items")), (false));
+				_player.displayClientMessage(new TextComponent(("You sell " + n2 + " items")), false);
 		} else if (n <= n2) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);
@@ -96,12 +96,12 @@ public class AdhblksellgravelProcedure {
 				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) n, _player.inventoryMenu.getCraftSlots());
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("You sell " + n + " items")), (false));
+				_player.displayClientMessage(new TextComponent(("You sell " + n + " items")), false);
 		} else {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("You don't enough items to sell ( number too big )"), (false));
+				_player.displayClientMessage(new TextComponent("You don't enough items to sell ( number too big )"), false);
 		}
 	}
 }

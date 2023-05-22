@@ -39,7 +39,7 @@ public class AmethystehammerItem extends PickaxeItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.EMPTY;
+				return Ingredient.of();
 			}
 		}, 1, -3.99f, new Item.Properties().tab(PalamodModTabs.TAB_GRINDERCREATIVETAB));
 	}

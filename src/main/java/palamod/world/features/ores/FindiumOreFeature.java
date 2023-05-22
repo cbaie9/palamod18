@@ -82,7 +82,7 @@ public class FindiumOreFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE, Blocks.DEEPSLATE);
+				base_blocks = List.of(Blocks.DEEPSLATE, Blocks.STONE, Blocks.GRANITE, Blocks.DIORITE, Blocks.ANDESITE);
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

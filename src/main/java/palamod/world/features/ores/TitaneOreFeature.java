@@ -82,7 +82,7 @@ public class TitaneOreFeature extends OreFeature {
 
 		public boolean test(BlockState blockAt, Random random) {
 			if (base_blocks == null) {
-				base_blocks = List.of(Blocks.STONE, Blocks.GRANITE, Blocks.COARSE_DIRT, Blocks.DIRT, Blocks.DIORITE, Blocks.ANDESITE, Blocks.DEEPSLATE);
+				base_blocks = List.of(Blocks.GRANITE, Blocks.COARSE_DIRT, Blocks.DIRT, Blocks.DIORITE, Blocks.ANDESITE, Blocks.DEEPSLATE, Blocks.STONE);
 			}
 			return base_blocks.contains(blockAt.getBlock());
 		}

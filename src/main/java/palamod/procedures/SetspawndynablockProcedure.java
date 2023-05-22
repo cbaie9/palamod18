@@ -107,7 +107,7 @@ public class SetspawndynablockProcedure {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9");
-				entity.getPersistentData().putBoolean("spawn_warn", (false));
+				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -296,7 +296,7 @@ public class SetspawndynablockProcedure {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9 ");
-				entity.getPersistentData().putBoolean("spawn_warn", (false));
+				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -485,7 +485,7 @@ public class SetspawndynablockProcedure {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9 ");
-				entity.getPersistentData().putBoolean("spawn_warn", (false));
+				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -631,7 +631,7 @@ public class SetspawndynablockProcedure {
 				}.start(world, 20);
 			}
 		} else {
-			entity.getPersistentData().putBoolean("spawn_warn", (true));
+			entity.getPersistentData().putBoolean("spawn_warn", true);
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 						"msg @p [warn] Le spawn semble obsru\u00E9e veuill\u00E9 recommencer la commande pour confimer");

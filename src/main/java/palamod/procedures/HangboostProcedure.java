@@ -16,24 +16,24 @@ public class HangboostProcedure {
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getOffhandItem() : ItemStack.EMPTY).getItem() == PalamodModItems.HANGGLIDER.get()
 				|| (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == PalamodModItems.HANGGLIDER.get()) {
 			if (itemstack.getOrCreateTag().getBoolean("hang_glider_setup")) {
-				itemstack.getOrCreateTag().putBoolean("hang_glider_setup", (true));
-				itemstack.getOrCreateTag().putBoolean("hang_state", (false));
+				itemstack.getOrCreateTag().putBoolean("hang_glider_setup", true);
+				itemstack.getOrCreateTag().putBoolean("hang_state", false);
 			}
 			if (itemstack.getOrCreateTag().getBoolean("hang_state")) {
 				if (Screen.hasShiftDown()) {
-					if (entity instanceof LivingEntity _entity)
-						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1, 4, (false), (false)));
-					if (entity instanceof LivingEntity _entity)
-						_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 99999, 1, (false), (false)));
+					if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1, 4, false, false));
+					if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 99999, 1, false, false));
 				} else {
-					if (entity instanceof LivingEntity _entity)
-						_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 99999, 1, (false), (false)));
-					if (entity instanceof LivingEntity _entity)
-						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 99999, 2, (false), (false)));
+					if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 99999, 1, false, false));
+					if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 99999, 2, false, false));
 				}
-				itemstack.getOrCreateTag().putBoolean("hang_state", (false));
+				itemstack.getOrCreateTag().putBoolean("hang_state", false);
 			} else {
-				itemstack.getOrCreateTag().putBoolean("hang_state", (true));
+				itemstack.getOrCreateTag().putBoolean("hang_state", true);
 				if (entity instanceof LivingEntity _entity)
 					_entity.removeEffect(MobEffects.SLOW_FALLING);
 				if (entity instanceof LivingEntity _entity)

@@ -47,7 +47,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -186,7 +186,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -325,7 +325,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -464,7 +464,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -603,7 +603,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -742,7 +742,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -881,7 +881,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1020,7 +1020,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1159,7 +1159,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1299,7 +1299,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1438,7 +1438,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1577,7 +1577,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1716,7 +1716,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1855,7 +1855,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1994,7 +1994,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2133,7 +2133,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2272,7 +2272,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2411,7 +2411,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2551,7 +2551,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2694,7 +2694,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2833,7 +2833,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2972,7 +2972,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3111,7 +3111,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3250,7 +3250,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3389,7 +3389,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3528,7 +3528,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3672,7 +3672,7 @@ public class FortunehammerProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("hasbeen_dpct", (true));
+							_blockEntity.getTileData().putBoolean("hasbeen_dpct", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3800,7 +3800,7 @@ public class FortunehammerProcedure {
 		}
 		if (rego) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("one or more block already have been duplicated by the hammer"), (false));
+				_player.displayClientMessage(new TextComponent("one or more block already have been duplicated by the hammer"), false);
 		}
 	}
 }

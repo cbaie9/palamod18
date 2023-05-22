@@ -13,8 +13,8 @@ public class SpeedstickprocessProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		if (entity instanceof LivingEntity _entity)
-			_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 10, (false), (true)));
+		if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+			_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 10, false, true));
 		{
 			ItemStack _ist = itemstack;
 			if (_ist.hurt(1, new Random(), null)) {

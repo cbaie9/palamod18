@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "overlay",
   "definition": {
     "priority": "NORMAL",
@@ -9,7 +9,7 @@
         "data": {
           "name": "label_palasnap_v190003",
           "text": {
-            "fixedValue": "palasnap v19.0021"
+            "fixedValue": "palasnap v19.0023"
           },
           "color": {
             "value": -52480,
@@ -63,7 +63,7 @@
         "data": {
           "name": "label_build_v1900036",
           "text": {
-            "fixedValue": "DEVLOPPER VERSION - Cbaie9 - 19e0021"
+            "fixedValue": "DEVLOPPER VERSION - Cbaie9 - 19e0023"
           },
           "color": {
             "value": -3407872,

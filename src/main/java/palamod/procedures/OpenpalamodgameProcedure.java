@@ -1,5 +1,7 @@
 package palamod.procedures;
 
+import palamod.init.PalamodModBlocks;
+
 import palamod.configuration.PalamodconfirgurationfileConfiguration;
 
 import net.minecraftforge.fml.common.Mod;
@@ -32,29 +34,27 @@ public class OpenpalamodgameProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		if (entity.getPersistentData().getBoolean("Paladiumcredit") == false) {
-			entity.getPersistentData().putBoolean("Paladiumcredit", (true));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Merci d'avoir installer le Palamod"), (false));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Ver 1.19 dev series build 0021"), (false));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Cr\u00E9er par cb9 et fufu "), (false));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Aller soutenir le vrai palamod "), (false));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Le mod peut \u00EAtre instable due qu'il soit en beta, penser a le mettre a jour"), (false));
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Bon jeu :)"), (false));
-		}
-		if (entity.getPersistentData().getBoolean("Paladium_setupnbt") == true) {
-			entity.getPersistentData().putBoolean("Paladium_setupnbt", (true));
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Merci d'avoir installer le Palamod"), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Ver 1.19 dev series build 0023"), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Cr\u00E9er par cb9 et fufu "), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Aller soutenir le vrai palamod "), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Le mod peut \u00EAtre instable due qu'il soit en beta, penser a le mettre a jour"), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent("Bon jeu :)"), false);
+		if (!(entity.getPersistentData().getBoolean("Paladium_setupnbt") == true)) {
+			entity.getPersistentData().putBoolean("Paladium_setupnbt", true);
+			entity.getPersistentData().putBoolean("Palamod.alive", true);
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean(("Minage_setlayer_dynamic_enda_" + entity.getDisplayName().getString()), (true));
+					_blockEntity.getTileData().putBoolean(("Minage_setlayer_dynamic_enda_" + entity.getDisplayName().getString()), true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -63,6 +63,11 @@ public class OpenpalamodgameProcedure {
 			entity.getPersistentData().putString("language", "french");
 		} else if ((PalamodconfirgurationfileConfiguration.LANGUAGE.get()).equals("english")) {
 			entity.getPersistentData().putString("language", "english");
+		}
+		if (!((world.getBlockState(new BlockPos(0, 10, 0))).getBlock() == PalamodModBlocks.NBTBLOCK.get())) {
+			LunchallsetupProcedure.execute(world);
+			if (entity instanceof Player _player && !_player.level.isClientSide())
+				_player.displayClientMessage(new TextComponent("[ Palamod ] LAS booted : all system shoud be operational"), false);
 		}
 	}
 }

@@ -24,8 +24,8 @@ public class Legendarystoneinvisible_processProcedure {
 				return false;
 			}
 		}.checkGamemode(entity)) {
-			if (entity instanceof LivingEntity _entity)
-				_entity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 9000, 1, (false), (false)));
+			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 9000, 1, false, false));
 			if (entity instanceof Player _player)
 				_player.getCooldowns().addCooldown(itemstack.getItem(), 48000);
 			itemstack.getOrCreateTag().putDouble("cooldown", 48000);

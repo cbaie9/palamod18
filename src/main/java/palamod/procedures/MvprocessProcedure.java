@@ -47,7 +47,7 @@ public class MvprocessProcedure {
 				}
 			}
 		} else {
-			for (int index0 = 0; index0 < (int) (64); index0++) {
+			for (int index0 = 0; index0 < 64; index0++) {
 				if ((entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(Blocks.STONE)) : false)
 						&& (entity instanceof Player _playerHasItem ? _playerHasItem.getInventory().contains(new ItemStack(PalamodModItems.MINAGEVOIDSTONE.get())) : false)) {
 					itemstack.getOrCreateTag().putDouble("voidstone_count", (itemstack.getOrCreateTag().getDouble("voidstone_count") + 1));

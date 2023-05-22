@@ -17,9 +17,9 @@ public class SethomeprocessProcedure {
 		entity.getPersistentData().putDouble(("home_" + StringArgumentType.getString(arguments, "home_name") + "y"), y);
 		entity.getPersistentData().putDouble(("home_" + StringArgumentType.getString(arguments, "home_name") + "z"), z);
 		entity.getPersistentData().putDouble(("home_id_" + StringArgumentType.getString(arguments, "home_name")), (entity.getPersistentData().getDouble("number_home")));
-		entity.getPersistentData().putBoolean((StringArgumentType.getString(arguments, "home_name")), (true));
+		entity.getPersistentData().putBoolean((StringArgumentType.getString(arguments, "home_name")), true);
 		entity.getPersistentData().putString(("home_name_" + entity.getPersistentData().getDouble("number_home")), (StringArgumentType.getString(arguments, "home_name")));
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("[ Palamod ] Le home \u00E0 \u00E9t\u00E9 creer a votre position actuel"), (false));
+			_player.displayClientMessage(new TextComponent("[ Palamod ] Le home \u00E0 \u00E9t\u00E9 creer a votre position actuel"), false);
 	}
 }

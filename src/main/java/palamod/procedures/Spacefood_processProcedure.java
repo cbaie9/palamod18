@@ -19,7 +19,7 @@ public class Spacefood_processProcedure {
 			return;
 		double yval = 0;
 		yval = y;
-		for (int index0 = 0; index0 < (int) (900); index0++) {
+		for (int index0 = 0; index0 < 900; index0++) {
 			world.setBlock(new BlockPos(x, yval + 1, z), Blocks.AIR.defaultBlockState(), 3);
 			world.setBlock(new BlockPos(x, yval + 2, z), Blocks.AIR.defaultBlockState(), 3);
 			world.setBlock(new BlockPos(x, yval, z), Blocks.AIR.defaultBlockState(), 3);
@@ -33,7 +33,7 @@ public class Spacefood_processProcedure {
 			}
 			yval = yval + 1;
 		}
-		if (entity instanceof LivingEntity _entity)
-			_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 900, 1, (false), (false)));
+		if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+			_entity.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 900, 1, false, false));
 	}
 }

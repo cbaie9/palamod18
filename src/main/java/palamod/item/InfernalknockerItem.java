@@ -37,7 +37,7 @@ public class InfernalknockerItem extends SwordItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.EMPTY;
+				return Ingredient.of();
 			}
 		}, 3, -2f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
 	}

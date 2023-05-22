@@ -15,7 +15,7 @@ public class DamagestickprocessProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
-		for (int index0 = 0; index0 < (int) (25); index0++) {
+		for (int index0 = 0; index0 < 25; index0++) {
 			{
 				Entity _shootFrom = entity;
 				Level projectileLevel = _shootFrom.level;

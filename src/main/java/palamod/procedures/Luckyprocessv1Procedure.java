@@ -69,7 +69,7 @@ public class Luckyprocessv1Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("Lucky_lock", (true));
+					_blockEntity.getTileData().putBoolean("Lucky_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -163,13 +163,13 @@ public class Luckyprocessv1Procedure {
 			}
 			if (Random >= 11600 && Random <= 14700) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Adieu Faction ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), (true));
+					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Adieu Faction ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("Lucky_lock", (false));
+						_blockEntity.getTileData().putBoolean("Lucky_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -281,7 +281,7 @@ public class Luckyprocessv1Procedure {
 							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 									"fill ~-2 ~1 ~2 ~2 ~1 ~-2 palamod:amethyste_block");
 						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
+							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
 									"fill ~-1 ~2 ~1 ~1 ~2 ~-1 palamod:amethyste_block");
 						world.setBlock(new BlockPos(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
 						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
@@ -294,7 +294,7 @@ public class Luckyprocessv1Procedure {
 			}
 			if (Random >= 27500 && Random <= 14700) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Analyste ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), (true));
+					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Analyste ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(PalamodModItems.CHUNKANASLYSER.get());
 					_setstack.setCount(1);
@@ -323,7 +323,7 @@ public class Luckyprocessv1Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("Lucky_lock", (false));
+						_blockEntity.getTileData().putBoolean("Lucky_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -389,7 +389,7 @@ public class Luckyprocessv1Procedure {
 			}
 			if (Random >= 26300 && Random <= 35600) {
 				PalamodModVariables.lucky_name = "Batman nerveux";
-				for (int index0 = 0; index0 < (int) (3); index0++) {
+				for (int index0 = 0; index0 < 3; index0++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = new Bat(EntityType.BAT, _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -465,7 +465,7 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				for (int index1 = 0; index1 < (int) (3); index1++) {
+				for (int index1 = 0; index1 < 3; index1++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = new IronGolem(EntityType.IRON_GOLEM, _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -523,7 +523,7 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				for (int index2 = 0; index2 < (int) (3); index2++) {
+				for (int index2 = 0; index2 < 3; index2++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = new PaladiumdynamiteEntity(PalamodModEntities.PALADIUMDYNAMITE.get(), _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -581,7 +581,7 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				for (int index3 = 0; index3 < (int) (1); index3++) {
+				for (int index3 = 0; index3 < 1; index3++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = new BigdynamiteentityEntity(PalamodModEntities.BIGDYNAMITEENTITY.get(), _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
@@ -640,7 +640,7 @@ public class Luckyprocessv1Procedure {
 					_player.containerMenu.broadcastChanges();
 				}
 				world.setBlock(new BlockPos(x, y, z), Blocks.BAMBOO_SAPLING.defaultBlockState(), 3);
-				for (int index4 = 0; index4 < (int) (5); index4++) {
+				for (int index4 = 0; index4 < 5; index4++) {
 					if (world instanceof Level _level) {
 						BlockPos _bp = new BlockPos(x, y, z);
 						if (BoneMealItem.growCrop(new ItemStack(Items.BONE_MEAL), _level, _bp) || BoneMealItem.growWaterPlant(new ItemStack(Items.BONE_MEAL), _level, _bp, null)) {
@@ -698,7 +698,7 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				for (int index5 = 0; index5 < (int) (100); index5++) {
+				for (int index5 = 0; index5 < 100; index5++) {
 					new Object() {
 						private int ticks = 0;
 						private float waitTicks;
@@ -885,7 +885,7 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				for (int index6 = 0; index6 < (int) (5); index6++) {
+				for (int index6 = 0; index6 < 5; index6++) {
 					if (world instanceof ServerLevel _level) {
 						Entity entityToSpawn = new SkeletonHorse(EntityType.SKELETON_HORSE, _level);
 						entityToSpawn.moveTo(x, y, z, 0, 0);

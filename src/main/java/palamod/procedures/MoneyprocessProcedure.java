@@ -19,6 +19,6 @@ public class MoneyprocessProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString()))) + "$")), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString()))) + "$")), false);
 	}
 }

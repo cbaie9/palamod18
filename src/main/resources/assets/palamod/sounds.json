@@ -1,7 +1,6 @@
 {
-  "goofy_alarm": {
-    "category": "block",
-    "subtitle": "subtitles.goofy_alarm",
+  "lucky_alarm": {
+    "subtitle": "subtitles.lucky_alarm",
     "sounds": [
       {
         "name": "palamod:goofyalarm",

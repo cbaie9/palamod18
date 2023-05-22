@@ -23,8 +23,8 @@ import net.minecraft.client.KeyMapping;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
 public class PalamodModKeyMappings {
-	public static final KeyMapping ADMINSHOPKEYBLINDING = new KeyMapping("key.palamod.adminshopkeyblinding", GLFW.GLFW_KEY_O, "key.categories.multiplayer");
-	public static final KeyMapping FACTIONBLINDING = new KeyMapping("key.palamod.factionblinding", GLFW.GLFW_KEY_F, "key.categories.multiplayer");
+	public static final KeyMapping ADMINSHOPKEYBLINDING = new KeyMapping("key.palamod.adminshopkeyblinding", GLFW.GLFW_KEY_O, "key.categories.palamod");
+	public static final KeyMapping FACTIONBLINDING = new KeyMapping("key.palamod.factionblinding", GLFW.GLFW_KEY_F, "key.categories.palamod");
 
 	@SubscribeEvent
 	public static void registerKeyBindings(FMLClientSetupEvent event) {

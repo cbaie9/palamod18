@@ -69,7 +69,7 @@ public class AdhblkbuynetherrackProcedure {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("You don't enough money to buy these/this item(s)"), (false));
+				_player.displayClientMessage(new TextComponent("You don't enough money to buy these/this item(s)"), false);
 		}
 	}
 }

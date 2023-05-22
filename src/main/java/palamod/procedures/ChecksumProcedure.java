@@ -55,12 +55,12 @@ public class ChecksumProcedure {
 							* ((double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_TITANE.get() + (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_AMETHYST.get()));
 		}
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Checksum :" + output)), (false));
+			_player.displayClientMessage(new TextComponent(("Checksum :" + output)), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Valid value :" + valid)), (false));
+			_player.displayClientMessage(new TextComponent(("Valid value :" + valid)), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Crusher cheat : " + PalamodserverconfirgurationConfiguration.CRUSHER_CUSTOM.get())), (false));
+			_player.displayClientMessage(new TextComponent(("Crusher cheat : " + PalamodserverconfirgurationConfiguration.CRUSHER_CUSTOM.get())), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Crusher :" + PalamodserverconfirgurationConfiguration.GRINDER_CUSTOM.get())), (false));
+			_player.displayClientMessage(new TextComponent(("Crusher :" + PalamodserverconfirgurationConfiguration.GRINDER_CUSTOM.get())), false);
 	}
 }

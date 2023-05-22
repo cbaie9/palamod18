@@ -18,9 +18,7 @@ public class GrinderadvancementreqProcedure {
 		if (entity == null)
 			return;
 		if (((world.getBlockState(new BlockPos(x, y, z))).getBlock() == PalamodModBlocks.TCV_2.get() || (world.getBlockState(new BlockPos(x, y, z))).getBlock() == PalamodModBlocks.GRINDERBLOCK.get())
-				&& !(entity instanceof ServerPlayer _plr && _plr.level instanceof ServerLevel
-						? _plr.getAdvancements().getOrStartProgress(_plr.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:avancementgrindre"))).isDone()
-						: false)) {
+				&& !(entity instanceof ServerPlayer _plr && _plr.level instanceof ServerLevel && _plr.getAdvancements().getOrStartProgress(_plr.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:avancementgrindre"))).isDone())) {
 			if (entity instanceof ServerPlayer _player) {
 				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:avancementgrindre"));
 				AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);

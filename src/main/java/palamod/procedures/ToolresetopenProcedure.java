@@ -14,7 +14,7 @@ public class ToolresetopenProcedure {
 	public static void execute(LevelAccessor world) {
 		double nloop = 0;
 		nloop = 0;
-		for (int index0 = 0; index0 < (int) (100); index0++) {
+		for (int index0 = 0; index0 < 100; index0++) {
 			{
 				BlockEntity _ent = world.getBlockEntity(new BlockPos(0, 10, 0));
 				if (_ent != null) {
@@ -30,7 +30,7 @@ public class ToolresetopenProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean(("market_buyed" + nloop), (false));
+					_blockEntity.getTileData().putBoolean(("market_buyed" + nloop), false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}

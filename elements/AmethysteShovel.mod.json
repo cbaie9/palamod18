@@ -1,11 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "tool",
   "definition": {
     "renderType": 0,
     "texture": "amethyst_shovel",
     "customModelName": "Normal",
-    "name": "Amethyste Shovel",
+    "name": "Amethyst Shovel",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:Palamod"

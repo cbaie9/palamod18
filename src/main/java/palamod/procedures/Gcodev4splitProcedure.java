@@ -44,7 +44,7 @@ public class Gcodev4splitProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_nolock", (false));
+					_blockEntity.getTileData().putBoolean("grinder_nolock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -101,7 +101,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_nolock", (true));
+						_blockEntity.getTileData().putBoolean("grinder_nolock", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -110,7 +110,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement2", (false));
+						_blockEntity.getTileData().putBoolean("grinder_norequirement2", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -198,7 +198,7 @@ public class Gcodev4splitProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("grinder_norequirement2", (true));
+							_blockEntity.getTileData().putBoolean("grinder_norequirement2", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -282,7 +282,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_nolock", (true));
+						_blockEntity.getTileData().putBoolean("grinder_nolock", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -291,7 +291,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement2", (false));
+						_blockEntity.getTileData().putBoolean("grinder_norequirement2", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -397,7 +397,7 @@ public class Gcodev4splitProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("grinder_norequirement2", (true));
+							_blockEntity.getTileData().putBoolean("grinder_norequirement2", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -481,7 +481,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_nolock", (true));
+						_blockEntity.getTileData().putBoolean("grinder_nolock", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -490,7 +490,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement2", (false));
+						_blockEntity.getTileData().putBoolean("grinder_norequirement2", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -586,7 +586,7 @@ public class Gcodev4splitProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("grinder_norequirement2", (true));
+							_blockEntity.getTileData().putBoolean("grinder_norequirement2", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -641,7 +641,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_nolock", (true));
+						_blockEntity.getTileData().putBoolean("grinder_nolock", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -650,7 +650,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement2", (false));
+						_blockEntity.getTileData().putBoolean("grinder_norequirement2", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -739,7 +739,7 @@ public class Gcodev4splitProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("grinder_norequirement2", (true));
+							_blockEntity.getTileData().putBoolean("grinder_norequirement2", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -799,7 +799,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_nolock", (true));
+						_blockEntity.getTileData().putBoolean("grinder_nolock", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -808,7 +808,7 @@ public class Gcodev4splitProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement2", (false));
+						_blockEntity.getTileData().putBoolean("grinder_norequirement2", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -896,7 +896,7 @@ public class Gcodev4splitProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("grinder_norequirement2", (true));
+							_blockEntity.getTileData().putBoolean("grinder_norequirement2", true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}

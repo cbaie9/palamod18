@@ -73,10 +73,10 @@ public class FactruecreateProcedure {
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			entity.getPersistentData().putBoolean(("owner_" + entity.getPersistentData().getString("temp_fact_name") + "_fac"), (true));
+			entity.getPersistentData().putBoolean(("owner_" + entity.getPersistentData().getString("temp_fact_name") + "_fac"), true);
 			entity.getPersistentData().putString("fac_member_name", (entity.getPersistentData().getString("temp_fact_name")));
-			entity.getPersistentData().putBoolean("is_fac_member", (true));
-			entity.getPersistentData().putBoolean("is_fac_deleted", (true));
+			entity.getPersistentData().putBoolean("is_fac_member", true);
+			entity.getPersistentData().putBoolean("is_fac_deleted", true);
 		}
 	}
 }

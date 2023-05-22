@@ -3,10 +3,10 @@
   "textures": {
     "down": "palamod:blocks/jacaranda_top",
     "up": "palamod:blocks/jacaranda_top",
-    "north": "palamod:blocks/jacaranda_log",
-    "east": "palamod:blocks/jacaranda_log",
-    "south": "palamod:blocks/jacaranda_log",
-    "west": "palamod:blocks/jacaranda_log",
+    "north": "palamod:blocks/jacaranda",
+    "east": "palamod:blocks/jacaranda",
+    "south": "palamod:blocks/jacaranda",
+    "west": "palamod:blocks/jacaranda",
     "particle": "palamod:blocks/jacaranda_top"
   }
 }

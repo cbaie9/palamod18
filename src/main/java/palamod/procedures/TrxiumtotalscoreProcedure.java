@@ -20,7 +20,7 @@ public class TrxiumtotalscoreProcedure {
 							return blockEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(0, 11, 0), "trixium_totalscore")))), (false));
+				}.getValue(world, new BlockPos(0, 11, 0), "trixium_totalscore")))), false);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent(("The global server trxium score is " + (new Object() {
@@ -30,7 +30,7 @@ public class TrxiumtotalscoreProcedure {
 							return blockEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(0, 11, 0), "trixium_totalscore")))), (false));
+				}.getValue(world, new BlockPos(0, 11, 0), "trixium_totalscore")))), false);
 		}
 	}
 }

@@ -57,7 +57,7 @@ public class Pickaxeofthegodslv1Item extends TieredItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.EMPTY;
+				return Ingredient.of();
 			}
 		}, new Item.Properties().tab(PalamodModTabs.TAB_PICKAXEOFGODSTAB));
 	}

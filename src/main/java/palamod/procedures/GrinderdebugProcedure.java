@@ -40,6 +40,6 @@ public class GrinderdebugProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2")))), (false));
+			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2")))), false);
 	}
 }

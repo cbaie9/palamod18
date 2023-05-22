@@ -1,11 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "amethyst_ingot",
     "customModelName": "Normal",
-    "name": "Amethyste ingot",
+    "name": "Amethyst ingot",
     "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:Palamod"

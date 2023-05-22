@@ -35,7 +35,7 @@ public class Hdvtruebuyv2Procedure {
 		if (entity == null)
 			return;
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("1"), (false));
+			_player.displayClientMessage(new TextComponent("1"), false);
 		if (new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -59,7 +59,7 @@ public class Hdvtruebuyv2Procedure {
 			}
 		}.getValue(world, new BlockPos(x, 256, z), "temp_market_slot"))))) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("1a"), (false));
+				_player.displayClientMessage(new TextComponent("1a"), false);
 			if ((new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -69,9 +69,9 @@ public class Hdvtruebuyv2Procedure {
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_locked")) == false) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b"), (false));
+					_player.displayClientMessage(new TextComponent("1b"), false);
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b_a"), (false));
+					_player.displayClientMessage(new TextComponent("1b_a"), false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -131,7 +131,7 @@ public class Hdvtruebuyv2Procedure {
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b_b"), (false));
+					_player.displayClientMessage(new TextComponent("1b_b"), false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -190,7 +190,7 @@ public class Hdvtruebuyv2Procedure {
 					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b_c"), (false));
+					_player.displayClientMessage(new TextComponent("1b_c"), false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -203,12 +203,12 @@ public class Hdvtruebuyv2Procedure {
 									return blockEntity.getTileData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, 256, z), "temp_market_slot"))), (true));
+						}.getValue(world, new BlockPos(x, 256, z), "temp_market_slot"))), true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b_d"), (false));
+					_player.displayClientMessage(new TextComponent("1b_d"), false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -226,7 +226,7 @@ public class Hdvtruebuyv2Procedure {
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("1b_e"), (false));
+					_player.displayClientMessage(new TextComponent("1b_e"), false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -287,9 +287,9 @@ public class Hdvtruebuyv2Procedure {
 					}
 				}.getValue(world, new BlockPos(x, 256, z), "temp_market_hash")) {
 					if (entity instanceof Player _player && !_player.level.isClientSide())
-						_player.displayClientMessage(new TextComponent("1c2"), (false));
+						_player.displayClientMessage(new TextComponent("1c2"), false);
 					if (entity instanceof Player _player && !_player.level.isClientSide())
-						_player.displayClientMessage(new TextComponent("ok"), (false));
+						_player.displayClientMessage(new TextComponent("ok"), false);
 					if (entity instanceof Player _player && !_player.level.isClientSide())
 						_player.displayClientMessage(new TextComponent(("" + (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -298,12 +298,12 @@ public class Hdvtruebuyv2Procedure {
 									return blockEntity.getTileData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, 256, z), "temp_market_slot")))), (false));
+						}.getValue(world, new BlockPos(x, 256, z), "temp_market_slot")))), false);
 				} else {
 					if (entity instanceof Player _player && !_player.level.isClientSide())
-						_player.displayClientMessage(new TextComponent("not_ok"), (false));
+						_player.displayClientMessage(new TextComponent("not_ok"), false);
 					if (entity instanceof Player _player && !_player.level.isClientSide())
-						_player.displayClientMessage(new TextComponent("ic2"), (false));
+						_player.displayClientMessage(new TextComponent("ic2"), false);
 				}
 			} else {
 				if (entity instanceof Player _player)

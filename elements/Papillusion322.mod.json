@@ -1,9 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "painting",
   "definition": {
     "texture": "papillusion322.png",
     "width": 64,
-    "height": 32
+    "height": 32,
+    "title": "Papillusion 3 2 2",
+    "author": "Unknown"
   }
 }

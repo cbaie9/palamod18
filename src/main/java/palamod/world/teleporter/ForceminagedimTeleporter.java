@@ -30,6 +30,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.BlockUtil;
 
 import java.util.function.Function;
@@ -184,7 +185,7 @@ public class ForceminagedimTeleporter implements ITeleporter {
 	}
 
 	@Override
-	public Entity placeEntity(Entity entity, ServerLevel ServerLevel, ServerLevel server, float yaw, Function<Boolean, Entity> repositionEntity) {
+	public Entity placeEntity(Entity entity, ServerLevel currentWorld, ServerLevel server, float yaw, Function<Boolean, Entity> repositionEntity) {
 		PortalInfo portalinfo = getPortalInfo(entity, server);
 		if (entity instanceof ServerPlayer player) {
 			player.setLevel(server);
@@ -192,6 +193,7 @@ public class ForceminagedimTeleporter implements ITeleporter {
 			entity.setYRot(portalinfo.yRot % 360.0F);
 			entity.setXRot(portalinfo.xRot % 360.0F);
 			entity.moveTo(portalinfo.pos.x, portalinfo.pos.y, portalinfo.pos.z);
+			CriteriaTriggers.CHANGED_DIMENSION.trigger(player, currentWorld.dimension(), server.dimension());
 			return entity;
 		} else {
 			Entity entityNew = entity.getType().create(server);

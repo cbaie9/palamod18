@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "block",
   "definition": {
     "texture": "titane_ore_deepslate",
@@ -124,9 +124,6 @@
     "restrictionBiomes": [],
     "blocksToReplace": [
       {
-        "value": "Blocks.STONE"
-      },
-      {
         "value": "Blocks.STONE#1"
       },
       {
@@ -146,6 +143,9 @@
       },
       {
         "value": "CUSTOM:Protodeepslate"
+      },
+      {
+        "value": "Blocks.STONE#0"
       }
     ],
     "generationShape": "UNIFORM",

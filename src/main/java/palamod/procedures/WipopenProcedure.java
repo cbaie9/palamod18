@@ -59,7 +59,7 @@ public class WipopenProcedure {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(), "$setup hdv");
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Setup was not done, Auto setup"), (false));
+					_player.displayClientMessage(new TextComponent("Setup was not done, Auto setup"), false);
 				PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " did /hdv Setup was not done, Auto Setup hdv"));
 			} else if ((new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -86,7 +86,7 @@ public class WipopenProcedure {
 					}
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("2"), (false));
+					_player.displayClientMessage(new TextComponent("2"), false);
 			} else {
 				{
 					if (entity instanceof ServerPlayer _ent) {
@@ -105,7 +105,7 @@ public class WipopenProcedure {
 					}
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Error 1 : hdv locked"), (false));
+					_player.displayClientMessage(new TextComponent("Error 1 : hdv locked"), false);
 			}
 		}
 	}

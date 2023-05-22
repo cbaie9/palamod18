@@ -29,7 +29,7 @@ public class AmethysteBlockBlock extends Block {
 	@Override
 	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
 		if (player.getInventory().getSelected().getItem() instanceof PickaxeItem tieredItem)
-			return tieredItem.getTier().getLevel() >= 8;
+			return tieredItem.getTier().getLevel() >= 2;
 		return false;
 	}
 

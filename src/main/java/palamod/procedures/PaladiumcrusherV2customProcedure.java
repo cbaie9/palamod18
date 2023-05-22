@@ -99,7 +99,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (false));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -188,7 +188,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (true));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -262,7 +262,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (false));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -351,7 +351,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (true));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -425,7 +425,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (false));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -495,7 +495,7 @@ public class PaladiumcrusherV2customProcedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("crusher_norequirement", (false));
+							_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -523,7 +523,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (true));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -597,7 +597,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (false));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -686,7 +686,7 @@ public class PaladiumcrusherV2customProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", (true));
+						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}

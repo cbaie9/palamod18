@@ -18,7 +18,7 @@ public class DownloaderlinkprocessProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("downloader_linked", (true));
+				_blockEntity.getTileData().putBoolean("downloader_linked", true);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -47,7 +47,7 @@ public class DownloaderlinkprocessProcedure {
 							return blockEntity.getTileData().getString(tag);
 						return "";
 					}
-				}.getValue(world, new BlockPos(x, y, z), "downloader_linked_account")))), (false));
+				}.getValue(world, new BlockPos(x, y, z), "downloader_linked_account")))), false);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(new TextComponent(("Your bank account has been link to this block : value=" + (new Object() {
@@ -57,7 +57,7 @@ public class DownloaderlinkprocessProcedure {
 							return blockEntity.getTileData().getString(tag);
 						return "";
 					}
-				}.getValue(world, new BlockPos(x, y, z), "downloader_linked_account")))), (false));
+				}.getValue(world, new BlockPos(x, y, z), "downloader_linked_account")))), false);
 		}
 		if (entity instanceof Player _player)
 			_player.closeContainer();

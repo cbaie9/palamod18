@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "block",
   "definition": {
     "texture": "amethyst_ore",
@@ -33,7 +33,7 @@
         "subtract": false
       }
     ],
-    "name": "Amethyste Ore",
+    "name": "Amethyst Ore",
     "specialInfo": [],
     "hardness": 3.0,
     "resistance": 15.157165665103982,
@@ -124,10 +124,19 @@
     "restrictionBiomes": [],
     "blocksToReplace": [
       {
-        "value": "Blocks.STONE"
+        "value": "Blocks.DEEPSLATE"
       },
       {
-        "value": "Blocks.DEEPSLATE"
+        "value": "Blocks.STONE#0"
+      },
+      {
+        "value": "Blocks.STONE#1"
+      },
+      {
+        "value": "Blocks.STONE#3"
+      },
+      {
+        "value": "Blocks.STONE#5"
       }
     ],
     "generationShape": "UNIFORM",

@@ -42,7 +42,7 @@ public class Hdvsell0Procedure {
 		double numitem = 0;
 		nloop = 0;
 		t1c = true;
-		for (int index0 = 0; index0 < (int) (100); index0++) {
+		for (int index0 = 0; index0 < 100; index0++) {
 			if (new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);

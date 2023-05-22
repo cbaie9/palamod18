@@ -6,6 +6,6 @@ public class Grindergui_hGo_adv_checkProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		entity.getPersistentData().putBoolean("hGo_adv", (true));
+		entity.getPersistentData().putBoolean("hGo_adv", true);
 	}
 }

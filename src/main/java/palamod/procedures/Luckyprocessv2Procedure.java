@@ -574,7 +574,7 @@ public class Luckyprocessv2Procedure {
 				((Slot) _slots.get(5)).set(_setstack);
 				_player.containerMenu.broadcastChanges();
 			}
-			for (int index0 = 0; index0 < (int) (64); index0++) {
+			for (int index0 = 0; index0 < 64; index0++) {
 				new Object() {
 					private int ticks = 0;
 					private float waitTicks;

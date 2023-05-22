@@ -57,7 +57,7 @@ public class MoneyitemuseProcedure {
 				}
 			} else {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("wrong player"), (false));
+					_player.displayClientMessage(new TextComponent("wrong player"), false);
 			}
 		} else {
 			if (itemstack.getOrCreateTag().getBoolean("destri_money")) {

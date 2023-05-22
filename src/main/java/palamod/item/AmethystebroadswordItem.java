@@ -32,7 +32,7 @@ public class AmethystebroadswordItem extends SwordItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.EMPTY;
+				return Ingredient.of();
 			}
 		}, 3, -3.5f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
 	}

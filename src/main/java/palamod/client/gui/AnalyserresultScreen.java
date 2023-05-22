@@ -3,6 +3,20 @@ package palamod.client.gui;
 
 import palamod.world.inventory.AnalyserresultMenu;
 
+import palamod.procedures.AnalyreturnwoolProcedure;
+import palamod.procedures.AnalyreturnstoneProcedure;
+import palamod.procedures.AnalyreturnshulkerProcedure;
+import palamod.procedures.AnalyreturnplanksProcedure;
+import palamod.procedures.AnalyreturnoresProcedure;
+import palamod.procedures.AnalyreturnlogsProcedure;
+import palamod.procedures.AnalyreturnendstoneProcedure;
+import palamod.procedures.AnalyreturndirtProcedure;
+import palamod.procedures.AnalyreturncobbleProcedure;
+import palamod.procedures.AnalyreturnclayProcedure;
+import palamod.procedures.AnalyreturnchestProcedure;
+import palamod.procedures.AnalyreturnbedrockProcedure;
+import palamod.procedures.AnalyreturnairProcedure;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -67,7 +81,7 @@ public class AnalyserresultScreen extends AbstractContainerScreen<Analyserresult
 		this.blit(ms, this.leftPos + 5, this.topPos + 102, 0, 0, 32, 32, 32, 32);
 
 		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/chest_ico32.png"));
-		this.blit(ms, this.leftPos + 5, this.topPos + 135, 0, 0, 32, 32, 32, 32);
+		this.blit(ms, this.leftPos + 3, this.topPos + 135, 0, 0, 32, 32, 32, 32);
 
 		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/dirt.png"));
 		this.blit(ms, this.leftPos + 5, this.topPos + 166, 0, 0, 32, 32, 32, 32);
@@ -119,22 +133,48 @@ public class AnalyserresultScreen extends AbstractContainerScreen<Analyserresult
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_logs"), 151, 39, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_wool"), 153, 71, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_bedrock"), 151, 101, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_ores"), 39, 59, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varintegeranaly_dirt"), 37, 187, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_stone"), 268, 27, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_endstone"), 43, 24, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_air"), 152, 148, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_shulker"), 152, 178, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_chest"), 34, 148, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_wool"), 153, 84, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_bedrock"), 152, 112, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_cobble"), 39, 113, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_logs"), 153, 51, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_planks"), 38, 84, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnoresProcedure.execute(), 39, 59, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturndirtProcedure.execute(), 37, 187, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnstoneProcedure.execute(), 268, 22, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnendstoneProcedure.execute(), 43, 24, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnairProcedure.execute(), 152, 148, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnshulkerProcedure.execute(), 152, 178, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnchestProcedure.execute(), 34, 148, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnwoolProcedure.execute(), 153, 84, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnbedrockProcedure.execute(), 152, 112, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturncobbleProcedure.execute(), 39, 113, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnlogsProcedure.execute(), 153, 51, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnplanksProcedure.execute(), 38, 84, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_air"), 151, 130, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_stone"), 267, 9, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_shulker"), 151, 165, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_varanaly_clay"), 151, 22, -12829636);
+		this.font.draw(poseStack,
+
+				AnalyreturnclayProcedure.execute(), 151, 22, -12829636);
 	}
 
 	@Override

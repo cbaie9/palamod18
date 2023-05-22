@@ -12,6 +12,6 @@ public class HammerforturneprocessProcedure {
 			return;
 		world.addParticle(ParticleTypes.EXPLOSION, x, y, z, 0, 1, 0);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("Le mode \"fortune\" est actuellement en alpha"), (false));
+			_player.displayClientMessage(new TextComponent("Le mode \"fortune\" est actuellement en alpha"), false);
 	}
 }

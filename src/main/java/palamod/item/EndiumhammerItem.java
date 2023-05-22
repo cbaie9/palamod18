@@ -41,7 +41,7 @@ public class EndiumhammerItem extends PickaxeItem {
 			}
 
 			public Ingredient getRepairIngredient() {
-				return Ingredient.EMPTY;
+				return Ingredient.of();
 			}
 		}, 1, -3f, new Item.Properties().tab(PalamodModTabs.TAB_GRINDERCREATIVETAB).fireResistant());
 	}

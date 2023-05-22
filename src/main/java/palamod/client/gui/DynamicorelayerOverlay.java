@@ -46,30 +46,30 @@ public class DynamicorelayerOverlay {
 				y = entity.getY();
 				z = entity.getZ();
 			}
-			if (MinageprocessdynamicchecknbtProcedure.execute(world, entity)) {
+			if (MinageprocessdynamicchecknbtProcedure.execute(entity)) {
 				if (DynamiccheckendiumfullverProcedure.execute(world, x, y, z, entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty"), posX + -211, posY + -76, -1);
-				if (DynamiccechkpaladiumProcedure.execute(world, entity))
+				if (DynamiccechkpaladiumProcedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_paladium_64_15"), posX + -210, posY + -9, -3407872);
 				if (DynamiccheckendiumfullverProcedure.execute(world, x, y, z, entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_endium_64_128_customs_p"), posX + -211, posY + -66, -16777114);
 				Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_green_paladium_64_128"), posX + -210, posY + -55, -13395712);
-				if (DynamicchecktitaneProcedure.execute(world, entity))
+				if (DynamicchecktitaneProcedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_titane_64_32"), posX + -210, posY + -20, -10066330);
-				if (DynamiccheckamethystProcedure.execute(world, entity))
+				if (DynamiccheckamethystProcedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_amethyst_64_80"), posX + -211, posY + -32, -6750055);
 				Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_findium_64_150"), posX + -211, posY + -44, -13312);
-				if (Dynamicchecksector5Procedure.execute(world, entity))
+				if (Dynamicchecksector5Procedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty1"), posX + -211, posY + 2, -1);
-				if (Dynamicchecksector4Procedure.execute(world, entity))
+				if (Dynamicchecksector4Procedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty2"), posX + -210, posY + -9, -1);
-				if (Dynamicchecksector3Procedure.execute(world, entity))
+				if (Dynamicchecksector3Procedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty3"), posX + -210, posY + -20, -1);
 				if (DynamiccheckendiumfullverenverProcedure.execute(world, x, y, z, entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty4"), posX + -212, posY + -68, -1);
-				if (Dynamicchecksector1Procedure.execute(world, entity))
+				if (Dynamicchecksector1Procedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty5"), posX + -210, posY + -45, -1);
-				if (Dynamicchecksector2Procedure.execute(world, entity))
+				if (Dynamicchecksector2Procedure.execute(entity))
 					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.dynamicorelayer.label_empty6"), posX + -210, posY + -31, -1);
 			}
 		}

@@ -34,7 +34,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("Is_pmachine_setup", (true));
+					_blockEntity.getTileData().putBoolean("Is_pmachine_setup", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -43,7 +43,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -171,7 +171,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -322,7 +322,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -433,7 +433,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -584,7 +584,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -695,7 +695,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -846,7 +846,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -957,7 +957,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1108,7 +1108,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1219,7 +1219,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1370,7 +1370,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1481,7 +1481,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1632,7 +1632,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1743,7 +1743,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1894,7 +1894,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2005,7 +2005,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2156,7 +2156,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2267,7 +2267,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2418,7 +2418,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2529,7 +2529,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2680,7 +2680,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2791,7 +2791,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2942,7 +2942,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3053,7 +3053,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3204,7 +3204,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3315,7 +3315,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3466,7 +3466,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3577,7 +3577,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3728,7 +3728,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3839,7 +3839,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3990,7 +3990,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4101,7 +4101,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4252,7 +4252,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4363,7 +4363,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4514,7 +4514,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4625,7 +4625,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4776,7 +4776,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4887,7 +4887,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5038,7 +5038,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5149,7 +5149,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5300,7 +5300,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5411,7 +5411,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5562,7 +5562,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5673,7 +5673,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5824,7 +5824,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5935,7 +5935,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6086,7 +6086,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6197,7 +6197,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6348,7 +6348,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6459,7 +6459,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6610,7 +6610,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6721,7 +6721,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6872,7 +6872,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6983,7 +6983,7 @@ public class Palamachineprocessv2Procedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("pmachine_lock", (true));
+					_blockEntity.getTileData().putBoolean("pmachine_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7134,7 +7134,7 @@ public class Palamachineprocessv2Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("pmachine_lock", (false));
+						_blockEntity.getTileData().putBoolean("pmachine_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}

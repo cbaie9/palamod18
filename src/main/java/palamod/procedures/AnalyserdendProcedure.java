@@ -74,9 +74,9 @@ public class AnalyserdendProcedure {
 		xloop = x - 8;
 		zloop = z - 8;
 		PalamodMod.LOGGER.debug(("[ Palamod ] proc1 :" + proc1id + "( staus proc2an )" + "( server may lag )"));
-		for (int index0 = 0; index0 < (int) (8); index0++) {
-			for (int index1 = 0; index1 < (int) (8); index1++) {
-				for (int index2 = 0; index2 < (int) (316); index2++) {
+		for (int index0 = 0; index0 < 8; index0++) {
+			for (int index1 = 0; index1 < 8; index1++) {
+				for (int index2 = 0; index2 < 316; index2++) {
 					if ((world.getBlockState(new BlockPos(xloop, yloop, zloop))).is(BlockTags.create(new ResourceLocation("forge:ores"))) || aready_iden) {
 						ores = ores + 1;
 					} else if ((world.getBlockState(new BlockPos(xloop, yloop, zloop))).getBlock() == Blocks.BEDROCK || aready_iden) {
@@ -165,19 +165,5 @@ public class AnalyserdendProcedure {
 				}, _bpos);
 			}
 		}
-		PalamodModVariables.analy_ores = ores;
-		PalamodModVariables.analy_dirt = dirt;
-		PalamodModVariables.analy_stone = stone;
-		PalamodModVariables.analy_endstone = endstone;
-		PalamodModVariables.analy_clay = clay;
-		PalamodModVariables.analy_cobble = cobblestone;
-		PalamodModVariables.analy_logs = logs;
-		PalamodModVariables.analy_planks = planks;
-		PalamodModVariables.analy_bedrock = bedrock;
-		PalamodModVariables.analy_wool = wool;
-		PalamodModVariables.analy_chest = chest;
-		PalamodModVariables.analy_shulker = shulkers;
-		PalamodModVariables.analy_air = air;
-		PalamodModVariables.analy_grass = grass;
 	}
 }

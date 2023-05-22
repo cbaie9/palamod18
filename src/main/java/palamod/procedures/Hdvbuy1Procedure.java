@@ -154,7 +154,7 @@ public class Hdvbuy1Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_num")))), (false));
+			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_num")))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("" + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -163,7 +163,7 @@ public class Hdvbuy1Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_price")))), (false));
+			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_price")))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("" + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -172,7 +172,7 @@ public class Hdvbuy1Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), "market_price1")))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), "market_price1")))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("" + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -181,6 +181,6 @@ public class Hdvbuy1Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), "market_num1")))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), "market_num1")))), false);
 	}
 }

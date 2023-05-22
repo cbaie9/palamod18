@@ -28,9 +28,7 @@ public class RingprocessProcedure {
 					_ist.setDamageValue(0);
 				}
 			}
-			if (!(entity instanceof ServerPlayer _plr && _plr.level instanceof ServerLevel
-					? _plr.getAdvancements().getOrStartProgress(_plr.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:achmringpaladium"))).isDone()
-					: false)) {
+			if (!(entity instanceof ServerPlayer _plr && _plr.level instanceof ServerLevel && _plr.getAdvancements().getOrStartProgress(_plr.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:achmringpaladium"))).isDone())) {
 				if (entity instanceof ServerPlayer _player) {
 					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:achmringpaladium"));
 					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);

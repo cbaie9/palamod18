@@ -1,11 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "tool",
   "definition": {
     "renderType": 0,
     "texture": "amethyst_sword",
     "customModelName": "Normal",
-    "name": "Amethyste Sword",
+    "name": "Amethyst Sword",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:Palamod"

@@ -1,11 +1,11 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "palamixed2",
     "customModelName": "Normal",
-    "name": "Palamixed charoal",
+    "name": "Palamixed charcoal",
     "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:Palamod"

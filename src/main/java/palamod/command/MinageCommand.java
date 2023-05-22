@@ -48,7 +48,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayeronProcedure.execute(world, entity);
+					MinageprocesssetlayeronProcedure.execute(entity);
 					return 0;
 				})).then(Commands.literal("off").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -60,7 +60,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayeroffProcedure.execute(world, entity);
+					MinageprocesssetlayeroffProcedure.execute(entity);
 					return 0;
 				}))).then(Commands.literal("dynamic").then(Commands.literal("on").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -72,7 +72,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayerdynamiconProcedure.execute(world, entity);
+					MinageprocesssetlayerdynamiconProcedure.execute(entity);
 					return 0;
 				})).then(Commands.literal("off").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -84,7 +84,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayerdynamicoffProcedure.execute(world, entity);
+					MinageprocesssetlayerdynamicoffProcedure.execute(entity);
 					return 0;
 				})).then(Commands.literal("settings").then(Commands.literal("endiumfullcache").then(Commands.literal("on").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -96,7 +96,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinegeprocesssetlayerendiumonProcedure.execute(world, entity);
+					MinegeprocesssetlayerendiumonProcedure.execute(entity);
 					return 0;
 				})).then(Commands.literal("off").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -108,7 +108,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayerendiumoffProcedure.execute(world, entity);
+					MinageprocesssetlayerendiumoffProcedure.execute(entity);
 					return 0;
 				})).then(Commands.literal("dynamicbiomechange").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -120,7 +120,7 @@ public class MinageCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MinageprocesssetlayerendiumtdynaProcedure.execute(world, entity);
+					MinageprocesssetlayerendiumtdynaProcedure.execute(entity);
 					return 0;
 				})))))));
 	}

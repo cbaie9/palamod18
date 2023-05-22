@@ -15,12 +15,12 @@ public class Optihdvv4Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("hdv_locked", (true));
+				_blockEntity.getTileData().putBoolean("hdv_locked", true);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
-		for (int index0 = 0; index0 < (int) (100); index0++) {
-			for (int index1 = 0; index1 < (int) (100); index1++) {
+		for (int index0 = 0; index0 < 100; index0++) {
+			for (int index1 = 0; index1 < 100; index1++) {
 				if ((new Object() {
 					public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -105,7 +105,7 @@ public class Optihdvv4Procedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean(("market_buyed" + number_lp), (false));
+							_blockEntity.getTileData().putBoolean(("market_buyed" + number_lp), false);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -114,7 +114,7 @@ public class Optihdvv4Procedure {
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean(("market_buyed" + (number_lp + 1)), (true));
+							_blockEntity.getTileData().putBoolean(("market_buyed" + (number_lp + 1)), true);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -127,7 +127,7 @@ public class Optihdvv4Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("hdv_locked", (false));
+				_blockEntity.getTileData().putBoolean("hdv_locked", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

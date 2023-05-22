@@ -17,7 +17,7 @@ public class Elevator_processProcedure {
 		if (Screen.hasShiftDown()) {
 			y_pos = y;
 			add_num = 1;
-			for (int index0 = 0; index0 < (int) (320); index0++) {
+			for (int index0 = 0; index0 < 320; index0++) {
 				if ((world.getBlockState(new BlockPos(x, y_pos - add_num, z))).is(BlockTags.create(new ResourceLocation("palamod:elevator")))) {
 					{
 						Entity _ent = entity;
@@ -35,7 +35,7 @@ public class Elevator_processProcedure {
 		} else if (Screen.hasControlDown()) {
 			y_pos = y;
 			add_num = 1;
-			for (int index1 = 0; index1 < (int) (320); index1++) {
+			for (int index1 = 0; index1 < 320; index1++) {
 				if ((world.getBlockState(new BlockPos(x, y_pos + add_num, z))).is(BlockTags.create(new ResourceLocation("palamod:elevator")))) {
 					{
 						Entity _ent = entity;

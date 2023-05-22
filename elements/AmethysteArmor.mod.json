@@ -1,5 +1,5 @@
 {
-  "_fv": 39,
+  "_fv": 43,
   "_type": "armor",
   "definition": {
     "enableHelmet": true,
@@ -14,10 +14,10 @@
       "value": "CUSTOM:Palamod"
     },
     "armorTextureFile": "amethyst_.png",
-    "helmetName": "Amethyste Helmet",
-    "bodyName": "Amethyste Chestplate",
-    "leggingsName": "Amethyste Leggings",
-    "bootsName": "Amethyste Boots",
+    "helmetName": "Amethyst Helmet",
+    "bodyName": "Amethyst Chestplate",
+    "leggingsName": "Amethyst Leggings",
+    "bootsName": "Amethyst Boots",
     "helmetSpecialInfo": [],
     "bodySpecialInfo": [],
     "leggingsSpecialInfo": [],

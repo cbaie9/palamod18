@@ -49,10 +49,10 @@ public class SpecialmoneyprocessProcedure {
 			}
 		}
 		if (("").equals(guistate.containsKey("text:name") ? ((EditBox) guistate.get("text:name")).getValue() : "")) {
-			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("Is_pname", (false));
+			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("Is_pname", false);
 			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putString("Money_spename", (entity.getDisplayName().getString()));
 		} else {
-			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("Is_pname", (true));
+			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("Is_pname", true);
 			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putString("Money_spename", (guistate.containsKey("text:name") ? ((EditBox) guistate.get("text:name")).getValue() : ""));
 		}
 		if (("").equals(guistate.containsKey("text:amount") ? ((EditBox) guistate.get("text:amount")).getValue() : "")) {
@@ -69,9 +69,9 @@ public class SpecialmoneyprocessProcedure {
 			}.convert(guistate.containsKey("text:amount") ? ((EditBox) guistate.get("text:amount")).getValue() : ""));
 		}
 		if (guistate.containsKey("checkbox:custom_destructible") ? ((Checkbox) guistate.get("checkbox:custom_destructible")).selected() : false) {
-			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("destri_money", (true));
+			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("destri_money", true);
 		} else {
-			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("destri_money", (false));
+			(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putBoolean("destri_money", false);
 		}
 		if (entity instanceof Player _player)
 			_player.closeContainer();

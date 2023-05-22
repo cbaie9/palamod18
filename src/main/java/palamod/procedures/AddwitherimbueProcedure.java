@@ -10,7 +10,7 @@ public class AddwitherimbueProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		if (entity instanceof LivingEntity _entity)
-			_entity.addEffect(new MobEffectInstance(PalamodModMobEffects.WITHERIMBU.get(), 20000, 1, (false), (false)));
+		if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
+			_entity.addEffect(new MobEffectInstance(PalamodModMobEffects.WITHERIMBU.get(), 20000, 1, false, false));
 	}
 }

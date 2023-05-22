@@ -30,7 +30,7 @@ public class Hdvsellv2Procedure {
 			return;
 		double nloop = 0;
 		double nslot = 0;
-		for (int index0 = 0; index0 < (int) (100); index0++) {
+		for (int index0 = 0; index0 < 100; index0++) {
 			if ((new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -102,7 +102,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean(("market_buyed" + nslot), (false));
+				_blockEntity.getTileData().putBoolean(("market_buyed" + nslot), false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -132,7 +132,7 @@ public class Hdvsellv2Procedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("resume"), (false));
+			_player.displayClientMessage(new TextComponent("resume"), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("Seller - pr - " + (new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -141,7 +141,7 @@ public class Hdvsellv2Procedure {
 						return blockEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), ("market_pr" + nslot))))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), ("market_pr" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("Number - num - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -150,7 +150,7 @@ public class Hdvsellv2Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), ("market_num" + nslot))))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), ("market_num" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("Number - num - 2" + (new Object() {
 				public int getAmount(int sltid) {
@@ -161,7 +161,7 @@ public class Hdvsellv2Procedure {
 					}
 					return 0;
 				}
-			}.getAmount(0)))), (false));
+			}.getAmount(0)))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("transation - hash - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -170,7 +170,7 @@ public class Hdvsellv2Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), ("market_hash" + nslot))))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), ("market_hash" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent(("Price - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
@@ -179,8 +179,8 @@ public class Hdvsellv2Procedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(0, 10, 0), ("market_price" + nslot))))), (false));
+			}.getValue(world, new BlockPos(0, 10, 0), ("market_price" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("NSLOT - " + nslot)), (false));
+			_player.displayClientMessage(new TextComponent(("NSLOT - " + nslot)), false);
 	}
 }

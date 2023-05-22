@@ -49,6 +49,6 @@ public class DebugcrusherProcedure {
 						return blockEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_amethyst")) + " - ")), (false));
+			}.getValue(world, new BlockPos(x, y, z), "crusher_num_amethyst")) + " - ")), false);
 	}
 }

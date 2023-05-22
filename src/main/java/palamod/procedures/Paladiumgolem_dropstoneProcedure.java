@@ -19,14 +19,14 @@ public class Paladiumgolem_dropstoneProcedure {
 			_level.addFreshEntity(entityToSpawn);
 		}
 		(new ItemStack(PalamodModItems.GUARDIANSTONE.get())).setHoverName(new TextComponent(("Guardian stone - Contain " + entity.getPersistentData().getDouble("Golem_level") + " level Golem")));
-		new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_kac", (true));
+		new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_kac", true);
 		new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putDouble("golem_level", (entity.getPersistentData().getDouble("Golem_level")));
 		if (true) {
-			new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_whitelist", (true));
+			new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_whitelist", true);
 		}
 		if (true) {
-			new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_name", (true));
+			new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_name", true);
 		}
-		new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_name", (true));
+		new ItemStack(PalamodModItems.GUARDIANSTONE.get()).getOrCreateTag().putBoolean("golem_name", true);
 	}
 }
