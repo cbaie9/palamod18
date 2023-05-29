@@ -1,6 +1,6 @@
 package palamod.procedures;
 
-import palamod.world.inventory.AdminshopadbanMenu;
+import palamod.world.inventory.AdminshopmenuMenu;
 
 import net.minecraftforge.network.NetworkHooks;
 
@@ -28,12 +28,12 @@ public class AdminshoptadbanProcedure {
 				NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TextComponent("Adminshopadban");
+						return new TextComponent("Adminshopmenu");
 					}
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new AdminshopadbanMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new AdminshopmenuMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}

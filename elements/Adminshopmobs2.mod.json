@@ -1,0 +1,206 @@
+{
+  "_fv": 43,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 190,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_plant_section",
+          "text": {
+            "fixedValue": "Adminshop - mobs's item section"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 25
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Menu",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 123,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "Exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 238,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_next",
+          "text": "Back",
+          "onClick": {
+            "name": "Connectadminshopmobs"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 182,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_honey_comb",
+          "text": "Honey comb",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2honeycomb"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 128,
+          "y": 155
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_leather",
+          "text": "Leather",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2leather"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 234,
+          "y": 155
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_feather",
+          "text": "Feather",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2feather"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 235,
+          "y": 124
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ink_sac",
+          "text": "Ink sac",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2inksac"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 235,
+          "y": 97
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_glow_in_sac",
+          "text": "Glow ink sac",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2glowinksac"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 129,
+          "y": 124
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_blaze",
+          "text": "Blaze",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2blaze"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 129,
+          "y": 97
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gun_powder",
+          "text": "Gunpowder",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2gunpowder"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 219,
+          "y": 67
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_steak",
+          "text": "Steak",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2steak"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 129,
+          "y": 66
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_page_2",
+          "text": {
+            "fixedValue": "Page 2"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 130,
+          "y": 33
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

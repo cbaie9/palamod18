@@ -19,7 +19,7 @@ public class ChecksumcommandCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("checksum")
 
-				.then(Commands.literal("global").executes(arguments -> {
+				.executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -31,6 +31,6 @@ public class ChecksumcommandCommand {
 
 					ChecksumProcedure.execute(entity);
 					return 0;
-				})));
+				}));
 	}
 }

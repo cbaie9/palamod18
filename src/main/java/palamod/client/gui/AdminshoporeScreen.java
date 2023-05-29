@@ -37,6 +37,8 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 	Button button_coal;
 	Button button_back;
 	Button button_exit;
+	Button button_redstone;
+	Button button_emerald;
 
 	public AdminshoporeScreen(AdminshoporeMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -97,7 +99,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_paladium = new Button(this.leftPos + 6, this.topPos + 24, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_paladium"), e -> {
+		button_paladium = new Button(this.leftPos + 6, this.topPos + 16, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_paladium"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(0, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 0, x, y, z);
@@ -105,7 +107,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_paladium", button_paladium);
 		this.addRenderableWidget(button_paladium);
-		button_titane = new Button(this.leftPos + 100, this.topPos + 25, 56, 20, new TranslatableComponent("gui.palamod.adminshopore.button_titane"), e -> {
+		button_titane = new Button(this.leftPos + 104, this.topPos + 16, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_titane"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(1, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 1, x, y, z);
@@ -113,7 +115,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_titane", button_titane);
 		this.addRenderableWidget(button_titane);
-		button_amethyst = new Button(this.leftPos + 11, this.topPos + 46, 67, 20, new TranslatableComponent("gui.palamod.adminshopore.button_amethyst"), e -> {
+		button_amethyst = new Button(this.leftPos + 6, this.topPos + 36, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_amethyst"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(2, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 2, x, y, z);
@@ -121,7 +123,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_amethyst", button_amethyst);
 		this.addRenderableWidget(button_amethyst);
-		button_findium = new Button(this.leftPos + 100, this.topPos + 46, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_findium"), e -> {
+		button_findium = new Button(this.leftPos + 104, this.topPos + 36, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_findium"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(3, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 3, x, y, z);
@@ -129,7 +131,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_findium", button_findium);
 		this.addRenderableWidget(button_findium);
-		button_diamond = new Button(this.leftPos + 17, this.topPos + 71, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_diamond"), e -> {
+		button_diamond = new Button(this.leftPos + 6, this.topPos + 56, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_diamond"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(4, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 4, x, y, z);
@@ -137,7 +139,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_diamond", button_diamond);
 		this.addRenderableWidget(button_diamond);
-		button_iron = new Button(this.leftPos + 100, this.topPos + 71, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_iron"), e -> {
+		button_iron = new Button(this.leftPos + 104, this.topPos + 56, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_iron"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(5, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 5, x, y, z);
@@ -145,7 +147,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_iron", button_iron);
 		this.addRenderableWidget(button_iron);
-		button_gold = new Button(this.leftPos + 32, this.topPos + 94, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_gold"), e -> {
+		button_gold = new Button(this.leftPos + 6, this.topPos + 76, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_gold"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(6, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 6, x, y, z);
@@ -153,7 +155,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_gold", button_gold);
 		this.addRenderableWidget(button_gold);
-		button_coal = new Button(this.leftPos + 100, this.topPos + 94, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_coal"), e -> {
+		button_coal = new Button(this.leftPos + 104, this.topPos + 76, 62, 20, new TranslatableComponent("gui.palamod.adminshopore.button_coal"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(7, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 7, x, y, z);
@@ -161,7 +163,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_coal", button_coal);
 		this.addRenderableWidget(button_coal);
-		button_back = new Button(this.leftPos + 32, this.topPos + 135, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_back"), e -> {
+		button_back = new Button(this.leftPos + 4, this.topPos + 139, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(8, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 8, x, y, z);
@@ -169,7 +171,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_exit = new Button(this.leftPos + 100, this.topPos + 135, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_exit"), e -> {
+		button_exit = new Button(this.leftPos + 122, this.topPos + 141, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_exit"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(9, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 9, x, y, z);
@@ -177,5 +179,17 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_exit", button_exit);
 		this.addRenderableWidget(button_exit);
+		button_redstone = new Button(this.leftPos + 6, this.topPos + 96, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_redstone"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(10, x, y, z));
+				AdminshoporeButtonMessage.handleButtonAction(entity, 10, x, y, z);
+			}
+		});
+		guistate.put("button:button_redstone", button_redstone);
+		this.addRenderableWidget(button_redstone);
+		button_emerald = new Button(this.leftPos + 104, this.topPos + 96, 61, 20, new TranslatableComponent("gui.palamod.adminshopore.button_emerald"), e -> {
+		});
+		guistate.put("button:button_emerald", button_emerald);
+		this.addRenderableWidget(button_emerald);
 	}
 }

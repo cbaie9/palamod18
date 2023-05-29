@@ -7,6 +7,7 @@ import palamod.procedures.ToolresetallProcedure;
 import palamod.procedures.ToolopenportProcedure;
 import palamod.procedures.ToollockonProcedure;
 import palamod.procedures.ToolcloseportProcedure;
+import palamod.procedures.Luckyprocess1adminProcedure;
 import palamod.procedures.HdvlockoffProcedure;
 import palamod.procedures.ClearoreProcedure;
 import palamod.procedures.AdminshoppricesetupProcedure;
@@ -22,6 +23,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
+
+import com.mojang.brigadier.arguments.DoubleArgumentType;
 
 @Mod.EventBusSubscriber
 public class PalatoolsCommand {
@@ -136,6 +139,18 @@ public class PalatoolsCommand {
 
 					ToolresetallProcedure.execute(world);
 					return 0;
-				})));
+				})).then(Commands.literal("lucky").then(Commands.argument("random", DoubleArgumentType.doubleArg()).executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					Luckyprocess1adminProcedure.execute(world, x, y, z, arguments, entity);
+					return 0;
+				}))));
 	}
 }

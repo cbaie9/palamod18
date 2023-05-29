@@ -7,42 +7,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_palasnap_v190003",
-          "text": {
-            "fixedValue": "palasnap v19.0023"
-          },
-          "color": {
-            "value": -52480,
-            "falpha": 0.0
-          },
-          "displayCondition": {
-            "name": "Devsnapfalse"
-          },
-          "x": 339,
-          "y": 230
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_dev_version",
-          "text": {
-            "fixedValue": "Snapshot version"
-          },
-          "color": {
-            "value": -3407872,
-            "falpha": 0.0
-          },
-          "displayCondition": {
-            "name": "Devchecksnap"
-          },
-          "x": 344,
-          "y": 219
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_paladium_creator_footage_devlopp",
           "text": {
             "fixedValue": "Paladium Renew dev"
@@ -54,8 +18,8 @@
           "displayCondition": {
             "name": "Devchecksnap"
           },
-          "x": 1,
-          "y": 1
+          "x": 2,
+          "y": 13
         }
       },
       {
@@ -63,17 +27,15 @@
         "data": {
           "name": "label_build_v1900036",
           "text": {
-            "fixedValue": "DEVLOPPER VERSION - Cbaie9 - 19e0023"
+            "fixedValue": "DEVLOPPER VERSION - Cbaie9 - 19e0023",
+            "name": "Returnsnapshotoverlay"
           },
           "color": {
             "value": -3407872,
             "falpha": 0.0
           },
-          "displayCondition": {
-            "name": "Devchecksnap"
-          },
-          "x": 239,
-          "y": 230
+          "x": 3,
+          "y": 3
         }
       }
     ],

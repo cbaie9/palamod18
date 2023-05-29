@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Collections;
 
 public class PaladiumspikeBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 
 	public PaladiumspikeBlock() {
 		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false));
@@ -67,6 +67,8 @@ public class PaladiumspikeBlock extends Block {
 			case NORTH -> Shapes.or(box(0, 0, 0, 16, 1, 16), box(1, 1, 1, 15, 3, 15), box(2, 3, 2, 14, 4, 14), box(3, 4, 3, 13, 5, 13), box(4, 5, 4, 12, 7, 12), box(5, 7, 5, 11, 8, 11), box(6, 8, 6, 10, 9, 10), box(7, 9, 7, 9, 11, 9));
 			case EAST -> Shapes.or(box(0, 0, 0, 16, 1, 16), box(1, 1, 1, 15, 3, 15), box(2, 3, 2, 14, 4, 14), box(3, 4, 3, 13, 5, 13), box(4, 5, 4, 12, 7, 12), box(5, 7, 5, 11, 8, 11), box(6, 8, 6, 10, 9, 10), box(7, 9, 7, 9, 11, 9));
 			case WEST -> Shapes.or(box(0, 0, 0, 16, 1, 16), box(1, 1, 1, 15, 3, 15), box(2, 3, 2, 14, 4, 14), box(3, 4, 3, 13, 5, 13), box(4, 5, 4, 12, 7, 12), box(5, 7, 5, 11, 8, 11), box(6, 8, 6, 10, 9, 10), box(7, 9, 7, 9, 11, 9));
+			case UP -> Shapes.or(box(0, 0, 0, 16, 16, 1), box(1, 1, 1, 15, 15, 3), box(2, 2, 3, 14, 14, 4), box(3, 3, 4, 13, 13, 5), box(4, 4, 5, 12, 12, 7), box(5, 5, 7, 11, 11, 8), box(6, 6, 8, 10, 10, 9), box(7, 7, 9, 9, 9, 11));
+			case DOWN -> Shapes.or(box(0, 0, 15, 16, 16, 16), box(1, 1, 13, 15, 15, 15), box(2, 2, 12, 14, 14, 13), box(3, 3, 11, 13, 13, 12), box(4, 4, 9, 12, 12, 11), box(5, 5, 8, 11, 11, 9), box(6, 6, 7, 10, 10, 8), box(7, 7, 5, 9, 9, 7));
 		};
 	}
 
@@ -77,7 +79,7 @@ public class PaladiumspikeBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {

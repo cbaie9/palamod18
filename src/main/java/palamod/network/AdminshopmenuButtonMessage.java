@@ -3,7 +3,11 @@ package palamod.network;
 
 import palamod.world.inventory.AdminshopmenuMenu;
 
+import palamod.procedures.ConnectadminshoputilitiesProcedure;
+import palamod.procedures.ConnectadminshopplantProcedure;
+import palamod.procedures.ConnectadminshopmobsProcedure;
 import palamod.procedures.ConnectadhoreProcedure;
+import palamod.procedures.CloseguiProcedure;
 import palamod.procedures.AdminshopblockconnectProcedure;
 
 import palamod.PalamodMod;
@@ -69,9 +73,25 @@ public class AdminshopmenuButtonMessage {
 
 			ConnectadhoreProcedure.execute(world, x, y, z, entity);
 		}
+		if (buttonID == 1) {
+
+			ConnectadminshopplantProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 2) {
+
+			ConnectadminshoputilitiesProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 3) {
+
+			ConnectadminshopmobsProcedure.execute(world, x, y, z, entity);
+		}
 		if (buttonID == 4) {
 
 			AdminshopblockconnectProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 5) {
+
+			CloseguiProcedure.execute(entity);
 		}
 	}
 

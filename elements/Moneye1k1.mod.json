@@ -3,7 +3,7 @@
   "_type": "item",
   "definition": {
     "renderType": 0,
-    "texture": "money_item",
+    "texture": "billet",
     "customModelName": "Normal",
     "name": "Money",
     "rarity": "EPIC",

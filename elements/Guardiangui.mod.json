@@ -42,7 +42,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 108,
+          "x": 113,
           "y": 191
         }
       },
@@ -61,7 +61,7 @@
           },
           "dropItemsWhenNotBound": true,
           "x": 149,
-          "y": 189
+          "y": 191
         }
       },
       {
@@ -206,7 +206,8 @@
         "data": {
           "name": "label_vargolem_level",
           "text": {
-            "fixedValue": "<VAR:Golem_level>"
+            "fixedValue": "<VAR:Golem_level>",
+            "name": "Getguardianlevel"
           },
           "color": {
             "value": -65485,
@@ -221,14 +222,15 @@
         "data": {
           "name": "label_vargolem_pv",
           "text": {
-            "fixedValue": "<VAR:Golem_pv>"
+            "fixedValue": "<VAR:Golem_pv>",
+            "name": "Getguardianpv"
           },
           "color": {
             "value": -65434,
             "falpha": 0.0
           },
-          "x": 317,
-          "y": 106
+          "x": 319,
+          "y": 105
         }
       },
       {
@@ -238,6 +240,19 @@
           "use1Xscale": true,
           "x": 80,
           "y": 26
+        }
+      },
+      {
+        "type": "entitymodel",
+        "data": {
+          "entityModel": {
+            "name": "Guardianentityprovider"
+          },
+          "scale": 30,
+          "rotationX": 0,
+          "followMouseMovement": false,
+          "x": 104,
+          "y": 75
         }
       }
     ],

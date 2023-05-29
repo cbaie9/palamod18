@@ -1,0 +1,135 @@
+{
+  "_fv": 43,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_paladium",
+          "text": {
+            "fixedValue": "Leather"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 184,
+          "y": 43
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "number here",
+          "name": "number_buy",
+          "width": 120,
+          "height": 20,
+          "x": 152,
+          "y": 124
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_mode_set",
+          "text": {
+            "fixedValue": "Amount :"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 155,
+          "y": 111
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_buy",
+          "text": "buy",
+          "onClick": {
+            "name": "Adhmobs2buyleather"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 152,
+          "y": 146
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sell",
+          "text": "sell",
+          "onClick": {
+            "name": "Adhmobs2sellleather"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 225,
+          "y": 146
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "back",
+          "onClick": {
+            "name": "Connectadminshopmobs2"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 132,
+          "y": 176
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_sell_price_120",
+          "text": {
+            "fixedValue": "Sell price :  7"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 151,
+          "y": 67
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_buy_price_125",
+          "text": {
+            "fixedValue": "Buy Price : 20"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 150,
+          "y": 81
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

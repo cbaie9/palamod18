@@ -262,7 +262,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.EGG) {
-			num = 10;
+			num = 3;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -502,7 +502,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.GHAST_TEAR) {
-			num = 25;
+			num = 20;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -542,7 +542,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.FEATHER) {
-			num = 13.5;
+			num = 6.5;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -552,7 +552,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.LEATHER) {
-			num = 20;
+			num = 7;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -562,7 +562,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.INK_SAC) {
-			num = 12.5;
+			num = 5.75;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -572,7 +572,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.GLOW_INK_SAC) {
-			num = 14.5;
+			num = 6;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -602,7 +602,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.HONEYCOMB) {
-			num = 16;
+			num = 7.5;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -612,7 +612,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.BLAZE_ROD) {
-			num = 25;
+			num = 8.5;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -642,7 +642,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.MELON_SLICE) {
-			num = 17;
+			num = 5;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -672,7 +672,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.GLOWSTONE_DUST) {
-			num = 18.75;
+			num = 6.25;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -682,7 +682,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Blocks.SUGAR_CANE.asItem()) {
-			num = 30;
+			num = 4;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -692,7 +692,7 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.SPIDER_EYE) {
-			num = 3.5;
+			num = 0.5;
 		} else if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -702,7 +702,27 @@ public class StockedbaseadminshopsellProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.EMERALD) {
-			num = 55;
+			num = 10.75;
+		} else if ((new Object() {
+			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				BlockEntity _ent = world.getBlockEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+				return _retval.get();
+			}
+		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.ROTTEN_FLESH) {
+			num = 0.25;
+		} else if ((new Object() {
+			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				BlockEntity _ent = world.getBlockEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+				return _retval.get();
+			}
+		}.getItemStack(world, new BlockPos(x, y, z), (int) slotnum)).getItem() == Items.REDSTONE) {
+			num = 1.5;
 		} else {
 			num = 0;
 		}

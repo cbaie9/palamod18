@@ -25,7 +25,7 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 public class SetspawnCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("setspawn").requires(s -> s.hasPermission(4)).then(Commands.literal("new").then(Commands.argument("x_pos", DoubleArgumentType.doubleArg())
+		event.getDispatcher().register(Commands.literal("setspawn").requires(s -> s.hasPermission(4)).then(Commands.argument("x_pos", DoubleArgumentType.doubleArg())
 				.then(Commands.argument("y_pos", DoubleArgumentType.doubleArg(-64, 320)).then(Commands.argument("z_pos", DoubleArgumentType.doubleArg()).then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
@@ -64,7 +64,7 @@ public class SetspawnCommand {
 
 					SetspawndynablockProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
-				}))))).then(Commands.literal("oldsys").then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(arguments -> {
+				})))).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -73,35 +73,9 @@ public class SetspawnCommand {
 					if (entity == null)
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
-					HashMap<String, String> cmdparams = new HashMap<>();
-					int index = -1;
-					for (String param : arguments.getInput().split("\\s+")) {
-						if (index >= 0)
-							cmdparams.put(Integer.toString(index), param);
-						index++;
-					}
 
 					SetspawnprocessProcedure.execute(world, x, y, z, entity);
 					return 0;
-				})).executes(arguments -> {
-					ServerLevel world = arguments.getSource().getLevel();
-					double x = arguments.getSource().getPosition().x();
-					double y = arguments.getSource().getPosition().y();
-					double z = arguments.getSource().getPosition().z();
-					Entity entity = arguments.getSource().getEntity();
-					if (entity == null)
-						entity = FakePlayerFactory.getMinecraft(world);
-					Direction direction = entity.getDirection();
-					HashMap<String, String> cmdparams = new HashMap<>();
-					int index = -1;
-					for (String param : arguments.getInput().split("\\s+")) {
-						if (index >= 0)
-							cmdparams.put(Integer.toString(index), param);
-						index++;
-					}
-
-					SetspawnprocessProcedure.execute(world, x, y, z, entity);
-					return 0;
-				})));
+				}));
 	}
 }

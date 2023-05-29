@@ -3,12 +3,18 @@ package palamod.client.gui;
 
 import palamod.world.inventory.GuardianguiMenu;
 
+import palamod.procedures.GuardianentityproviderProcedure;
+import palamod.procedures.GetguardianpvProcedure;
+import palamod.procedures.GetguardianlevelProcedure;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
@@ -43,6 +49,9 @@ public class GuardianguiScreen extends AbstractContainerScreen<GuardianguiMenu> 
 		this.renderBackground(ms);
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderTooltip(ms, mouseX, mouseY);
+		if (GuardianentityproviderProcedure.execute(world, x, y, z) instanceof LivingEntity livingEntity) {
+			InventoryScreen.renderEntityInInventory(this.leftPos + 56, this.topPos + 76, 30, 0, 0, livingEntity);
+		}
 	}
 
 	@Override
@@ -81,8 +90,12 @@ public class GuardianguiScreen extends AbstractContainerScreen<GuardianguiMenu> 
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_level"), 125, 29, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_renommer"), 112, 69, -256);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_whitelist"), 158, 70, -65536);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_vargolem_level"), 156, 29, -65485);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_vargolem_pv"), 258, 86, -65434);
+		this.font.draw(poseStack,
+
+				GetguardianlevelProcedure.execute(), 156, 29, -65485);
+		this.font.draw(poseStack,
+
+				GetguardianpvProcedure.execute(), 260, 85, -65434);
 	}
 
 	@Override

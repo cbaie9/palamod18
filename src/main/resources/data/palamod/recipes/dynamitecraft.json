@@ -1,21 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "0",
-    "1",
-    "2"
-  ],
-  "key": {
-    "0": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "palamod:diamondstring"
     },
-    "1": {
+    {
       "item": "minecraft:tnt"
     },
-    "2": {
+    {
       "item": "minecraft:tnt"
     }
-  },
+  ],
   "result": {
     "item": "palamod:dynamite",
     "count": 4

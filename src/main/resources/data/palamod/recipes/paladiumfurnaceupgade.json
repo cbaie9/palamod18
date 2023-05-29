@@ -1,16 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "01"
-  ],
-  "key": {
-    "0": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "palamod:paladiumstick"
     },
-    "1": {
+    {
       "tag": "minecraft:coals"
     }
-  },
+  ],
   "result": {
     "item": "palamod:furnaceupgrade",
     "count": 1

@@ -37,7 +37,7 @@ public class OpenpalamodgameProcedure {
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent("Merci d'avoir installer le Palamod"), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("Ver 1.19 dev series build 0023"), false);
+			_player.displayClientMessage(new TextComponent(PalamodgameverProcedure.execute()), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(new TextComponent("Cr\u00E9er par cb9 et fufu "), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
@@ -67,7 +67,7 @@ public class OpenpalamodgameProcedure {
 		if (!((world.getBlockState(new BlockPos(0, 10, 0))).getBlock() == PalamodModBlocks.NBTBLOCK.get())) {
 			LunchallsetupProcedure.execute(world);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("[ Palamod ] LAS booted : all system shoud be operational"), false);
+				_player.displayClientMessage(new TextComponent("[ Palamod ] intern-setup are initalised, multiplayer function should work now"), false);
 		}
 	}
 }

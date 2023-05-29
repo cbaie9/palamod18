@@ -655,6 +655,7 @@ public class PalamodModItems {
 	public static final RegistryObject<Item> ENDIUMSHOVEL = REGISTRY.register("endiumshovel", () -> new EndiumshovelItem());
 	public static final RegistryObject<Item> CAVEBLOCK = block(PalamodModBlocks.CAVEBLOCK, PalamodModTabs.TAB_PALAMOD);
 	public static final RegistryObject<Item> PROTODEEPSLATE = block(PalamodModBlocks.PROTODEEPSLATE, PalamodModTabs.TAB_PALAMOD);
+	public static final RegistryObject<Item> SPIKETEST = block(PalamodModBlocks.SPIKETEST, PalamodModTabs.TAB_PALAMOD);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

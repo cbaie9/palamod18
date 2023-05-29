@@ -1,16 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "01"
-  ],
-  "key": {
-    "0": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "palamod:elevatorgreen"
     },
-    "1": {
+    {
       "item": "minecraft:white_dye"
     }
-  },
+  ],
   "result": {
     "item": "palamod:elevatorwhite",
     "count": 1

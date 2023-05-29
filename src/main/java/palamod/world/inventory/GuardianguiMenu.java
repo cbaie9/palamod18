@@ -77,9 +77,9 @@ public class GuardianguiMenu extends AbstractContainerMenu implements Supplier<M
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 19, 172) {
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 50, 172) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 55, 172) {
 		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 91, 170) {
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 91, 172) {
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 129, 82) {
 		}));

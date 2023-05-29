@@ -87,6 +87,7 @@
     "palamod:trixiumnbtblock",
     "palamod:hdvblock",
     "palamod:caveblock",
-    "palamod:protodeepslate"
+    "palamod:protodeepslate",
+    "palamod:spiketest"
   ]
 }

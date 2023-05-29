@@ -1,0 +1,232 @@
+{
+  "_fv": 43,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 190,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_plant_section",
+          "text": {
+            "fixedValue": "Adminshop - fast action section"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 138,
+          "y": 25
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Menu",
+          "width": 46,
+          "height": 20,
+          "x": 123,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "Exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 238,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_honey_comb",
+          "text": "Diamond pickaxe",
+          "onClick": {
+            "name": "Connectadminshoputilitiesdiampic"
+          },
+          "width": 81,
+          "height": 20,
+          "x": 218,
+          "y": 94
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_leather",
+          "text": "Netherrack",
+          "onClick": {
+            "name": "Connectadhblknetherrack"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 129,
+          "y": 159
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_feather",
+          "text": "Redstone",
+          "onClick": {
+            "name": "Connectadminshoputilitiesredstone"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 237,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_ink_sac",
+          "text": "Coal",
+          "onClick": {
+            "name": "Connectadhorecoal"
+          },
+          "width": 43,
+          "height": 20,
+          "x": 186,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_glow_in_sac",
+          "text": "Oak wood",
+          "onClick": {
+            "name": "Connectadhblkoakwood"
+          },
+          "width": 82,
+          "height": 20,
+          "x": 130,
+          "y": 95
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_blaze",
+          "text": "Bone",
+          "onClick": {
+            "name": "Connectadminshopmobsbone"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 130,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_gun_powder",
+          "text": "Ender pearl",
+          "onClick": {
+            "name": "Connectadminshopmobsenderpearl"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 221,
+          "y": 46
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_steak",
+          "text": "Steak",
+          "onClick": {
+            "name": "ConnectAdminshopmobs2steak"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 130,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_wip",
+          "text": {
+            "fixedValue": "Useful"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 187,
+          "y": 35
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_fast_sell",
+          "text": {
+            "fixedValue": "Fast sell"
+          },
+          "color": {
+            "value": -3407872,
+            "falpha": 0.0
+          },
+          "x": 192,
+          "y": 144
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_stone",
+          "text": "Stone",
+          "onClick": {
+            "name": "Connectadhblkstone"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 247,
+          "y": 159
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_emeraude",
+          "text": "Emerald",
+          "onClick": {
+            "name": "Connectadminshoputilitiesemerald"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 129,
+          "y": 117
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "palamod:custom/exemple_spike",
+  "textures": {
+    "all": "palamod:blocks/beta_block",
+    "particle": "palamod:blocks/beta_block",
+    "2": "palamod:blocks/exemple_spike"
+  }
+}

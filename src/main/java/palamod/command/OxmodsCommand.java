@@ -1,6 +1,7 @@
 
 package palamod.command;
 
+import palamod.procedures.OxmodsreturnverProcedure;
 import palamod.procedures.OxcommandProcedure;
 import palamod.procedures.Luckyprocess1adminProcedure;
 
@@ -47,6 +48,18 @@ public class OxmodsCommand {
 
 					Luckyprocess1adminProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
-				}))));
+				}))).then(Commands.literal("ver").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					OxmodsreturnverProcedure.execute();
+					return 0;
+				})));
 	}
 }

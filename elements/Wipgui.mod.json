@@ -119,14 +119,14 @@
         "data": {
           "name": "label_httpsgithubcomcbaie9palamo",
           "text": {
-            "fixedValue": "https://github.com/cbaie9/palamod19"
+            "fixedValue": "https://github.com/cbaie9/palamod18"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
           "x": 85,
-          "y": 121
+          "y": 120
         }
       },
       {
@@ -157,6 +157,21 @@
           },
           "x": 83,
           "y": 153
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_github_discord",
+          "text": {
+            "fixedValue": "-> /github /discord /support"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 83,
+          "y": 131
         }
       }
     ],

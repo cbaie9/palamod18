@@ -3,6 +3,7 @@ package palamod.network;
 
 import palamod.world.inventory.AdminshoporeMenu;
 
+import palamod.procedures.ConnectadminshoputilitiesredstoneProcedure;
 import palamod.procedures.ConnectadhoretitaneProcedure;
 import palamod.procedures.ConnectadhorepalaProcedure;
 import palamod.procedures.ConnectadhoreironProcedure;
@@ -112,6 +113,10 @@ public class AdminshoporeButtonMessage {
 		if (buttonID == 9) {
 
 			CloseguiProcedure.execute(entity);
+		}
+		if (buttonID == 10) {
+
+			ConnectadminshoputilitiesredstoneProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

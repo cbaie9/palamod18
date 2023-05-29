@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
@@ -32,6 +33,7 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 	Button button_utilities;
 	Button button_mobss_items;
 	Button button_block;
+	ImageButton imagebutton_cross_no_button;
 
 	public AdminshopmenuScreen(AdminshopmenuMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -40,8 +42,8 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 176;
-		this.imageHeight = 190;
+		this.imageWidth = 200;
+		this.imageHeight = 191;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("palamod:textures/screens/adminshopmenu.png");
@@ -60,6 +62,13 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.setShaderTexture(0, texture);
 		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+
+		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/left_gray_line.png"));
+		this.blit(ms, this.leftPos + 0, this.topPos + -9, 0, 0, 100, 24, 100, 24);
+
+		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/right_gray_line.png"));
+		this.blit(ms, this.leftPos + 99, this.topPos + -9, 0, 0, 100, 24, 100, 24);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -79,7 +88,7 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopmenu.label_adminshop"), 56, 4, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopmenu.label_adminshop"), 69, -3, -1);
 	}
 
 	@Override
@@ -92,7 +101,7 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_ores = new Button(this.leftPos + 58, this.topPos + 53, 46, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_ores"), e -> {
+		button_ores = new Button(this.leftPos + 70, this.topPos + 53, 46, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_ores"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(0, x, y, z));
 				AdminshopmenuButtonMessage.handleButtonAction(entity, 0, x, y, z);
@@ -100,19 +109,31 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 		});
 		guistate.put("button:button_ores", button_ores);
 		this.addRenderableWidget(button_ores);
-		button_seed = new Button(this.leftPos + 58, this.topPos + 83, 46, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_seed"), e -> {
+		button_seed = new Button(this.leftPos + 70, this.topPos + 83, 46, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_seed"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(1, x, y, z));
+				AdminshopmenuButtonMessage.handleButtonAction(entity, 1, x, y, z);
+			}
 		});
 		guistate.put("button:button_seed", button_seed);
 		this.addRenderableWidget(button_seed);
-		button_utilities = new Button(this.leftPos + 47, this.topPos + 147, 72, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_utilities"), e -> {
+		button_utilities = new Button(this.leftPos + 59, this.topPos + 147, 72, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_utilities"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(2, x, y, z));
+				AdminshopmenuButtonMessage.handleButtonAction(entity, 2, x, y, z);
+			}
 		});
 		guistate.put("button:button_utilities", button_utilities);
 		this.addRenderableWidget(button_utilities);
-		button_mobss_items = new Button(this.leftPos + 38, this.topPos + 115, 92, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_mobss_items"), e -> {
+		button_mobss_items = new Button(this.leftPos + 50, this.topPos + 115, 92, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_mobss_items"), e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(3, x, y, z));
+				AdminshopmenuButtonMessage.handleButtonAction(entity, 3, x, y, z);
+			}
 		});
 		guistate.put("button:button_mobss_items", button_mobss_items);
 		this.addRenderableWidget(button_mobss_items);
-		button_block = new Button(this.leftPos + 56, this.topPos + 24, 51, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_block"), e -> {
+		button_block = new Button(this.leftPos + 68, this.topPos + 24, 51, 20, new TranslatableComponent("gui.palamod.adminshopmenu.button_block"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(4, x, y, z));
 				AdminshopmenuButtonMessage.handleButtonAction(entity, 4, x, y, z);
@@ -120,5 +141,13 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 		});
 		guistate.put("button:button_block", button_block);
 		this.addRenderableWidget(button_block);
+		imagebutton_cross_no_button = new ImageButton(this.leftPos + 176, this.topPos + -4, 16, 16, 0, 0, 16, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_cross_no_button.png"), 16, 32, e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(5, x, y, z));
+				AdminshopmenuButtonMessage.handleButtonAction(entity, 5, x, y, z);
+			}
+		});
+		guistate.put("button:imagebutton_cross_no_button", imagebutton_cross_no_button);
+		this.addRenderableWidget(imagebutton_cross_no_button);
 	}
 }

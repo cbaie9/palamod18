@@ -3,8 +3,8 @@
   "_type": "gui",
   "definition": {
     "type": 0,
-    "width": 176,
-    "height": 190,
+    "width": 200,
+    "height": 191,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
     "renderBgLayer": true,
@@ -18,11 +18,11 @@
             "fixedValue": "Adminshop"
           },
           "color": {
-            "value": -12829636,
+            "value": -1,
             "falpha": 0.0
           },
-          "x": 182,
-          "y": 29
+          "x": 183,
+          "y": 21
         }
       },
       {
@@ -43,7 +43,10 @@
         "type": "button",
         "data": {
           "name": "button_seed",
-          "text": "seed",
+          "text": "Plants",
+          "onClick": {
+            "name": "Connectadminshopplant"
+          },
           "width": 46,
           "height": 20,
           "x": 184,
@@ -55,6 +58,9 @@
         "data": {
           "name": "button_utilities",
           "text": "utilities",
+          "onClick": {
+            "name": "Connectadminshoputilities"
+          },
           "width": 72,
           "height": 20,
           "x": 173,
@@ -66,6 +72,9 @@
         "data": {
           "name": "button_mobss_items",
           "text": "Mobs's items ",
+          "onClick": {
+            "name": "Connectadminshopmobs"
+          },
           "width": 92,
           "height": 20,
           "x": 164,
@@ -84,6 +93,37 @@
           "height": 20,
           "x": 182,
           "y": 49
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 113,
+          "y": 15
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 213,
+          "y": 15
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 290,
+          "y": 20
         }
       }
     ],

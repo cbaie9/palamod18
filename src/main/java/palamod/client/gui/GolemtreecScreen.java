@@ -3,6 +3,9 @@ package palamod.client.gui;
 
 import palamod.world.inventory.GolemtreecMenu;
 
+import palamod.procedures.GetgolemusablepointProcedure;
+import palamod.procedures.GetgolempvleveltreeProcedure;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -89,8 +92,12 @@ public class GolemtreecScreen extends AbstractContainerScreen<GolemtreecMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.golemtreec.label_golem_level_vargolem_level"), 6, 7, -52429);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.golemtreec.label_usable_point_vargolem_usable"), 6, 18, -16777012);
+		this.font.draw(poseStack,
+
+				GetgolempvleveltreeProcedure.execute(), 6, 7, -52429);
+		this.font.draw(poseStack,
+
+				GetgolemusablepointProcedure.execute(), 6, 18, -16777012);
 	}
 
 	@Override

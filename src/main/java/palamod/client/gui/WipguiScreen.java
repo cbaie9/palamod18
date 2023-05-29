@@ -81,9 +81,10 @@ public class WipguiScreen extends AbstractContainerScreen<WipguiMenu> {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_a_cause_dun_bug_de_stockage_di"), 30, 52, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_le_projet_etant_en_open_source"), 5, 86, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_aider_conctacter_les_devloppeu"), 8, 96, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_httpsgithubcomcbaie9palamo"), 9, 113, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_httpsgithubcomcbaie9palamo"), 9, 112, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret"), 6, 136, -65485);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_de_lag_et_de_compilation_code"), 7, 145, -65485);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_github_discord"), 7, 123, -12829636);
 	}
 
 	@Override

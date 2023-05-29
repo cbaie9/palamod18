@@ -1,0 +1,219 @@
+{
+  "_fv": 43,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 190,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_plant_section",
+          "text": {
+            "fixedValue": "Adminshop - mobs's item section"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 131,
+          "y": 25
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 123,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "Exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 61,
+          "height": 20,
+          "x": 179,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_cactus",
+          "text": "Bone",
+          "onClick": {
+            "name": "Connectadminshopmobsbone"
+          },
+          "width": 38,
+          "height": 20,
+          "x": 130,
+          "y": 124
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_red_mushroom",
+          "text": "Ender pearl",
+          "onClick": {
+            "name": "Connectadminshopmobsenderpearl"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 212,
+          "y": 46
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_brown_mushroom",
+          "text": "Fermented spider eyes",
+          "onClick": {
+            "name": "Connectadminshopmobsfrspidereyes"
+          },
+          "width": 117,
+          "height": 20,
+          "x": 184,
+          "y": 97
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_warped_fungus",
+          "text": "Spider eyes",
+          "onClick": {
+            "name": "Connectadminshopmobsspidereyes"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 212,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_crimson_fungun",
+          "text": "Rotten flesh",
+          "onClick": {
+            "name": "Connectadminshopmobsrottenflesh"
+          },
+          "width": 74,
+          "height": 20,
+          "x": 127,
+          "y": 154
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_potato",
+          "text": "String",
+          "onClick": {
+            "name": "Connectadminshopmobsstring"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 130,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_wheat_seed",
+          "text": "Ghast's tears",
+          "onClick": {
+            "name": "Connectadminshopmobsghasttears"
+          },
+          "width": 81,
+          "height": 20,
+          "x": 219,
+          "y": 124
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_carrot",
+          "text": "Egg",
+          "onClick": {
+            "name": "Connectadminshopmobsegg"
+          },
+          "width": 34,
+          "height": 20,
+          "x": 131,
+          "y": 97
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_melon",
+          "text": "Slime ball",
+          "onClick": {
+            "name": "Connectadminshopmobsslimeball"
+          },
+          "width": 63,
+          "height": 20,
+          "x": 130,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sugar_cane",
+          "text": "Wither's skull",
+          "onClick": {
+            "name": "Connectadminshopmobswitherskull"
+          },
+          "width": 85,
+          "height": 20,
+          "x": 214,
+          "y": 154
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_next",
+          "text": "Next",
+          "onClick": {
+            "name": "Connectadminshopmobs2"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 252,
+          "y": 193
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

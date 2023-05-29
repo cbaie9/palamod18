@@ -28,7 +28,9 @@ public class AdhblksellgravelProcedure {
 		double fac_v = 0;
 		double n = 0;
 		double n2 = 0;
-		n = new Object() {
+		fac_v = 0.2;
+		item = new ItemStack(Blocks.GRAVEL);
+		n = Math.round(Math.abs(new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
@@ -36,9 +38,13 @@ public class AdhblksellgravelProcedure {
 				}
 				return 0;
 			}
-		}.convert(guistate.containsKey("text:number_buy") ? ((EditBox) guistate.get("text:number_buy")).getValue() : "");
-		fac_v = 0.2;
-		item = new ItemStack(Blocks.GRAVEL);
+		}.convert(guistate.containsKey("text:number_buy") ? ((EditBox) guistate.get("text:number_buy")).getValue() : "")));
+		if (n == 0) {
+			if (entity instanceof Player _player)
+				_player.closeContainer();
+			if (entity instanceof Player _player && !_player.level.isClientSide())
+				_player.displayClientMessage(new TextComponent("You can't sell 0 item"), false);
+		}
 		{
 			AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
 			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _iitemhandlerref.set(capability));
@@ -46,7 +52,7 @@ public class AdhblksellgravelProcedure {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 					if (itemstackiterator.getItem() == item.getItem()) {
-						n2 = n2 + 1;
+						n2 = n2 + (itemstackiterator).getCount();
 					}
 				}
 			}

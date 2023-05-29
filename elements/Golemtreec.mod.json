@@ -15,7 +15,8 @@
         "data": {
           "name": "label_golem_level_vargolem_level",
           "text": {
-            "fixedValue": "Golem level : <VAR:Golem_level> Pv : <VAR:Golem_pv>"
+            "fixedValue": "Golem level : <VAR:Golem_level> Pv : <VAR:Golem_pv>",
+            "name": "Getgolempvleveltree"
           },
           "color": {
             "value": -52429,
@@ -30,7 +31,8 @@
         "data": {
           "name": "label_usable_point_vargolem_usable",
           "text": {
-            "fixedValue": "Usable point : <VAR:Golem_usable_point>"
+            "fixedValue": "Usable point : <VAR:Golem_usable_point>",
+            "name": "Getgolemusablepoint"
           },
           "color": {
             "value": -16777012,

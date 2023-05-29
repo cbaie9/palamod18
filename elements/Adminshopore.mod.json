@@ -29,112 +29,112 @@
         "type": "button",
         "data": {
           "name": "button_paladium",
-          "text": "paladium",
+          "text": "Paladium",
           "onClick": {
             "name": "Connectadhorepala"
           },
           "width": 72,
           "height": 20,
           "x": 132,
-          "y": 61
+          "y": 53
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_titane",
-          "text": "titane",
+          "text": "Titane",
           "onClick": {
             "name": "Connectadhoretitane"
           },
-          "width": 56,
+          "width": 61,
           "height": 20,
-          "x": 226,
-          "y": 62
+          "x": 230,
+          "y": 53
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_amethyst",
-          "text": "amethyst",
+          "text": "Amethyst",
           "onClick": {
             "name": "Connectadhoreame"
           },
-          "width": 67,
+          "width": 72,
           "height": 20,
-          "x": 137,
-          "y": 83
+          "x": 132,
+          "y": 73
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_findium",
-          "text": "findium",
+          "text": "Findium",
           "onClick": {
             "name": "Connectadhorefindium"
           },
           "width": 61,
           "height": 20,
-          "x": 226,
-          "y": 83
+          "x": 230,
+          "y": 73
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_diamond",
-          "text": "diamond",
+          "text": "Diamond",
           "onClick": {
             "name": "Connectadhorediamond"
           },
-          "width": 61,
+          "width": 72,
           "height": 20,
-          "x": 143,
-          "y": 108
+          "x": 132,
+          "y": 93
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_iron",
-          "text": "iron",
+          "text": "Iron",
           "onClick": {
             "name": "Connectadhoreiron"
           },
-          "width": 46,
+          "width": 61,
           "height": 20,
-          "x": 226,
-          "y": 108
+          "x": 230,
+          "y": 93
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_gold",
-          "text": "gold",
+          "text": "Gold",
           "onClick": {
             "name": "Connectadhoregold"
           },
-          "width": 46,
+          "width": 72,
           "height": 20,
-          "x": 158,
-          "y": 131
+          "x": 132,
+          "y": 113
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_coal",
-          "text": "coal",
+          "text": "Coal",
           "onClick": {
             "name": "Connectadhorecoal"
           },
-          "width": 46,
+          "width": 62,
           "height": 20,
-          "x": 226,
-          "y": 131
+          "x": 230,
+          "y": 113
         }
       },
       {
@@ -147,8 +147,8 @@
           },
           "width": 46,
           "height": 20,
-          "x": 158,
-          "y": 172
+          "x": 130,
+          "y": 176
         }
       },
       {
@@ -161,8 +161,33 @@
           },
           "width": 46,
           "height": 20,
-          "x": 226,
-          "y": 172
+          "x": 248,
+          "y": 178
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_redstone",
+          "text": "Redstone",
+          "onClick": {
+            "name": "Connectadminshoputilitiesredstone"
+          },
+          "width": 72,
+          "height": 20,
+          "x": 132,
+          "y": 133
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_emerald",
+          "text": "Emerald",
+          "width": 61,
+          "height": 20,
+          "x": 230,
+          "y": 133
         }
       }
     ],

@@ -76,8 +76,10 @@ public class AdminshopadbanScreen extends AbstractContainerScreen<Adminshopadban
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_work_in_progress"), 25, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_may_crash"), 39, 20, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_v_u1"), 99, 122, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_v_u1"), 78, 128, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_imcomplete_list"), 24, 20, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_some_major_graphic"), 7, 66, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_will_be_done_later"), 7, 76, -12829636);
 	}
 
 	@Override

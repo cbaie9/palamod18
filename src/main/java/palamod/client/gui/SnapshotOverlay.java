@@ -1,7 +1,7 @@
 
 package palamod.client.gui;
 
-import palamod.procedures.DevsnapfalseProcedure;
+import palamod.procedures.ReturnsnapshotoverlayProcedure;
 import palamod.procedures.DevchecksnapProcedure;
 
 import org.checkerframework.checker.units.qual.h;
@@ -38,14 +38,11 @@ public class SnapshotOverlay {
 				z = entity.getZ();
 			}
 			if (true) {
-				if (DevsnapfalseProcedure.execute(entity))
-					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.snapshot.label_palasnap_v190003"), posX + 126, posY + 110, -52480);
 				if (DevchecksnapProcedure.execute(entity))
-					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.snapshot.label_dev_version"), posX + 131, posY + 99, -3407872);
-				if (DevchecksnapProcedure.execute(entity))
-					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.snapshot.label_paladium_creator_footage_devlopp"), posX + -212, posY + -119, -26368);
-				if (DevchecksnapProcedure.execute(entity))
-					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.snapshot.label_build_v1900036"), posX + 26, posY + 110, -3407872);
+					Minecraft.getInstance().font.draw(event.getMatrixStack(), new TranslatableComponent("gui.palamod.snapshot.label_paladium_creator_footage_devlopp"), posX + -211, posY + -107, -26368);
+				Minecraft.getInstance().font.draw(event.getMatrixStack(),
+
+						ReturnsnapshotoverlayProcedure.execute(entity), posX + -210, posY + -117, -3407872);
 			}
 		}
 	}

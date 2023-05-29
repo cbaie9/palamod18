@@ -1,0 +1,205 @@
+{
+  "_fv": 43,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 190,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_plant_section",
+          "text": {
+            "fixedValue": "Adminshop - seed plant section"
+          },
+          "color": {
+            "value": -52480,
+            "falpha": 0.0
+          },
+          "x": 142,
+          "y": 26
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_back",
+          "text": "Back",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 123,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_exit",
+          "text": "Exit",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "width": 116,
+          "height": 20,
+          "x": 181,
+          "y": 194
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_cactus",
+          "text": "Cactus",
+          "onClick": {
+            "name": "Connectadminshopplantcactus"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 130,
+          "y": 46
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_red_mushroom",
+          "text": "Red Mushroom",
+          "onClick": {
+            "name": "Connectadminshopplantredmushroom"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 212,
+          "y": 46
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_brown_mushroom",
+          "text": "Brown Mushroom",
+          "onClick": {
+            "name": "Connectadminshopplantbrownmushroom"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 212,
+          "y": 72
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_warped_fungus",
+          "text": "Warped fungus",
+          "onClick": {
+            "name": "Connectadminshopplantwarpedfungus"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 212,
+          "y": 98
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_crimson_fungun",
+          "text": "Crimson Fungus",
+          "onClick": {
+            "name": "Connectadminshopplantcrimsonfungus"
+          },
+          "width": 86,
+          "height": 20,
+          "x": 212,
+          "y": 126
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_potato",
+          "text": "Potato",
+          "onClick": {
+            "name": "Connectadminshopplantpotato"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 130,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_wheat_seed",
+          "text": "Wheat",
+          "onClick": {
+            "name": "Connectadminshopplantwheat"
+          },
+          "width": 53,
+          "height": 20,
+          "x": 130,
+          "y": 153
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_carrot",
+          "text": "Carrot",
+          "onClick": {
+            "name": "Connectadminshopplantcarrot"
+          },
+          "width": 55,
+          "height": 20,
+          "x": 131,
+          "y": 98
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_melon",
+          "text": "Melon",
+          "onClick": {
+            "name": "Connectadminshopplantmelon"
+          },
+          "width": 54,
+          "height": 20,
+          "x": 131,
+          "y": 126
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_sugar_cane",
+          "text": "Sugar cane",
+          "onClick": {
+            "name": "Connectadminshopplantsugarcane"
+          },
+          "width": 85,
+          "height": 20,
+          "x": 212,
+          "y": 154
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

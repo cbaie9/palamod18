@@ -1,13 +1,10 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "0"
-  ],
-  "key": {
-    "0": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "minecraft:wither_skeleton_skull"
     }
-  },
+  ],
   "result": {
     "item": "palamod:withershard",
     "count": 9
