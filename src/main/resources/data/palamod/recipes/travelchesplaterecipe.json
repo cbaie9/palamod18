@@ -1,34 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0 2",
-    "345",
-    "678"
+    "F F",
+    "LIL",
+    "LIL"
   ],
   "key": {
-    "0": {
+    "F": {
       "item": "minecraft:feather"
     },
-    "2": {
-      "item": "minecraft:feather"
-    },
-    "3": {
+    "L": {
       "item": "minecraft:leather"
     },
-    "4": {
+    "I": {
       "item": "minecraft:iron_ingot"
-    },
-    "5": {
-      "item": "minecraft:leather"
-    },
-    "6": {
-      "item": "minecraft:leather"
-    },
-    "7": {
-      "item": "minecraft:iron_ingot"
-    },
-    "8": {
-      "item": "minecraft:leather"
     }
   },
   "result": {

@@ -1,27 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345"
+    "SES",
+    "SES"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "minecraft:stick"
     },
-    "1": {
+    "E": {
       "item": "palamod:erable_planks"
-    },
-    "2": {
-      "item": "minecraft:stick"
-    },
-    "3": {
-      "item": "minecraft:stick"
-    },
-    "4": {
-      "item": "palamod:erable_planks"
-    },
-    "5": {
-      "item": "minecraft:stick"
     }
   },
   "result": {

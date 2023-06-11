@@ -49,7 +49,7 @@ public class Pickaxeofthegodslv1Item extends TieredItem {
 			}
 
 			public int getLevel() {
-				return 3;
+				return 4;
 			}
 
 			public int getEnchantmentValue() {
@@ -64,7 +64,7 @@ public class Pickaxeofthegodslv1Item extends TieredItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(BlockState blockstate) {
-		int tier = 3;
+		int tier = 4;
 		if (tier < 3 && blockstate.is(BlockTags.NEEDS_DIAMOND_TOOL)) {
 			return false;
 		} else if (tier < 2 && blockstate.is(BlockTags.NEEDS_IRON_TOOL)) {

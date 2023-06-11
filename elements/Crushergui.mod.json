@@ -51,8 +51,7 @@
         "data": {
           "name": "label_inventaire",
           "text": {
-            "fixedValue": "Inventaire",
-            "name": "Crushertrans0"
+            "fixedValue": "Inventory"
           },
           "color": {
             "value": -12829636,
@@ -84,38 +83,6 @@
         }
       },
       {
-        "type": "label",
-        "data": {
-          "name": "label_mode_varcrusher_mode",
-          "text": {
-            "fixedValue": "mode : <VAR:crusher_mode>",
-            "name": "Crushertrans2"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "x": 56,
-          "y": 98
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_probabilite_varintegercrush",
-          "text": {
-            "fixedValue": "Probabilite : <VAR:integer:crusher_num_var_seen> %",
-            "name": "Crushertrans3"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "x": 55,
-          "y": 113
-        }
-      },
-      {
         "type": "outputslot",
         "data": {
           "id": 2,
@@ -135,8 +102,7 @@
         "data": {
           "name": "label_fuel",
           "text": {
-            "fixedValue": "fuel",
-            "name": "Crushertrans1"
+            "fixedValue": "Fuel"
           },
           "color": {
             "value": -3394816,
@@ -440,7 +406,7 @@
         "data": {
           "name": "label_v2004",
           "text": {
-            "fixedValue": "v2.2 v2custom?beta"
+            "fixedValue": "v2.3 debug.release"
           },
           "color": {
             "value": -12829636,
@@ -448,20 +414,6 @@
           },
           "x": 265,
           "y": 208
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_show_debug_variable",
-          "text": "show debug variable",
-          "onClick": {
-            "name": "Debugcrusher"
-          },
-          "width": 124,
-          "height": 20,
-          "x": 239,
-          "y": 118
         }
       },
       {

@@ -1,25 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " 1 ",
-    "345",
-    " 7 "
+    " C ",
+    "CPC",
+    " C "
   ],
   "key": {
-    "1": {
+    "C": {
       "item": "palamod:compressedpaladium"
     },
-    "3": {
-      "item": "palamod:compressedpaladium"
-    },
-    "4": {
+    "P": {
       "item": "palamod:paladium_hammer"
-    },
-    "5": {
-      "item": "palamod:compressedpaladium"
-    },
-    "7": {
-      "item": "palamod:compressedpaladium"
     }
   },
   "result": {

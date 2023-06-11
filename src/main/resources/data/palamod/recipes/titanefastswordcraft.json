@@ -1,18 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "T",
+    "T",
+    "S"
   ],
   "key": {
-    "0": {
+    "T": {
       "item": "palamod:titanestick"
     },
-    "1": {
-      "item": "palamod:titanestick"
-    },
-    "2": {
+    "S": {
       "item": "minecraft:stick"
     }
   },

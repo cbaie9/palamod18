@@ -1,20 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0 2",
-    "3 5"
+    "F F",
+    "T T"
   ],
   "key": {
-    "0": {
+    "F": {
       "item": "minecraft:feather"
     },
-    "2": {
-      "item": "minecraft:feather"
-    },
-    "3": {
-      "item": "palamod:titane_ingot"
-    },
-    "5": {
+    "T": {
       "item": "palamod:titane_ingot"
     }
   },

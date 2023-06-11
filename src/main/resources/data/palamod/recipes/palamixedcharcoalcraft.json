@@ -1,31 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    " 7 "
+    "PAP",
+    "AGA",
+    " A "
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladiumstick"
     },
-    "1": {
+    "A": {
       "item": "palamod:paladium_ingot"
     },
-    "2": {
-      "item": "palamod:paladiumstick"
-    },
-    "3": {
-      "item": "palamod:paladium_ingot"
-    },
-    "4": {
+    "G": {
       "item": "palamod:goldmixedcoal"
-    },
-    "5": {
-      "item": "palamod:paladium_ingot"
-    },
-    "7": {
-      "item": "palamod:paladium_ingot"
     }
   },
   "result": {

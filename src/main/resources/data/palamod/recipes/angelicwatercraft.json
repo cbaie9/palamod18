@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "01"
+    "FG"
   ],
   "key": {
-    "0": {
+    "F": {
       "item": "palamod:fakewater_bucket"
     },
-    "1": {
+    "G": {
       "item": "minecraft:golden_carrot"
     }
   },

@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "TTT",
+    "TIT",
+    "TTT"
   ],
   "key": {
-    "0": {
+    "T": {
       "item": "palamod:titane_block"
     },
-    "1": {
-      "item": "palamod:titane_block"
-    },
-    "2": {
-      "item": "palamod:titane_block"
-    },
-    "3": {
-      "item": "palamod:titane_block"
-    },
-    "4": {
+    "I": {
       "item": "palamod:titane_ingot"
-    },
-    "5": {
-      "item": "palamod:titane_block"
-    },
-    "6": {
-      "item": "palamod:titane_block"
-    },
-    "7": {
-      "item": "palamod:titane_block"
-    },
-    "8": {
-      "item": "palamod:titane_block"
     }
   },
   "result": {

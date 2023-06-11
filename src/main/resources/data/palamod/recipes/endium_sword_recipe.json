@@ -1,18 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "E",
+    "E",
+    "S"
   ],
   "key": {
-    "0": {
+    "E": {
       "item": "palamod:endium_ingot"
     },
-    "1": {
-      "item": "palamod:endium_ingot"
-    },
-    "2": {
+    "S": {
       "item": "minecraft:stick"
     }
   },

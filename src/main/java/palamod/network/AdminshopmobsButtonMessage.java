@@ -78,51 +78,51 @@ public class AdminshopmobsButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			Adminshop_openProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsboneProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 
-			CloseguiProcedure.execute(entity);
+			ConnectadminshopmobsenderpearlProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 2) {
 
-			ConnectadminshopmobsboneProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsfrspidereyesProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 3) {
 
-			ConnectadminshopmobsenderpearlProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsspidereyesProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 4) {
 
-			ConnectadminshopmobsfrspidereyesProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsrottenfleshProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 5) {
 
-			ConnectadminshopmobsspidereyesProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsstringProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 6) {
 
-			ConnectadminshopmobsrottenfleshProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsghasttearsProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 7) {
 
-			ConnectadminshopmobsstringProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobseggProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 8) {
 
-			ConnectadminshopmobsghasttearsProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsslimeballProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 9) {
 
-			ConnectadminshopmobseggProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobswitherskullProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 10) {
 
-			ConnectadminshopmobsslimeballProcedure.execute(world, x, y, z, entity);
+			CloseguiProcedure.execute(entity);
 		}
 		if (buttonID == 11) {
 
-			ConnectadminshopmobswitherskullProcedure.execute(world, x, y, z, entity);
+			Adminshop_openProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 12) {
 

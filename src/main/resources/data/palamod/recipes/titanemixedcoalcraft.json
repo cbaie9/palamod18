@@ -1,25 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " 1 ",
-    "345",
-    " 7 "
+    " T ",
+    "TGT",
+    " T "
   ],
   "key": {
-    "1": {
+    "T": {
       "item": "palamod:titane_ingot"
     },
-    "3": {
-      "item": "palamod:titane_ingot"
-    },
-    "4": {
+    "G": {
       "item": "palamod:goldmixedcoal"
-    },
-    "5": {
-      "item": "palamod:titane_ingot"
-    },
-    "7": {
-      "item": "palamod:titane_ingot"
     }
   },
   "result": {

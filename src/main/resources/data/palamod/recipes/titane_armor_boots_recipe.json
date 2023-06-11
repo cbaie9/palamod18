@@ -1,20 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0 2",
-    "3 5"
+    "T T",
+    "T T"
   ],
   "key": {
-    "0": {
-      "item": "palamod:titane_ingot"
-    },
-    "2": {
-      "item": "palamod:titane_ingot"
-    },
-    "3": {
-      "item": "palamod:titane_ingot"
-    },
-    "5": {
+    "T": {
       "item": "palamod:titane_ingot"
     }
   },

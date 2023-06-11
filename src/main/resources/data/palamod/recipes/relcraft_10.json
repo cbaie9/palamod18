@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "01"
+    "EW"
   ],
   "key": {
-    "0": {
+    "E": {
       "item": "palamod:elevatorgray"
     },
-    "1": {
+    "W": {
       "item": "minecraft:white_dye"
     }
   },

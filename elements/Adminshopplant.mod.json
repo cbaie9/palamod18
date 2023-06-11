@@ -11,49 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "label",
-        "data": {
-          "name": "label_adminshop_plant_section",
-          "text": {
-            "fixedValue": "Adminshop - seed plant section"
-          },
-          "color": {
-            "value": -52480,
-            "falpha": 0.0
-          },
-          "x": 142,
-          "y": 26
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_back",
-          "text": "Back",
-          "onClick": {
-            "name": "Adminshop_open"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 123,
-          "y": 194
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_exit",
-          "text": "Exit",
-          "onClick": {
-            "name": "Closegui"
-          },
-          "width": 116,
-          "height": 20,
-          "x": 181,
-          "y": 194
-        }
-      },
-      {
         "type": "button",
         "data": {
           "name": "button_cactus",
@@ -191,6 +148,65 @@
           "height": 20,
           "x": 212,
           "y": 154
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 118,
+          "y": 17
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 208,
+          "y": 17
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_seed_menu",
+          "text": {
+            "fixedValue": "Adminshop seed menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 165,
+          "y": 24
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 284,
+          "y": 21
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_adminshop",
+          "image": "arrow_adminshop.png",
+          "hoveredImage": "arrow_adminshop_poi.png",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "x": 126,
+          "y": 22
         }
       }
     ],

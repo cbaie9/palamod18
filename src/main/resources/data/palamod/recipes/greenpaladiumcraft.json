@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "PCP",
+    "CAC",
+    "PCP"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_greeningot"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedgreenpaladum"
     },
-    "2": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "3": {
-      "item": "palamod:compressedgreenpaladum"
-    },
-    "4": {
+    "A": {
       "item": "palamod:paladiumchest"
-    },
-    "5": {
-      "item": "palamod:compressedgreenpaladum"
-    },
-    "6": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "7": {
-      "item": "palamod:compressedgreenpaladum"
-    },
-    "8": {
-      "item": "palamod:paladium_greeningot"
     }
   },
   "result": {

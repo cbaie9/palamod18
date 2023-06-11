@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "XXX",
+    "XXX",
+    "XXX"
   ],
   "key": {
-    "0": {
-      "item": "palamod:xpberry"
-    },
-    "1": {
-      "item": "palamod:xpberry"
-    },
-    "2": {
-      "item": "palamod:xpberry"
-    },
-    "3": {
-      "item": "palamod:xpberry"
-    },
-    "4": {
-      "item": "palamod:xpberry"
-    },
-    "5": {
-      "item": "palamod:xpberry"
-    },
-    "6": {
-      "item": "palamod:xpberry"
-    },
-    "7": {
-      "item": "palamod:xpberry"
-    },
-    "8": {
+    "X": {
       "item": "palamod:xpberry"
     }
   },

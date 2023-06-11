@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "FFF",
+    "FFF",
+    "FFF"
   ],
   "key": {
-    "0": {
-      "item": "palamod:findium"
-    },
-    "1": {
-      "item": "palamod:findium"
-    },
-    "2": {
-      "item": "palamod:findium"
-    },
-    "3": {
-      "item": "palamod:findium"
-    },
-    "4": {
-      "item": "palamod:findium"
-    },
-    "5": {
-      "item": "palamod:findium"
-    },
-    "6": {
-      "item": "palamod:findium"
-    },
-    "7": {
-      "item": "palamod:findium"
-    },
-    "8": {
+    "F": {
       "item": "palamod:findium"
     }
   },

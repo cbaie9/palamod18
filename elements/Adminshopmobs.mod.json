@@ -11,49 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "label",
-        "data": {
-          "name": "label_adminshop_plant_section",
-          "text": {
-            "fixedValue": "Adminshop - mobs's item section"
-          },
-          "color": {
-            "value": -52480,
-            "falpha": 0.0
-          },
-          "x": 131,
-          "y": 25
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_back",
-          "text": "Back",
-          "onClick": {
-            "name": "Adminshop_open"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 123,
-          "y": 194
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_exit",
-          "text": "Exit",
-          "onClick": {
-            "name": "Closegui"
-          },
-          "width": 61,
-          "height": 20,
-          "x": 179,
-          "y": 194
-        }
-      },
-      {
         "type": "button",
         "data": {
           "name": "button_cactus",
@@ -194,17 +151,90 @@
         }
       },
       {
-        "type": "button",
+        "type": "image",
         "data": {
-          "name": "button_next",
-          "text": "Next",
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 118,
+          "y": 12
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 208,
+          "y": 12
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_mobs_menu",
+          "text": {
+            "fixedValue": "Adminshop mobs menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 172,
+          "y": 15
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_page_1",
+          "text": {
+            "fixedValue": "page 1"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 196,
+          "y": 25
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 283,
+          "y": 16
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_adminshop",
+          "image": "arrow_adminshop.png",
+          "hoveredImage": "arrow_adminshop_poi.png",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "x": 126,
+          "y": 14
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_revert_adminshop_arrow",
+          "image": "revert_adminshop_arrow.png",
+          "hoveredImage": "pointed_revert_adminshop_arrow.png",
           "onClick": {
             "name": "Connectadminshopmobs2"
           },
-          "width": 46,
-          "height": 20,
-          "x": 252,
-          "y": 193
+          "x": 145,
+          "y": 14
         }
       }
     ],

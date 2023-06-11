@@ -12,7 +12,6 @@ import palamod.procedures.ConnectAdminshopmobs2gunpowderProcedure;
 import palamod.procedures.ConnectAdminshopmobs2glowinksacProcedure;
 import palamod.procedures.ConnectAdminshopmobs2featherProcedure;
 import palamod.procedures.ConnectAdminshopmobs2blazeProcedure;
-import palamod.procedures.CloseguiProcedure;
 import palamod.procedures.Adminshop_openProcedure;
 
 import palamod.PalamodMod;
@@ -76,47 +75,43 @@ public class Adminshopmobs2ButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			Adminshop_openProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2honeycombProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 
-			CloseguiProcedure.execute(entity);
+			ConnectAdminshopmobs2leatherProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 2) {
 
-			ConnectadminshopmobsProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2featherProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 3) {
 
-			ConnectAdminshopmobs2honeycombProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2inksacProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 4) {
 
-			ConnectAdminshopmobs2leatherProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2glowinksacProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 5) {
 
-			ConnectAdminshopmobs2featherProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2blazeProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 6) {
 
-			ConnectAdminshopmobs2inksacProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2gunpowderProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 7) {
 
-			ConnectAdminshopmobs2glowinksacProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 8) {
-
-			ConnectAdminshopmobs2blazeProcedure.execute(world, x, y, z, entity);
+			ConnectAdminshopmobs2steakProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 9) {
 
-			ConnectAdminshopmobs2gunpowderProcedure.execute(world, x, y, z, entity);
+			Adminshop_openProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 10) {
 
-			ConnectAdminshopmobs2steakProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopmobsProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

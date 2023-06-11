@@ -3,10 +3,6 @@ package palamod.client.gui;
 
 import palamod.world.inventory.CrusherguiMenu;
 
-import palamod.procedures.Crushertrans3Procedure;
-import palamod.procedures.Crushertrans2Procedure;
-import palamod.procedures.Crushertrans1Procedure;
-import palamod.procedures.Crushertrans0Procedure;
 import palamod.procedures.CrushertextadProcedure;
 import palamod.procedures.Crushertextad4Procedure;
 import palamod.procedures.Crushertextad3Procedure;
@@ -250,7 +246,6 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.ImageButton;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
@@ -263,7 +258,6 @@ public class CrusherguiScreen extends AbstractContainerScreen<CrusherguiMenu> {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	Button button_show_debug_variable;
 	ImageButton imagebutton_button_blank;
 	ImageButton imagebutton_button_white;
 	ImageButton imagebutton_button_white1;
@@ -1240,18 +1234,8 @@ public class CrusherguiScreen extends AbstractContainerScreen<CrusherguiMenu> {
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.crushergui.label_paladium_crusher"), 121, 3, -3407821);
-		this.font.draw(poseStack,
-
-				Crushertrans0Procedure.execute(entity), 13, 111, -12829636);
-		this.font.draw(poseStack,
-
-				Crushertrans2Procedure.execute(), 10, 80, -12829636);
-		this.font.draw(poseStack,
-
-				Crushertrans3Procedure.execute(world, x, y, z, entity), 9, 95, -12829636);
-		this.font.draw(poseStack,
-
-				Crushertrans1Procedure.execute(entity), 27, 58, -3394816);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.crushergui.label_inventaire"), 13, 111, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.crushergui.label_fuel"), 27, 58, -3394816);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.crushergui.label_fruits"), 26, 24, -3407668);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.crushergui.label_v2004"), 219, 190, -12829636);
 		if (Crushertextad4Procedure.execute())
@@ -1282,42 +1266,34 @@ public class CrusherguiScreen extends AbstractContainerScreen<CrusherguiMenu> {
 	public void init() {
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_show_debug_variable = new Button(this.leftPos + 193, this.topPos + 100, 124, 20, new TranslatableComponent("gui.palamod.crushergui.button_show_debug_variable"), e -> {
+		imagebutton_button_blank = new ImageButton(this.leftPos + 214, this.topPos + 48, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_blank.png"), 92, 40, e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(0, x, y, z));
 				CrusherguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
-			}
-		});
-		guistate.put("button:button_show_debug_variable", button_show_debug_variable);
-		this.addRenderableWidget(button_show_debug_variable);
-		imagebutton_button_blank = new ImageButton(this.leftPos + 214, this.topPos + 48, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_blank.png"), 92, 40, e -> {
-			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(1, x, y, z));
-				CrusherguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		});
 		guistate.put("button:imagebutton_button_blank", imagebutton_button_blank);
 		this.addRenderableWidget(imagebutton_button_blank);
 		imagebutton_button_white = new ImageButton(this.leftPos + 215, this.topPos + 22, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_white.png"), 92, 40, e -> {
 			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(2, x, y, z));
-				CrusherguiButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(1, x, y, z));
+				CrusherguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		});
 		guistate.put("button:imagebutton_button_white", imagebutton_button_white);
 		this.addRenderableWidget(imagebutton_button_white);
 		imagebutton_button_white1 = new ImageButton(this.leftPos + 99, this.topPos + 48, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_white1.png"), 92, 40, e -> {
 			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(3, x, y, z));
-				CrusherguiButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(2, x, y, z));
+				CrusherguiButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		});
 		guistate.put("button:imagebutton_button_white1", imagebutton_button_white1);
 		this.addRenderableWidget(imagebutton_button_white1);
 		imagebutton_button_white2 = new ImageButton(this.leftPos + 99, this.topPos + 18, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_white2.png"), 92, 40, e -> {
 			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(4, x, y, z));
-				CrusherguiButtonMessage.handleButtonAction(entity, 4, x, y, z);
+				PalamodMod.PACKET_HANDLER.sendToServer(new CrusherguiButtonMessage(3, x, y, z));
+				CrusherguiButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		});
 		guistate.put("button:imagebutton_button_white2", imagebutton_button_white2);

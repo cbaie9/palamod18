@@ -1,26 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345"
+    "OOO",
+    "OOO"
   ],
   "key": {
-    "0": {
-      "item": "minecraft:obsidian"
-    },
-    "1": {
-      "item": "minecraft:obsidian"
-    },
-    "2": {
-      "item": "minecraft:obsidian"
-    },
-    "3": {
-      "item": "minecraft:obsidian"
-    },
-    "4": {
-      "item": "minecraft:obsidian"
-    },
-    "5": {
+    "O": {
       "item": "minecraft:obsidian"
     }
   },

@@ -11,21 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "label",
-        "data": {
-          "name": "label_adminshop_ore",
-          "text": {
-            "fixedValue": "Adminshop ore"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "x": 171,
-          "y": 42
-        }
-      },
-      {
         "type": "button",
         "data": {
           "name": "button_paladium",
@@ -140,34 +125,6 @@
       {
         "type": "button",
         "data": {
-          "name": "button_back",
-          "text": "Back",
-          "onClick": {
-            "name": "Adminshop_open"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 130,
-          "y": 176
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_exit",
-          "text": "exit",
-          "onClick": {
-            "name": "Closegui"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 248,
-          "y": 178
-        }
-      },
-      {
-        "type": "button",
-        "data": {
           "name": "button_redstone",
           "text": "Redstone",
           "onClick": {
@@ -188,6 +145,65 @@
           "height": 20,
           "x": 230,
           "y": 133
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 125,
+          "y": 19
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 201,
+          "y": 19
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_ore_menu",
+          "text": {
+            "fixedValue": "Adminshop ore menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 161,
+          "y": 24
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 275,
+          "y": 23
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_adminshop",
+          "image": "arrow_adminshop.png",
+          "hoveredImage": "arrow_adminshop_poi.png",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "x": 131,
+          "y": 23
         }
       }
     ],

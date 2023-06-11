@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "TCT",
+    "CAC",
+    "TCT"
   ],
   "key": {
-    "0": {
+    "T": {
       "item": "palamod:titane_ingot"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedtitane"
     },
-    "2": {
-      "item": "palamod:titane_ingot"
-    },
-    "3": {
-      "item": "palamod:compressedtitane"
-    },
-    "4": {
+    "A": {
       "item": "palamod:amethystchest"
-    },
-    "5": {
-      "item": "palamod:compressedtitane"
-    },
-    "6": {
-      "item": "palamod:titane_ingot"
-    },
-    "7": {
-      "item": "palamod:compressedtitane"
-    },
-    "8": {
-      "item": "palamod:titane_ingot"
     }
   },
   "result": {

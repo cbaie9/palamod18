@@ -21,7 +21,6 @@ import palamod.block.TitaneOreBlock;
 import palamod.block.TitaneBlockBlock;
 import palamod.block.Tcv2Block;
 import palamod.block.StonyBlock;
-import palamod.block.SpiketestBlock;
 import palamod.block.SpikegoldBlock;
 import palamod.block.SlimepadBlock;
 import palamod.block.RenforcedobsidianBlock;
@@ -348,7 +347,6 @@ public class PalamodModBlocks {
 	public static final RegistryObject<Block> HDVBLOCK = REGISTRY.register("hdvblock", () -> new HdvblockBlock());
 	public static final RegistryObject<Block> CAVEBLOCK = REGISTRY.register("caveblock", () -> new CaveblockBlock());
 	public static final RegistryObject<Block> PROTODEEPSLATE = REGISTRY.register("protodeepslate", () -> new ProtodeepslateBlock());
-	public static final RegistryObject<Block> SPIKETEST = REGISTRY.register("spiketest", () -> new SpiketestBlock());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {
@@ -398,7 +396,6 @@ public class PalamodModBlocks {
 			Orangeblue4Block.registerRenderLayer();
 			CrownBlock.registerRenderLayer();
 			CaveblockBlock.registerRenderLayer();
-			SpiketestBlock.registerRenderLayer();
 		}
 	}
 }

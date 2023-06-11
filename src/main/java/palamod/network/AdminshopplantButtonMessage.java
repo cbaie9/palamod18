@@ -77,51 +77,51 @@ public class AdminshopplantButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			Adminshop_openProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantcactusProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 1) {
 
-			CloseguiProcedure.execute(entity);
+			ConnectadminshopplantredmushroomProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 2) {
 
-			ConnectadminshopplantcactusProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantbrownmushroomProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 3) {
 
-			ConnectadminshopplantredmushroomProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantwarpedfungusProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 4) {
 
-			ConnectadminshopplantbrownmushroomProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantcrimsonfungusProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 5) {
 
-			ConnectadminshopplantwarpedfungusProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantpotatoProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 6) {
 
-			ConnectadminshopplantcrimsonfungusProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantwheatProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 7) {
 
-			ConnectadminshopplantpotatoProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantcarrotProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 8) {
 
-			ConnectadminshopplantwheatProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantmelonProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 9) {
 
-			ConnectadminshopplantcarrotProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantsugarcaneProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 10) {
 
-			ConnectadminshopplantmelonProcedure.execute(world, x, y, z, entity);
+			CloseguiProcedure.execute(entity);
 		}
 		if (buttonID == 11) {
 
-			ConnectadminshopplantsugarcaneProcedure.execute(world, x, y, z, entity);
+			Adminshop_openProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

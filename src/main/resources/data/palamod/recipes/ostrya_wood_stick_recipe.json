@@ -1,14 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1"
+    "O",
+    "O"
   ],
   "key": {
-    "0": {
-      "item": "palamod:ostrya_wood_planks"
-    },
-    "1": {
+    "O": {
       "item": "palamod:ostrya_wood_planks"
     }
   },

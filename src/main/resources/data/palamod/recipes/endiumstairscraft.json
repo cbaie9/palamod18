@@ -1,27 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  2",
-    " 45",
-    "678"
+    "  E",
+    " EE",
+    "EEE"
   ],
   "key": {
-    "2": {
-      "item": "palamod:endium_ingot"
-    },
-    "4": {
-      "item": "palamod:endium_ingot"
-    },
-    "5": {
-      "item": "palamod:endium_ingot"
-    },
-    "6": {
-      "item": "palamod:endium_ingot"
-    },
-    "7": {
-      "item": "palamod:endium_ingot"
-    },
-    "8": {
+    "E": {
       "item": "palamod:endium_ingot"
     }
   },

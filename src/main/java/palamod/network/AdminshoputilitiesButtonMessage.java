@@ -14,6 +14,7 @@ import palamod.procedures.ConnectadhblkoakwoodProcedure;
 import palamod.procedures.ConnectadhblknetherrackProcedure;
 import palamod.procedures.ConnectAdminshopmobs2steakProcedure;
 import palamod.procedures.CloseguiProcedure;
+import palamod.procedures.Adminshop_openProcedure;
 
 import palamod.PalamodMod;
 
@@ -74,49 +75,53 @@ public class AdminshoputilitiesButtonMessage {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
-		if (buttonID == 1) {
-
-			CloseguiProcedure.execute(entity);
-		}
-		if (buttonID == 2) {
+		if (buttonID == 0) {
 
 			ConnectadminshoputilitiesdiampicProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 3) {
+		if (buttonID == 1) {
 
 			ConnectadhblknetherrackProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 4) {
+		if (buttonID == 2) {
 
 			ConnectadminshoputilitiesredstoneProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 5) {
+		if (buttonID == 3) {
 
 			ConnectadhorecoalProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 6) {
+		if (buttonID == 4) {
 
 			ConnectadhblkoakwoodProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 7) {
+		if (buttonID == 5) {
 
 			ConnectadminshopmobsboneProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 8) {
+		if (buttonID == 6) {
 
 			ConnectadminshopmobsenderpearlProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 9) {
+		if (buttonID == 7) {
 
 			ConnectAdminshopmobs2steakProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 10) {
+		if (buttonID == 8) {
 
 			ConnectadhblkstoneProcedure.execute(world, x, y, z, entity);
 		}
-		if (buttonID == 11) {
+		if (buttonID == 9) {
 
 			ConnectadminshoputilitiesemeraldProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 10) {
+
+			Adminshop_openProcedure.execute(world, x, y, z, entity);
+		}
+		if (buttonID == 11) {
+
+			CloseguiProcedure.execute(entity);
 		}
 	}
 

@@ -1,37 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "WWW",
+    "FPF",
+    "LRL"
   ],
   "key": {
-    "0": {
+    "W": {
       "tag": "minecraft:wool"
     },
-    "1": {
-      "tag": "minecraft:wool"
-    },
-    "2": {
-      "tag": "minecraft:wool"
-    },
-    "3": {
+    "F": {
       "item": "palamod:furnaceupgrade"
     },
-    "4": {
+    "P": {
       "item": "minecraft:piston"
     },
-    "5": {
-      "item": "palamod:furnaceupgrade"
-    },
-    "6": {
+    "L": {
       "tag": "minecraft:planks"
     },
-    "7": {
+    "R": {
       "item": "minecraft:redstone"
-    },
-    "8": {
-      "tag": "minecraft:planks"
     }
   },
   "result": {

@@ -5,6 +5,7 @@
 package palamod.init;
 
 import palamod.client.model.Modeldynamite_model;
+import palamod.client.model.ModelGolem_gplacement;
 import palamod.client.model.ModelBIG_dynamite2;
 
 import net.minecraftforge.fml.common.Mod;
@@ -18,5 +19,6 @@ public class PalamodModModels {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelBIG_dynamite2.LAYER_LOCATION, ModelBIG_dynamite2::createBodyLayer);
 		event.registerLayerDefinition(Modeldynamite_model.LAYER_LOCATION, Modeldynamite_model::createBodyLayer);
+		event.registerLayerDefinition(ModelGolem_gplacement.LAYER_LOCATION, ModelGolem_gplacement::createBodyLayer);
 	}
 }

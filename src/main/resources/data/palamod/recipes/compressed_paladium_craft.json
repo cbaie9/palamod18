@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "PPP",
+    "PAP",
+    "PPP"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_block"
     },
-    "1": {
-      "item": "palamod:paladium_block"
-    },
-    "2": {
-      "item": "palamod:paladium_block"
-    },
-    "3": {
-      "item": "palamod:paladium_block"
-    },
-    "4": {
+    "A": {
       "item": "palamod:paladium_ingot"
-    },
-    "5": {
-      "item": "palamod:paladium_block"
-    },
-    "6": {
-      "item": "palamod:paladium_block"
-    },
-    "7": {
-      "item": "palamod:paladium_block"
-    },
-    "8": {
-      "item": "palamod:paladium_block"
     }
   },
   "result": {

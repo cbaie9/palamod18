@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "EEE",
+    "EEE",
+    "EEE"
   ],
   "key": {
-    "0": {
-      "item": "palamod:endiumnugget"
-    },
-    "1": {
-      "item": "palamod:endiumnugget"
-    },
-    "2": {
-      "item": "palamod:endiumnugget"
-    },
-    "3": {
-      "item": "palamod:endiumnugget"
-    },
-    "4": {
-      "item": "palamod:endiumnugget"
-    },
-    "5": {
-      "item": "palamod:endiumnugget"
-    },
-    "6": {
-      "item": "palamod:endiumnugget"
-    },
-    "7": {
-      "item": "palamod:endiumnugget"
-    },
-    "8": {
+    "E": {
       "item": "palamod:endiumnugget"
     }
   },

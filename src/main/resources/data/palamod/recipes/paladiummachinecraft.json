@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "SSS",
+    "SCS",
+    "SSS"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "minecraft:stone"
     },
-    "1": {
-      "item": "minecraft:stone"
-    },
-    "2": {
-      "item": "minecraft:stone"
-    },
-    "3": {
-      "item": "minecraft:stone"
-    },
-    "4": {
+    "C": {
       "item": "palamod:compressedpaladium"
-    },
-    "5": {
-      "item": "minecraft:stone"
-    },
-    "6": {
-      "item": "minecraft:stone"
-    },
-    "7": {
-      "item": "minecraft:stone"
-    },
-    "8": {
-      "item": "minecraft:stone"
     }
   },
   "result": {

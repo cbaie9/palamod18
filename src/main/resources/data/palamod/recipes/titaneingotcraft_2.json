@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "TTT",
+    "TTT",
+    "TTT"
   ],
   "key": {
-    "0": {
-      "item": "palamod:titaneparticle"
-    },
-    "1": {
-      "item": "palamod:titaneparticle"
-    },
-    "2": {
-      "item": "palamod:titaneparticle"
-    },
-    "3": {
-      "item": "palamod:titaneparticle"
-    },
-    "4": {
-      "item": "palamod:titaneparticle"
-    },
-    "5": {
-      "item": "palamod:titaneparticle"
-    },
-    "6": {
-      "item": "palamod:titaneparticle"
-    },
-    "7": {
-      "item": "palamod:titaneparticle"
-    },
-    "8": {
+    "T": {
       "item": "palamod:titaneparticle"
     }
   },

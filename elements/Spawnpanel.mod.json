@@ -15,7 +15,8 @@
         "data": {
           "name": "label_varcoor_spawn",
           "text": {
-            "fixedValue": "<VAR:coor_spawn>"
+            "fixedValue": "<VAR:coor_spawn>",
+            "name": "Spawnpanel_get_spawn"
           },
           "color": {
             "value": -12829636,

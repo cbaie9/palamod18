@@ -1,27 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345"
+    "SJS",
+    "SJS"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "minecraft:stick"
     },
-    "1": {
+    "J": {
       "item": "palamod:jacaranda_planks"
-    },
-    "2": {
-      "item": "minecraft:stick"
-    },
-    "3": {
-      "item": "minecraft:stick"
-    },
-    "4": {
-      "item": "palamod:jacaranda_planks"
-    },
-    "5": {
-      "item": "minecraft:stick"
     }
   },
   "result": {

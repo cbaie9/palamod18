@@ -1,24 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    " 4 ",
-    " 7 "
+    "APT",
+    " L ",
+    " L "
   ],
   "key": {
-    "0": {
+    "A": {
       "item": "palamod:amethyste_pickaxe"
     },
-    "1": {
+    "P": {
       "item": "palamod:paladium_pickaxe"
     },
-    "2": {
+    "T": {
       "item": "palamod:titane_pickaxe"
     },
-    "4": {
-      "item": "palamod:paladiumstick"
-    },
-    "7": {
+    "L": {
       "item": "palamod:paladiumstick"
     }
   },

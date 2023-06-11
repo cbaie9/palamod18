@@ -15,39 +15,14 @@
         "data": {
           "name": "label_adminshop_plant_section",
           "text": {
-            "fixedValue": "Adminshop - fast action section"
+            "fixedValue": "Adminshop - fast action "
           },
           "color": {
             "value": -52480,
             "falpha": 0.0
           },
-          "x": 138,
-          "y": 25
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_back",
-          "text": "Menu",
-          "width": 46,
-          "height": 20,
-          "x": 123,
-          "y": 194
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_exit",
-          "text": "Exit",
-          "onClick": {
-            "name": "Closegui"
-          },
-          "width": 61,
-          "height": 20,
-          "x": 238,
-          "y": 194
+          "x": 142,
+          "y": 21
         }
       },
       {
@@ -60,7 +35,7 @@
           },
           "width": 81,
           "height": 20,
-          "x": 218,
+          "x": 217,
           "y": 94
         }
       },
@@ -74,8 +49,8 @@
           },
           "width": 61,
           "height": 20,
-          "x": 129,
-          "y": 159
+          "x": 130,
+          "y": 188
         }
       },
       {
@@ -102,8 +77,8 @@
           },
           "width": 43,
           "height": 20,
-          "x": 186,
-          "y": 71
+          "x": 255,
+          "y": 116
         }
       },
       {
@@ -170,11 +145,11 @@
             "fixedValue": "Useful"
           },
           "color": {
-            "value": -12829636,
+            "value": -1,
             "falpha": 0.0
           },
-          "x": 187,
-          "y": 35
+          "x": 195,
+          "y": 31
         }
       },
       {
@@ -188,22 +163,22 @@
             "value": -3407872,
             "falpha": 0.0
           },
-          "x": 192,
-          "y": 144
+          "x": 193,
+          "y": 176
         }
       },
       {
         "type": "button",
         "data": {
           "name": "button_stone",
-          "text": "Stone",
+          "text": "Cobblestone",
           "onClick": {
             "name": "Connectadhblkstone"
           },
-          "width": 51,
+          "width": 68,
           "height": 20,
-          "x": 247,
-          "y": 159
+          "x": 230,
+          "y": 189
         }
       },
       {
@@ -218,6 +193,50 @@
           "height": 20,
           "x": 129,
           "y": 117
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 208,
+          "y": 18
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 118,
+          "y": 18
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_adminshop",
+          "image": "arrow_adminshop.png",
+          "hoveredImage": "arrow_adminshop_poi.png",
+          "onClick": {
+            "name": "Adminshop_open"
+          },
+          "x": 123,
+          "y": 22
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 281,
+          "y": 23
         }
       }
     ],

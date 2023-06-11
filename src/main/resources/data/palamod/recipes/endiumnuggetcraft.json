@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "EEE",
+    "EEE",
+    "EEE"
   ],
   "key": {
-    "0": {
-      "item": "palamod:endiumpollen"
-    },
-    "1": {
-      "item": "palamod:endiumpollen"
-    },
-    "2": {
-      "item": "palamod:endiumpollen"
-    },
-    "3": {
-      "item": "palamod:endiumpollen"
-    },
-    "4": {
-      "item": "palamod:endiumpollen"
-    },
-    "5": {
-      "item": "palamod:endiumpollen"
-    },
-    "6": {
-      "item": "palamod:endiumpollen"
-    },
-    "7": {
-      "item": "palamod:endiumpollen"
-    },
-    "8": {
+    "E": {
       "item": "palamod:endiumpollen"
     }
   },

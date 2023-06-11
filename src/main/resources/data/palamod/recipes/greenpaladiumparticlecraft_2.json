@@ -1,36 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "GGG",
+    "GGG",
+    "GGG"
   ],
   "key": {
-    "0": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "1": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "2": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "3": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "4": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "5": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "6": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "7": {
-      "item": "palamod:greenpaladiumparticle"
-    },
-    "8": {
+    "G": {
       "item": "palamod:greenpaladiumparticle"
     }
   },

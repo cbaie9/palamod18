@@ -1,24 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    " 4 ",
-    " 7 "
+    "AAA",
+    " M ",
+    " M "
   ],
   "key": {
-    "0": {
+    "A": {
       "item": "palamod:amethyste_shovel"
     },
-    "1": {
-      "item": "palamod:amethyste_shovel"
-    },
-    "2": {
-      "item": "palamod:amethyste_shovel"
-    },
-    "4": {
-      "item": "palamod:amethytestick"
-    },
-    "7": {
+    "M": {
       "item": "palamod:amethytestick"
     }
   },

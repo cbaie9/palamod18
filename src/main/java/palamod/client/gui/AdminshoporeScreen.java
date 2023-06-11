@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.Minecraft;
 
@@ -35,10 +36,10 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 	Button button_iron;
 	Button button_gold;
 	Button button_coal;
-	Button button_back;
-	Button button_exit;
 	Button button_redstone;
 	Button button_emerald;
+	ImageButton imagebutton_cross_no_button;
+	ImageButton imagebutton_arrow_adminshop;
 
 	public AdminshoporeScreen(AdminshoporeMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -67,6 +68,13 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		RenderSystem.defaultBlendFunc();
 		RenderSystem.setShaderTexture(0, texture);
 		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+
+		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/left_gray_line.png"));
+		this.blit(ms, this.leftPos + 0, this.topPos + -18, 0, 0, 100, 24, 100, 24);
+
+		RenderSystem.setShaderTexture(0, new ResourceLocation("palamod:textures/screens/right_gray_line.png"));
+		this.blit(ms, this.leftPos + 75, this.topPos + -18, 0, 0, 100, 24, 100, 24);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -86,7 +94,7 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopore.label_adminshop_ore"), 45, 5, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopore.label_adminshop_ore_menu"), 35, -13, -1);
 	}
 
 	@Override
@@ -163,26 +171,10 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_coal", button_coal);
 		this.addRenderableWidget(button_coal);
-		button_back = new Button(this.leftPos + 4, this.topPos + 139, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_back"), e -> {
+		button_redstone = new Button(this.leftPos + 6, this.topPos + 96, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_redstone"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(8, x, y, z));
 				AdminshoporeButtonMessage.handleButtonAction(entity, 8, x, y, z);
-			}
-		});
-		guistate.put("button:button_back", button_back);
-		this.addRenderableWidget(button_back);
-		button_exit = new Button(this.leftPos + 122, this.topPos + 141, 46, 20, new TranslatableComponent("gui.palamod.adminshopore.button_exit"), e -> {
-			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(9, x, y, z));
-				AdminshoporeButtonMessage.handleButtonAction(entity, 9, x, y, z);
-			}
-		});
-		guistate.put("button:button_exit", button_exit);
-		this.addRenderableWidget(button_exit);
-		button_redstone = new Button(this.leftPos + 6, this.topPos + 96, 72, 20, new TranslatableComponent("gui.palamod.adminshopore.button_redstone"), e -> {
-			if (true) {
-				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(10, x, y, z));
-				AdminshoporeButtonMessage.handleButtonAction(entity, 10, x, y, z);
 			}
 		});
 		guistate.put("button:button_redstone", button_redstone);
@@ -191,5 +183,21 @@ public class AdminshoporeScreen extends AbstractContainerScreen<AdminshoporeMenu
 		});
 		guistate.put("button:button_emerald", button_emerald);
 		this.addRenderableWidget(button_emerald);
+		imagebutton_cross_no_button = new ImageButton(this.leftPos + 149, this.topPos + -14, 16, 16, 0, 0, 16, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_cross_no_button.png"), 16, 32, e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(10, x, y, z));
+				AdminshoporeButtonMessage.handleButtonAction(entity, 10, x, y, z);
+			}
+		});
+		guistate.put("button:imagebutton_cross_no_button", imagebutton_cross_no_button);
+		this.addRenderableWidget(imagebutton_cross_no_button);
+		imagebutton_arrow_adminshop = new ImageButton(this.leftPos + 5, this.topPos + -14, 16, 16, 0, 0, 16, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_arrow_adminshop.png"), 16, 32, e -> {
+			if (true) {
+				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporeButtonMessage(11, x, y, z));
+				AdminshoporeButtonMessage.handleButtonAction(entity, 11, x, y, z);
+			}
+		});
+		guistate.put("button:imagebutton_arrow_adminshop", imagebutton_arrow_adminshop);
+		this.addRenderableWidget(imagebutton_arrow_adminshop);
 	}
 }

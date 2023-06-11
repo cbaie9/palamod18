@@ -1,34 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "3 5",
-    "678"
+    "PTP",
+    "T T",
+    "PTP"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_ingot"
     },
-    "1": {
+    "T": {
       "item": "palamod:titaneexcavator"
-    },
-    "2": {
-      "item": "palamod:paladium_ingot"
-    },
-    "3": {
-      "item": "palamod:titaneexcavator"
-    },
-    "5": {
-      "item": "palamod:titaneexcavator"
-    },
-    "6": {
-      "item": "palamod:paladium_ingot"
-    },
-    "7": {
-      "item": "palamod:titaneexcavator"
-    },
-    "8": {
-      "item": "palamod:paladium_ingot"
     }
   },
   "result": {

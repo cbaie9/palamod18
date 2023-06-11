@@ -1,37 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "PCP",
+    "AFA",
+    "PAP"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladiumcore"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedamethyste"
     },
-    "2": {
-      "item": "palamod:paladiumcore"
-    },
-    "3": {
+    "A": {
       "item": "palamod:paladiumstick"
     },
-    "4": {
+    "F": {
       "item": "palamod:findium"
-    },
-    "5": {
-      "item": "palamod:paladiumstick"
-    },
-    "6": {
-      "item": "palamod:paladiumcore"
-    },
-    "7": {
-      "item": "palamod:paladiumstick"
-    },
-    "8": {
-      "item": "palamod:paladiumcore"
     }
   },
   "result": {

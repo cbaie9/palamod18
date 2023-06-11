@@ -1,20 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "01",
-    "23"
+    "JJ",
+    "JJ"
   ],
   "key": {
-    "0": {
-      "item": "palamod:judeecercis_log"
-    },
-    "1": {
-      "item": "palamod:judeecercis_log"
-    },
-    "2": {
-      "item": "palamod:judeecercis_log"
-    },
-    "3": {
+    "J": {
       "item": "palamod:judeecercis_log"
     }
   },

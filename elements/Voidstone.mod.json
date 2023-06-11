@@ -26,7 +26,7 @@
     "damageVsEntity": 0.0,
     "specialInfo": [],
     "hasGlow": false,
-    "guiBoundTo": "<NONE>",
+    "guiBoundTo": "Trashgui",
     "inventorySize": 1,
     "inventoryStackSize": 64,
     "onRightClickedInAir": {

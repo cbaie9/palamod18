@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "ELE",
+    "LCL",
+    "ELE"
   ],
   "key": {
-    "0": {
+    "E": {
       "item": "palamod:endiumnugget"
     },
-    "1": {
+    "L": {
       "item": "palamod:luckyblock"
     },
-    "2": {
-      "item": "palamod:endiumnugget"
-    },
-    "3": {
-      "item": "palamod:luckyblock"
-    },
-    "4": {
+    "C": {
       "item": "palamod:compressedpaladium"
-    },
-    "5": {
-      "item": "palamod:luckyblock"
-    },
-    "6": {
-      "item": "palamod:endiumnugget"
-    },
-    "7": {
-      "item": "palamod:luckyblock"
-    },
-    "8": {
-      "item": "palamod:endiumnugget"
     }
   },
   "result": {

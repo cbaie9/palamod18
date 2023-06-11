@@ -42,14 +42,14 @@
         "type": "button",
         "data": {
           "name": "button_stone",
-          "text": "Stone",
+          "text": "Cobblestone",
           "onClick": {
             "name": "Connectadhblkstone"
           },
-          "width": 51,
+          "width": 82,
           "height": 20,
           "x": 133,
-          "y": 57
+          "y": 54
         }
       },
       {
@@ -151,31 +151,71 @@
         }
       },
       {
-        "type": "button",
+        "type": "image",
         "data": {
-          "name": "button_exit",
-          "text": "exit",
-          "onClick": {
-            "name": "Closegui"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 262,
-          "y": 162
+          "image": "left_gray_line.png",
+          "use1Xscale": false,
+          "x": 111,
+          "y": 5
         }
       },
       {
-        "type": "button",
+        "type": "image",
         "data": {
-          "name": "button_back",
-          "text": "back",
+          "image": "right_gray_line.png",
+          "use1Xscale": false,
+          "x": 216,
+          "y": 5
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mid_gray_line.png",
+          "use1Xscale": false,
+          "x": 185,
+          "y": 5
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_adminshop_block_menu",
+          "text": {
+            "fixedValue": "Adminshop block menu"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 161,
+          "y": 8
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_cross_no_button",
+          "image": "cross_no_button.png",
+          "hoveredImage": "pointed_cross_no_button.png",
+          "onClick": {
+            "name": "Closegui"
+          },
+          "x": 293,
+          "y": 10
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_arrow_adminshop",
+          "image": "arrow_adminshop.png",
+          "hoveredImage": "arrow_adminshop_poi.png",
           "onClick": {
             "name": "Adminshop_open"
           },
-          "width": 46,
-          "height": 20,
-          "x": 263,
-          "y": 184
+          "x": 118,
+          "y": 9
         }
       }
     ],

@@ -1,33 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0 2",
-    "345",
-    "678"
+    "P P",
+    "PPP",
+    "PPP"
   ],
   "key": {
-    "0": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "2": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "3": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "4": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "5": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "6": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "7": {
-      "item": "palamod:paladium_greeningot"
-    },
-    "8": {
+    "P": {
       "item": "palamod:paladium_greeningot"
     }
   },

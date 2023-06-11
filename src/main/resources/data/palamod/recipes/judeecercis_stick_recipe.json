@@ -1,14 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1"
+    "J",
+    "J"
   ],
   "key": {
-    "0": {
-      "item": "palamod:judeecercis_planks"
-    },
-    "1": {
+    "J": {
       "item": "palamod:judeecercis_planks"
     }
   },

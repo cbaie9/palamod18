@@ -12,7 +12,7 @@ public class PalamodgameverProcedure {
 		String build_formated = "";
 		minecraft_version = "1.18";
 		beta_num = 1.19;
-		build = 25;
+		build = 28;
 		devloppement_stade = 3;
 		update_name = "Cat";
 		if (build >= 1000) {

@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "TTT",
+    "TGT",
+    "TTT"
   ],
   "key": {
-    "0": {
+    "T": {
       "item": "palamod:titane_ingot"
     },
-    "1": {
-      "item": "palamod:titane_ingot"
-    },
-    "2": {
-      "item": "palamod:titane_ingot"
-    },
-    "3": {
-      "item": "palamod:titane_ingot"
-    },
-    "4": {
+    "G": {
       "item": "palamod:guardianstone"
-    },
-    "5": {
-      "item": "palamod:titane_ingot"
-    },
-    "6": {
-      "item": "palamod:titane_ingot"
-    },
-    "7": {
-      "item": "palamod:titane_ingot"
-    },
-    "8": {
-      "item": "palamod:titane_ingot"
     }
   },
   "result": {

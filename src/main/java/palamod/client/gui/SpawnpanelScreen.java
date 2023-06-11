@@ -3,6 +3,8 @@ package palamod.client.gui;
 
 import palamod.world.inventory.SpawnpanelMenu;
 
+import palamod.procedures.Spawnpanel_get_spawnProcedure;
+
 import palamod.network.SpawnpanelButtonMessage;
 
 import palamod.PalamodMod;
@@ -75,7 +77,9 @@ public class SpawnpanelScreen extends AbstractContainerScreen<SpawnpanelMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.spawnpanel.label_varcoor_spawn"), 5, 56, -12829636);
+		this.font.draw(poseStack,
+
+				Spawnpanel_get_spawnProcedure.execute(world), 5, 56, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.spawnpanel.label_spawn_panel"), 46, 2, -12829636);
 	}
 

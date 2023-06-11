@@ -1,18 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "A",
+    "A",
+    "S"
   ],
   "key": {
-    "0": {
+    "A": {
       "item": "palamod:amethyste"
     },
-    "1": {
-      "item": "palamod:amethyste"
-    },
-    "2": {
+    "S": {
       "item": "minecraft:stick"
     }
   },

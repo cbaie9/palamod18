@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "PCP",
+    "CTC",
+    "PCP"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_ingot"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedpaladium"
     },
-    "2": {
-      "item": "palamod:paladium_ingot"
-    },
-    "3": {
-      "item": "palamod:compressedpaladium"
-    },
-    "4": {
+    "T": {
       "item": "palamod:titanechest"
-    },
-    "5": {
-      "item": "palamod:compressedpaladium"
-    },
-    "6": {
-      "item": "palamod:paladium_ingot"
-    },
-    "7": {
-      "item": "palamod:compressedpaladium"
-    },
-    "8": {
-      "item": "palamod:paladium_ingot"
     }
   },
   "result": {

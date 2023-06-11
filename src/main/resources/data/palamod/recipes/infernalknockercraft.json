@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "P",
+    "C",
+    "A"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_ingot"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedamethyste"
     },
-    "2": {
+    "A": {
       "item": "palamod:paladiumstick"
     }
   },

@@ -1,18 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "P",
+    "P",
+    "S"
   ],
   "key": {
-    "0": {
+    "P": {
       "item": "palamod:paladium_ingot"
     },
-    "1": {
-      "item": "palamod:paladium_ingot"
-    },
-    "2": {
+    "S": {
       "item": "minecraft:stick"
     }
   },

@@ -1,27 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  2",
-    " 45",
-    "678"
+    "  P",
+    " PL",
+    "PLL"
   ],
   "key": {
-    "2": {
+    "P": {
       "item": "palamod:paladiumstick"
     },
-    "4": {
-      "item": "palamod:paladiumstick"
-    },
-    "5": {
-      "item": "minecraft:leather"
-    },
-    "6": {
-      "item": "palamod:paladiumstick"
-    },
-    "7": {
-      "item": "minecraft:leather"
-    },
-    "8": {
+    "L": {
       "item": "minecraft:leather"
     }
   },

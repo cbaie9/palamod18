@@ -108,15 +108,15 @@ public class AdminshoporeButtonMessage {
 		}
 		if (buttonID == 8) {
 
-			Adminshop_openProcedure.execute(world, x, y, z, entity);
-		}
-		if (buttonID == 9) {
-
-			CloseguiProcedure.execute(entity);
+			ConnectadminshoputilitiesredstoneProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 10) {
 
-			ConnectadminshoputilitiesredstoneProcedure.execute(world, x, y, z, entity);
+			CloseguiProcedure.execute(entity);
+		}
+		if (buttonID == 11) {
+
+			Adminshop_openProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

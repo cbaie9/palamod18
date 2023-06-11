@@ -1,25 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " 1 ",
-    "345",
-    " 7 "
+    " A ",
+    "AGA",
+    " A "
   ],
   "key": {
-    "1": {
+    "A": {
       "item": "palamod:amethyste"
     },
-    "3": {
-      "item": "palamod:amethyste"
-    },
-    "4": {
+    "G": {
       "item": "palamod:goldmixedcoal"
-    },
-    "5": {
-      "item": "palamod:amethyste"
-    },
-    "7": {
-      "item": "palamod:amethyste"
     }
   },
   "result": {

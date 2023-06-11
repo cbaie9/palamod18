@@ -1,25 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " 1 ",
-    "345",
-    " 7 "
+    " P ",
+    "PGP",
+    " P "
   ],
   "key": {
-    "1": {
+    "P": {
       "item": "palamod:paladium_ingot"
     },
-    "3": {
-      "item": "palamod:paladium_ingot"
-    },
-    "4": {
+    "G": {
       "item": "minecraft:ghast_tear"
-    },
-    "5": {
-      "item": "palamod:paladium_ingot"
-    },
-    "7": {
-      "item": "palamod:paladium_ingot"
     }
   },
   "result": {

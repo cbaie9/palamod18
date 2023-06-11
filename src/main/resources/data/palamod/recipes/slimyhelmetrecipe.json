@@ -1,23 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "3 5"
+    "SSS",
+    "D D"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "minecraft:slime_ball"
     },
-    "1": {
-      "item": "minecraft:slime_ball"
-    },
-    "2": {
-      "item": "minecraft:slime_ball"
-    },
-    "3": {
-      "item": "minecraft:diamond"
-    },
-    "5": {
+    "D": {
       "item": "minecraft:diamond"
     }
   },

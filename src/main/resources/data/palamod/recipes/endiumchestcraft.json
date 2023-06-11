@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "EEE",
+    "CPC",
+    "CCC"
   ],
   "key": {
-    "0": {
+    "E": {
       "item": "palamod:endium_ingot"
     },
-    "1": {
-      "item": "palamod:endium_ingot"
-    },
-    "2": {
-      "item": "palamod:endium_ingot"
-    },
-    "3": {
+    "C": {
       "item": "palamod:compressedpaladium"
     },
-    "4": {
+    "P": {
       "item": "palamod:paladiumchest"
-    },
-    "5": {
-      "item": "palamod:compressedpaladium"
-    },
-    "6": {
-      "item": "palamod:compressedpaladium"
-    },
-    "7": {
-      "item": "palamod:compressedpaladium"
-    },
-    "8": {
-      "item": "palamod:compressedpaladium"
     }
   },
   "result": {

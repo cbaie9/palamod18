@@ -5,7 +5,7 @@
     "renderType": 0,
     "texture": "potg_of_1",
     "customModelName": "Normal",
-    "name": "Pickaxe of the gods lv 1",
+    "name": "Pickaxe of the gods",
     "specialInfo": [
       "Level 1"
     ],
@@ -13,7 +13,7 @@
       "value": "CUSTOM:Pickaxeofgodstab"
     },
     "toolType": "MultiTool",
-    "harvestLevel": 3,
+    "harvestLevel": 4,
     "efficiency": 2.0,
     "attackSpeed": 1.0,
     "enchantability": 15,
@@ -34,6 +34,78 @@
       },
       {
         "value": "Blocks.COBBLESTONE"
+      },
+      {
+        "value": "CUSTOM:PaladiumOre"
+      },
+      {
+        "value": "CUSTOM:TitaneOre"
+      },
+      {
+        "value": "CUSTOM:AmethysteOre"
+      },
+      {
+        "value": "CUSTOM:FindiumOre"
+      },
+      {
+        "value": "CUSTOM:PaladiumGreenore"
+      },
+      {
+        "value": "CUSTOM:Endiumnuggetore"
+      },
+      {
+        "value": "CUSTOM:Amethystoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Titaneoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Paladiumoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Trixiumoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Paladiumgreenoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Endiumnuggetoredeepslate"
+      },
+      {
+        "value": "CUSTOM:Findiumoredeepslate"
+      },
+      {
+        "value": "Blocks.COAL_ORE"
+      },
+      {
+        "value": "Blocks.IRON_ORE"
+      },
+      {
+        "value": "Blocks.REDSTONE_ORE"
+      },
+      {
+        "value": "Blocks.LIT_REDSTONE_ORE"
+      },
+      {
+        "value": "Blocks.GOLD_ORE"
+      },
+      {
+        "value": "Blocks.LAPIS_ORE"
+      },
+      {
+        "value": "Blocks.DIAMOND_ORE"
+      },
+      {
+        "value": "Blocks.EMERALD_ORE"
+      },
+      {
+        "value": "Blocks.COPPER_ORE"
+      },
+      {
+        "value": "Blocks.DEEPSLATE_COAL_ORE"
+      },
+      {
+        "value": "Blocks.DEEPSLATE_IRON_ORE"
       }
     ],
     "hasGlow": false,

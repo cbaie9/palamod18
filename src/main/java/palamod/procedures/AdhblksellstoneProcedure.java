@@ -29,7 +29,7 @@ public class AdhblksellstoneProcedure {
 		double n = 0;
 		double n2 = 0;
 		fac_v = 0.1;
-		item = new ItemStack(Blocks.STONE);
+		item = new ItemStack(Blocks.COBBLESTONE);
 		n = Math.round(Math.abs(new Object() {
 			double convert(String s) {
 				try {

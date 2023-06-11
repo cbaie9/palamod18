@@ -72,8 +72,8 @@ public class VoidstoneminerconfigScreen extends AbstractContainerScreen<Voidston
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_activer_le_deplacement_automatiq"), 2, 29, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_de_la_pierre_dans_la_voidstone"), 3, 41, -12829636);
 		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_voidstone_configuration"), 74, 4, -12829636);
+		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_put_the_stone_into_the_voidst"), 5, 40, -12829636);
 	}
 
 	@Override

@@ -1,37 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "BCB",
+    "TPT",
+    "TTT"
   ],
   "key": {
-    "0": {
+    "B": {
       "item": "minecraft:blaze_powder"
     },
-    "1": {
+    "C": {
       "item": "palamod:compressedpaladium"
     },
-    "2": {
-      "item": "minecraft:blaze_powder"
-    },
-    "3": {
+    "T": {
       "item": "palamod:titane_ingot"
     },
-    "4": {
+    "P": {
       "item": "palamod:paladiumcore"
-    },
-    "5": {
-      "item": "palamod:titane_ingot"
-    },
-    "6": {
-      "item": "palamod:titane_ingot"
-    },
-    "7": {
-      "item": "palamod:titane_ingot"
-    },
-    "8": {
-      "item": "palamod:titane_ingot"
     }
   },
   "result": {

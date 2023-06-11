@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "OOO",
+    "OPO",
+    "OOO"
   ],
   "key": {
-    "0": {
+    "O": {
       "item": "minecraft:obsidian"
     },
-    "1": {
-      "item": "minecraft:obsidian"
-    },
-    "2": {
-      "item": "minecraft:obsidian"
-    },
-    "3": {
-      "item": "minecraft:obsidian"
-    },
-    "4": {
+    "P": {
       "item": "palamod:paladiumcore"
-    },
-    "5": {
-      "item": "minecraft:obsidian"
-    },
-    "6": {
-      "item": "minecraft:obsidian"
-    },
-    "7": {
-      "item": "minecraft:obsidian"
-    },
-    "8": {
-      "item": "minecraft:obsidian"
     }
   },
   "result": {

@@ -3,7 +3,6 @@ package palamod.network;
 
 import palamod.world.inventory.CrusherguiMenu;
 
-import palamod.procedures.DebugcrusherProcedure;
 import palamod.procedures.Crusherluncherv2titaneProcedure;
 import palamod.procedures.Crusherluncherv2paladiumProcedure;
 import palamod.procedures.Crusherluncherv2endiumProcedure;
@@ -70,21 +69,17 @@ public class CrusherguiButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			DebugcrusherProcedure.execute(world, x, y, z, entity);
+			Crusherluncherv2endiumProcedure.execute(world, x, y, z);
 		}
 		if (buttonID == 1) {
 
-			Crusherluncherv2endiumProcedure.execute(world, x, y, z);
+			Crusherluncherv2paladiumProcedure.execute(world, x, y, z);
 		}
 		if (buttonID == 2) {
 
-			Crusherluncherv2paladiumProcedure.execute(world, x, y, z);
-		}
-		if (buttonID == 3) {
-
 			Crusherluncherv2titaneProcedure.execute(world, x, y, z);
 		}
-		if (buttonID == 4) {
+		if (buttonID == 3) {
 
 			Crusherluncherv2amethystProcedure.execute(world, x, y, z);
 		}

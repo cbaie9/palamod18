@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "AAA",
+    "AMA",
+    "AAA"
   ],
   "key": {
-    "0": {
+    "A": {
       "item": "palamod:amethyste_block"
     },
-    "1": {
-      "item": "palamod:amethyste_block"
-    },
-    "2": {
-      "item": "palamod:amethyste_block"
-    },
-    "3": {
-      "item": "palamod:amethyste_block"
-    },
-    "4": {
+    "M": {
       "item": "palamod:amethyste"
-    },
-    "5": {
-      "item": "palamod:amethyste_block"
-    },
-    "6": {
-      "item": "palamod:amethyste_block"
-    },
-    "7": {
-      "item": "palamod:amethyste_block"
-    },
-    "8": {
-      "item": "palamod:amethyste_block"
     }
   },
   "result": {

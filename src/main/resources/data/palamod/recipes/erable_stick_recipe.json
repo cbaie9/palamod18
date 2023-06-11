@@ -1,14 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1"
+    "E",
+    "E"
   ],
   "key": {
-    "0": {
-      "item": "palamod:erable_planks"
-    },
-    "1": {
+    "E": {
       "item": "palamod:erable_planks"
     }
   },

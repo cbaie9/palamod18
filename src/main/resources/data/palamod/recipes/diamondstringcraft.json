@@ -1,37 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "SDS",
+    "SDS",
+    "SDS"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "minecraft:string"
     },
-    "1": {
+    "D": {
       "item": "minecraft:diamond"
-    },
-    "2": {
-      "item": "minecraft:string"
-    },
-    "3": {
-      "item": "minecraft:string"
-    },
-    "4": {
-      "item": "minecraft:diamond"
-    },
-    "5": {
-      "item": "minecraft:string"
-    },
-    "6": {
-      "item": "minecraft:string"
-    },
-    "7": {
-      "item": "minecraft:diamond"
-    },
-    "8": {
-      "item": "minecraft:string"
     }
   },
   "result": {

@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "01"
+    "FP"
   ],
   "key": {
-    "0": {
+    "F": {
       "item": "palamod:fakewater_bucket"
     },
-    "1": {
+    "P": {
       "item": "palamod:paladiumstick"
     }
   },

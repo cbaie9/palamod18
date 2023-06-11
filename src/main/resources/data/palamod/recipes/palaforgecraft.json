@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "BPB",
+    "PFP",
+    "BPB"
   ],
   "key": {
-    "0": {
+    "B": {
       "item": "minecraft:bricks"
     },
-    "1": {
+    "P": {
       "item": "palamod:paladiumfurnace"
     },
-    "2": {
-      "item": "minecraft:bricks"
-    },
-    "3": {
-      "item": "palamod:paladiumfurnace"
-    },
-    "4": {
+    "F": {
       "item": "palamod:findium"
-    },
-    "5": {
-      "item": "palamod:paladiumfurnace"
-    },
-    "6": {
-      "item": "minecraft:bricks"
-    },
-    "7": {
-      "item": "palamod:paladiumfurnace"
-    },
-    "8": {
-      "item": "minecraft:bricks"
     }
   },
   "result": {

@@ -28,20 +28,6 @@
       {
         "type": "button",
         "data": {
-          "name": "button_ores",
-          "text": "Ores",
-          "onClick": {
-            "name": "Connectadhore"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 184,
-          "y": 78
-        }
-      },
-      {
-        "type": "button",
-        "data": {
           "name": "button_seed",
           "text": "Plants",
           "onClick": {
@@ -92,7 +78,7 @@
           "width": 51,
           "height": 20,
           "x": 182,
-          "y": 49
+          "y": 46
         }
       },
       {
@@ -124,6 +110,19 @@
           },
           "x": 290,
           "y": 20
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_admin_btte_ore",
+          "image": "admin_btte_ore.png",
+          "hoveredImage": "admin_btte_ore_poi.png",
+          "onClick": {
+            "name": "Connectadhorecoal"
+          },
+          "x": 184,
+          "y": 78
         }
       }
     ],
