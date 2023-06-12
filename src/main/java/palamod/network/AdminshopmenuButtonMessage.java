@@ -6,7 +6,7 @@ import palamod.world.inventory.AdminshopmenuMenu;
 import palamod.procedures.ConnectadminshoputilitiesProcedure;
 import palamod.procedures.ConnectadminshopplantProcedure;
 import palamod.procedures.ConnectadminshopmobsProcedure;
-import palamod.procedures.ConnectadhorecoalProcedure;
+import palamod.procedures.ConnectadhoreProcedure;
 import palamod.procedures.CloseguiProcedure;
 import palamod.procedures.AdminshopblockconnectProcedure;
 
@@ -71,27 +71,27 @@ public class AdminshopmenuButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			ConnectadminshopplantProcedure.execute(world, x, y, z, entity);
+			CloseguiProcedure.execute(entity);
 		}
 		if (buttonID == 1) {
 
-			ConnectadminshoputilitiesProcedure.execute(world, x, y, z, entity);
+			ConnectadhoreProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 2) {
 
-			ConnectadminshopmobsProcedure.execute(world, x, y, z, entity);
+			AdminshopblockconnectProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 3) {
 
-			AdminshopblockconnectProcedure.execute(world, x, y, z, entity);
+			ConnectadminshopplantProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 4) {
 
-			CloseguiProcedure.execute(entity);
+			ConnectadminshopmobsProcedure.execute(world, x, y, z, entity);
 		}
 		if (buttonID == 5) {
 
-			ConnectadhorecoalProcedure.execute(world, x, y, z, entity);
+			ConnectadminshoputilitiesProcedure.execute(world, x, y, z, entity);
 		}
 	}
 

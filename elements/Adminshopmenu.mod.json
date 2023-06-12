@@ -26,62 +26,6 @@
         }
       },
       {
-        "type": "button",
-        "data": {
-          "name": "button_seed",
-          "text": "Plants",
-          "onClick": {
-            "name": "Connectadminshopplant"
-          },
-          "width": 46,
-          "height": 20,
-          "x": 184,
-          "y": 108
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_utilities",
-          "text": "utilities",
-          "onClick": {
-            "name": "Connectadminshoputilities"
-          },
-          "width": 72,
-          "height": 20,
-          "x": 173,
-          "y": 172
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_mobss_items",
-          "text": "Mobs's items ",
-          "onClick": {
-            "name": "Connectadminshopmobs"
-          },
-          "width": 92,
-          "height": 20,
-          "x": 164,
-          "y": 140
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_block",
-          "text": "Block",
-          "onClick": {
-            "name": "Adminshopblockconnect"
-          },
-          "width": 51,
-          "height": 20,
-          "x": 182,
-          "y": 46
-        }
-      },
-      {
         "type": "image",
         "data": {
           "image": "left_gray_line.png",
@@ -119,10 +63,62 @@
           "image": "admin_btte_ore.png",
           "hoveredImage": "admin_btte_ore_poi.png",
           "onClick": {
-            "name": "Connectadhorecoal"
+            "name": "Connectadhore"
           },
           "x": 184,
           "y": 78
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_btte_block",
+          "image": "btte_block.png",
+          "hoveredImage": "btte_block_poi.png",
+          "onClick": {
+            "name": "Adminshopblockconnect"
+          },
+          "x": 185,
+          "y": 45
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_btte_plant",
+          "image": "btte_plant.png",
+          "hoveredImage": "btte_plant_poi.png",
+          "onClick": {
+            "name": "Connectadminshopplant"
+          },
+          "x": 185,
+          "y": 106
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_btte_mobs",
+          "image": "btte_mobs.png",
+          "hoveredImage": "btte_mobs_poi.png",
+          "onClick": {
+            "name": "Connectadminshopmobs"
+          },
+          "x": 185,
+          "y": 136
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_btte_utilities",
+          "image": "btte_utilities.png",
+          "hoveredImage": "btte_plant.png",
+          "onClick": {
+            "name": "Connectadminshoputilities"
+          },
+          "x": 186,
+          "y": 169
         }
       }
     ],
