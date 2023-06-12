@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[45,)"
 license="Custom license, https://pastebin.com/47smwufD"
 
 [[mods]]
@@ -10,23 +10,15 @@ credits="Codée par des mecs qui voulais juste sortir de la warzone vivant  , Cr
 displayURL=" https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA"
 logoFile="logo.png"
 authors="cb9, FufuBS1( + Paladium Team pour le mod orginale)"
-description='''
-Certifié sans lag ( apparent ) 
-'''
+description="Certifié sans lag ( apparent ) "
 
 [[dependencies.palamod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2]"
+    versionRange="[1.19.4]"
     ordering="NONE"
     side="BOTH"
 
 
 
-[[dependencies.palamod]]
-    modId="allmods"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
 

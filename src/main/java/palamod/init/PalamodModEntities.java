@@ -27,7 +27,7 @@ import net.minecraft.world.entity.Entity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PalamodModEntities {
-	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, PalamodMod.MODID);
+	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, PalamodMod.MODID);
 	public static final RegistryObject<EntityType<WitherarrowEntity>> WITHERARROW = register("projectile_witherarrow",
 			EntityType.Builder.<WitherarrowEntity>of(WitherarrowEntity::new, MobCategory.MISC).setCustomClientFactory(WitherarrowEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 	public static final RegistryObject<EntityType<ElephantlittleEntity>> ELEPHANTLITTLE = register("elephantlittle",
@@ -37,7 +37,7 @@ public class PalamodModEntities {
 	public static final RegistryObject<EntityType<PaladiumgolemEntity>> PALADIUMGOLEM = register("paladiumgolem",
 			EntityType.Builder.<PaladiumgolemEntity>of(PaladiumgolemEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(PaladiumgolemEntity::new)
 
-					.sized(1.2000000000000002f, 1.8f));
+					.sized(1.2f, 1.8f));
 	public static final RegistryObject<EntityType<PaladiumdynamiteEntity>> PALADIUMDYNAMITE = register("paladiumdynamite", EntityType.Builder.<PaladiumdynamiteEntity>of(PaladiumdynamiteEntity::new, MobCategory.MISC)
 			.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(PaladiumdynamiteEntity::new).fireImmune().sized(0.6f, 1.8f));
 	public static final RegistryObject<EntityType<EndiumdynamiteEntity>> ENDIUMDYNAMITE = register("endiumdynamite", EntityType.Builder.<EndiumdynamiteEntity>of(EndiumdynamiteEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true)

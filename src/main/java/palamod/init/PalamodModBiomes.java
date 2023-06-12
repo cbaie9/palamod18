@@ -4,76 +4,68 @@
  */
 package palamod.init;
 
-import palamod.world.biome.RoofedforestBiome;
-import palamod.world.biome.FrozenforestBiome;
-import palamod.world.biome.ForestenderBiome;
-
-import palamod.PalamodMod;
-
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
+import net.minecraft.world.level.biome.FeatureSorter;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Holder;
 
-import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
 import com.mojang.datafixers.util.Pair;
 
+import com.google.common.base.Suppliers;
+
 @Mod.EventBusSubscriber
 public class PalamodModBiomes {
-	public static final DeferredRegister<Biome> REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, PalamodMod.MODID);
-	public static final RegistryObject<Biome> FORESTENDER = REGISTRY.register("forestender", () -> ForestenderBiome.createBiome());
-	public static final RegistryObject<Biome> ROOFEDFOREST = REGISTRY.register("roofedforest", () -> RoofedforestBiome.createBiome());
-	public static final RegistryObject<Biome> FROZENFOREST = REGISTRY.register("frozenforest", () -> FrozenforestBiome.createBiome());
-
 	@SubscribeEvent
 	public static void onServerAboutToStart(ServerAboutToStartEvent event) {
 		MinecraftServer server = event.getServer();
-		Registry<DimensionType> dimensionTypeRegistry = server.registryAccess().registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
-		Registry<Biome> biomeRegistry = server.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-		WorldGenSettings worldGenSettings = server.getWorldData().worldGenSettings();
-		for (Map.Entry<ResourceKey<LevelStem>, LevelStem> entry : worldGenSettings.dimensions().entrySet()) {
-			DimensionType dimensionType = entry.getValue().typeHolder().value();
-			if (dimensionType == dimensionTypeRegistry.getOrThrow(DimensionType.OVERWORLD_LOCATION)) {
-				ChunkGenerator chunkGenerator = entry.getValue().generator();
+		Registry<DimensionType> dimensionTypeRegistry = server.registryAccess().registryOrThrow(Registries.DIMENSION_TYPE);
+		Registry<LevelStem> levelStemTypeRegistry = server.registryAccess().registryOrThrow(Registries.LEVEL_STEM);
+		Registry<Biome> biomeRegistry = server.registryAccess().registryOrThrow(Registries.BIOME);
+		for (LevelStem levelStem : levelStemTypeRegistry.stream().toList()) {
+			DimensionType dimensionType = levelStem.type().value();
+			if (dimensionType == dimensionTypeRegistry.getOrThrow(BuiltinDimensionTypes.OVERWORLD)) {
+				ChunkGenerator chunkGenerator = levelStem.generator();
 				// Inject biomes to biome source
 				if (chunkGenerator.getBiomeSource() instanceof MultiNoiseBiomeSource noiseSource) {
-					List<Pair<Climate.ParameterPoint, Holder<Biome>>> parameters = new ArrayList<>(noiseSource.parameters.values());
-					for (Climate.ParameterPoint parameterPoint : ForestenderBiome.PARAMETER_POINTS) {
-						parameters.add(new Pair<>(parameterPoint, biomeRegistry.getOrCreateHolder(ResourceKey.create(Registry.BIOME_REGISTRY, FORESTENDER.getId()))));
-					}
-					for (Climate.ParameterPoint parameterPoint : RoofedforestBiome.PARAMETER_POINTS) {
-						parameters.add(new Pair<>(parameterPoint, biomeRegistry.getOrCreateHolder(ResourceKey.create(Registry.BIOME_REGISTRY, ROOFEDFOREST.getId()))));
-					}
-					for (Climate.ParameterPoint parameterPoint : FrozenforestBiome.PARAMETER_POINTS) {
-						parameters.add(new Pair<>(parameterPoint, biomeRegistry.getOrCreateHolder(ResourceKey.create(Registry.BIOME_REGISTRY, FROZENFOREST.getId()))));
-					}
-
-					MultiNoiseBiomeSource moddedNoiseSource = new MultiNoiseBiomeSource(new Climate.ParameterList<>(parameters), noiseSource.preset);
-					chunkGenerator.biomeSource = moddedNoiseSource;
-					chunkGenerator.runtimeBiomeSource = moddedNoiseSource;
+					List<Pair<Climate.ParameterPoint, Holder<Biome>>> parameters = new ArrayList<>(noiseSource.parameters().values());
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(0.0f),
+							Climate.Parameter.span(-1.0780185268f, -0.6780185268f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "forestender")))));
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(1.0f),
+							Climate.Parameter.span(-1.0780185268f, -0.6780185268f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "forestender")))));
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(0.0f),
+							Climate.Parameter.span(0.4336056483f, 0.8336056483f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "roofedforest")))));
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(1.0f),
+							Climate.Parameter.span(0.4336056483f, 0.8336056483f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "roofedforest")))));
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(0.0f),
+							Climate.Parameter.span(0.2813142361f, 0.6813142361f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "frozenforest")))));
+					parameters.add(new Pair<>(new Climate.ParameterPoint(Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(-0.2f, 0.2f), Climate.Parameter.span(0.31f, 0.71f), Climate.Parameter.span(0.6f, 1f), Climate.Parameter.point(1.0f),
+							Climate.Parameter.span(0.2813142361f, 0.6813142361f), 0), biomeRegistry.getHolderOrThrow(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "frozenforest")))));
+					chunkGenerator.biomeSource = MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(parameters));
+					chunkGenerator.featuresPerStep = Suppliers
+							.memoize(() -> FeatureSorter.buildFeaturesPerStep(List.copyOf(chunkGenerator.biomeSource.possibleBiomes()), biome -> chunkGenerator.generationSettingsGetter.apply(biome).features(), true));
 				}
 				// Inject surface rules
 				if (chunkGenerator instanceof NoiseBasedChunkGenerator noiseGenerator) {
@@ -81,17 +73,19 @@ public class PalamodModBiomes {
 					SurfaceRules.RuleSource currentRuleSource = noiseGeneratorSettings.surfaceRule();
 					if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
 						List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequenceRuleSource.sequence());
-						surfaceRules.add(1, preliminarySurfaceRule(ResourceKey.create(Registry.BIOME_REGISTRY, FORESTENDER.getId()), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
-						surfaceRules.add(1, preliminarySurfaceRule(ResourceKey.create(Registry.BIOME_REGISTRY, ROOFEDFOREST.getId()), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
-						surfaceRules.add(1, preliminarySurfaceRule(ResourceKey.create(Registry.BIOME_REGISTRY, FROZENFOREST.getId()), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
+						surfaceRules.add(1,
+								preliminarySurfaceRule(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "forestender")), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
+						surfaceRules.add(1,
+								preliminarySurfaceRule(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "roofedforest")), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
+						surfaceRules.add(1,
+								preliminarySurfaceRule(ResourceKey.create(Registries.BIOME, new ResourceLocation("palamod", "frozenforest")), Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState()));
 						NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(), noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(),
-								noiseGeneratorSettings.noiseRouter(), SurfaceRules.sequence(surfaceRules.toArray(i -> new SurfaceRules.RuleSource[i])), noiseGeneratorSettings.seaLevel(), noiseGeneratorSettings.disableMobGeneration(),
-								noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());
-						noiseGenerator.settings = new Holder.Direct(moddedNoiseGeneratorSettings);
+								noiseGeneratorSettings.noiseRouter(), SurfaceRules.sequence(surfaceRules.toArray(SurfaceRules.RuleSource[]::new)), noiseGeneratorSettings.spawnTarget(), noiseGeneratorSettings.seaLevel(),
+								noiseGeneratorSettings.disableMobGeneration(), noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());
+						noiseGenerator.settings = new Holder.Direct<>(moddedNoiseGeneratorSettings);
 					}
 				}
 			}
-
 		}
 	}
 

@@ -174,10 +174,6 @@ import palamod.PalamodMod;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
@@ -347,55 +343,4 @@ public class PalamodModBlocks {
 	public static final RegistryObject<Block> HDVBLOCK = REGISTRY.register("hdvblock", () -> new HdvblockBlock());
 	public static final RegistryObject<Block> CAVEBLOCK = REGISTRY.register("caveblock", () -> new CaveblockBlock());
 	public static final RegistryObject<Block> PROTODEEPSLATE = REGISTRY.register("protodeepslate", () -> new ProtodeepslateBlock());
-
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-	public static class ClientSideHandler {
-		@SubscribeEvent
-		public static void clientSetup(FMLClientSetupEvent event) {
-			XpbushBlock.registerRenderLayer();
-			Alchimet1Block.registerRenderLayer();
-			ObsidiantrapdoorBlock.registerRenderLayer();
-			ObsidiandoorBlock.registerRenderLayer();
-			IronspikeBlock.registerRenderLayer();
-			SpikegoldBlock.registerRenderLayer();
-			DiamondspikeBlock.registerRenderLayer();
-			AmetystespikeBlock.registerRenderLayer();
-			TitanespikeBlock.registerRenderLayer();
-			PaladiumspikeBlock.registerRenderLayer();
-			ErabletrapdoorBlock.registerRenderLayer();
-			ForceminagedimPortalBlock.registerRenderLayer();
-			AlarmBlock.registerRenderLayer();
-			AlarmonBlock.registerRenderLayer();
-			SlimepadBlock.registerRenderLayer();
-			OstryasapplingBlock.registerRenderLayer();
-			OstryadoorBlock.registerRenderLayer();
-			JacarandasapplingBlock.registerRenderLayer();
-			JacarandadoorBlock.registerRenderLayer();
-			JudeecercissapplingBlock.registerRenderLayer();
-			JudeecercisdoorBlock.registerRenderLayer();
-			ErablesapplingBlock.registerRenderLayer();
-			ErabledoorBlock.registerRenderLayer();
-			XpbushonBlock.registerRenderLayer();
-			Eggplant0Block.registerRenderLayer();
-			Eggplant1Block.registerRenderLayer();
-			Eggplant2Block.registerRenderLayer();
-			Eggplant3Block.registerRenderLayer();
-			Chervil1Block.registerRenderLayer();
-			Chervil0Block.registerRenderLayer();
-			Chervil2Block.registerRenderLayer();
-			Chervil3Block.registerRenderLayer();
-			Kiwano4Block.registerRenderLayer();
-			Kiwano3Block.registerRenderLayer();
-			Kiwano2Block.registerRenderLayer();
-			Kiwano1Block.registerRenderLayer();
-			Kiwano0Block.registerRenderLayer();
-			Orangeblue1Block.registerRenderLayer();
-			Orangeblue0Block.registerRenderLayer();
-			Orangeblue2Block.registerRenderLayer();
-			Orangeblue3Block.registerRenderLayer();
-			Orangeblue4Block.registerRenderLayer();
-			CrownBlock.registerRenderLayer();
-			CaveblockBlock.registerRenderLayer();
-		}
-	}
 }

@@ -40,91 +40,39 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.Holder;
-
-import java.util.function.Supplier;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
 
 @Mod.EventBusSubscriber
 public class PalamodModFeatures {
 	public static final DeferredRegister<Feature<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.FEATURES, PalamodMod.MODID);
-	private static final List<FeatureRegistration> FEATURE_REGISTRATIONS = new ArrayList<>();
-	public static final RegistryObject<Feature<?>> PALADIUM_ORE = register("paladium_ore", PaladiumOreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, PaladiumOreFeature.GENERATE_BIOMES, PaladiumOreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> PALADIUMOREDEEPSLATE = register("paladiumoredeepslate", PaladiumoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, PaladiumoredeepslateFeature.GENERATE_BIOMES, PaladiumoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TITANE_ORE = register("titane_ore", TitaneOreFeature::feature, new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, TitaneOreFeature.GENERATE_BIOMES, TitaneOreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TITANEOREDEEPSLATE = register("titaneoredeepslate", TitaneoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, TitaneoredeepslateFeature.GENERATE_BIOMES, TitaneoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> AMETHYSTE_ORE = register("amethyste_ore", AmethysteOreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, AmethysteOreFeature.GENERATE_BIOMES, AmethysteOreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> AMETHYSTOREDEEPSLATE = register("amethystoredeepslate", AmethystoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, AmethystoredeepslateFeature.GENERATE_BIOMES, AmethystoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> ENDIUMNUGGETORE = register("endiumnuggetore", EndiumnuggetoreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, EndiumnuggetoreFeature.GENERATE_BIOMES, EndiumnuggetoreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> ENDIUMNUGGETOREDEEPSLATE = register("endiumnuggetoredeepslate", EndiumnuggetoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, EndiumnuggetoredeepslateFeature.GENERATE_BIOMES, EndiumnuggetoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> PALADIUM_GREENORE = register("paladium_greenore", PaladiumGreenoreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, PaladiumGreenoreFeature.GENERATE_BIOMES, PaladiumGreenoreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> PALADIUMGREENOREDEEPSLATE = register("paladiumgreenoredeepslate", PaladiumgreenoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, PaladiumgreenoredeepslateFeature.GENERATE_BIOMES, PaladiumgreenoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> FINDIUM_ORE = register("findium_ore", FindiumOreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, FindiumOreFeature.GENERATE_BIOMES, FindiumOreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> FINDIUMOREDEEPSLATE = register("findiumoredeepslate", FindiumoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, FindiumoredeepslateFeature.GENERATE_BIOMES, FindiumoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TRIXIUMORE = register("trixiumore", TrixiumoreFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, TrixiumoreFeature.GENERATE_BIOMES, TrixiumoreFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TRIXIUMOREDEEPSLATE = register("trixiumoredeepslate", TrixiumoredeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, TrixiumoredeepslateFeature.GENERATE_BIOMES, TrixiumoredeepslateFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> XPBUSH = register("xpbush", XpbushFeature::feature, new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, XpbushFeature.GENERATE_BIOMES, XpbushFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> DONJONBIBL = register("donjonbibl", DonjonbiblFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, DonjonbiblFeature.GENERATE_BIOMES, DonjonbiblFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> DONJONBIBI = register("donjonbibi", DonjonbibiFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, DonjonbibiFeature.GENERATE_BIOMES, DonjonbibiFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> DESERTCREEPER = register("desertcreeper", DesertcreeperFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, DesertcreeperFeature.GENERATE_BIOMES, DesertcreeperFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> ICEPICS = register("icepics", IcepicsFeature::feature, new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, IcepicsFeature.GENERATE_BIOMES, IcepicsFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> ICEPICS_2 = register("icepics_2", Icepics2Feature::feature, new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, Icepics2Feature.GENERATE_BIOMES, Icepics2Feature::placedFeature));
-	public static final RegistryObject<Feature<?>> DESERTABANDONNEDHOUSE = register("desertabandonnedhouse", DesertabandonnedhouseFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, DesertabandonnedhouseFeature.GENERATE_BIOMES, DesertabandonnedhouseFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> IGLOO = register("igloo", IglooFeature::feature, new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, IglooFeature.GENERATE_BIOMES, IglooFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> IGLOODESTR = register("igloodestr", IgloodestrFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, IgloodestrFeature.GENERATE_BIOMES, IgloodestrFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> CUSTOMTEMPLE = register("customtemple", CustomtempleFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, CustomtempleFeature.GENERATE_BIOMES, CustomtempleFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TREEJUDEECERCIS = register("treejudeecercis", TreejudeecercisFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreejudeecercisFeature.GENERATE_BIOMES, TreejudeecercisFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TREEJACARANDA = register("treejacaranda", TreejacarandaFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreejacarandaFeature.GENERATE_BIOMES, TreejacarandaFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TREEERABLE = register("treeerable", TreeerableFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreeerableFeature.GENERATE_BIOMES, TreeerableFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> TREEOSTRYA = register("treeostrya", TreeostryaFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.SURFACE_STRUCTURES, TreeostryaFeature.GENERATE_BIOMES, TreeostryaFeature::placedFeature));
-	public static final RegistryObject<Feature<?>> PROTODEEPSLATE = register("protodeepslate", ProtodeepslateFeature::feature,
-			new FeatureRegistration(GenerationStep.Decoration.UNDERGROUND_ORES, ProtodeepslateFeature.GENERATE_BIOMES, ProtodeepslateFeature::placedFeature));
-
-	private static RegistryObject<Feature<?>> register(String registryname, Supplier<Feature<?>> feature, FeatureRegistration featureRegistration) {
-		FEATURE_REGISTRATIONS.add(featureRegistration);
-		return REGISTRY.register(registryname, feature);
-	}
-
-	@SubscribeEvent
-	public static void addFeaturesToBiomes(BiomeLoadingEvent event) {
-		for (FeatureRegistration registration : FEATURE_REGISTRATIONS) {
-			if (registration.biomes() == null || registration.biomes().contains(event.getName()))
-				event.getGeneration().getFeatures(registration.stage()).add(registration.placedFeature().get());
-		}
-	}
-
-	private static record FeatureRegistration(GenerationStep.Decoration stage, Set<ResourceLocation> biomes, Supplier<Holder<PlacedFeature>> placedFeature) {
-	}
+	public static final RegistryObject<Feature<?>> PALADIUM_ORE = REGISTRY.register("paladium_ore", PaladiumOreFeature::new);
+	public static final RegistryObject<Feature<?>> PALADIUMOREDEEPSLATE = REGISTRY.register("paladiumoredeepslate", PaladiumoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> TITANE_ORE = REGISTRY.register("titane_ore", TitaneOreFeature::new);
+	public static final RegistryObject<Feature<?>> TITANEOREDEEPSLATE = REGISTRY.register("titaneoredeepslate", TitaneoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> AMETHYSTE_ORE = REGISTRY.register("amethyste_ore", AmethysteOreFeature::new);
+	public static final RegistryObject<Feature<?>> AMETHYSTOREDEEPSLATE = REGISTRY.register("amethystoredeepslate", AmethystoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> ENDIUMNUGGETORE = REGISTRY.register("endiumnuggetore", EndiumnuggetoreFeature::new);
+	public static final RegistryObject<Feature<?>> ENDIUMNUGGETOREDEEPSLATE = REGISTRY.register("endiumnuggetoredeepslate", EndiumnuggetoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> PALADIUM_GREENORE = REGISTRY.register("paladium_greenore", PaladiumGreenoreFeature::new);
+	public static final RegistryObject<Feature<?>> PALADIUMGREENOREDEEPSLATE = REGISTRY.register("paladiumgreenoredeepslate", PaladiumgreenoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> FINDIUM_ORE = REGISTRY.register("findium_ore", FindiumOreFeature::new);
+	public static final RegistryObject<Feature<?>> FINDIUMOREDEEPSLATE = REGISTRY.register("findiumoredeepslate", FindiumoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> TRIXIUMORE = REGISTRY.register("trixiumore", TrixiumoreFeature::new);
+	public static final RegistryObject<Feature<?>> TRIXIUMOREDEEPSLATE = REGISTRY.register("trixiumoredeepslate", TrixiumoredeepslateFeature::new);
+	public static final RegistryObject<Feature<?>> XPBUSH = REGISTRY.register("xpbush", XpbushFeature::new);
+	public static final RegistryObject<Feature<?>> DONJONBIBL = REGISTRY.register("donjonbibl", DonjonbiblFeature::new);
+	public static final RegistryObject<Feature<?>> DONJONBIBI = REGISTRY.register("donjonbibi", DonjonbibiFeature::new);
+	public static final RegistryObject<Feature<?>> DESERTCREEPER = REGISTRY.register("desertcreeper", DesertcreeperFeature::new);
+	public static final RegistryObject<Feature<?>> ICEPICS = REGISTRY.register("icepics", IcepicsFeature::new);
+	public static final RegistryObject<Feature<?>> ICEPICS_2 = REGISTRY.register("icepics_2", Icepics2Feature::new);
+	public static final RegistryObject<Feature<?>> DESERTABANDONNEDHOUSE = REGISTRY.register("desertabandonnedhouse", DesertabandonnedhouseFeature::new);
+	public static final RegistryObject<Feature<?>> IGLOO = REGISTRY.register("igloo", IglooFeature::new);
+	public static final RegistryObject<Feature<?>> IGLOODESTR = REGISTRY.register("igloodestr", IgloodestrFeature::new);
+	public static final RegistryObject<Feature<?>> CUSTOMTEMPLE = REGISTRY.register("customtemple", CustomtempleFeature::new);
+	public static final RegistryObject<Feature<?>> TREEJUDEECERCIS = REGISTRY.register("treejudeecercis", TreejudeecercisFeature::new);
+	public static final RegistryObject<Feature<?>> TREEJACARANDA = REGISTRY.register("treejacaranda", TreejacarandaFeature::new);
+	public static final RegistryObject<Feature<?>> TREEERABLE = REGISTRY.register("treeerable", TreeerableFeature::new);
+	public static final RegistryObject<Feature<?>> TREEOSTRYA = REGISTRY.register("treeostrya", TreeostryaFeature::new);
+	public static final RegistryObject<Feature<?>> PROTODEEPSLATE = REGISTRY.register("protodeepslate", ProtodeepslateFeature::new);
 }

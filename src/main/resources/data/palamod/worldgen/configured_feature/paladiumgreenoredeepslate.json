@@ -1,0 +1,45 @@
+{
+  "type": "palamod:paladiumgreenoredeepslate",
+  "config": {
+    "size": 4,
+    "discard_chance_on_air_exposure": 0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "blockstate_match",
+          "block_state": {
+            "Name": "minecraft:stone"
+          }
+        },
+        "state": {
+          "Name": "palamod:paladiumgreenoredeepslate"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "blockstate_match",
+          "block_state": {
+            "Name": "minecraft:deepslate",
+            "Properties": {
+              "axis": "y"
+            }
+          }
+        },
+        "state": {
+          "Name": "palamod:paladiumgreenoredeepslate"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "blockstate_match",
+          "block_state": {
+            "Name": "palamod:protodeepslate"
+          }
+        },
+        "state": {
+          "Name": "palamod:paladiumgreenoredeepslate"
+        }
+      }
+    ]
+  }
+}

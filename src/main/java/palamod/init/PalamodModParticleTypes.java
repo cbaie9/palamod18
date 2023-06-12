@@ -15,5 +15,5 @@ import net.minecraft.core.particles.ParticleType;
 
 public class PalamodModParticleTypes {
 	public static final DeferredRegister<ParticleType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, PalamodMod.MODID);
-	public static final RegistryObject<ParticleType<?>> FLYPARTICLE = REGISTRY.register("flyparticle", () -> new SimpleParticleType(false));
+	public static final RegistryObject<SimpleParticleType> FLYPARTICLE = REGISTRY.register("flyparticle", () -> new SimpleParticleType(false));
 }

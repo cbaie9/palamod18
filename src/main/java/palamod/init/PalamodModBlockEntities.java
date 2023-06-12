@@ -34,7 +34,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.Block;
 
 public class PalamodModBlockEntities {
-	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, PalamodMod.MODID);
+	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, PalamodMod.MODID);
 	public static final RegistryObject<BlockEntityType<?>> PALADIUMCHEST = register("paladiumchest", PalamodModBlocks.PALADIUMCHEST, PaladiumchestBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> TITANECHEST = register("titanechest", PalamodModBlocks.TITANECHEST, TitanechestBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> AMETHYSTCHEST = register("amethystchest", PalamodModBlocks.AMETHYSTCHEST, AmethystchestBlockEntity::new);
