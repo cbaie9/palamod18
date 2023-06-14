@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.LanguageselectionMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -83,33 +80,31 @@ public class LanguageselectionScreen extends AbstractContainerScreen<Languagesel
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.languageselection.label_select_your_language"), 31, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.languageselection.label_select_your_language"), 31, 5, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_franais = new Button(this.leftPos + 28, this.topPos + 64, 67, 20, new TranslatableComponent("gui.palamod.languageselection.button_franais"), e -> {
+		button_franais = Button.builder(Component.translatable("gui.palamod.languageselection.button_franais"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new LanguageselectionButtonMessage(0, x, y, z));
 				LanguageselectionButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 28, this.topPos + 64, 67, 20).build();
 		guistate.put("button:button_franais", button_franais);
 		this.addRenderableWidget(button_franais);
-		button_english = new Button(this.leftPos + 26, this.topPos + 29, 61, 20, new TranslatableComponent("gui.palamod.languageselection.button_english"), e -> {
+		button_english = Button.builder(Component.translatable("gui.palamod.languageselection.button_english"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new LanguageselectionButtonMessage(1, x, y, z));
 				LanguageselectionButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 26, this.topPos + 29, 61, 20).build();
 		guistate.put("button:button_english", button_english);
 		this.addRenderableWidget(button_english);
 	}

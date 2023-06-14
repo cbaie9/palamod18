@@ -3,11 +3,6 @@ package palamod.block;
 
 import palamod.procedures.SlimeprocessProcedure;
 
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -40,8 +35,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
@@ -51,7 +44,7 @@ public class SlimepadBlock extends Block implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public SlimepadBlock() {
-		super(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_GREEN).sound(SoundType.SLIME_BLOCK).strength(1f, 10f).requiresCorrectToolForDrops().noCollission().friction(0.7999999999999999f).noOcclusion()
+		super(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_GREEN).sound(SoundType.SLIME_BLOCK).strength(1f, 10f).requiresCorrectToolForDrops().noCollission().friction(0.8f).noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
@@ -116,7 +109,7 @@ public class SlimepadBlock extends Block implements SimpleWaterloggedBlock {
 	}
 
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
 		return BlockPathTypes.BLOCKED;
 	}
 
@@ -139,10 +132,5 @@ public class SlimepadBlock extends Block implements SimpleWaterloggedBlock {
 	public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
 		super.entityInside(blockstate, world, pos, entity);
 		SlimeprocessProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.SLIMEPAD.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

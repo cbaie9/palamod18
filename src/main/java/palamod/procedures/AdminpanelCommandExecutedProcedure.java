@@ -12,7 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -28,11 +27,11 @@ public class AdminpanelCommandExecutedProcedure {
 		if (entity.hasPermissions(4)) {
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Adminpanelmenu");
+							return Component.literal("Adminpanelmenu");
 						}
 
 						@Override
@@ -45,11 +44,11 @@ public class AdminpanelCommandExecutedProcedure {
 		} else {
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Palaerror0005");
+							return Component.literal("Palaerror0005");
 						}
 
 						@Override

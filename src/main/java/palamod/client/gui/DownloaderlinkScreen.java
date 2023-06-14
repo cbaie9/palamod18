@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.DownloaderlinkMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -76,37 +73,35 @@ public class DownloaderlinkScreen extends AbstractContainerScreen<Downloaderlink
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloaderlink.label_this_will_link_your_palamod"), 11, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloaderlink.label_money_account_to_this_block"), 14, 18, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloaderlink.label_are_your_sure"), 36, 51, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloaderlink.label_you_can_unlink_the_account_at"), 9, 121, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloaderlink.label_any_time"), 10, 131, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloaderlink.label_this_will_link_your_palamod"), 11, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloaderlink.label_money_account_to_this_block"), 14, 18, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloaderlink.label_are_your_sure"), 36, 51, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloaderlink.label_you_can_unlink_the_account_at"), 9, 121, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloaderlink.label_any_time"), 10, 131, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_no = new Button(this.leftPos + 25, this.topPos + 71, 35, 20, new TranslatableComponent("gui.palamod.downloaderlink.button_no"), e -> {
+		button_no = Button.builder(Component.translatable("gui.palamod.downloaderlink.button_no"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderlinkButtonMessage(0, x, y, z));
 				DownloaderlinkButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 25, this.topPos + 71, 35, 20).build();
 		guistate.put("button:button_no", button_no);
 		this.addRenderableWidget(button_no);
-		button_process = new Button(this.leftPos + 84, this.topPos + 71, 61, 20, new TranslatableComponent("gui.palamod.downloaderlink.button_process"), e -> {
+		button_process = Button.builder(Component.translatable("gui.palamod.downloaderlink.button_process"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderlinkButtonMessage(1, x, y, z));
 				DownloaderlinkButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 84, this.topPos + 71, 61, 20).build();
 		guistate.put("button:button_process", button_process);
 		this.addRenderableWidget(button_process);
 	}

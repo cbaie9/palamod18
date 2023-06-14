@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.GrinderguiMenu;
@@ -30,11 +29,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -169,33 +166,31 @@ public class GrinderguiScreen extends AbstractContainerScreen<GrinderguiMenu> {
 		this.font.draw(poseStack,
 
 				Grindertrans0Procedure.execute(entity), 6, 101, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grindergui.label_grinder_v41_noautotick"), 15, 1, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grindergui.label_grinder_v41_noautotick"), 15, 1, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_upgrade = new Button(this.leftPos + 7, this.topPos + 77, 76, 20, new TranslatableComponent("gui.palamod.grindergui.button_upgrade"), e -> {
+		button_upgrade = Button.builder(Component.translatable("gui.palamod.grindergui.button_upgrade"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrinderguiButtonMessage(0, x, y, z));
 				GrinderguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 77, 76, 20).build();
 		guistate.put("button:button_upgrade", button_upgrade);
 		this.addRenderableWidget(button_upgrade);
-		button_help = new Button(this.leftPos + 7, this.topPos + 57, 42, 20, new TranslatableComponent("gui.palamod.grindergui.button_help"), e -> {
+		button_help = Button.builder(Component.translatable("gui.palamod.grindergui.button_help"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrinderguiButtonMessage(1, x, y, z));
 				GrinderguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 57, 42, 20).build();
 		guistate.put("button:button_help", button_help);
 		this.addRenderableWidget(button_help);
 	}

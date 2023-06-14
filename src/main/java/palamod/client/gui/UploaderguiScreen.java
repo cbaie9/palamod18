@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.UploaderguiMenu;
@@ -13,11 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -81,7 +78,7 @@ public class UploaderguiScreen extends AbstractContainerScreen<UploaderguiMenu> 
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.uploadergui.label_uploader"), 62, 11, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.uploadergui.label_uploader"), 62, 11, -12829636);
 		this.font.draw(poseStack,
 
 				Grindertrans0Procedure.execute(entity), 3, 71, -12829636);
@@ -90,19 +87,17 @@ public class UploaderguiScreen extends AbstractContainerScreen<UploaderguiMenu> 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_yo = new Button(this.leftPos + 128, this.topPos + 39, 35, 20, new TranslatableComponent("gui.palamod.uploadergui.button_yo"), e -> {
+		button_yo = Button.builder(Component.translatable("gui.palamod.uploadergui.button_yo"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new UploaderguiButtonMessage(0, x, y, z));
 				UploaderguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 128, this.topPos + 39, 35, 20).build();
 		guistate.put("button:button_yo", button_yo);
 		this.addRenderableWidget(button_yo);
 	}

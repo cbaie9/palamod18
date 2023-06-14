@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 public class DebugcrusherProcedure {
@@ -14,41 +14,41 @@ public class DebugcrusherProcedure {
 		if (entity == null)
 			return;
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Probability : " + PalamodModVariables.crusher_num_var_seen + " - " + PalamodModVariables.crusher_num_var + " - " + (new Object() {
+			_player.displayClientMessage(Component.literal(("Probability : " + PalamodModVariables.crusher_num_var_seen + " - " + PalamodModVariables.crusher_num_var + " - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_state")) + " - " + (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_state")) + " - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_endium")) + " - " + (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_endium")) + " - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_paladium")) + " - " + (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_paladium")) + " - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_titane")) + " - " + (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_titane")) + " - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_amethyst")) + " - ")), false);
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_amethyst")) + " - ")), false);
 	}
 }

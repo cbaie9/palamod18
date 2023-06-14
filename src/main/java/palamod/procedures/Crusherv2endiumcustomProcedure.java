@@ -8,7 +8,7 @@ import palamod.configuration.PalamodserverconfirgurationConfiguration;
 import palamod.PalamodMod;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,12 +25,12 @@ public class Crusherv2endiumcustomProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "crusher_num_endium") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_ENDIUM.get()) {
+		}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_endium") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_ENDIUM.get()) {
 			{
-				BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+				BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 				if (_ent != null) {
 					final int _slotid = 2;
 					final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMNUGGET.get());
@@ -39,22 +39,22 @@ public class Crusherv2endiumcustomProcedure {
 							AtomicInteger _retval = new AtomicInteger(0);
 							BlockEntity _ent = world.getBlockEntity(pos);
 							if (_ent != null)
-								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+								_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos(x, y, z), 2) + (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_ENDIUM.get()));
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+					}.getAmount(world, BlockPos.containing(x, y, z), 2) + (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_ENDIUM.get()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable)
 							((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 					});
 				}
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("crusher_num_endium", 0);
+					_blockEntity.getPersistentData().putDouble("crusher_num_endium", 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}

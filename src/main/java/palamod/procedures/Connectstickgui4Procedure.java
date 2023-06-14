@@ -11,7 +11,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -26,11 +25,11 @@ public class Connectstickgui4Procedure {
 			_player.closeContainer();
 		{
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = new BlockPos(x, y, z);
-				NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+				BlockPos _bpos = BlockPos.containing(x, y, z);
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TextComponent("Stickgui4");
+						return Component.literal("Stickgui4");
 					}
 
 					@Override

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class WeightedBoots_eventProcedure {
 	@SubscribeEvent
 	public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
-		execute(event, event.getEntityLiving().getY());
+		execute(event, event.getEntity().getY());
 	}
 
 	public static void execute(double y) {

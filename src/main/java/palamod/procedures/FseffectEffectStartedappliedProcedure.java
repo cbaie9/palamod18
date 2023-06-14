@@ -9,7 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.particles.SimpleParticleType;
 
 public class FseffectEffectStartedappliedProcedure {
@@ -28,7 +28,7 @@ public class FseffectEffectStartedappliedProcedure {
 			_level.sendParticles((SimpleParticleType) (PalamodModParticleTypes.FLYPARTICLE.get()), x, y, z, 5, 3, 3, 3, 1);
 		if (!net.minecraftforge.fml.ModList.get().isLoaded("oxygene")) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("[ Paladium ] Le fly est activ\u00E9"), false);
+				_player.displayClientMessage(Component.literal("[ Paladium ] Le fly est activ\u00E9"), false);
 		}
 	}
 }

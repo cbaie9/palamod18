@@ -3,11 +3,7 @@ package palamod.block;
 
 import palamod.world.inventory.AlchemycreatorguiMenu;
 
-import palamod.init.PalamodModBlocks;
-
 import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -38,13 +34,10 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
@@ -122,10 +115,10 @@ public class Alchimet1Block extends Block implements SimpleWaterloggedBlock {
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos pos, Player entity, InteractionHand hand, BlockHitResult hit) {
 		super.use(blockstate, world, pos, entity, hand, hit);
 		if (entity instanceof ServerPlayer player) {
-			NetworkHooks.openGui(player, new MenuProvider() {
+			NetworkHooks.openScreen(player, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return new TextComponent("Alchemy creator");
+					return Component.literal("Alchemy creator");
 				}
 
 				@Override
@@ -135,10 +128,5 @@ public class Alchimet1Block extends Block implements SimpleWaterloggedBlock {
 			}, pos);
 		}
 		return InteractionResult.SUCCESS;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.ALCHIMET_1.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

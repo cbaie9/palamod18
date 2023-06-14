@@ -4,8 +4,8 @@
   "definition": {
     "mobName": "Paladium golem",
     "mobLabel": "",
-    "mobModelName": "ModelGolem_gplacement",
-    "mobModelTexture": "golem.png",
+    "mobModelName": "ModelGolem_gplacement_vlegtest",
+    "mobModelTexture": "golem1.12.png",
     "mobModelGlowTexture": "",
     "solidBoundingBox": {
       "fixedValue": false
@@ -53,6 +53,7 @@
     "attackKnockback": 0.0,
     "knockbackResistance": 0.0,
     "movementSpeed": 0.3,
+    "stepHeight": 0.6,
     "armorBaseValue": 0.0,
     "trackingRange": 64,
     "followRange": 16,

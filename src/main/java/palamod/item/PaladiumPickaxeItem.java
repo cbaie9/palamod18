@@ -1,7 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
 import palamod.init.PalamodModItems;
 
 import net.minecraft.world.item.crafting.Ingredient;
@@ -36,6 +35,6 @@ public class PaladiumPickaxeItem extends PickaxeItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(PalamodModItems.PALADIUM_INGOT.get()));
 			}
-		}, 1, -2.5f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, 1, -2.5f, new Item.Properties());
 	}
 }

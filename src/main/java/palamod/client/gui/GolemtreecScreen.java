@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.GolemtreecMenu;
@@ -10,12 +9,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -103,28 +100,26 @@ public class GolemtreecScreen extends AbstractContainerScreen<GolemtreecMenu> {
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_see_ultilitary_branch = new Button(this.leftPos + 6, this.topPos + 65, 140, 20, new TranslatableComponent("gui.palamod.golemtreec.button_see_ultilitary_branch"), e -> {
-		});
+		button_see_ultilitary_branch = Button.builder(Component.translatable("gui.palamod.golemtreec.button_see_ultilitary_branch"), e -> {
+		}).bounds(this.leftPos + 6, this.topPos + 65, 140, 20).build();
 		guistate.put("button:button_see_ultilitary_branch", button_see_ultilitary_branch);
 		this.addRenderableWidget(button_see_ultilitary_branch);
-		button_buy_selected_upgrade = new Button(this.leftPos + 263, this.topPos + 29, 129, 20, new TranslatableComponent("gui.palamod.golemtreec.button_buy_selected_upgrade"), e -> {
-		});
+		button_buy_selected_upgrade = Button.builder(Component.translatable("gui.palamod.golemtreec.button_buy_selected_upgrade"), e -> {
+		}).bounds(this.leftPos + 263, this.topPos + 29, 129, 20).build();
 		guistate.put("button:button_buy_selected_upgrade", button_buy_selected_upgrade);
 		this.addRenderableWidget(button_buy_selected_upgrade);
-		upgarde_base = new Checkbox(this.leftPos + 181, this.topPos + 99, 20, 20, new TranslatableComponent("gui.palamod.golemtreec.upgarde_base"), false);
+		upgarde_base = new Checkbox(this.leftPos + 181, this.topPos + 99, 20, 20, Component.translatable("gui.palamod.golemtreec.upgarde_base"), false);
 		guistate.put("checkbox:upgarde_base", upgarde_base);
 		this.addRenderableWidget(upgarde_base);
-		golem_v_hunter1 = new Checkbox(this.leftPos + 46, this.topPos + 194, 20, 20, new TranslatableComponent("gui.palamod.golemtreec.golem_v_hunter1"), false);
+		golem_v_hunter1 = new Checkbox(this.leftPos + 46, this.topPos + 194, 20, 20, Component.translatable("gui.palamod.golemtreec.golem_v_hunter1"), false);
 		guistate.put("checkbox:golem_v_hunter1", golem_v_hunter1);
 		this.addRenderableWidget(golem_v_hunter1);
-		golem_v_farmer1 = new Checkbox(this.leftPos + 318, this.topPos + 193, 20, 20, new TranslatableComponent("gui.palamod.golemtreec.golem_v_farmer1"), false);
+		golem_v_farmer1 = new Checkbox(this.leftPos + 318, this.topPos + 193, 20, 20, Component.translatable("gui.palamod.golemtreec.golem_v_farmer1"), false);
 		guistate.put("checkbox:golem_v_farmer1", golem_v_farmer1);
 		this.addRenderableWidget(golem_v_farmer1);
 	}

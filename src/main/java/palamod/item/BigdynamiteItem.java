@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.BigdynaspawnProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.UseAnim;
@@ -18,7 +16,7 @@ import net.minecraft.world.InteractionHand;
 
 public class BigdynamiteItem extends Item {
 	public BigdynamiteItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override
@@ -33,7 +31,6 @@ public class BigdynamiteItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		BigdynaspawnProcedure.execute(world, x, y, z, entity);
 		return ar;
 	}

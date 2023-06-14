@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/paladium_bow"
+    "layer0": "palamod:item/paladium_bow"
   },
   "display": {
     "thirdperson_righthand": {

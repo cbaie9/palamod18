@@ -22,7 +22,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -40,11 +39,11 @@ public class WipopenProcedure {
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Wipgui");
+							return Component.literal("Wipgui");
 						}
 
 						@Override
@@ -57,25 +56,26 @@ public class WipopenProcedure {
 		} else {
 			if (!((world.getBlockState(new BlockPos(0, 10, 0))).getBlock() == PalamodModBlocks.NBTBLOCK.get())) {
 				if (world instanceof ServerLevel _level)
-					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(), "$setup hdv");
+					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+							"$setup hdv");
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Setup was not done, Auto setup"), false);
+					_player.displayClientMessage(Component.literal("Setup was not done, Auto setup"), false);
 				PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " did /hdv Setup was not done, Auto Setup hdv"));
 			} else if ((new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "hdv_locked")) == false) {
 				{
 					if (entity instanceof ServerPlayer _ent) {
 						BlockPos _bpos = new BlockPos(0, 10, 0);
-						NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+						NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 							@Override
 							public Component getDisplayName() {
-								return new TextComponent("Hdvguiv2");
+								return Component.literal("Hdvguiv2");
 							}
 
 							@Override
@@ -86,15 +86,15 @@ public class WipopenProcedure {
 					}
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("2"), false);
+					_player.displayClientMessage(Component.literal("2"), false);
 			} else {
 				{
 					if (entity instanceof ServerPlayer _ent) {
-						BlockPos _bpos = new BlockPos(x, y, z);
-						NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+						BlockPos _bpos = BlockPos.containing(x, y, z);
+						NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 							@Override
 							public Component getDisplayName() {
-								return new TextComponent("Palaerror0001");
+								return Component.literal("Palaerror0001");
 							}
 
 							@Override
@@ -105,7 +105,7 @@ public class WipopenProcedure {
 					}
 				}
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Error 1 : hdv locked"), false);
+					_player.displayClientMessage(Component.literal("Error 1 : hdv locked"), false);
 			}
 		}
 	}

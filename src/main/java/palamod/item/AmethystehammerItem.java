@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.HammernormalProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -41,7 +39,7 @@ public class AmethystehammerItem extends PickaxeItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 1, -3.99f, new Item.Properties().tab(PalamodModTabs.TAB_GRINDERCREATIVETAB));
+		}, 1, -3.99f, new Item.Properties());
 	}
 
 	@Override

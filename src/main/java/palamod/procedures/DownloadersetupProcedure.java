@@ -9,14 +9,14 @@ import net.minecraft.core.BlockPos;
 public class DownloadersetupProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("downloader_state", false);
+				_blockEntity.getPersistentData().putBoolean("downloader_state", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
-		world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
+		world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
 	}
 }

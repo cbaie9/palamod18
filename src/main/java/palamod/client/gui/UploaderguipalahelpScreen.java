@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.UploaderguipalahelpMenu;
@@ -15,11 +14,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -79,9 +76,9 @@ public class UploaderguipalahelpScreen extends AbstractContainerScreen<Uploaderg
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.uploaderguipalahelp.label_page_en_cours_de_redaction"), 21, 24, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.uploaderguipalahelp.label_this_page_is_working_in_progress"), 20, 11, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.uploaderguipalahelp.label_uploader"), 125, 46, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.uploaderguipalahelp.label_page_en_cours_de_redaction"), 21, 24, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.uploaderguipalahelp.label_this_page_is_working_in_progress"), 20, 11, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.uploaderguipalahelp.label_uploader"), 125, 46, -65536);
 		this.font.draw(poseStack,
 
 				Palahelpuploader0Procedure.execute(entity), 4, 60, -12829636);
@@ -96,19 +93,17 @@ public class UploaderguipalahelpScreen extends AbstractContainerScreen<Uploaderg
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_gui_example_wip = new Button(this.leftPos + 6, this.topPos + 170, 123, 20, new TranslatableComponent("gui.palamod.uploaderguipalahelp.button_gui_example_wip"), e -> {
+		button_gui_example_wip = Button.builder(Component.translatable("gui.palamod.uploaderguipalahelp.button_gui_example_wip"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new UploaderguipalahelpButtonMessage(0, x, y, z));
 				UploaderguipalahelpButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 6, this.topPos + 170, 123, 20).build();
 		guistate.put("button:button_gui_example_wip", button_gui_example_wip);
 		this.addRenderableWidget(button_gui_example_wip);
 	}

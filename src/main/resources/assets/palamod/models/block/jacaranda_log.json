@@ -1,12 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "palamod:blocks/jacaranda_top",
-    "up": "palamod:blocks/jacaranda_top",
-    "north": "palamod:blocks/jacaranda",
-    "east": "palamod:blocks/jacaranda",
-    "south": "palamod:blocks/jacaranda",
-    "west": "palamod:blocks/jacaranda",
-    "particle": "palamod:blocks/jacaranda_top"
-  }
+    "down": "palamod:block/jacaranda_top",
+    "up": "palamod:block/jacaranda_top",
+    "north": "palamod:block/jacaranda",
+    "east": "palamod:block/jacaranda",
+    "south": "palamod:block/jacaranda",
+    "west": "palamod:block/jacaranda",
+    "particle": "palamod:block/jacaranda_top"
+  },
+  "render_type": "solid"
 }

@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PalaerrorMenu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -69,22 +66,20 @@ public class PalaerrorScreen extends AbstractContainerScreen<PalaerrorMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror0002.label_error"), 80, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror0002.label_market_0002_full_or_not_setup"), 19, 20, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror0002.label_is_not_the_case_for_the_descript"), 11, 32, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror0002.label_please_report_on_the_discord_the"), 7, 44, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror0002.label_palamod_renew_beta_0051"), 4, 66, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror0002.label_error"), 80, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror0002.label_market_0002_full_or_not_setup"), 19, 20, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror0002.label_is_not_the_case_for_the_descript"), 11, 32, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror0002.label_please_report_on_the_discord_the"), 7, 44, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror0002.label_palamod_renew_beta_0051"), 4, 66, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

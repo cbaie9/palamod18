@@ -3,11 +3,6 @@ package palamod.block;
 
 import palamod.procedures.IronspikedamageProcedure;
 
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -31,12 +26,9 @@ import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
@@ -52,7 +44,7 @@ public class IronspikeBlock extends Block {
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("beta / no craft / creative"));
+		list.add(Component.literal("beta / no craft / creative"));
 	}
 
 	@Override
@@ -124,10 +116,5 @@ public class IronspikeBlock extends Block {
 	public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
 		super.entityInside(blockstate, world, pos, entity);
 		IronspikedamageProcedure.execute(entity);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.IRONSPIKE.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

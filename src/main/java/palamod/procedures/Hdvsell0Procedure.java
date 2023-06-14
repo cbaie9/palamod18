@@ -6,7 +6,7 @@ import org.checkerframework.checker.units.qual.s;
 
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,7 +20,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -47,7 +46,7 @@ public class Hdvsell0Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_buyed" + nloop))) {
@@ -56,7 +55,7 @@ public class Hdvsell0Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putString(("market_pr" + nloop), (entity.getDisplayName().getString()));
+						_blockEntity.getPersistentData().putString(("market_pr" + nloop), (entity.getDisplayName().getString()));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -65,7 +64,7 @@ public class Hdvsell0Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putString(("market_name" + nloop), (guistate.containsKey("text:market_name") ? ((EditBox) guistate.get("text:market_name")).getValue() : ""));
+						_blockEntity.getPersistentData().putString(("market_name" + nloop), (guistate.containsKey("text:market_name") ? ((EditBox) guistate.get("text:market_name")).getValue() : ""));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -74,7 +73,7 @@ public class Hdvsell0Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putString(("market_item" + nloop),
+						_blockEntity.getPersistentData().putString(("market_item" + nloop),
 								((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getDisplayName()
 										.getString()));
 					if (world instanceof Level _level)
@@ -96,7 +95,7 @@ public class Hdvsell0Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble(("market_price" + nloop), new Object() {
+						_blockEntity.getPersistentData().putDouble(("market_price" + nloop), new Object() {
 							double convert(String s) {
 								try {
 									return Double.parseDouble(s.trim());
@@ -113,7 +112,7 @@ public class Hdvsell0Procedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble(("market_num" + nloop), numitem);
+						_blockEntity.getPersistentData().putDouble(("market_num" + nloop), numitem);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -123,7 +122,7 @@ public class Hdvsell0Procedure {
 						final int _slotid = (int) nloop;
 						final ItemStack _setstack = Itemstam;
 						_setstack.setCount((int) numitem);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -143,11 +142,11 @@ public class Hdvsell0Procedure {
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Palaerror");
+							return Component.literal("Palaerror");
 						}
 
 						@Override

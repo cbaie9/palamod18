@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PalahelporeMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -95,41 +92,39 @@ public class PalahelporeScreen extends AbstractContainerScreen<PalahelporeMenu> 
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_paladium_le_minerais_le_plus_pu"), 28, 81, -52480);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_tres_rare_sert_a_quelque_craft"), 27, 103, -205);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_resitanttres_bon_pour_ses_premi"), 28, 126, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_amthyste"), 29, 158, -6750055);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_paladium_vert_equivalent_en_pl"), 28, 59, -10027213);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_endium_le_materiau_ultime_obte"), 28, 27, -13434727);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_via_le_paladium_crusher_voir_m"), 28, 38, -13434727);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_tools"), 29, 136, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpore.label_assez_facilement"), 26, 170, -6750055);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_paladium_le_minerais_le_plus_pu"), 28, 81, -52480);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_tres_rare_sert_a_quelque_craft"), 27, 103, -205);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_resitanttres_bon_pour_ses_premi"), 28, 126, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_amthyste"), 29, 158, -6750055);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_paladium_vert_equivalent_en_pl"), 28, 59, -10027213);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_endium_le_materiau_ultime_obte"), 28, 27, -13434727);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_via_le_paladium_crusher_voir_m"), 28, 38, -13434727);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_tools"), 29, 136, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpore.label_assez_facilement"), 26, 170, -6750055);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 249, this.topPos + 4, 45, 20, new TranslatableComponent("gui.palamod.palahelpore.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.palahelpore.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelporeButtonMessage(0, x, y, z));
 				PalahelporeButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 249, this.topPos + 4, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_menu = new Button(this.leftPos + 4, this.topPos + 4, 45, 20, new TranslatableComponent("gui.palamod.palahelpore.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.palahelpore.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelporeButtonMessage(1, x, y, z));
 				PalahelporeButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 4, this.topPos + 4, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

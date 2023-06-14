@@ -14,18 +14,17 @@ public class DynamiccheckendiumfullverProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos(0, 10, 0), ("Minage_setlayer_dynamic_enda_" + entity.getDisplayName().getString())) || (new ResourceLocation("palamod:forestender").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName())
-				|| new ResourceLocation("palamod:frozenforest").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName())
-				|| new ResourceLocation("palamod:roofedforest").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName()) || new ResourceLocation("plains").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName())
-				|| new ResourceLocation("forest").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName()) || new ResourceLocation("forest").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName())
-				|| new ResourceLocation("ocean").equals(world.getBiome(new BlockPos(x, y, z)).value().getRegistryName())) && new Object() {
+		}.getValue(world, new BlockPos(0, 10, 0), ("Minage_setlayer_dynamic_enda_" + entity.getDisplayName().getString())) || (world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("palamod:forestender"))
+				|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("palamod:frozenforest")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("palamod:roofedforest"))
+				|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("plains")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("forest"))
+				|| world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("forest")) || world.getBiome(BlockPos.containing(x, y, z)).is(new ResourceLocation("ocean"))) && new Object() {
 					public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getBoolean(tag);
+							return blockEntity.getPersistentData().getBoolean(tag);
 						return false;
 					}
 				}.getValue(world, new BlockPos(0, 10, 0), ("Minage_setlayer_dynamic_enda_hide_" + entity.getDisplayName().getString()))) && entity.getY() < 128 && entity.getY() > -64) {

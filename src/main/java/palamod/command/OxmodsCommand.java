@@ -3,6 +3,8 @@ package palamod.command;
 
 import palamod.procedures.OxmodsreturnverProcedure;
 import palamod.procedures.OxdisenchantProcedure;
+import palamod.procedures.OxdebugdonotshowtrueProcedure;
+import palamod.procedures.OxdebugdonotshowfalseProcedure;
 import palamod.procedures.OxcommandProcedure;
 import palamod.procedures.OxbackfireProcedure;
 import palamod.procedures.Luckyprocess1adminProcedure;
@@ -76,7 +78,7 @@ public class OxmodsCommand {
 
 					OxdisenchantProcedure.execute(entity);
 					return 0;
-				})).then(Commands.literal("backslash_resolve").then(Commands.argument("item", ItemArgument.item())
+				})).then(Commands.literal("backslash_resolve").then(Commands.argument("item", ItemArgument.item(event.getBuildContext()))
 						.then(Commands.argument("num", DoubleArgumentType.doubleArg()).then(Commands.argument("message", StringArgumentType.string()).then(Commands.argument("activation", BoolArgumentType.bool()).executes(arguments -> {
 							ServerLevel world = arguments.getSource().getLevel();
 							double x = arguments.getSource().getPosition().x();
@@ -89,6 +91,31 @@ public class OxmodsCommand {
 
 							OxbackfireProcedure.execute(world, arguments);
 							return 0;
-						})))))));
+						}))))))
+				.then(Commands.literal("debugver").then(Commands.literal("false").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					OxdebugdonotshowfalseProcedure.execute(entity);
+					return 0;
+				})).then(Commands.literal("true").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					OxdebugdonotshowtrueProcedure.execute(entity);
+					return 0;
+				}))));
 	}
 }

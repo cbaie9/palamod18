@@ -1,7 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod:blocks/grinder_casing_block16",
-    "particle": "palamod:blocks/grinder_casing_block16"
-  }
+    "all": "palamod:block/grinder_casing_block16",
+    "particle": "palamod:block/grinder_casing_block16"
+  },
+  "render_type": "solid"
 }

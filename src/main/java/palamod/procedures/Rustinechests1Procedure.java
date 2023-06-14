@@ -29,10 +29,10 @@ public class Rustinechests1Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "setlocal_chestver") == 1) {
+		}.getValue(world, BlockPos.containing(x, y, z), "setlocal_chestver") == 1) {
 			is12 = true;
 			if (new Object() {
 				public int getAmount(int sltid) {
@@ -52,10 +52,10 @@ public class Rustinechests1Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "setlocal_chestver") == 2) {
+		}.getValue(world, BlockPos.containing(x, y, z), "setlocal_chestver") == 2) {
 			is12 = true;
 			is13 = true;
 			if (new Object() {
@@ -90,10 +90,10 @@ public class Rustinechests1Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "setlocal_chestver") == 3) {
+		}.getValue(world, BlockPos.containing(x, y, z), "setlocal_chestver") == 3) {
 			is12 = true;
 			is13 = true;
 			is110 = true;

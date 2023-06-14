@@ -48,7 +48,7 @@ public class FactionsetupProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("Faction_unlocked", true);
+				_blockEntity.getPersistentData().putBoolean("Faction_unlocked", true);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -57,7 +57,7 @@ public class FactionsetupProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("Faction_id", 0);
+				_blockEntity.getPersistentData().putDouble("Faction_id", 0);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

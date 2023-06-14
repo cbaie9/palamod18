@@ -7,13 +7,13 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 
 import java.util.function.Supplier;
-import java.util.Random;
 import java.util.Map;
 
 public class RingchestprocessProcedure {
@@ -31,10 +31,10 @@ public class RingchestprocessProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "setlocal_chestver");
+		}.getValue(world, BlockPos.containing(x, y, z), "setlocal_chestver");
 		nloop = 0;
 		nloop2 = 12;
 		loop1 = false;
@@ -51,14 +51,14 @@ public class RingchestprocessProcedure {
 					for (int index1 = 0; index1 < 11; index1++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -75,14 +75,14 @@ public class RingchestprocessProcedure {
 					for (int index2 = 0; index2 < 11; index2++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -99,14 +99,14 @@ public class RingchestprocessProcedure {
 					for (int index3 = 0; index3 < 11; index3++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -143,14 +143,14 @@ public class RingchestprocessProcedure {
 					for (int index5 = 0; index5 < 11; index5++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -167,14 +167,14 @@ public class RingchestprocessProcedure {
 					for (int index6 = 0; index6 < 11; index6++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -191,14 +191,14 @@ public class RingchestprocessProcedure {
 					for (int index7 = 0; index7 < 11; index7++) {
 						if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 								.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
-								&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+								&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() > 0) {
-							((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-									(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+									(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 											.getDamageValue() - 1));
 							{
 								ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-								if (_ist.hurt(1, new Random(), null)) {
+								if (_ist.hurt(1, RandomSource.create(), null)) {
 									_ist.shrink(1);
 									_ist.setDamageValue(0);
 								}
@@ -219,14 +219,14 @@ public class RingchestprocessProcedure {
 				for (int index8 = 0; index8 < 11; index8++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable")))
-							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 									.getDamageValue() > 0) {
-						((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-								(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+						(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+								(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() - 1));
 						{
 							ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-							if (_ist.hurt(1, new Random(), null)) {
+							if (_ist.hurt(1, RandomSource.create(), null)) {
 								_ist.shrink(1);
 								_ist.setDamageValue(0);
 							}
@@ -243,14 +243,14 @@ public class RingchestprocessProcedure {
 				for (int index9 = 0; index9 < 11; index9++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable_endium")))
-							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 									.getDamageValue() > 0) {
-						((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-								(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+						(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+								(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() - 1));
 						{
 							ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-							if (_ist.hurt(1, new Random(), null)) {
+							if (_ist.hurt(1, RandomSource.create(), null)) {
 								_ist.shrink(1);
 								_ist.setDamageValue(0);
 							}
@@ -267,14 +267,14 @@ public class RingchestprocessProcedure {
 				for (int index10 = 0; index10 < 11; index10++) {
 					if ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 							.is(ItemTags.create(new ResourceLocation("palamod:repairable_green")))
-							&& ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+							&& (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 									.getDamageValue() > 0) {
-						((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)).setDamageValue(
-								(int) (((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY))
+						(entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY).setDamageValue(
+								(int) ((entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop)).getItem() : ItemStack.EMPTY)
 										.getDamageValue() - 1));
 						{
 							ItemStack _ist = (entity instanceof ServerPlayer _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get((int) nloop2)).getItem() : ItemStack.EMPTY);
-							if (_ist.hurt(1, new Random(), null)) {
+							if (_ist.hurt(1, RandomSource.create(), null)) {
 								_ist.shrink(1);
 								_ist.setDamageValue(0);
 							}

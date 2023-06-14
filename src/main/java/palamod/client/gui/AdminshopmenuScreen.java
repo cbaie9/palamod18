@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AdminshopmenuMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.ImageButton;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -87,19 +84,17 @@ public class AdminshopmenuScreen extends AbstractContainerScreen<AdminshopmenuMe
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopmenu.label_adminshop"), 69, -3, -1);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopmenu.label_adminshop"), 69, -3, -1);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 		imagebutton_cross_no_button = new ImageButton(this.leftPos + 176, this.topPos + -4, 16, 16, 0, 0, 16, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_cross_no_button.png"), 16, 32, e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopmenuButtonMessage(0, x, y, z));

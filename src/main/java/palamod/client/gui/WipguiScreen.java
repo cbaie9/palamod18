@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.WipguiMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -75,34 +72,32 @@ public class WipguiScreen extends AbstractContainerScreen<WipguiMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_palamod_not_in_working_in_prog"), 45, 6, -3407872);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_beta_2_build_t1_0026"), 153, 209, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_lhotel_des_vente_ou_hdv_a_ete_a"), 30, 41, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_a_cause_dun_bug_de_stockage_di"), 30, 52, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_le_projet_etant_en_open_source"), 5, 86, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_aider_conctacter_les_devloppeu"), 8, 96, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_httpsgithubcomcbaie9palamo"), 9, 112, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret"), 6, 136, -65485);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_de_lag_et_de_compilation_code"), 7, 145, -65485);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.wipgui.label_github_discord"), 7, 123, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_palamod_not_in_working_in_prog"), 45, 6, -3407872);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_beta_2_build_t1_0026"), 153, 209, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_lhotel_des_vente_ou_hdv_a_ete_a"), 30, 41, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_a_cause_dun_bug_de_stockage_di"), 30, 52, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_le_projet_etant_en_open_source"), 5, 86, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_aider_conctacter_les_devloppeu"), 8, 96, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_httpsgithubcomcbaie9palamo"), 9, 112, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_le_hdv_ses_processus_ont_ete_ret"), 6, 136, -65485);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_de_lag_et_de_compilation_code"), 7, 145, -65485);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.wipgui.label_github_discord"), 7, 123, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_acces_hdv = new Button(this.leftPos + 38, this.topPos + 179, 186, 20, new TranslatableComponent("gui.palamod.wipgui.button_acces_hdv"), e -> {
+		button_acces_hdv = Button.builder(Component.translatable("gui.palamod.wipgui.button_acces_hdv"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new WipguiButtonMessage(0, x, y, z));
 				WipguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 38, this.topPos + 179, 186, 20).build();
 		guistate.put("button:button_acces_hdv", button_acces_hdv);
 		this.addRenderableWidget(button_acces_hdv);
 	}

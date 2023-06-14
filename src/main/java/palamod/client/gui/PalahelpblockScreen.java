@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PalahelpblockMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -84,61 +81,59 @@ public class PalahelpblockScreen extends AbstractContainerScreen<PalahelpblockMe
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpblock.label_palahelp_block_menu"), 11, 3, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpblock.label_palahelp_block_menu"), 11, 3, -65536);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_ore = new Button(this.leftPos + 96, this.topPos + 23, 40, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_ore"), e -> {
+		button_ore = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_ore"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelpblockButtonMessage(0, x, y, z));
 				PalahelpblockButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 96, this.topPos + 23, 40, 20).build();
 		guistate.put("button:button_ore", button_ore);
 		this.addRenderableWidget(button_ore);
-		button_trees = new Button(this.leftPos + 96, this.topPos + 48, 50, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_trees"), e -> {
-		});
+		button_trees = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_trees"), e -> {
+		}).bounds(this.leftPos + 96, this.topPos + 48, 50, 20).build();
 		guistate.put("button:button_trees", button_trees);
 		this.addRenderableWidget(button_trees);
-		button_back = new Button(this.leftPos + 6, this.topPos + 87, 50, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelpblockButtonMessage(2, x, y, z));
 				PalahelpblockButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 6, this.topPos + 87, 50, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_machine = new Button(this.leftPos + 95, this.topPos + 75, 60, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_machine"), e -> {
+		button_machine = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_machine"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelpblockButtonMessage(3, x, y, z));
 				PalahelpblockButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 95, this.topPos + 75, 60, 20).build();
 		guistate.put("button:button_machine", button_machine);
 		this.addRenderableWidget(button_machine);
-		button_fluid = new Button(this.leftPos + 96, this.topPos + 104, 50, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_fluid"), e -> {
+		button_fluid = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_fluid"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelpblockButtonMessage(4, x, y, z));
 				PalahelpblockButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 96, this.topPos + 104, 50, 20).build();
 		guistate.put("button:button_fluid", button_fluid);
 		this.addRenderableWidget(button_fluid);
-		button_close = new Button(this.leftPos + 6, this.topPos + 114, 50, 20, new TranslatableComponent("gui.palamod.palahelpblock.button_close"), e -> {
+		button_close = Button.builder(Component.translatable("gui.palamod.palahelpblock.button_close"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelpblockButtonMessage(5, x, y, z));
 				PalahelpblockButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 6, this.topPos + 114, 50, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 	}

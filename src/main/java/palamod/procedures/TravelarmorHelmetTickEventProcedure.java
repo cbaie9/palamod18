@@ -12,8 +12,8 @@ public class TravelarmorHelmetTickEventProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (!((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.AIR) || !((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.VOID_AIR)
-				|| !((world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.CAVE_AIR)) {
+		if (!((world.getBlockState(BlockPos.containing(x, y + 2, z))).getBlock() == Blocks.AIR) || !((world.getBlockState(BlockPos.containing(x, y + 2, z))).getBlock() == Blocks.VOID_AIR)
+				|| !((world.getBlockState(BlockPos.containing(x, y + 2, z))).getBlock() == Blocks.CAVE_AIR)) {
 			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 10, 1, true, false));
 		}

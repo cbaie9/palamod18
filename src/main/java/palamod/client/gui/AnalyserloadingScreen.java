@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AnalyserloadingMenu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -69,21 +66,19 @@ public class AnalyserloadingScreen extends AbstractContainerScreen<Analyserloadi
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserloading.label_the_analyser_is_loader"), 13, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserloading.label_lanalyseur_charge"), 13, 17, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserloading.label_please_wait"), 43, 53, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserloading.label_veuiller_attendre"), 26, 64, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserloading.label_the_analyser_is_loader"), 13, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserloading.label_lanalyseur_charge"), 13, 17, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserloading.label_please_wait"), 43, 53, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserloading.label_veuiller_attendre"), 26, 64, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

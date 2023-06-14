@@ -24,8 +24,8 @@ public class DynamiteRightClickedInAirProcedure {
 			entityToSpawn.setYHeadRot(0);
 			entityToSpawn.setDeltaMovement((entity.getDeltaMovement().x()), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z()));
 			if (entityToSpawn instanceof Mob _mobToSpawn)
-				_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-			world.addFreshEntity(entityToSpawn);
+				_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+			_level.addFreshEntity(entityToSpawn);
 		}
 		if (entity instanceof Player _player) {
 			ItemStack _stktoremove = new ItemStack(PalamodModItems.DYNAMITE.get());

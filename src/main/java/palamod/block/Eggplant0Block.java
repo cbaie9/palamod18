@@ -4,10 +4,6 @@ package palamod.block;
 import palamod.procedures.Eggplant0upProcedure;
 
 import palamod.init.PalamodModItems;
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -21,18 +17,16 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.util.RandomSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-import java.util.Random;
 import java.util.List;
 import java.util.Collections;
 
 public class Eggplant0Block extends FlowerBlock {
 	public Eggplant0Block() {
-		super(MobEffects.FIRE_RESISTANCE, 10, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).instabreak().noCollission());
+		super(() -> MobEffects.FIRE_RESISTANCE, 10, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).instabreak().noCollission());
 	}
 
 	@Override
@@ -64,13 +58,8 @@ public class Eggplant0Block extends FlowerBlock {
 	}
 
 	@Override
-	public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random random) {
+	public void animateTick(BlockState blockstate, Level world, BlockPos pos, RandomSource random) {
 		super.animateTick(blockstate, world, pos, random);
 		Eggplant0upProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.EGGPLANT_0.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.Infernalknocker_aknoProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Tier;
@@ -39,16 +37,16 @@ public class InfernalknockerItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 3, -2f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, 3, -2f, new Item.Properties());
 	}
 
 	@Override
-	public boolean hasContainerItem(ItemStack stack) {
+	public boolean hasCraftingRemainingItem(ItemStack stack) {
 		return true;
 	}
 
 	@Override
-	public ItemStack getContainerItem(ItemStack itemstack) {
+	public ItemStack getCraftingRemainingItem(ItemStack itemstack) {
 		return new ItemStack(this);
 	}
 

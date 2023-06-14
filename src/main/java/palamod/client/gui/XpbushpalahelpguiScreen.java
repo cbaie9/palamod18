@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.XpbushpalahelpguiMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -83,40 +80,38 @@ public class XpbushpalahelpguiScreen extends AbstractContainerScreen<Xpbushpalah
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_xp_bush"), 72, 6, -65536);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_xp_bush_est_une_plant_qui_fait_p"), 2, 20, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_des_xp_berries_qui_vous_donne_de"), 2, 32, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_quand_vous_faites_clique_droit_d"), 3, 42, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_vous_pouvez_les_compresser_en"), 1, 53, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_compressed_xp_berries"), 0, 65, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_xp_berry"), 38, 84, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.label_xp_bush1"), 43, 126, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_xp_bush"), 72, 6, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_xp_bush_est_une_plant_qui_fait_p"), 2, 20, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_des_xp_berries_qui_vous_donne_de"), 2, 32, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_quand_vous_faites_clique_droit_d"), 3, 42, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_vous_pouvez_les_compresser_en"), 1, 53, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_compressed_xp_berries"), 0, 65, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_xp_berry"), 38, 84, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.xpbushpalahelpgui.label_xp_bush1"), 43, 126, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 136, this.topPos + 91, 45, 20, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.xpbushpalahelpgui.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new XpbushpalahelpguiButtonMessage(0, x, y, z));
 				XpbushpalahelpguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 136, this.topPos + 91, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_menu = new Button(this.leftPos + 136, this.topPos + 113, 45, 20, new TranslatableComponent("gui.palamod.xpbushpalahelpgui.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.xpbushpalahelpgui.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new XpbushpalahelpguiButtonMessage(1, x, y, z));
 				XpbushpalahelpguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 136, this.topPos + 113, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

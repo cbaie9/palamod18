@@ -19,7 +19,7 @@ import java.util.Collections;
 
 public class Jacaranda_FenceBlock extends FenceBlock {
 	public Jacaranda_FenceBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops().dynamicShape());
 	}
 
 	@Override

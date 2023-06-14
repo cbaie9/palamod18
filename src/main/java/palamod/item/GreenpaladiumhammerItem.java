@@ -4,8 +4,6 @@ package palamod.item;
 import palamod.procedures.PaladiumhammerToolInInventoryTickProcedure;
 import palamod.procedures.Hammer1Procedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -43,7 +41,7 @@ public class GreenpaladiumhammerItem extends PickaxeItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 1, -3f, new Item.Properties().tab(PalamodModTabs.TAB_GRINDERCREATIVETAB));
+		}, 1, -3f, new Item.Properties());
 	}
 
 	@Override

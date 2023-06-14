@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.LuckyguiMenu;
@@ -13,11 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -77,7 +74,7 @@ public class LuckyguiScreen extends AbstractContainerScreen<LuckyguiMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.luckygui.label_lucky_block"), 56, 5, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.luckygui.label_lucky_block"), 56, 5, -65536);
 		this.font.draw(poseStack,
 
 				LuckyblockgetnameProcedure.execute(world, x, y, z), 26, 84, -3407821);
@@ -86,19 +83,17 @@ public class LuckyguiScreen extends AbstractContainerScreen<LuckyguiMenu> {
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_open = new Button(this.leftPos + 119, this.topPos + 53, 45, 20, new TranslatableComponent("gui.palamod.luckygui.button_open"), e -> {
+		button_open = Button.builder(Component.translatable("gui.palamod.luckygui.button_open"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new LuckyguiButtonMessage(0, x, y, z));
 				LuckyguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 119, this.topPos + 53, 45, 20).build();
 		guistate.put("button:button_open", button_open);
 		this.addRenderableWidget(button_open);
 	}

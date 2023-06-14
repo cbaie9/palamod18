@@ -2,7 +2,7 @@ package palamod.procedures;
 
 import palamod.network.PalamodModVariables;
 
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,7 +26,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
 			}.getItemStack(world, new BlockPos(0, 10, 0), 0));
@@ -34,7 +34,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_num0")));
@@ -47,7 +47,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
 			}.getItemStack(world, new BlockPos(0, 10, 0), 1));
@@ -55,7 +55,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_num1")));
@@ -68,7 +68,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
 			}.getItemStack(world, new BlockPos(0, 10, 0), 2));
@@ -76,7 +76,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_num2")));
@@ -89,7 +89,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
 			}.getItemStack(world, new BlockPos(0, 10, 0), 3));
@@ -97,7 +97,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_num3")));
@@ -108,7 +108,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name0");
@@ -116,7 +116,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name1");
@@ -124,7 +124,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name2");
@@ -132,7 +132,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name3");
@@ -140,7 +140,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price0");
@@ -149,7 +149,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price1");
@@ -158,7 +158,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price2");
@@ -167,7 +167,7 @@ public class HdvguiThisGUIIsOpenedProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price3");

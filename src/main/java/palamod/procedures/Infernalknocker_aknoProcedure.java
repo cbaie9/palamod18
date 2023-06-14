@@ -5,6 +5,6 @@ import net.minecraft.world.item.ItemStack;
 
 public class Infernalknocker_aknoProcedure {
 	public static void execute(ItemStack itemstack) {
-		(itemstack).enchant(Enchantments.KNOCKBACK, 5);
+		itemstack.enchant(Enchantments.KNOCKBACK, 5);
 	}
 }

@@ -23,7 +23,7 @@ public class XpbushongiveProcedure {
 		if (entity == null)
 			return;
 		{
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockState _bs = PalamodModBlocks.XPBUSH.get().defaultBlockState();
 			BlockState _bso = world.getBlockState(_bp);
 			for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -57,11 +57,11 @@ public class XpbushongiveProcedure {
 			ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("xp_bush_grown_count", 0);
+				_blockEntity.getPersistentData().putDouble("xp_bush_grown_count", 0);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

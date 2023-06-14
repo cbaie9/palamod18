@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.TrashguiMenu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -69,19 +66,17 @@ public class TrashguiScreen extends AbstractContainerScreen<TrashguiMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.trashgui.label_voidstone_gui_trash_bin"), 22, 4, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.trashgui.label_inventory"), 6, 70, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.trashgui.label_voidstone_gui_trash_bin"), 22, 4, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.trashgui.label_inventory"), 6, 70, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

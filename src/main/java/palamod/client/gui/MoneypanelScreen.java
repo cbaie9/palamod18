@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.MoneypanelMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -87,31 +84,29 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.moneypanel.label_money_panel"), 68, 7, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.moneypanel.label_money_to_change_for_remove_m"), 5, 73, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.moneypanel.label_player_to_change_money"), 22, 38, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.moneypanel.label_money_panel"), 68, 7, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.moneypanel.label_money_to_change_for_remove_m"), 5, 73, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.moneypanel.label_player_to_change_money"), 22, 38, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		Admin_player_money = new EditBox(this.font, this.leftPos + 21, this.topPos + 49, 120, 20, new TranslatableComponent("gui.palamod.moneypanel.Admin_player_money")) {
+		Admin_player_money = new EditBox(this.font, this.leftPos + 21, this.topPos + 49, 120, 20, Component.translatable("gui.palamod.moneypanel.Admin_player_money")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_player_money").getString());
+				setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_player_money").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_player_money").getString());
+					setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_player_money").getString());
 				else
 					setSuggestion(null);
 			}
@@ -120,7 +115,7 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_player_money").getString());
+					setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_player_money").getString());
 				else
 					setSuggestion(null);
 			}
@@ -128,16 +123,16 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 		Admin_player_money.setMaxLength(32767);
 		guistate.put("text:Admin_player_money", Admin_player_money);
 		this.addWidget(this.Admin_player_money);
-		Admin_money_change = new EditBox(this.font, this.leftPos + 24, this.topPos + 88, 120, 20, new TranslatableComponent("gui.palamod.moneypanel.Admin_money_change")) {
+		Admin_money_change = new EditBox(this.font, this.leftPos + 24, this.topPos + 88, 120, 20, Component.translatable("gui.palamod.moneypanel.Admin_money_change")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_money_change").getString());
+				setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_money_change").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_money_change").getString());
+					setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_money_change").getString());
 				else
 					setSuggestion(null);
 			}
@@ -146,7 +141,7 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.moneypanel.Admin_money_change").getString());
+					setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_money_change").getString());
 				else
 					setSuggestion(null);
 			}
@@ -154,20 +149,20 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 		Admin_money_change.setMaxLength(32767);
 		guistate.put("text:Admin_money_change", Admin_money_change);
 		this.addWidget(this.Admin_money_change);
-		button_change = new Button(this.leftPos + 25, this.topPos + 122, 56, 20, new TranslatableComponent("gui.palamod.moneypanel.button_change"), e -> {
+		button_change = Button.builder(Component.translatable("gui.palamod.moneypanel.button_change"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new MoneypanelButtonMessage(0, x, y, z));
 				MoneypanelButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 25, this.topPos + 122, 56, 20).build();
 		guistate.put("button:button_change", button_change);
 		this.addRenderableWidget(button_change);
-		button_avanced = new Button(this.leftPos + 121, this.topPos + 122, 61, 20, new TranslatableComponent("gui.palamod.moneypanel.button_avanced"), e -> {
+		button_avanced = Button.builder(Component.translatable("gui.palamod.moneypanel.button_avanced"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new MoneypanelButtonMessage(1, x, y, z));
 				MoneypanelButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 121, this.topPos + 122, 61, 20).build();
 		guistate.put("button:button_avanced", button_avanced);
 		this.addRenderableWidget(button_avanced);
 	}

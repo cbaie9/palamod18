@@ -16,7 +16,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -27,28 +26,28 @@ public class GrinderopenProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if ((world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x - 1, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 1, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
+		if ((world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x - 1, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 1, y, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z - 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Grindergui");
+							return Component.literal("Grindergui");
 						}
 
 						@Override
@@ -59,37 +58,37 @@ public class GrinderopenProcedure {
 				}
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_tick", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_tick", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
-		} else if ((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 1, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
+			world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
+		} else if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 1, y, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z + 2))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Grindergui");
+							return Component.literal("Grindergui");
 						}
 
 						@Override
@@ -100,37 +99,37 @@ public class GrinderopenProcedure {
 				}
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_tick", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_tick", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
-		} else if ((world.getBlockState(new BlockPos(x + 2, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 2, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 2, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 2, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 2, y, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 2, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 2, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x + 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
+			world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
+		} else if ((world.getBlockState(BlockPos.containing(x + 2, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 2, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 2, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 2, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 2, y, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 2, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 2, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x + 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x + 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x + 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Grindergui");
+							return Component.literal("Grindergui");
 						}
 
 						@Override
@@ -141,37 +140,37 @@ public class GrinderopenProcedure {
 				}
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_tick", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_tick", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
-		} else if ((world.getBlockState(new BlockPos(x - 2, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 2, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 2, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 2, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 2, y, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x - 2, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 2, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(new BlockPos(x - 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(new BlockPos(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
-				&& (world.getBlockState(new BlockPos(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
+			world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
+		} else if ((world.getBlockState(BlockPos.containing(x - 2, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 2, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 2, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 2, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 2, y, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x - 2, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 2, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 2, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y - 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y - 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y - 1, z - 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y, z + 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get() && (world.getBlockState(BlockPos.containing(x - 1, y, z - 1))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get() && (world.getBlockState(BlockPos.containing(x - 1, y + 1, z))).getBlock() == PalamodModBlocks.GRINDERCASING.get()
+				&& (world.getBlockState(BlockPos.containing(x - 1, y + 1, z + 1))).getBlock() == PalamodModBlocks.GRINDERFRAME.get()) {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Grindergui");
+							return Component.literal("Grindergui");
 						}
 
 						@Override
@@ -182,28 +181,28 @@ public class GrinderopenProcedure {
 				}
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_tick", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_tick", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
+			world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("The structure is incomplete"), false);
+				_player.displayClientMessage(Component.literal("The structure is incomplete"), false);
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_tick", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_tick", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
-			world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
+			world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
 		}
 	}
 }

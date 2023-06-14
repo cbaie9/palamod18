@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -30,7 +29,7 @@ public class Hdvbuy5Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price5")));
@@ -38,7 +37,7 @@ public class Hdvbuy5Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_num5")));
@@ -46,7 +45,7 @@ public class Hdvbuy5Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_hash5")));
@@ -54,7 +53,7 @@ public class Hdvbuy5Procedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name2")));
@@ -62,7 +61,7 @@ public class Hdvbuy5Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price5");
@@ -70,7 +69,7 @@ public class Hdvbuy5Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_num5");
@@ -78,7 +77,7 @@ public class Hdvbuy5Procedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name5");
@@ -87,10 +86,10 @@ public class Hdvbuy5Procedure {
 		{
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = new BlockPos(0, 10, 0);
-				NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TextComponent("Hdvconfgui");
+						return Component.literal("Hdvconfgui");
 					}
 
 					@Override

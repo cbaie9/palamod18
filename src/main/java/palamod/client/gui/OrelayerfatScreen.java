@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.OrelayerfatMenu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -69,23 +66,21 @@ public class OrelayerfatScreen extends AbstractContainerScreen<OrelayerfatMenu> 
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_paladium_64_15"), 4, 57, -3407872);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_titane_64_32"), 5, 69, -10066330);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_amethyst_64_80"), 7, 80, -6750055);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_findium_64_150"), 5, 42, -13312);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_green_paladium_64_128"), 6, 28, -16738048);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.orelayerfat.label_endium_64_128_customs_p"), 5, 15, -16777114);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_paladium_64_15"), 4, 57, -3407872);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_titane_64_32"), 5, 69, -10066330);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_amethyst_64_80"), 7, 80, -6750055);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_findium_64_150"), 5, 42, -13312);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_green_paladium_64_128"), 6, 28, -16738048);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.orelayerfat.label_endium_64_128_customs_p"), 5, 15, -16777114);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

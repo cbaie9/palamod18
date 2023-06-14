@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PotgtranfertMenu;
@@ -14,11 +13,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -78,7 +75,7 @@ public class PotgtranfertScreen extends AbstractContainerScreen<PotgtranfertMenu
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.potgtranfert.label_potg_transfert_gui"), 4, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.potgtranfert.label_potg_transfert_gui"), 4, 3, -12829636);
 		this.font.draw(poseStack,
 
 				PotgtranfertValueProcedure.execute(entity), 5, 69, -12829636);
@@ -90,19 +87,17 @@ public class PotgtranfertScreen extends AbstractContainerScreen<PotgtranfertMenu
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_transfert = new Button(this.leftPos + 93, this.topPos + 25, 72, 20, new TranslatableComponent("gui.palamod.potgtranfert.button_transfert"), e -> {
+		button_transfert = Button.builder(Component.translatable("gui.palamod.potgtranfert.button_transfert"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PotgtranfertButtonMessage(0, x, y, z));
 				PotgtranfertButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 93, this.topPos + 25, 72, 20).build();
 		guistate.put("button:button_transfert", button_transfert);
 		this.addRenderableWidget(button_transfert);
 	}

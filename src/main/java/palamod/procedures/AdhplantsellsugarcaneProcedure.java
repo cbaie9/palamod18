@@ -3,7 +3,7 @@ package palamod.procedures;
 import org.checkerframework.checker.units.qual.s;
 
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.gui.components.EditBox;
 
@@ -43,16 +43,16 @@ public class AdhplantsellsugarcaneProcedure {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("You can't sell 0 item"), false);
+				_player.displayClientMessage(Component.literal("You can't sell 0 item"), false);
 		}
 		{
 			AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
-			entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _iitemhandlerref.set(capability));
+			entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(_iitemhandlerref::set);
 			if (_iitemhandlerref.get() != null) {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 					if (itemstackiterator.getItem() == item.getItem()) {
-						n2 = n2 + (itemstackiterator).getCount();
+						n2 = n2 + itemstackiterator.getCount();
 					}
 				}
 			}
@@ -67,11 +67,11 @@ public class AdhplantsellsugarcaneProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
+					_blockEntity.getPersistentData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString())) + n2 * fac_v));
@@ -79,18 +79,18 @@ public class AdhplantsellsugarcaneProcedure {
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("You sell " + n2 + " items")), false);
+				_player.displayClientMessage(Component.literal(("You sell " + n2 + " items")), false);
 		} else if (n <= n2) {
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
+					_blockEntity.getPersistentData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString())) + n * fac_v));
@@ -102,12 +102,12 @@ public class AdhplantsellsugarcaneProcedure {
 				_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) n, _player.inventoryMenu.getCraftSlots());
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("You sell " + n + " items")), false);
+				_player.displayClientMessage(Component.literal(("You sell " + n + " items")), false);
 		} else {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("You don't enough items to sell ( number too big )"), false);
+				_player.displayClientMessage(Component.literal("You don't enough items to sell ( number too big )"), false);
 		}
 	}
 }

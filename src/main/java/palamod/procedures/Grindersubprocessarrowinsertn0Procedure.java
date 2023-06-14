@@ -10,10 +10,10 @@ public class Grindersubprocessarrowinsertn0Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 0) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 0) {
 			return true;
 		}
 		return false;

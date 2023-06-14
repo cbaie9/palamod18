@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/amethyst_boots"
+    "layer0": "palamod:item/amethyst_boots"
   }
 }

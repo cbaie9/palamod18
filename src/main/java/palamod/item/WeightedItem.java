@@ -1,10 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
-
-import net.minecraftforge.registries.ForgeRegistries;
-
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
@@ -12,20 +8,20 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.resources.ResourceLocation;
 
 public abstract class WeightedItem extends ArmorItem {
-	public WeightedItem(EquipmentSlot slot, Item.Properties properties) {
+	public WeightedItem(ArmorItem.Type type, Item.Properties properties) {
 		super(new ArmorMaterial() {
 			@Override
-			public int getDurabilityForSlot(EquipmentSlot slot) {
-				return new int[]{13, 15, 16, 11}[slot.getIndex()] * 100;
+			public int getDurabilityForType(ArmorItem.Type type) {
+				return new int[]{13, 15, 16, 11}[type.getSlot().getIndex()] * 100;
 			}
 
 			@Override
-			public int getDefenseForSlot(EquipmentSlot slot) {
-				return new int[]{2, 5, 6, 2}[slot.getIndex()];
+			public int getDefenseForType(ArmorItem.Type type) {
+				return new int[]{2, 5, 6, 2}[type.getSlot().getIndex()];
 			}
 
 			@Override
@@ -35,7 +31,7 @@ public abstract class WeightedItem extends ArmorItem {
 
 			@Override
 			public SoundEvent getEquipSound() {
-				return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+				return SoundEvents.EMPTY;
 			}
 
 			@Override
@@ -57,12 +53,12 @@ public abstract class WeightedItem extends ArmorItem {
 			public float getKnockbackResistance() {
 				return 0f;
 			}
-		}, slot, properties);
+		}, type, properties);
 	}
 
 	public static class Boots extends WeightedItem {
 		public Boots() {
-			super(EquipmentSlot.FEET, new Item.Properties().tab(PalamodModTabs.TAB_LUCKYBLOCKCREATIVETAB));
+			super(ArmorItem.Type.BOOTS, new Item.Properties());
 		}
 
 		@Override

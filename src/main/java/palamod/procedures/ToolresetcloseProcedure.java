@@ -1,7 +1,7 @@
 package palamod.procedures;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -19,7 +19,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _ent = world.getBlockEntity(new BlockPos(0, 10, 0));
 				if (_ent != null) {
 					final int _slotid = (int) nloop;
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable)
 							((IItemHandlerModifiable) capability).setStackInSlot(_slotid, ItemStack.EMPTY);
 					});
@@ -30,7 +30,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean(("market_buyed" + nloop), true);
+					_blockEntity.getPersistentData().putBoolean(("market_buyed" + nloop), true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -39,7 +39,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("market_num" + nloop), 0);
+					_blockEntity.getPersistentData().putDouble(("market_num" + nloop), 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -48,7 +48,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("market_price" + nloop), 0);
+					_blockEntity.getPersistentData().putDouble(("market_price" + nloop), 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -57,7 +57,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("market_hash" + nloop), 0);
+					_blockEntity.getPersistentData().putDouble(("market_hash" + nloop), 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -66,7 +66,7 @@ public class ToolresetcloseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putString(("market_name" + nloop), "Ns_wrbt");
+					_blockEntity.getPersistentData().putString(("market_name" + nloop), "Ns_wrbt");
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}

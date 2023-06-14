@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.Paladiumapple_effectProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.Rarity;
@@ -15,9 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class PaladiumappleItem extends Item {
 	public PaladiumappleItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PVPCREATIVETAB).stacksTo(64).rarity(Rarity.UNCOMMON).food((new FoodProperties.Builder()).nutrition(9).saturationMod(1f)
-
-				.build()));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON).food((new FoodProperties.Builder()).nutrition(9).saturationMod(1f).build()));
 	}
 
 	@Override
@@ -31,7 +27,6 @@ public class PaladiumappleItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		Paladiumapple_effectProcedure.execute(entity);
 		return retval;
 	}

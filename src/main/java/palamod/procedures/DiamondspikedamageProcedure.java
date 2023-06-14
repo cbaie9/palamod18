@@ -4,7 +4,10 @@ import palamod.network.PalamodModVariables;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.Registries;
 
 public class DiamondspikedamageProcedure {
 	public static void execute(Entity entity) {
@@ -12,7 +15,12 @@ public class DiamondspikedamageProcedure {
 			return;
 		if (PalamodModVariables.cooltick_spike == 0) {
 			if (entity instanceof LivingEntity _entity)
-				_entity.hurt(new DamageSource("spike.diamond").bypassArmor(), 3);
+				_entity.hurt(new DamageSource(_entity.level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)) {
+					@Override
+					public Component getLocalizedDeathMessage(LivingEntity _msgEntity) {
+						return Component.translatable("death.attack." + "spike.diamond");
+					}
+				}, 3);
 			PalamodModVariables.cooltick_spike = 50;
 		} else {
 			PalamodModVariables.cooltick_spike = PalamodModVariables.alchemy - 1;

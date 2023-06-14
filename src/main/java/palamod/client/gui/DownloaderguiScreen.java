@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.DownloaderguiMenu;
@@ -14,12 +13,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -85,8 +82,8 @@ public class DownloaderguiScreen extends AbstractContainerScreen<DownloaderguiMe
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloadergui.label_filter"), 138, 3, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.downloadergui.label_output"), 70, 31, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloadergui.label_filter"), 138, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.downloadergui.label_output"), 70, 31, -12829636);
 		this.font.draw(poseStack,
 
 				Grindertrans0Procedure.execute(entity), 6, 71, -12829636);
@@ -95,30 +92,28 @@ public class DownloaderguiScreen extends AbstractContainerScreen<DownloaderguiMe
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_reload = new Button(this.leftPos + 113, this.topPos + 60, 56, 20, new TranslatableComponent("gui.palamod.downloadergui.button_reload"), e -> {
+		button_reload = Button.builder(Component.translatable("gui.palamod.downloadergui.button_reload"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderguiButtonMessage(0, x, y, z));
 				DownloaderguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 113, this.topPos + 60, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
-		button_link = new Button(this.leftPos + 3, this.topPos + 48, 46, 20, new TranslatableComponent("gui.palamod.downloadergui.button_link"), e -> {
+		button_link = Button.builder(Component.translatable("gui.palamod.downloadergui.button_link"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new DownloaderguiButtonMessage(1, x, y, z));
 				DownloaderguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 3, this.topPos + 48, 46, 20).build();
 		guistate.put("button:button_link", button_link);
 		this.addRenderableWidget(button_link);
-		download_state = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, new TranslatableComponent("gui.palamod.downloadergui.download_state"),
+		download_state = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, Component.translatable("gui.palamod.downloadergui.download_state"),
 
 				DownloadercheckedProcedure.execute(world, x, y, z));
 		guistate.put("checkbox:download_state", download_state);

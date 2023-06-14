@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.MvprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
@@ -17,7 +15,7 @@ import net.minecraft.world.InteractionHand;
 
 public class MinagevoidstoneItem extends Item {
 	public MinagevoidstoneItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(1).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));
 	}
 
 	@Override
@@ -32,7 +30,6 @@ public class MinagevoidstoneItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		MvprocessProcedure.execute(world, x, y, z, entity, itemstack);
 		return ar;
 	}

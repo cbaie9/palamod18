@@ -66,16 +66,16 @@ public class PalamodMod {
 		PalamodModItems.REGISTRY.register(bus);
 		PalamodModEntities.REGISTRY.register(bus);
 		PalamodModBlockEntities.REGISTRY.register(bus);
-		PalamodModEnchantments.REGISTRY.register(bus);
-		PalamodModPaintings.REGISTRY.register(bus);
-		PalamodModParticleTypes.REGISTRY.register(bus);
-		PalamodModMobEffects.REGISTRY.register(bus);
-		PalamodModPotions.REGISTRY.register(bus);
-		PalamodModMenus.REGISTRY.register(bus);
 		PalamodModFeatures.REGISTRY.register(bus);
-
 		PalamodModFluids.REGISTRY.register(bus);
 		PalamodModFluidTypes.REGISTRY.register(bus);
+		PalamodModPaintings.REGISTRY.register(bus);
+		PalamodModMobEffects.REGISTRY.register(bus);
+		PalamodModPotions.REGISTRY.register(bus);
+		PalamodModEnchantments.REGISTRY.register(bus);
+		PalamodModParticleTypes.REGISTRY.register(bus);
+		PalamodModMenus.REGISTRY.register(bus);
+
 	}
 
 	private static final String PROTOCOL_VERSION = "1";

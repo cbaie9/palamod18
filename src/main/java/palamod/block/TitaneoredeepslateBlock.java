@@ -16,7 +16,7 @@ import java.util.Collections;
 
 public class TitaneoredeepslateBlock extends Block {
 	public TitaneoredeepslateBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5.05f, 18.11949159194239f));
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5.05f, 18.1194915919f));
 	}
 
 	@Override

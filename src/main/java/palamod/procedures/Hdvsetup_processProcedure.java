@@ -51,7 +51,7 @@ public class Hdvsetup_processProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean(("market_buyed" + num), true);
+					_blockEntity.getPersistentData().putBoolean(("market_buyed" + num), true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -62,7 +62,7 @@ public class Hdvsetup_processProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("hdv_locked", false);
+				_blockEntity.getPersistentData().putBoolean("hdv_locked", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -71,7 +71,7 @@ public class Hdvsetup_processProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("backdown_state", false);
+				_blockEntity.getPersistentData().putBoolean("backdown_state", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

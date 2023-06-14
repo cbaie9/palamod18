@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class Chervil1upProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		if (new Random().nextInt(250 + 1) == 1 && (world.getBlockState(new BlockPos(x, y - 1, z))).getBlock() == Blocks.FARMLAND) {
-			world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.CHERVIL_2.get().defaultBlockState(), 3);
+		if (new Random().nextInt(250 + 1) == 1 && (world.getBlockState(BlockPos.containing(x, y - 1, z))).getBlock() == Blocks.FARMLAND) {
+			world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.CHERVIL_2.get().defaultBlockState(), 3);
 		}
 	}
 }

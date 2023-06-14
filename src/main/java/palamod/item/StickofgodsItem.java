@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.StickofgodsprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
@@ -28,7 +26,7 @@ import com.google.common.collect.ImmutableMultimap;
 
 public class StickofgodsItem extends Item {
 	public StickofgodsItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PVPCREATIVETAB).durability(8));
+		super(new Item.Properties().durability(8));
 	}
 
 	@Override

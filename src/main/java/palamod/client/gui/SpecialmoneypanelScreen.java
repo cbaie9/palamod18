@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.SpecialmoneypanelMenu;
@@ -11,13 +10,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -88,31 +85,29 @@ public class SpecialmoneypanelScreen extends AbstractContainerScreen<Specialmone
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.specialmoneypanel.label_specific_player"), 33, 3, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.specialmoneypanel.label_amount_of_money"), 32, 34, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.specialmoneypanel.label_item_default_money_item"), 7, 74, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.specialmoneypanel.label_specific_player"), 33, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.specialmoneypanel.label_amount_of_money"), 32, 34, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.specialmoneypanel.label_item_default_money_item"), 7, 74, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		player_name = new EditBox(this.font, this.leftPos + 9, this.topPos + 13, 120, 20, new TranslatableComponent("gui.palamod.specialmoneypanel.player_name")) {
+		player_name = new EditBox(this.font, this.leftPos + 9, this.topPos + 13, 120, 20, Component.translatable("gui.palamod.specialmoneypanel.player_name")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.player_name").getString());
+				setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.player_name").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.player_name").getString());
+					setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.player_name").getString());
 				else
 					setSuggestion(null);
 			}
@@ -121,7 +116,7 @@ public class SpecialmoneypanelScreen extends AbstractContainerScreen<Specialmone
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.player_name").getString());
+					setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.player_name").getString());
 				else
 					setSuggestion(null);
 			}
@@ -129,16 +124,16 @@ public class SpecialmoneypanelScreen extends AbstractContainerScreen<Specialmone
 		player_name.setMaxLength(32767);
 		guistate.put("text:player_name", player_name);
 		this.addWidget(this.player_name);
-		money = new EditBox(this.font, this.leftPos + 8, this.topPos + 46, 120, 20, new TranslatableComponent("gui.palamod.specialmoneypanel.money")) {
+		money = new EditBox(this.font, this.leftPos + 8, this.topPos + 46, 120, 20, Component.translatable("gui.palamod.specialmoneypanel.money")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.money").getString());
+				setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.money").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.money").getString());
+					setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.money").getString());
 				else
 					setSuggestion(null);
 			}
@@ -147,7 +142,7 @@ public class SpecialmoneypanelScreen extends AbstractContainerScreen<Specialmone
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.specialmoneypanel.money").getString());
+					setSuggestion(Component.translatable("gui.palamod.specialmoneypanel.money").getString());
 				else
 					setSuggestion(null);
 			}
@@ -155,15 +150,15 @@ public class SpecialmoneypanelScreen extends AbstractContainerScreen<Specialmone
 		money.setMaxLength(32767);
 		guistate.put("text:money", money);
 		this.addWidget(this.money);
-		button_give = new Button(this.leftPos + 120, this.topPos + 94, 46, 20, new TranslatableComponent("gui.palamod.specialmoneypanel.button_give"), e -> {
+		button_give = Button.builder(Component.translatable("gui.palamod.specialmoneypanel.button_give"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new SpecialmoneypanelButtonMessage(0, x, y, z));
 				SpecialmoneypanelButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 120, this.topPos + 94, 46, 20).build();
 		guistate.put("button:button_give", button_give);
 		this.addRenderableWidget(button_give);
-		custom_destructible = new Checkbox(this.leftPos + 6, this.topPos + 118, 20, 20, new TranslatableComponent("gui.palamod.specialmoneypanel.custom_destructible"), false);
+		custom_destructible = new Checkbox(this.leftPos + 6, this.topPos + 118, 20, 20, Component.translatable("gui.palamod.specialmoneypanel.custom_destructible"), false);
 		guistate.put("checkbox:custom_destructible", custom_destructible);
 		this.addRenderableWidget(custom_destructible);
 	}

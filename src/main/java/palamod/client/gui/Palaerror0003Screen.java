@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Palaerror0003Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -75,27 +72,25 @@ public class Palaerror0003Screen extends AbstractContainerScreen<Palaerror0003Me
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0003.label_err0r_0003_hdv"), 39, 3, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0003.label_you_dont_have_the_required"), 6, 14, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0003.label_money_for_buying_this_item"), 4, 25, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0003.label_err0r_0003_hdv"), 39, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0003.label_you_dont_have_the_required"), 6, 14, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0003.label_money_for_buying_this_item"), 4, 25, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_return_to_hdv = new Button(this.leftPos + 40, this.topPos + 41, 92, 20, new TranslatableComponent("gui.palamod.palaerror_0003.button_return_to_hdv"), e -> {
+		button_return_to_hdv = Button.builder(Component.translatable("gui.palamod.palaerror_0003.button_return_to_hdv"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palaerror0003ButtonMessage(0, x, y, z));
 				Palaerror0003ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 40, this.topPos + 41, 92, 20).build();
 		guistate.put("button:button_return_to_hdv", button_return_to_hdv);
 		this.addRenderableWidget(button_return_to_hdv);
 	}

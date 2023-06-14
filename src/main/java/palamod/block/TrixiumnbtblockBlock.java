@@ -20,7 +20,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Containers;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
@@ -35,7 +34,7 @@ public class TrixiumnbtblockBlock extends Block implements EntityBlock {
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("contain trixum scoreboard ( do not break )"));
+		list.add(Component.literal("contain trixum scoreboard ( do not break )"));
 	}
 
 	@Override

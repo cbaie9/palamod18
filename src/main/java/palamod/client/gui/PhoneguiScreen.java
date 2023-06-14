@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PhoneguiMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -81,29 +78,27 @@ public class PhoneguiScreen extends AbstractContainerScreen<PhoneguiMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.phonegui.label_enter_your_secret_code"), 4, 7, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.phonegui.label_enter_your_secret_code"), 4, 7, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		cheat_code_secret = new EditBox(this.font, this.leftPos + 4, this.topPos + 20, 120, 20, new TranslatableComponent("gui.palamod.phonegui.cheat_code_secret")) {
+		cheat_code_secret = new EditBox(this.font, this.leftPos + 4, this.topPos + 20, 120, 20, Component.translatable("gui.palamod.phonegui.cheat_code_secret")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.phonegui.cheat_code_secret").getString());
+				setSuggestion(Component.translatable("gui.palamod.phonegui.cheat_code_secret").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.phonegui.cheat_code_secret").getString());
+					setSuggestion(Component.translatable("gui.palamod.phonegui.cheat_code_secret").getString());
 				else
 					setSuggestion(null);
 			}
@@ -112,7 +107,7 @@ public class PhoneguiScreen extends AbstractContainerScreen<PhoneguiMenu> {
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.phonegui.cheat_code_secret").getString());
+					setSuggestion(Component.translatable("gui.palamod.phonegui.cheat_code_secret").getString());
 				else
 					setSuggestion(null);
 			}
@@ -120,12 +115,12 @@ public class PhoneguiScreen extends AbstractContainerScreen<PhoneguiMenu> {
 		cheat_code_secret.setMaxLength(32767);
 		guistate.put("text:cheat_code_secret", cheat_code_secret);
 		this.addWidget(this.cheat_code_secret);
-		button_test_code = new Button(this.leftPos + 98, this.topPos + 57, 72, 20, new TranslatableComponent("gui.palamod.phonegui.button_test_code"), e -> {
+		button_test_code = Button.builder(Component.translatable("gui.palamod.phonegui.button_test_code"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PhoneguiButtonMessage(0, x, y, z));
 				PhoneguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 98, this.topPos + 57, 72, 20).build();
 		guistate.put("button:button_test_code", button_test_code);
 		this.addRenderableWidget(button_test_code);
 	}

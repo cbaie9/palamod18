@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AnalyserresultMenu;
@@ -21,10 +20,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -123,16 +120,16 @@ public class AnalyserresultScreen extends AbstractContainerScreen<Analyserresult
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_ores"), 40, 40, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_endstone"), 39, 7, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_planks"), 38, 73, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_clay"), 153, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_cobblestone"), 37, 99, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_chests"), 35, 137, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_dirt"), 37, 166, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_logs"), 151, 39, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_wool"), 153, 71, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_bedrock"), 151, 101, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_ores"), 40, 40, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_endstone"), 39, 7, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_planks"), 38, 73, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_clay"), 153, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_cobblestone"), 37, 99, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_chests"), 35, 137, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_dirt"), 37, 166, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_logs"), 151, 39, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_wool"), 153, 71, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_bedrock"), 151, 101, -12829636);
 		this.font.draw(poseStack,
 
 				AnalyreturnoresProcedure.execute(), 39, 59, -12829636);
@@ -169,9 +166,9 @@ public class AnalyserresultScreen extends AbstractContainerScreen<Analyserresult
 		this.font.draw(poseStack,
 
 				AnalyreturnplanksProcedure.execute(), 38, 84, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_air"), 151, 130, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_stone"), 267, 9, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.analyserresult.label_shulker"), 151, 165, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_air"), 151, 130, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_stone"), 267, 9, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.analyserresult.label_shulker"), 151, 165, -12829636);
 		this.font.draw(poseStack,
 
 				AnalyreturnclayProcedure.execute(), 151, 22, -12829636);
@@ -180,12 +177,10 @@ public class AnalyserresultScreen extends AbstractContainerScreen<Analyserresult
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

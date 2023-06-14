@@ -12,8 +12,8 @@ import net.minecraftforge.items.wrapper.EntityHandsInvWrapper;
 import net.minecraftforge.items.wrapper.EntityArmorInvWrapper;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.Capability;
 
 import net.minecraft.world.level.Level;
@@ -35,6 +35,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
@@ -43,8 +44,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.nbt.Tag;
@@ -65,12 +66,13 @@ public class PaladiumgolemEntity extends IronGolem {
 
 	public PaladiumgolemEntity(EntityType<PaladiumgolemEntity> type, Level world) {
 		super(type, world);
+		maxUpStep = 0.6f;
 		xpReward = 50;
 		setNoAi(false);
 	}
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
@@ -106,19 +108,19 @@ public class PaladiumgolemEntity extends IronGolem {
 
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
-		if (source == DamageSource.CACTUS)
+		if (source.is(DamageTypes.CACTUS))
 			return false;
-		if (source == DamageSource.LIGHTNING_BOLT)
+		if (source.is(DamageTypes.LIGHTNING_BOLT))
 			return false;
-		if (source.isExplosion())
+		if (source.is(DamageTypes.EXPLOSION))
 			return false;
-		if (source.getMsgId().equals("trident"))
+		if (source.is(DamageTypes.TRIDENT))
 			return false;
-		if (source == DamageSource.DRAGON_BREATH)
+		if (source.is(DamageTypes.DRAGON_BREATH))
 			return false;
-		if (source == DamageSource.WITHER)
+		if (source.is(DamageTypes.WITHER))
 			return false;
-		if (source.getMsgId().equals("witherSkull"))
+		if (source.is(DamageTypes.WITHER_SKULL))
 			return false;
 		return super.hurt(source, amount);
 	}
@@ -133,7 +135,7 @@ public class PaladiumgolemEntity extends IronGolem {
 
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side) {
-		if (this.isAlive() && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && side == null)
+		if (this.isAlive() && capability == ForgeCapabilities.ITEM_HANDLER && side == null)
 			return LazyOptional.of(() -> combined).cast();
 		return super.getCapability(capability, side);
 	}
@@ -168,10 +170,10 @@ public class PaladiumgolemEntity extends IronGolem {
 		ItemStack itemstack = sourceentity.getItemInHand(hand);
 		InteractionResult retval = InteractionResult.sidedSuccess(this.level.isClientSide());
 		if (sourceentity instanceof ServerPlayer serverPlayer) {
-			NetworkHooks.openGui(serverPlayer, new MenuProvider() {
+			NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return new TextComponent("Paladium golem");
+					return Component.literal("Paladium golem");
 				}
 
 				@Override

@@ -1,8 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
-
 import palamod.entity.WitherarrowEntity;
 
 import net.minecraft.world.level.Level;
@@ -19,7 +17,7 @@ import net.minecraft.server.level.ServerPlayer;
 
 public class WitherarrowItem extends Item {
 	public WitherarrowItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).durability(100));
+		super(new Item.Properties().durability(100));
 	}
 
 	@Override

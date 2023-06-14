@@ -1,8 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
-
 import palamod.block.ForceminagedimPortalBlock;
 
 import net.minecraft.world.level.Level;
@@ -15,7 +13,7 @@ import net.minecraft.core.BlockPos;
 
 public class ForceminagedimItem extends Item {
 	public ForceminagedimItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).durability(64));
+		super(new Item.Properties().durability(64));
 	}
 
 	@Override

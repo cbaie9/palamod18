@@ -3,6 +3,7 @@ package palamod.block;
 
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.SoundType;
@@ -19,7 +20,7 @@ import java.util.Collections;
 
 public class Jacaranda_FenceGateBlock extends FenceGateBlock {
 	public Jacaranda_FenceGateBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops().dynamicShape(), WoodType.OAK);
 	}
 
 	@Override

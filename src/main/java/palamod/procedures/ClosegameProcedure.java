@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class ClosegameProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-		execute(event, event.getPlayer());
+		execute(event, event.getEntity());
 	}
 
 	public static void execute(Entity entity) {

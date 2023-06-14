@@ -5,8 +5,8 @@
 package palamod.init;
 
 import palamod.client.model.Modeldynamite_model;
-import palamod.client.model.ModelGolem_gplacement;
-import palamod.client.model.ModelGolem4819;
+import palamod.client.model.ModelGolem_gplacement_vlegtest;
+import palamod.client.model.ModelGolem_gplacement2;
 import palamod.client.model.ModelBIG_dynamitev2;
 import palamod.client.model.ModelBIG_dynamite2;
 
@@ -21,8 +21,8 @@ public class PalamodModModels {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(Modeldynamite_model.LAYER_LOCATION, Modeldynamite_model::createBodyLayer);
 		event.registerLayerDefinition(ModelBIG_dynamite2.LAYER_LOCATION, ModelBIG_dynamite2::createBodyLayer);
-		event.registerLayerDefinition(ModelGolem4819.LAYER_LOCATION, ModelGolem4819::createBodyLayer);
 		event.registerLayerDefinition(ModelBIG_dynamitev2.LAYER_LOCATION, ModelBIG_dynamitev2::createBodyLayer);
-		event.registerLayerDefinition(ModelGolem_gplacement.LAYER_LOCATION, ModelGolem_gplacement::createBodyLayer);
+		event.registerLayerDefinition(ModelGolem_gplacement2.LAYER_LOCATION, ModelGolem_gplacement2::createBodyLayer);
+		event.registerLayerDefinition(ModelGolem_gplacement_vlegtest.LAYER_LOCATION, ModelGolem_gplacement_vlegtest::createBodyLayer);
 	}
 }

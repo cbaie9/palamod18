@@ -15,8 +15,8 @@ public class RenforcedobsidianOnBlockRightClickedProcedure {
 			return;
 		if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == PalamodModItems.MAGICALTOOL.get()) {
 			{
-				BlockPos _pos = new BlockPos(x, y, z);
-				Block.dropResources(world.getBlockState(_pos), world, new BlockPos(x, y, z), null);
+				BlockPos _pos = BlockPos.containing(x, y, z);
+				Block.dropResources(world.getBlockState(_pos), world, BlockPos.containing(x, y, z), null);
 				world.destroyBlock(_pos, false);
 			}
 		}

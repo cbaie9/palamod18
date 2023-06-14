@@ -5,10 +5,6 @@ import palamod.procedures.Eggplant3shearProcedure;
 import palamod.procedures.Eggplant3dropProcedure;
 
 import palamod.init.PalamodModItems;
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.BlockHitResult;
@@ -31,15 +27,13 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
 
 public class Eggplant3Block extends FlowerBlock {
 	public Eggplant3Block() {
-		super(MobEffects.MOVEMENT_SPEED, 5, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).instabreak().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).noCollission());
+		super(() -> MobEffects.MOVEMENT_SPEED, 5, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).instabreak().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).noCollission());
 	}
 
 	@Override
@@ -100,10 +94,5 @@ public class Eggplant3Block extends FlowerBlock {
 		super.use(blockstate, world, pos, entity, hand, hit);
 		Eggplant3shearProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 		return InteractionResult.SUCCESS;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.EGGPLANT_3.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

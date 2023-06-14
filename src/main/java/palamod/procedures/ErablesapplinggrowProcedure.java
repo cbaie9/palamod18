@@ -33,70 +33,70 @@ public class ErablesapplinggrowProcedure {
 			bone_meal = true;
 		} else {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.BONE_MEAL && Math.random() < 0.5) {
-				if ((world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.AIR && (world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.AIR && (world.getBlockState(new BlockPos(x, y + 3, z))).getBlock() == Blocks.AIR
-						&& (world.getBlockState(new BlockPos(x, y + 4, z))).getBlock() == Blocks.AIR && (world.getBlockState(new BlockPos(x, y + 5, z))).getBlock() == Blocks.AIR
-						&& (world.getBlockState(new BlockPos(x, y + 6, z))).getBlock() == Blocks.AIR && (world.getBlockState(new BlockPos(x + 1, y + 4, z))).getBlock() == Blocks.AIR
-						&& (world.getBlockState(new BlockPos(x + 1, y + 5, z))).getBlock() == Blocks.AIR && (world.getBlockState(new BlockPos(x - 1, y + 4, z))).getBlock() == Blocks.AIR
-						&& (world.getBlockState(new BlockPos(x - 1, y + 5, z))).getBlock() == Blocks.AIR
-						|| (world.getBlockState(new BlockPos(x, y + 1, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(new BlockPos(x, y + 2, z))).getBlock() == Blocks.CAVE_AIR
-								&& (world.getBlockState(new BlockPos(x, y + 3, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(new BlockPos(x, y + 4, z))).getBlock() == Blocks.CAVE_AIR
-								&& (world.getBlockState(new BlockPos(x, y + 5, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(new BlockPos(x, y + 6, z))).getBlock() == Blocks.CAVE_AIR
-								&& (world.getBlockState(new BlockPos(x + 1, y + 4, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(new BlockPos(x + 1, y + 5, z))).getBlock() == Blocks.CAVE_AIR
-								&& (world.getBlockState(new BlockPos(x - 1, y + 4, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(new BlockPos(x - 1, y + 5, z))).getBlock() == Blocks.CAVE_AIR) {
+				if ((world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == Blocks.AIR && (world.getBlockState(BlockPos.containing(x, y + 2, z))).getBlock() == Blocks.AIR
+						&& (world.getBlockState(BlockPos.containing(x, y + 3, z))).getBlock() == Blocks.AIR && (world.getBlockState(BlockPos.containing(x, y + 4, z))).getBlock() == Blocks.AIR
+						&& (world.getBlockState(BlockPos.containing(x, y + 5, z))).getBlock() == Blocks.AIR && (world.getBlockState(BlockPos.containing(x, y + 6, z))).getBlock() == Blocks.AIR
+						&& (world.getBlockState(BlockPos.containing(x + 1, y + 4, z))).getBlock() == Blocks.AIR && (world.getBlockState(BlockPos.containing(x + 1, y + 5, z))).getBlock() == Blocks.AIR
+						&& (world.getBlockState(BlockPos.containing(x - 1, y + 4, z))).getBlock() == Blocks.AIR && (world.getBlockState(BlockPos.containing(x - 1, y + 5, z))).getBlock() == Blocks.AIR
+						|| (world.getBlockState(BlockPos.containing(x, y + 1, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(BlockPos.containing(x, y + 2, z))).getBlock() == Blocks.CAVE_AIR
+								&& (world.getBlockState(BlockPos.containing(x, y + 3, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(BlockPos.containing(x, y + 4, z))).getBlock() == Blocks.CAVE_AIR
+								&& (world.getBlockState(BlockPos.containing(x, y + 5, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(BlockPos.containing(x, y + 6, z))).getBlock() == Blocks.CAVE_AIR
+								&& (world.getBlockState(BlockPos.containing(x + 1, y + 4, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(BlockPos.containing(x + 1, y + 5, z))).getBlock() == Blocks.CAVE_AIR
+								&& (world.getBlockState(BlockPos.containing(x - 1, y + 4, z))).getBlock() == Blocks.CAVE_AIR && (world.getBlockState(BlockPos.containing(x - 1, y + 5, z))).getBlock() == Blocks.CAVE_AIR) {
 					world.addParticle(ParticleTypes.SPIT, x, y, z, 0, 1, 0);
-					world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 1, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 2, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 3, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 4, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 5, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 6, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x, y + 7, z), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 3, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 3, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 2, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 2, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 2, y + 3, z - 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 2, y + 3, z - 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 2, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 0, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 4, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 4, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 5, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 5, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 0, y + 5, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 0, y + 5, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x + 1, y + 6, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 1, y + 6, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 0, y + 6, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
-					world.setBlock(new BlockPos(x - 0, y + 6, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 1, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 2, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 3, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 4, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 5, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 6, z), PalamodModBlocks.ERABLE_LOG.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x, y + 7, z), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 3, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 3, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 2, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 2, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 2, y + 3, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 2, y + 3, z - 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 2, y + 3, z - 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z - 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 3, z + 2), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 2, y + 3, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 0, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 4, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 4, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 4, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 4, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 5, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 5, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 0, y + 5, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 0, y + 5, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x + 1, y + 6, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 1, y + 6, z + 0), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 0, y + 6, z + 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
+					world.setBlock(BlockPos.containing(x - 0, y + 6, z - 1), PalamodModBlocks.ERABLE_LEAVES.get().defaultBlockState(), 3);
 				}
 			}
 		}

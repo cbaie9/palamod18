@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AdminshoporecoalMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -83,32 +80,30 @@ public class AdminshoporecoalScreen extends AbstractContainerScreen<Adminshopore
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshoporecoal.label_coal"), 58, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshoporecoal.label_mode_set"), 29, 74, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshoporecoal.label_sell_price_3"), 33, 22, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshoporecoal.label_buy_price_5"), 44, 41, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporecoal.label_coal"), 58, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporecoal.label_mode_set"), 29, 74, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporecoal.label_sell_price_3"), 33, 22, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporecoal.label_buy_price_5"), 44, 41, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		number_buy = new EditBox(this.font, this.leftPos + 26, this.topPos + 87, 120, 20, new TranslatableComponent("gui.palamod.adminshoporecoal.number_buy")) {
+		number_buy = new EditBox(this.font, this.leftPos + 26, this.topPos + 87, 120, 20, Component.translatable("gui.palamod.adminshoporecoal.number_buy")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.adminshoporecoal.number_buy").getString());
+				setSuggestion(Component.translatable("gui.palamod.adminshoporecoal.number_buy").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.adminshoporecoal.number_buy").getString());
+					setSuggestion(Component.translatable("gui.palamod.adminshoporecoal.number_buy").getString());
 				else
 					setSuggestion(null);
 			}
@@ -117,7 +112,7 @@ public class AdminshoporecoalScreen extends AbstractContainerScreen<Adminshopore
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.adminshoporecoal.number_buy").getString());
+					setSuggestion(Component.translatable("gui.palamod.adminshoporecoal.number_buy").getString());
 				else
 					setSuggestion(null);
 			}
@@ -125,28 +120,28 @@ public class AdminshoporecoalScreen extends AbstractContainerScreen<Adminshopore
 		number_buy.setMaxLength(32767);
 		guistate.put("text:number_buy", number_buy);
 		this.addWidget(this.number_buy);
-		button_buy = new Button(this.leftPos + 26, this.topPos + 107, 40, 20, new TranslatableComponent("gui.palamod.adminshoporecoal.button_buy"), e -> {
+		button_buy = Button.builder(Component.translatable("gui.palamod.adminshoporecoal.button_buy"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporecoalButtonMessage(0, x, y, z));
 				AdminshoporecoalButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 26, this.topPos + 107, 40, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
-		button_sell = new Button(this.leftPos + 100, this.topPos + 106, 46, 20, new TranslatableComponent("gui.palamod.adminshoporecoal.button_sell"), e -> {
+		button_sell = Button.builder(Component.translatable("gui.palamod.adminshoporecoal.button_sell"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporecoalButtonMessage(1, x, y, z));
 				AdminshoporecoalButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 100, this.topPos + 106, 46, 20).build();
 		guistate.put("button:button_sell", button_sell);
 		this.addRenderableWidget(button_sell);
-		button_back = new Button(this.leftPos + 7, this.topPos + 139, 46, 20, new TranslatableComponent("gui.palamod.adminshoporecoal.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.adminshoporecoal.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshoporecoalButtonMessage(2, x, y, z));
 				AdminshoporecoalButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 139, 46, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
 	}

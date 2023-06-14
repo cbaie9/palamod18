@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.GrinderpalahelpguiMenu;
@@ -22,11 +21,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -92,7 +89,7 @@ public class GrinderpalahelpguiScreen extends AbstractContainerScreen<Grinderpal
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grinderpalahelpgui.label_grinder"), 145, 9, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grinderpalahelpgui.label_grinder"), 145, 9, -12829636);
 		this.font.draw(poseStack,
 
 				Palahelpgrinder10Procedure.execute(entity), 3, 40, -12829636);
@@ -117,48 +114,46 @@ public class GrinderpalahelpguiScreen extends AbstractContainerScreen<Grinderpal
 		this.font.draw(poseStack,
 
 				Palahelpgrinder17Procedure.execute(entity), 3, 120, -816878);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grinderpalahelpgui.label_empty"), 54, 71, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grinderpalahelpgui.label_empty"), 54, 71, -12829636);
 		this.font.draw(poseStack,
 
 				Palahelpgrinder18Procedure.execute(entity), 4, 132, -3335911);
 		this.font.draw(poseStack,
 
 				Palahelpgrinder19Procedure.execute(entity), 4, 145, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grinderpalahelpgui.label_2_min_12"), 219, 4, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grinderpalahelpgui.label_2_min_12"), 219, 4, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_next = new Button(this.leftPos + 65, this.topPos + 159, 50, 20, new TranslatableComponent("gui.palamod.grinderpalahelpgui.button_next"), e -> {
+		button_next = Button.builder(Component.translatable("gui.palamod.grinderpalahelpgui.button_next"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrinderpalahelpguiButtonMessage(0, x, y, z));
 				GrinderpalahelpguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 65, this.topPos + 159, 50, 20).build();
 		guistate.put("button:button_next", button_next);
 		this.addRenderableWidget(button_next);
-		button_menu = new Button(this.leftPos + 123, this.topPos + 159, 45, 20, new TranslatableComponent("gui.palamod.grinderpalahelpgui.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.grinderpalahelpgui.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrinderpalahelpguiButtonMessage(1, x, y, z));
 				GrinderpalahelpguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 123, this.topPos + 159, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
-		button_back = new Button(this.leftPos + 184, this.topPos + 159, 45, 20, new TranslatableComponent("gui.palamod.grinderpalahelpgui.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.grinderpalahelpgui.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrinderpalahelpguiButtonMessage(2, x, y, z));
 				GrinderpalahelpguiButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 184, this.topPos + 159, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
 	}

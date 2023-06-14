@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/legend_power"
+    "layer0": "palamod:item/legend_power"
   }
 }

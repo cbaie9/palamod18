@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.VoidstoneminerconfigMenu;
@@ -7,11 +6,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Checkbox;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -71,22 +68,20 @@ public class VoidstoneminerconfigScreen extends AbstractContainerScreen<Voidston
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_activer_le_deplacement_automatiq"), 2, 29, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_voidstone_configuration"), 74, 4, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.voidstoneminerconfig.label_put_the_stone_into_the_voidst"), 5, 40, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.voidstoneminerconfig.label_activer_le_deplacement_automatiq"), 2, 29, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.voidstoneminerconfig.label_voidstone_configuration"), 74, 4, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.voidstoneminerconfig.label_put_the_stone_into_the_voidst"), 5, 40, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		mv_picon = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, new TranslatableComponent("gui.palamod.voidstoneminerconfig.mv_picon"), false);
+		mv_picon = new Checkbox(this.leftPos + 4, this.topPos + 4, 20, 20, Component.translatable("gui.palamod.voidstoneminerconfig.mv_picon"), false);
 		guistate.put("checkbox:mv_picon", mv_picon);
 		this.addRenderableWidget(mv_picon);
 	}

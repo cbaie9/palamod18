@@ -4,7 +4,7 @@ import palamod.configuration.PalamodserverconfirgurationConfiguration;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public class ChecksumProcedure {
 	public static void execute(Entity entity) {
@@ -55,12 +55,12 @@ public class ChecksumProcedure {
 							* ((double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_TITANE.get() + (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_AMETHYST.get()));
 		}
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Checksum :" + output)), false);
+			_player.displayClientMessage(Component.literal(("Checksum :" + output)), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Valid value :" + valid)), false);
+			_player.displayClientMessage(Component.literal(("Valid value :" + valid)), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Crusher cheat : " + PalamodserverconfirgurationConfiguration.CRUSHER_CUSTOM.get())), false);
+			_player.displayClientMessage(Component.literal(("Crusher cheat : " + PalamodserverconfirgurationConfiguration.CRUSHER_CUSTOM.get())), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Crusher :" + PalamodserverconfirgurationConfiguration.GRINDER_CUSTOM.get())), false);
+			_player.displayClientMessage(Component.literal(("Crusher :" + PalamodserverconfirgurationConfiguration.GRINDER_CUSTOM.get())), false);
 	}
 }

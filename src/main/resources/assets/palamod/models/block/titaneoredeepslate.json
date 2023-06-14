@@ -1,7 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod:blocks/titane_ore_deepslate",
-    "particle": "palamod:blocks/titane_ore_deepslate"
-  }
+    "all": "palamod:block/titane_ore_deepslate",
+    "particle": "palamod:block/titane_ore_deepslate"
+  },
+  "render_type": "solid"
 }

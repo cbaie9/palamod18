@@ -3,11 +3,6 @@ package palamod.block;
 
 import palamod.procedures.XpbushongiveProcedure;
 
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -26,8 +21,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
@@ -67,10 +60,5 @@ public class XpbushonBlock extends Block {
 		Direction direction = hit.getDirection();
 		XpbushongiveProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.XPBUSHON.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

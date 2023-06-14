@@ -18,11 +18,7 @@
     "avancementforgeafa": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "item": {
-          "items": [
-            "palamod:paladiumforge"
-          ]
-        }
+        "block": "palamod:paladiumforge"
       }
     }
   },

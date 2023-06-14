@@ -1,7 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
 import palamod.init.PalamodModItems;
 
 import net.minecraft.world.item.crafting.Ingredient;
@@ -36,6 +35,6 @@ public class EndiumAxeItem extends AxeItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(PalamodModItems.ENDIUM_INGOT.get()));
 			}
-		}, 1, -3f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).fireResistant());
+		}, 1, -3f, new Item.Properties().fireResistant());
 	}
 }

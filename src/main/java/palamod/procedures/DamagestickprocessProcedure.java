@@ -8,8 +8,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
-
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class DamagestickprocessProcedure {
 	public static void execute(Entity entity, ItemStack itemstack) {
@@ -37,7 +36,7 @@ public class DamagestickprocessProcedure {
 		}
 		{
 			ItemStack _ist = itemstack;
-			if (_ist.hurt(1, new Random(), null)) {
+			if (_ist.hurt(1, RandomSource.create(), null)) {
 				_ist.shrink(1);
 				_ist.setDamageValue(0);
 			}

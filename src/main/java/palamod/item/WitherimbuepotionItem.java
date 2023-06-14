@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.AddwitherimbueProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
@@ -16,9 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class WitherimbuepotionItem extends Item {
 	public WitherimbuepotionItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.3f)
-
-				.build()));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(0).saturationMod(0.3f).build()));
 	}
 
 	@Override
@@ -37,7 +33,6 @@ public class WitherimbuepotionItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		AddwitherimbueProcedure.execute(entity);
 		return retval;
 	}

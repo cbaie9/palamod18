@@ -15,7 +15,7 @@ import net.minecraft.world.InteractionHand;
 
 public class Moneye1k1Item extends Item {
 	public Moneye1k1Item() {
-		super(new Item.Properties().tab(null).stacksTo(64).rarity(Rarity.EPIC));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.EPIC));
 	}
 
 	@Override
@@ -25,7 +25,6 @@ public class Moneye1k1Item extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		Moneyprocess2Procedure.execute(world, entity);
 		return ar;
 	}

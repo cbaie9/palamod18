@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.SpawnpanelMenu;
@@ -13,11 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -80,25 +77,23 @@ public class SpawnpanelScreen extends AbstractContainerScreen<SpawnpanelMenu> {
 		this.font.draw(poseStack,
 
 				Spawnpanel_get_spawnProcedure.execute(world), 5, 56, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.spawnpanel.label_spawn_panel"), 46, 2, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.spawnpanel.label_spawn_panel"), 46, 2, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_change_spawn = new Button(this.leftPos + 3, this.topPos + 74, 92, 20, new TranslatableComponent("gui.palamod.spawnpanel.button_change_spawn"), e -> {
+		button_change_spawn = Button.builder(Component.translatable("gui.palamod.spawnpanel.button_change_spawn"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new SpawnpanelButtonMessage(0, x, y, z));
 				SpawnpanelButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 3, this.topPos + 74, 92, 20).build();
 		guistate.put("button:button_change_spawn", button_change_spawn);
 		this.addRenderableWidget(button_change_spawn);
 	}

@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "palamod:blocks/angelic_water_still",
-    "portal": "palamod:blocks/angelic_water_still"
+    "particle": "palamod:block/angelic_water_still",
+    "portal": "palamod:block/angelic_water_still"
   },
   "elements": [
     {
@@ -36,5 +36,6 @@
         }
       }
     }
-  ]
+  ],
+  "render_type": "translucent"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "palamod:items/fastsword_titane"
+    "layer0": "palamod:item/fastsword_titane"
   }
 }

@@ -1,8 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.SwordItem;
@@ -34,6 +32,6 @@ public class AmethystebroadswordItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, 3, -3.5f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, 3, -3.5f, new Item.Properties());
 	}
 }

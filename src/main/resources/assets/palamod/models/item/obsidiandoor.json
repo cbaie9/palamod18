@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/obsidian_door"
-  }
+    "layer0": "palamod:item/obsidian_door"
+  },
+  "render_type": "translucent"
 }

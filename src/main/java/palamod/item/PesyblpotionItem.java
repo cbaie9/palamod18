@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.SpecialpotionvfufuProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Rarity;
@@ -14,22 +12,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
 public class PesyblpotionItem extends Item {
 	public PesyblpotionItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).durability(1).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.3f).alwaysEat()
-
-				.build()));
+		super(new Item.Properties().durability(1).rarity(Rarity.COMMON).food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.3f).alwaysEat().build()));
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("Fufu si c'est un ref au rire jaune t'es pas discret lol"));
+		list.add(Component.literal("Fufu si c'est un ref au rire jaune t'es pas discret lol"));
 	}
 
 	@Override
@@ -39,7 +34,6 @@ public class PesyblpotionItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		SpecialpotionvfufuProcedure.execute(entity, itemstack);
 		if (itemstack.isEmpty()) {
 			return retval;

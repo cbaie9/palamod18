@@ -7,6 +7,6 @@ import net.minecraft.core.BlockPos;
 
 public class AssendtProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.TCV_2.get().defaultBlockState(), 3);
+		world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.TCV_2.get().defaultBlockState(), 3);
 	}
 }

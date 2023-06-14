@@ -19,7 +19,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -33,7 +32,7 @@ public class HdvbuyProcedure {
 		if (entity == null)
 			return;
 		{
-			BlockPos _bp = new BlockPos(x, 256, z);
+			BlockPos _bp = BlockPos.containing(x, 256, z);
 			BlockState _bs = PalamodModBlocks.HDVBLOCK.get().defaultBlockState();
 			BlockState _bso = world.getBlockState(_bp);
 			for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
@@ -47,33 +46,33 @@ public class HdvbuyProcedure {
 			world.setBlock(_bp, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, 256, z);
+			BlockPos _bp = BlockPos.containing(x, 256, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("temp_market_slot", 0);
+				_blockEntity.getPersistentData().putDouble("temp_market_slot", 0);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(((new Object() {
+			_player.displayClientMessage(Component.literal(((new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 256, 0), "temp_market_slot")) / (-1) + "-slot")), false);
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, 256, z);
+			BlockPos _bp = BlockPos.containing(x, 256, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("temp_market_price", (new Object() {
+				_blockEntity.getPersistentData().putDouble("temp_market_price", (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
 				}.getValue(world, new BlockPos(0, 10, 0), "market_price0")));
@@ -81,15 +80,15 @@ public class HdvbuyProcedure {
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, 256, z);
+			BlockPos _bp = BlockPos.containing(x, 256, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("temp_market_num", (new Object() {
+				_blockEntity.getPersistentData().putDouble("temp_market_num", (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
 				}.getValue(world, new BlockPos(0, 10, 0), "market_num0")));
@@ -97,15 +96,15 @@ public class HdvbuyProcedure {
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, 256, z);
+			BlockPos _bp = BlockPos.containing(x, 256, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("temp_market_hash", (new Object() {
+				_blockEntity.getPersistentData().putDouble("temp_market_hash", (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
 				}.getValue(world, new BlockPos(0, 10, 0), "market_hash0")));
@@ -116,7 +115,7 @@ public class HdvbuyProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_price0");
@@ -124,7 +123,7 @@ public class HdvbuyProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_num0");
@@ -132,7 +131,7 @@ public class HdvbuyProcedure {
 			public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getString(tag);
+					return blockEntity.getPersistentData().getString(tag);
 				return "";
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_name0");
@@ -141,10 +140,10 @@ public class HdvbuyProcedure {
 		{
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = new BlockPos(0, 10, 0);
-				NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TextComponent("Hdvconfgui");
+						return Component.literal("Hdvconfgui");
 					}
 
 					@Override

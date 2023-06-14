@@ -248,6 +248,7 @@ public class PalamodModTabs {
 					tabData.accept(PalamodModItems.DIAMONDPARTICLE.get());
 					tabData.accept(PalamodModItems.GOLDPARTICLE.get());
 					tabData.accept(PalamodModItems.IRONPARTICLE.get());
+					tabData.accept(PalamodModBlocks.ENDIUMLUCKYBLOCK.get().asItem());
 					tabData.accept(PalamodModItems.GREENPALADIUMFASTSWORD.get());
 					tabData.accept(PalamodModItems.ENDIUMFASTSWORD.get());
 					tabData.accept(PalamodModItems.ENDIUMSHOVEL.get());
@@ -420,9 +421,7 @@ public class PalamodModTabs {
 					tabData.accept(PalamodModBlocks.LUCKYBLOCK.get().asItem());
 					tabData.accept(PalamodModItems.WEIGHTED_BOOTS.get());
 					tabData.accept(PalamodModItems.PALADIUMPHONE.get());
-					tabData.accept(PalamodModBlocks.BLACKLUCKYBLOCK.get().asItem());
 					tabData.accept(PalamodModItems.CHUNKANASLYSER.get());
-					tabData.accept(PalamodModBlocks.ENDIUMLUCKYBLOCK.get().asItem());
 				})
 
 		);

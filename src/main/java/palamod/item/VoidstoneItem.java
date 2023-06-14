@@ -7,12 +7,10 @@ import palamod.procedures.ConnecttrashguiProcedure;
 
 import palamod.item.inventory.VoidstoneInventoryCapability;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
@@ -26,7 +24,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.nbt.CompoundTag;
@@ -37,7 +34,7 @@ import io.netty.buffer.Unpooled;
 
 public class VoidstoneItem extends Item {
 	public VoidstoneItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(1).rarity(Rarity.UNCOMMON));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON));
 	}
 
 	@Override
@@ -53,10 +50,10 @@ public class VoidstoneItem extends Item {
 		double y = entity.getY();
 		double z = entity.getZ();
 		if (entity instanceof ServerPlayer serverPlayer) {
-			NetworkHooks.openGui(serverPlayer, new MenuProvider() {
+			NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return new TextComponent("Voidstone");
+					return Component.literal("Voidstone");
 				}
 
 				@Override
@@ -71,7 +68,6 @@ public class VoidstoneItem extends Item {
 				buf.writeByte(hand == InteractionHand.MAIN_HAND ? 0 : 1);
 			});
 		}
-
 		ConnecttrashguiProcedure.execute(world, x, y, z, entity);
 		return ar;
 	}
@@ -85,7 +81,7 @@ public class VoidstoneItem extends Item {
 	public CompoundTag getShareTag(ItemStack stack) {
 		CompoundTag nbt = super.getShareTag(stack);
 		if (nbt != null)
-			stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> nbt.put("Inventory", ((ItemStackHandler) capability).serializeNBT()));
+			stack.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> nbt.put("Inventory", ((ItemStackHandler) capability).serializeNBT()));
 		return nbt;
 	}
 
@@ -93,6 +89,6 @@ public class VoidstoneItem extends Item {
 	public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
 		super.readShareTag(stack, nbt);
 		if (nbt != null)
-			stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> ((ItemStackHandler) capability).deserializeNBT((CompoundTag) nbt.get("Inventory")));
+			stack.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> ((ItemStackHandler) capability).deserializeNBT((CompoundTag) nbt.get("Inventory")));
 	}
 }

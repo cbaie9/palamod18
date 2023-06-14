@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.HdvsellguiMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -81,31 +78,29 @@ public class HdvsellguiScreen extends AbstractContainerScreen<HdvsellguiMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.hdvsellgui.label_beta"), 151, 3, -1);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.hdvsellgui.label_prix_de_vente"), 5, 6, -1);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.hdvsellgui.label_item"), 134, 21, -10066330);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.hdvsellgui.label_beta"), 151, 3, -1);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.hdvsellgui.label_prix_de_vente"), 5, 6, -1);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.hdvsellgui.label_item"), 134, 21, -10066330);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		market_price = new EditBox(this.font, this.leftPos + 5, this.topPos + 17, 120, 20, new TranslatableComponent("gui.palamod.hdvsellgui.market_price")) {
+		market_price = new EditBox(this.font, this.leftPos + 5, this.topPos + 17, 120, 20, Component.translatable("gui.palamod.hdvsellgui.market_price")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.hdvsellgui.market_price").getString());
+				setSuggestion(Component.translatable("gui.palamod.hdvsellgui.market_price").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.hdvsellgui.market_price").getString());
+					setSuggestion(Component.translatable("gui.palamod.hdvsellgui.market_price").getString());
 				else
 					setSuggestion(null);
 			}
@@ -114,7 +109,7 @@ public class HdvsellguiScreen extends AbstractContainerScreen<HdvsellguiMenu> {
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.hdvsellgui.market_price").getString());
+					setSuggestion(Component.translatable("gui.palamod.hdvsellgui.market_price").getString());
 				else
 					setSuggestion(null);
 			}
@@ -122,12 +117,12 @@ public class HdvsellguiScreen extends AbstractContainerScreen<HdvsellguiMenu> {
 		market_price.setMaxLength(32767);
 		guistate.put("text:market_price", market_price);
 		this.addWidget(this.market_price);
-		button_vendre = new Button(this.leftPos + 5, this.topPos + 39, 56, 20, new TranslatableComponent("gui.palamod.hdvsellgui.button_vendre"), e -> {
+		button_vendre = Button.builder(Component.translatable("gui.palamod.hdvsellgui.button_vendre"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new HdvsellguiButtonMessage(0, x, y, z));
 				HdvsellguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 5, this.topPos + 39, 56, 20).build();
 		guistate.put("button:button_vendre", button_vendre);
 		this.addRenderableWidget(button_vendre);
 	}

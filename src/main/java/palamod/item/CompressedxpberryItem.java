@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.CompressedxpberryprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.TooltipFlag;
@@ -14,14 +12,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
 public class CompressedxpberryItem extends Item {
 	public CompressedxpberryItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override
@@ -32,7 +29,7 @@ public class CompressedxpberryItem extends Item {
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("enchantement kit"));
+		list.add(Component.literal("enchantement kit"));
 	}
 
 	@Override
@@ -42,7 +39,6 @@ public class CompressedxpberryItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		CompressedxpberryprocessProcedure.execute(entity);
 		return ar;
 	}

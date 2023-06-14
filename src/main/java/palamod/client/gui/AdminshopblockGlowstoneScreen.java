@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AdminshopblockGlowstoneMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -83,32 +80,30 @@ public class AdminshopblockGlowstoneScreen extends AbstractContainerScreen<Admin
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.label_glowstone"), 58, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.label_mode_set"), 29, 74, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.label_sell_price_5"), 37, 22, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.label_buy_price_25"), 45, 37, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopblock_glowstone.label_glowstone"), 58, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopblock_glowstone.label_mode_set"), 29, 74, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopblock_glowstone.label_sell_price_5"), 37, 22, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopblock_glowstone.label_buy_price_25"), 45, 37, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		number_buy = new EditBox(this.font, this.leftPos + 26, this.topPos + 87, 120, 20, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.number_buy")) {
+		number_buy = new EditBox(this.font, this.leftPos + 26, this.topPos + 87, 120, 20, Component.translatable("gui.palamod.adminshopblock_glowstone.number_buy")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.adminshopblock_glowstone.number_buy").getString());
+				setSuggestion(Component.translatable("gui.palamod.adminshopblock_glowstone.number_buy").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.adminshopblock_glowstone.number_buy").getString());
+					setSuggestion(Component.translatable("gui.palamod.adminshopblock_glowstone.number_buy").getString());
 				else
 					setSuggestion(null);
 			}
@@ -117,7 +112,7 @@ public class AdminshopblockGlowstoneScreen extends AbstractContainerScreen<Admin
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.adminshopblock_glowstone.number_buy").getString());
+					setSuggestion(Component.translatable("gui.palamod.adminshopblock_glowstone.number_buy").getString());
 				else
 					setSuggestion(null);
 			}
@@ -125,28 +120,28 @@ public class AdminshopblockGlowstoneScreen extends AbstractContainerScreen<Admin
 		number_buy.setMaxLength(32767);
 		guistate.put("text:number_buy", number_buy);
 		this.addWidget(this.number_buy);
-		button_buy = new Button(this.leftPos + 26, this.topPos + 109, 40, 20, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.button_buy"), e -> {
+		button_buy = Button.builder(Component.translatable("gui.palamod.adminshopblock_glowstone.button_buy"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopblockGlowstoneButtonMessage(0, x, y, z));
 				AdminshopblockGlowstoneButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 26, this.topPos + 109, 40, 20).build();
 		guistate.put("button:button_buy", button_buy);
 		this.addRenderableWidget(button_buy);
-		button_sell = new Button(this.leftPos + 99, this.topPos + 109, 46, 20, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.button_sell"), e -> {
+		button_sell = Button.builder(Component.translatable("gui.palamod.adminshopblock_glowstone.button_sell"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopblockGlowstoneButtonMessage(1, x, y, z));
 				AdminshopblockGlowstoneButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 99, this.topPos + 109, 46, 20).build();
 		guistate.put("button:button_sell", button_sell);
 		this.addRenderableWidget(button_sell);
-		button_back = new Button(this.leftPos + 7, this.topPos + 139, 46, 20, new TranslatableComponent("gui.palamod.adminshopblock_glowstone.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.adminshopblock_glowstone.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopblockGlowstoneButtonMessage(2, x, y, z));
 				AdminshopblockGlowstoneButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 139, 46, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
 	}

@@ -5,7 +5,7 @@ import palamod.init.PalamodModItems;
 import palamod.configuration.PalamodserverconfirgurationConfiguration;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -24,10 +24,10 @@ public class PaladiumcrusherV2customProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_setup"))) {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_setup"))) {
 				CrushernbtsetupProcedure.execute(world, x, y, z);
 			}
 			if ((new Object() {
@@ -35,71 +35,71 @@ public class PaladiumcrusherV2customProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALAMIXEDCHARCOAL.get() && (new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALAMIXEDCHARCOAL.get() && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.ORANGEBLUE.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.ORANGEBLUE.get() && new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_endium") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_ENDIUM.get() && (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_endium") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_ENDIUM.get() && (new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_ENDIUM.get() || (new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_ENDIUM.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMNUGGET.get() || new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMNUGGET.get() || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0)) {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0)) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("crusher_state_nofuel", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("crusher_state_nofuel", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -107,25 +107,25 @@ public class PaladiumcrusherV2customProcedure {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
+				}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", 0);
+							_blockEntity.getPersistentData().putDouble("crusher_state", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 0;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -135,11 +135,11 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 1;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -149,46 +149,46 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_num_endium", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_num_endium", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_num_endium") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_endium") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -198,71 +198,71 @@ public class PaladiumcrusherV2customProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.TITANEMIXEDCOAL.get() && (new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.TITANEMIXEDCOAL.get() && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.KIWANO.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.KIWANO.get() && new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_paladium") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_PALADIUM.get() && (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_paladium") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_PALADIUM.get() && (new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_PALADIUM.get() || (new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_PALADIUM.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_INGOT.get() || new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_INGOT.get() || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0)) {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0)) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("crusher_state_nofuel", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("crusher_state_nofuel", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -270,25 +270,25 @@ public class PaladiumcrusherV2customProcedure {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
+				}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", 0);
+							_blockEntity.getPersistentData().putDouble("crusher_state", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 0;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -298,11 +298,11 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 1;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -312,46 +312,46 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_num_paladium", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_num_paladium", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_num_paladium") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_paladium") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -361,71 +361,71 @@ public class PaladiumcrusherV2customProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.AMETHYSTMIXEDCOAL.get() && (new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.AMETHYSTMIXEDCOAL.get() && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.CHERVIL.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.CHERVIL.get() && new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_titane") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_TITANE.get() && (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_titane") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_TITANE.get() && (new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_TITANE.get() || (new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_TITANE.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.TITANE_INGOT.get() || new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.TITANE_INGOT.get() || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0)) {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0)) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("crusher_state_nofuel", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("crusher_state_nofuel", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -433,25 +433,25 @@ public class PaladiumcrusherV2customProcedure {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
+				}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", 0);
+							_blockEntity.getPersistentData().putDouble("crusher_state", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 0;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -461,11 +461,11 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 1;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -475,55 +475,55 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_num_titane", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_num_titane", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_num_titane") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_titane") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
+							_blockEntity.getPersistentData().putBoolean("crusher_norequirement", false);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -533,71 +533,71 @@ public class PaladiumcrusherV2customProcedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.GOLDMIXEDCOAL.get() && (new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.GOLDMIXEDCOAL.get() && (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.EGGPLANT.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.EGGPLANT.get() && new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_num_amethyst") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_AMETHYST.get() && (new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_amethyst") < (double) PalamodserverconfirgurationConfiguration.CRUSHER_AMETHYST.get() && (new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_AMETHYST.get() || (new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) <= 64 - (double) PalamodserverconfirgurationConfiguration.CRUSHER_OUT_AMETHYST.get() || (new Object() {
 				public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.AMETHYSTE.get() || new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.AMETHYSTE.get() || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0)) {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0)) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("crusher_state_nofuel", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("crusher_state_nofuel", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", false);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -605,25 +605,25 @@ public class PaladiumcrusherV2customProcedure {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
+				}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") >= (double) PalamodserverconfirgurationConfiguration.CRUSHER_STATE.get()) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", 0);
+							_blockEntity.getPersistentData().putDouble("crusher_state", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 0;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -633,11 +633,11 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 1;
 							final int _amount = 1;
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable) {
 									ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 									_stk.shrink(_amount);
@@ -647,46 +647,46 @@ public class PaladiumcrusherV2customProcedure {
 						}
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_num_amethyst", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_num_amethyst", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_num_amethyst") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_amethyst") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("crusher_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("crusher_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -695,55 +695,55 @@ public class PaladiumcrusherV2customProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_state") > 0 && new Object() {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_state") > 0 && new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "crusher_norequirement")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "crusher_norequirement")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel") > 5) {
+				}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel") > 5) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("crusher_state_nofuel", (new Object() {
+							_blockEntity.getPersistentData().putDouble("crusher_state_nofuel", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "crusher_state_nofuel") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "crusher_state_nofuel") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}

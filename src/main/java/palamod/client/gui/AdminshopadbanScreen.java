@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AdminshopadbanMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -75,29 +72,27 @@ public class AdminshopadbanScreen extends AbstractContainerScreen<Adminshopadban
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_work_in_progress"), 25, 6, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_v_u1"), 78, 128, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_imcomplete_list"), 24, 20, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_some_major_graphic"), 7, 66, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.adminshopadban.label_will_be_done_later"), 7, 76, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopadban.label_work_in_progress"), 25, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopadban.label_v_u1"), 78, 128, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopadban.label_imcomplete_list"), 24, 20, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopadban.label_some_major_graphic"), 7, 66, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshopadban.label_will_be_done_later"), 7, 76, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_beta_adminshop = new Button(this.leftPos + 16, this.topPos + 139, 98, 20, new TranslatableComponent("gui.palamod.adminshopadban.button_beta_adminshop"), e -> {
+		button_beta_adminshop = Button.builder(Component.translatable("gui.palamod.adminshopadban.button_beta_adminshop"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new AdminshopadbanButtonMessage(0, x, y, z));
 				AdminshopadbanButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 16, this.topPos + 139, 98, 20).build();
 		guistate.put("button:button_beta_adminshop", button_beta_adminshop);
 		this.addRenderableWidget(button_beta_adminshop);
 	}

@@ -19,7 +19,7 @@ import java.util.Collections;
 
 public class Erable_FenceBlock extends FenceBlock {
 	public Erable_FenceBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops().dynamicShape());
 	}
 
 	@Override

@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.StockhdvMenu;
@@ -7,11 +6,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -72,30 +69,28 @@ public class StockhdvScreen extends AbstractContainerScreen<StockhdvMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_0_1_2_3_4_5_6_7_8"), 4, 4, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_23_24_25_26_27_28_29_30_31"), 4, 32, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_46_47_48_49_50_51_52_53_54"), 8, 59, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_inventory"), 246, 142, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_stocks_hdv_items_0_10_0"), 248, 131, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stockhdv.label_69_70_71_72_73_74_75_76_77_7"), 7, 87, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_0_1_2_3_4_5_6_7_8"), 4, 4, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_23_24_25_26_27_28_29_30_31"), 4, 32, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_46_47_48_49_50_51_52_53_54"), 8, 59, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_inventory"), 246, 142, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_stocks_hdv_items_0_10_0"), 248, 131, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stockhdv.label_69_70_71_72_73_74_75_76_77_7"), 7, 87, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_return_to_admin_panel = new Button(this.leftPos + 115, this.topPos + 213, 134, 20, new TranslatableComponent("gui.palamod.stockhdv.button_return_to_admin_panel"), e -> {
-		});
+		button_return_to_admin_panel = Button.builder(Component.translatable("gui.palamod.stockhdv.button_return_to_admin_panel"), e -> {
+		}).bounds(this.leftPos + 115, this.topPos + 213, 134, 20).build();
 		guistate.put("button:button_return_to_admin_panel", button_return_to_admin_panel);
 		this.addRenderableWidget(button_return_to_admin_panel);
-		button_quit_admin_panel = new Button(this.leftPos + 4, this.topPos + 213, 108, 20, new TranslatableComponent("gui.palamod.stockhdv.button_quit_admin_panel"), e -> {
-		});
+		button_quit_admin_panel = Button.builder(Component.translatable("gui.palamod.stockhdv.button_quit_admin_panel"), e -> {
+		}).bounds(this.leftPos + 4, this.topPos + 213, 108, 20).build();
 		guistate.put("button:button_quit_admin_panel", button_quit_admin_panel);
 		this.addRenderableWidget(button_quit_admin_panel);
 	}

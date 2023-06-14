@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.AlchemycreatorguiMenu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -73,20 +70,18 @@ public class AlchemycreatorguiScreen extends AbstractContainerScreen<Alchemycrea
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.alchemycreatorgui.label_nether_wart"), 6, 20, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.alchemycreatorgui.label_varintegeralchemy"), 4, 34, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.alchemycreatorgui.label_inventory"), 5, 66, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.alchemycreatorgui.label_nether_wart"), 6, 20, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.alchemycreatorgui.label_varintegeralchemy"), 4, 34, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.alchemycreatorgui.label_inventory"), 5, 66, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

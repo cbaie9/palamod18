@@ -4,8 +4,6 @@ package palamod.item;
 import palamod.procedures.HangboostProcedure;
 import palamod.procedures.ClearhanggliderProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Rarity;
@@ -16,20 +14,19 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
 
 public class HanggliderItem extends Item {
 	public HanggliderItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("i m flying"));
+		list.add(Component.literal("i m flying"));
 	}
 
 	@Override
@@ -39,7 +36,6 @@ public class HanggliderItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		HangboostProcedure.execute(entity, itemstack);
 		return ar;
 	}

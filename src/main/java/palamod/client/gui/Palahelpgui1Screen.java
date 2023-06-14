@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Palahelpgui1Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -84,59 +81,57 @@ public class Palahelpgui1Screen extends AbstractContainerScreen<Palahelpgui1Menu
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpgui_1.label_palahelp"), 6, 5, -52429);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpgui_1.label_12"), 6, 147, -16750951);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palahelpgui_1.label_soon"), 87, 82, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpgui_1.label_palahelp"), 6, 5, -52429);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpgui_1.label_12"), 6, 147, -16750951);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palahelpgui_1.label_soon"), 87, 82, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_blocks = new Button(this.leftPos + 88, this.topPos + 6, 81, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_blocks"), e -> {
+		button_blocks = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_blocks"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palahelpgui1ButtonMessage(0, x, y, z));
 				Palahelpgui1ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 88, this.topPos + 6, 81, 20).build();
 		guistate.put("button:button_blocks", button_blocks);
 		this.addRenderableWidget(button_blocks);
-		button_items = new Button(this.leftPos + 88, this.topPos + 31, 81, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_items"), e -> {
+		button_items = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_items"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palahelpgui1ButtonMessage(1, x, y, z));
 				Palahelpgui1ButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 88, this.topPos + 31, 81, 20).build();
 		guistate.put("button:button_items", button_items);
 		this.addRenderableWidget(button_items);
-		button_gui = new Button(this.leftPos + 88, this.topPos + 57, 81, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_gui"), e -> {
+		button_gui = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_gui"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palahelpgui1ButtonMessage(2, x, y, z));
 				Palahelpgui1ButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 88, this.topPos + 57, 81, 20).build();
 		guistate.put("button:button_gui", button_gui);
 		this.addRenderableWidget(button_gui);
-		button_next = new Button(this.leftPos + 7, this.topPos + 123, 45, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_next"), e -> {
+		button_next = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_next"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palahelpgui1ButtonMessage(3, x, y, z));
 				Palahelpgui1ButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 123, 45, 20).build();
 		guistate.put("button:button_next", button_next);
 		this.addRenderableWidget(button_next);
-		button_lucky_blocks = new Button(this.leftPos + 88, this.topPos + 122, 81, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_lucky_blocks"), e -> {
-		});
+		button_lucky_blocks = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_lucky_blocks"), e -> {
+		}).bounds(this.leftPos + 88, this.topPos + 122, 81, 20).build();
 		guistate.put("button:button_lucky_blocks", button_lucky_blocks);
 		this.addRenderableWidget(button_lucky_blocks);
-		button_metiers_soon = new Button(this.leftPos + 88, this.topPos + 97, 81, 20, new TranslatableComponent("gui.palamod.palahelpgui_1.button_metiers_soon"), e -> {
-		});
+		button_metiers_soon = Button.builder(Component.translatable("gui.palamod.palahelpgui_1.button_metiers_soon"), e -> {
+		}).bounds(this.leftPos + 88, this.topPos + 97, 81, 20).build();
 		guistate.put("button:button_metiers_soon", button_metiers_soon);
 		this.addRenderableWidget(button_metiers_soon);
 	}

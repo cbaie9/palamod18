@@ -1,8 +1,9 @@
 {
   "parent": "block/cube_bottom_top",
   "textures": {
-    "bottom": "palamod:blocks/endium_block",
-    "top": "palamod:blocks/endium_block",
-    "side": "palamod:blocks/endium_block"
-  }
+    "bottom": "palamod:block/endium_block",
+    "top": "palamod:block/endium_block",
+    "side": "palamod:block/endium_block"
+  },
+  "render_type": "solid"
 }

@@ -3,7 +3,7 @@ package palamod.procedures;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,12 +13,10 @@ import net.minecraft.advancements.Advancement;
 
 import javax.annotation.Nullable;
 
-import java.util.Iterator;
-
 @Mod.EventBusSubscriber
 public class PalamodavaproProcedure {
 	@SubscribeEvent
-	public static void onEntityJoin(EntityJoinWorldEvent event) {
+	public static void onEntityJoin(EntityJoinLevelEvent event) {
 		execute(event, event.getEntity());
 	}
 
@@ -33,9 +31,8 @@ public class PalamodavaproProcedure {
 			Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("palamod:palamodavancement"));
 			AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 			if (!_ap.isDone()) {
-				Iterator _iterator = _ap.getRemainingCriteria().iterator();
-				while (_iterator.hasNext())
-					_player.getAdvancements().award(_adv, (String) _iterator.next());
+				for (String criteria : _ap.getRemainingCriteria())
+					_player.getAdvancements().award(_adv, criteria);
 			}
 		}
 	}

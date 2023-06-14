@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.LegendarystonerandomprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
@@ -16,7 +14,7 @@ import net.minecraft.world.InteractionHand;
 
 public class LegendarystonerandomItem extends Item {
 	public LegendarystonerandomItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_LUCKYBLOCKCREATIVETAB).stacksTo(1).rarity(Rarity.EPIC));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));
 	}
 
 	@Override
@@ -31,7 +29,6 @@ public class LegendarystonerandomItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		LegendarystonerandomprocessProcedure.execute(entity);
 		return ar;
 	}

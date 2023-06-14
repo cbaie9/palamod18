@@ -9,7 +9,7 @@ import palamod.init.PalamodModBlocks;
 import palamod.PalamodMod;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,11 +25,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Gcodev4Procedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+				_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -37,48 +37,48 @@ public class Gcodev4Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gpala_num")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gpala_num")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("gnum", (new Object() {
+					_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "gnum") + new Object() {
+					}.getValue(world, BlockPos.containing(x, y, z), "gnum") + new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "gpala_num")));
+					}.getValue(world, BlockPos.containing(x, y, z), "gpala_num")));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("gpala_num", 0);
+					_blockEntity.getPersistentData().putDouble("gpala_num", 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("g_ingot", 4);
+					_blockEntity.getPersistentData().putDouble("g_ingot", 4);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -87,71 +87,71 @@ public class Gcodev4Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum");
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum");
 		PalamodModVariables.Grinder_ingot = new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot");
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot");
 		if ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModItems.PALADIUM_INGOT.get() && 100 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModItems.PALADIUM_INGOT.get() && 100 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -164,44 +164,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + " Insert paladium ingot into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 1);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 1);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -212,54 +212,54 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModItems.PALADIUM_GREENINGOT.get() && 100 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModItems.PALADIUM_GREENINGOT.get() && 100 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 2 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 2 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -272,44 +272,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + "Insert green paladium ingot into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 2);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 2);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -320,54 +320,54 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModBlocks.PALADIUM_BLOCK.get().asItem() && 94 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModBlocks.PALADIUM_BLOCK.get().asItem() && 94 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -380,44 +380,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + "Insert paladium block into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 9));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 9));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 1);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 1);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -428,54 +428,54 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModBlocks.PALADIUM_GREENBLOCK.get().asItem() && 94 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModBlocks.PALADIUM_GREENBLOCK.get().asItem() && 94 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -488,44 +488,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + "Insert green paladium block into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 9));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 9));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 2);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 2);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -536,54 +536,54 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModItems.ENDIUM_INGOT.get() && 94 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModItems.ENDIUM_INGOT.get() && 94 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -596,44 +596,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + "Insert endium nugget into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 9));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 9));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 3);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 3);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -644,54 +644,54 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 3)).getItem() == PalamodModItems.ENDIUMNUGGET.get() && 100 > new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 3)).getItem() == PalamodModItems.ENDIUMNUGGET.get() && 100 > new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (4 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (4 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") == 4) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") == 4) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 3;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -704,44 +704,44 @@ public class Gcodev4Procedure {
 					PalamodMod.LOGGER.debug(("Grinder at X:" + x + " Y:" + y + " Z:" + z + "Insert endium nugget into grinder"));
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("g_ingot", 3);
+						_blockEntity.getPersistentData().putDouble("g_ingot", 3);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl1", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl1", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl1") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl1") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -752,56 +752,56 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.INGOTPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.INGOTPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -810,68 +810,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_INGOT.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_INGOT.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_INGOT.get());
@@ -880,11 +880,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -895,18 +895,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -916,68 +916,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_GREENINGOT.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.PALADIUM_GREENINGOT.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_GREENINGOT.get());
@@ -986,11 +986,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1001,18 +1001,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1022,68 +1022,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMNUGGET.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMNUGGET.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMNUGGET.get());
@@ -1092,11 +1092,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1107,18 +1107,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1129,16 +1129,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1149,56 +1149,56 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.BLOCKPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.BLOCKPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 9 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 9 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1207,68 +1207,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModBlocks.PALADIUM_BLOCK.get().asItem() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModBlocks.PALADIUM_BLOCK.get().asItem() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 9));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 9));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModBlocks.PALADIUM_BLOCK.get());
@@ -1277,11 +1277,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1292,18 +1292,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1313,68 +1313,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModBlocks.PALADIUM_GREENBLOCK.get().asItem() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModBlocks.PALADIUM_GREENBLOCK.get().asItem() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 9));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 9));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModBlocks.PALADIUM_GREENBLOCK.get());
@@ -1383,11 +1383,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1398,18 +1398,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1419,68 +1419,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUM_INGOT.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUM_INGOT.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 9));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 9));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUM_INGOT.get());
@@ -1489,11 +1489,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1504,18 +1504,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1526,16 +1526,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1546,56 +1546,56 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.AXEPARTERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.AXEPARTERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 3 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 3 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -1604,68 +1604,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.AXEHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.AXEHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.AXEHEAD.get());
@@ -1674,11 +1674,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1689,18 +1689,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1710,68 +1710,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENAXE.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENAXE.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADGREENAXE.get());
@@ -1780,11 +1780,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1795,18 +1795,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1816,68 +1816,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMAXE.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMAXE.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADENDIUMAXE.get());
@@ -1886,11 +1886,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -1901,18 +1901,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -1923,16 +1923,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -1943,56 +1943,56 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.PICKAXEPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.PICKAXEPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 3 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 3 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2001,68 +2001,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.PICKAXEHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.PICKAXEHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.PICKAXEHEAD.get());
@@ -2071,11 +2071,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2086,18 +2086,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2107,68 +2107,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENPICKAXE.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENPICKAXE.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADGREENPICKAXE.get());
@@ -2177,11 +2177,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2192,18 +2192,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2213,68 +2213,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMPICKAXE.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMPICKAXE.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADENDIUMPICKAXE.get());
@@ -2283,11 +2283,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2298,18 +2298,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2320,16 +2320,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2340,56 +2340,56 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.SHOVELPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.SHOVELPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2398,68 +2398,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.SHOVELHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.SHOVELHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.SHOVELHEAD.get());
@@ -2468,11 +2468,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2483,18 +2483,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2504,68 +2504,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENSHOVEL.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENSHOVEL.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADGREENSHOVEL.get());
@@ -2574,11 +2574,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2589,18 +2589,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2610,68 +2610,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMSHOVELHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMSHOVELHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMSHOVELHEAD.get());
@@ -2680,11 +2680,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2695,18 +2695,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2717,16 +2717,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -2737,84 +2737,84 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.SWORDPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.SWORDPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (2 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (2 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 2 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 2 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot")) || 18 < new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) || 18 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -2823,68 +2823,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.SWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.SWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.SWORDHEAD.get());
@@ -2893,11 +2893,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -2908,18 +2908,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -2929,68 +2929,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENSWORD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENSWORD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 3));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 3));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADGREENSWORD.get());
@@ -2999,11 +2999,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3014,18 +3014,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3035,68 +3035,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMSWORD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADENDIUMSWORD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 18));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 18));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADENDIUMSWORD.get());
@@ -3105,11 +3105,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3120,18 +3120,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3142,16 +3142,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3162,84 +3162,84 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HAMMERPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HAMMERPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (6 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (6 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 2 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 2 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot")) || 54 < new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) || 54 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3248,68 +3248,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HAMMERHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HAMMERHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 6));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 6));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HAMMERHEAD.get());
@@ -3318,11 +3318,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3333,18 +3333,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3354,68 +3354,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.GREENPALADIUMHAMMERHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.GREENPALADIUMHAMMERHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 6));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 6));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.GREENPALADIUMHAMMERHEAD.get());
@@ -3424,11 +3424,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3439,18 +3439,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3460,68 +3460,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMHAMMERHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMHAMMERHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 54));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 54));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMHAMMERHEAD.get());
@@ -3530,11 +3530,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3545,18 +3545,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3567,16 +3567,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -3587,84 +3587,84 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.BROADSWORDPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.BROADSWORDPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (4 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (4 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 2 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 2 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot")) || 36 < new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) || 36 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -3673,68 +3673,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.BROADSWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.BROADSWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 4));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 4));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.BROADSWORDHEAD.get());
@@ -3743,11 +3743,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3758,18 +3758,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3779,68 +3779,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENBROADSWORD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.HEADGREENBROADSWORD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 4));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 4));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.HEADGREENBROADSWORD.get());
@@ -3849,11 +3849,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3864,18 +3864,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3885,68 +3885,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMBROADSWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMBROADSWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 36));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 36));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMBROADSWORDHEAD.get());
@@ -3955,11 +3955,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -3970,18 +3970,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -3992,16 +3992,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4012,84 +4012,84 @@ public class Gcodev4Procedure {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.FASTSWORDPATERN.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.FASTSWORDPATERN.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (4 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.SOCKETPATERN.get() && (4 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && (1 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && (1 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot") || 2 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot") || 2 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot")) || 36 < new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) || 36 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum") && 3 == new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum") && 3 == new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "g_ingot"))) {
+		}.getValue(world, BlockPos.containing(x, y, z), "g_ingot"))) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4098,68 +4098,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.FASTSWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.FASTSWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 64 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 64 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 1 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 1 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 4));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 4));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.FASTSWORDHEAD.get());
@@ -4168,11 +4168,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -4183,18 +4183,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -4204,68 +4204,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.GREENPALADIUMFASTSWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.GREENPALADIUMFASTSWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 63 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 63 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 2 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 2 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 4));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 4));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.GREENPALADIUMFASTSWORDHEAD.get());
@@ -4274,11 +4274,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -4289,18 +4289,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -4310,68 +4310,68 @@ public class Gcodev4Procedure {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 					return _retval.get();
 				}
-			}.getItemStack(world, new BlockPos(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMFASTSWORDHEAD.get() && new Object() {
+			}.getItemStack(world, BlockPos.containing(x, y, z), 2)).getItem() == PalamodModItems.ENDIUMFASTSWORDHEAD.get() && new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) < 63 || new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) < 63 || new Object() {
 				public int getAmount(LevelAccessor world, BlockPos pos, int slotid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					BlockEntity _ent = world.getBlockEntity(pos);
 					if (_ent != null)
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos(x, y, z), 2) == 0) && 3 == new Object() {
+			}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0) && 3 == new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "g_ingot")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "g_ingot")) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+				}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gnum")) - 36));
+							}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 36));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 					{
-						BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+						BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 						if (_ent != null) {
 							final int _slotid = 2;
 							final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMFASTSWORDHEAD.get());
@@ -4380,11 +4380,11 @@ public class Gcodev4Procedure {
 									AtomicInteger _retval = new AtomicInteger(0);
 									BlockEntity _ent = world.getBlockEntity(pos);
 									if (_ent != null)
-										_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+										_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 									return _retval.get();
 								}
-							}.getAmount(world, new BlockPos(x, y, z), 2) + 1));
-							_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							}.getAmount(world, BlockPos.containing(x, y, z), 2) + 1));
+							_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 								if (capability instanceof IItemHandlerModifiable)
 									((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 							});
@@ -4395,18 +4395,18 @@ public class Gcodev4Procedure {
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -4417,16 +4417,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4437,39 +4437,39 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.AXEHEAD.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.AXEHEAD.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4477,37 +4477,37 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_AXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4517,11 +4517,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4535,18 +4535,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4557,39 +4557,39 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENAXE.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENAXE.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4597,37 +4597,37 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMGREENAXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4637,11 +4637,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4655,18 +4655,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4677,57 +4677,57 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMAXE.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMAXE.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4735,37 +4735,37 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUM_AXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4775,11 +4775,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4793,18 +4793,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4815,64 +4815,64 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HAMMERHEAD.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HAMMERHEAD.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -4880,41 +4880,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4924,11 +4924,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -4938,12 +4938,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_HAMMER.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -4954,18 +4954,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4975,16 +4975,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -4995,64 +4995,64 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.GREENPALADIUMHAMMERHEAD.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.GREENPALADIUMHAMMERHEAD.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5060,41 +5060,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5104,11 +5104,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5118,12 +5118,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.GREEN_PALADIUM_HAMMER.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -5134,18 +5134,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5155,16 +5155,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5175,48 +5175,48 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMHAMMERHEAD.get() && (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMHAMMERHEAD.get() && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() && 1 <= new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5224,57 +5224,57 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5284,11 +5284,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5298,12 +5298,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUM_HAMMER.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -5314,18 +5314,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5335,16 +5335,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5355,72 +5355,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.PICKAXEHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.PICKAXEHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5428,41 +5428,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5472,11 +5472,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5486,12 +5486,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_PICKAXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -5502,18 +5502,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5523,16 +5523,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5543,72 +5543,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENPICKAXE.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENPICKAXE.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5616,41 +5616,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5660,11 +5660,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5674,12 +5674,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMGREENPICKAXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -5690,18 +5690,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5711,16 +5711,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5731,72 +5731,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMPICKAXE.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMPICKAXE.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5804,41 +5804,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5848,11 +5848,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -5862,12 +5862,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUM_PICKAXE.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -5878,18 +5878,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5899,16 +5899,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -5919,72 +5919,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.SWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.SWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -5992,41 +5992,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6036,11 +6036,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6050,12 +6050,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_SWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -6066,18 +6066,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6087,16 +6087,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6107,72 +6107,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENSWORD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENSWORD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6180,41 +6180,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6224,11 +6224,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6238,12 +6238,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMGREENSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -6254,18 +6254,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6275,16 +6275,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6295,72 +6295,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMSWORD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADENDIUMSWORD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6368,41 +6368,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6412,11 +6412,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6426,12 +6426,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUM_SWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -6442,18 +6442,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6463,16 +6463,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6483,72 +6483,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.FASTSWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.FASTSWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6556,41 +6556,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6600,11 +6600,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6614,12 +6614,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMFASTSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -6630,18 +6630,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6651,16 +6651,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6671,72 +6671,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.GREENPALADIUMFASTSWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.GREENPALADIUMFASTSWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6744,41 +6744,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6788,11 +6788,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6802,12 +6802,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.GREENPALADIUMFASTSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -6818,18 +6818,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6839,16 +6839,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -6859,72 +6859,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMFASTSWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMFASTSWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -6932,41 +6932,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6976,11 +6976,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -6990,12 +6990,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMFASTSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7006,18 +7006,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7027,16 +7027,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7047,72 +7047,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.BROADSWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.BROADSWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7120,41 +7120,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7164,11 +7164,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7178,12 +7178,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMBROADSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7194,18 +7194,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7215,16 +7215,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7235,72 +7235,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENBROADSWORD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENBROADSWORD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7308,41 +7308,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7352,11 +7352,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7366,12 +7366,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.GREENPALADIUMBROADSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7382,18 +7382,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7403,16 +7403,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7423,72 +7423,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMBROADSWORDHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMBROADSWORDHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7496,41 +7496,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7540,11 +7540,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7554,12 +7554,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMBROADSWORD.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7570,18 +7570,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7591,16 +7591,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7611,72 +7611,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.SHOVELHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.SHOVELHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7684,41 +7684,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7728,11 +7728,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7742,12 +7742,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUM_SHOVEL.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7758,18 +7758,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7779,16 +7779,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7799,72 +7799,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENSHOVEL.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.HEADGREENSHOVEL.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -7872,41 +7872,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7916,11 +7916,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -7930,12 +7930,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.PALADIUMGREENSHOVEL.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -7946,18 +7946,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7967,16 +7967,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -7987,72 +7987,72 @@ public class Gcodev4Procedure {
 				AtomicInteger _retval = new AtomicInteger(0);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).getCount()));
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos(x, y, z), 2) == 0 && (new Object() {
+		}.getAmount(world, BlockPos.containing(x, y, z), 2) == 0 && (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMSHOVELHEAD.get() && ((new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 0)).getItem() == PalamodModItems.ENDIUMSHOVELHEAD.get() && ((new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == PalamodModItems.PALADIUMSTICK.get() || (new Object() {
 			public ItemStack getItemStack(LevelAccessor world, BlockPos pos, int slotid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				BlockEntity _ent = world.getBlockEntity(pos);
 				if (_ent != null)
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
+					_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> _retval.set(capability.getStackInSlot(slotid).copy()));
 				return _retval.get();
 			}
-		}.getItemStack(world, new BlockPos(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
+		}.getItemStack(world, BlockPos.containing(x, y, z), 1)).getItem() == Items.STICK) && 1 < new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum")) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norelock", true);
+					_blockEntity.getPersistentData().putBoolean("grinder_norelock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("grinder_norequirement", false);
+					_blockEntity.getPersistentData().putBoolean("grinder_norequirement", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", ((new Object() {
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel")) - 1));
+					}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel")) - 1));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -8060,41 +8060,41 @@ public class Gcodev4Procedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") == 10) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") == 10) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", 0);
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", 0);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gnum", ((new Object() {
+						_blockEntity.getPersistentData().putDouble("gnum", ((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gnum")) - 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gnum")) - 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 1;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -8104,11 +8104,11 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 0;
 						final int _amount = 1;
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								ItemStack _stk = capability.getStackInSlot(_slotid).copy();
 								_stk.shrink(_amount);
@@ -8118,12 +8118,12 @@ public class Gcodev4Procedure {
 					}
 				}
 				{
-					BlockEntity _ent = world.getBlockEntity(new BlockPos(x, y, z));
+					BlockEntity _ent = world.getBlockEntity(BlockPos.containing(x, y, z));
 					if (_ent != null) {
 						final int _slotid = 2;
 						final ItemStack _setstack = new ItemStack(PalamodModItems.ENDIUMSHOVEL.get());
 						_setstack.setCount(1);
-						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable)
 								((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 						});
@@ -8134,18 +8134,18 @@ public class Gcodev4Procedure {
 				}
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("gstate_cl2", (new Object() {
+						_blockEntity.getPersistentData().putDouble("gstate_cl2", (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") + 1));
+						}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") + 1));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -8155,16 +8155,16 @@ public class Gcodev4Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "grinder_norelock")) == false) {
+			}.getValue(world, BlockPos.containing(x, y, z), "grinder_norelock")) == false) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("grinder_norequirement", true);
+						_blockEntity.getPersistentData().putBoolean("grinder_norequirement", true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -8174,64 +8174,64 @@ public class Gcodev4Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "gnum");
+		}.getValue(world, BlockPos.containing(x, y, z), "gnum");
 		if (new Object() {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "grinder_norequirement")) {
+		}.getValue(world, BlockPos.containing(x, y, z), "grinder_norequirement")) {
 			if (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "gstate_cl2") > 0) {
+			}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2") > 0) {
 				if (new Object() {
 					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getDouble(tag);
+							return blockEntity.getPersistentData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel") >= 5) {
+				}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel") >= 5) {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("gstate_cl2", ((new Object() {
+							_blockEntity.getPersistentData().putDouble("gstate_cl2", ((new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "gstate_cl2")) - 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "gstate_cl2")) - 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
 				} else {
 					if (!world.isClientSide()) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockEntity _blockEntity = world.getBlockEntity(_bp);
 						BlockState _bs = world.getBlockState(_bp);
 						if (_blockEntity != null)
-							_blockEntity.getTileData().putDouble("grinder_state_nofuel", (new Object() {
+							_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos(x, y, z), "grinder_state_nofuel") + 1));
+							}.getValue(world, BlockPos.containing(x, y, z), "grinder_state_nofuel") + 1));
 						if (world instanceof Level _level)
 							_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 					}
@@ -8239,15 +8239,15 @@ public class Gcodev4Procedure {
 			}
 		} else {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("grinder_state_nofuel", 0);
+					_blockEntity.getPersistentData().putDouble("grinder_state_nofuel", 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		}
-		world.scheduleTick(new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)).getBlock(), 1);
+		world.scheduleTick(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock(), 1);
 	}
 }

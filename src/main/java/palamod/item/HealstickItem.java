@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.HealstickprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
@@ -28,7 +26,7 @@ import com.google.common.collect.ImmutableMultimap;
 
 public class HealstickItem extends Item {
 	public HealstickItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PVPCREATIVETAB).durability(15));
+		super(new Item.Properties().durability(15));
 	}
 
 	@Override

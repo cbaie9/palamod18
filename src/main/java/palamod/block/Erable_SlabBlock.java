@@ -20,7 +20,7 @@ import java.util.Collections;
 
 public class Erable_SlabBlock extends SlabBlock {
 	public Erable_SlabBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops().dynamicShape());
 	}
 
 	@Override

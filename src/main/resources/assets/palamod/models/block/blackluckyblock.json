@@ -1,12 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "palamod:blocks/black_luckyblock",
-    "up": "palamod:blocks/black_luckyblock",
-    "north": "palamod:blocks/black_luckyblock",
-    "east": "palamod:blocks/black_luckyblock",
-    "south": "palamod:blocks/black_luckyblock",
-    "west": "palamod:blocks/black_luckyblock",
-    "particle": "palamod:blocks/black_luckyblock"
-  }
+    "down": "palamod:block/black_luckyblock",
+    "up": "palamod:block/black_luckyblock",
+    "north": "palamod:block/black_luckyblock",
+    "east": "palamod:block/black_luckyblock",
+    "south": "palamod:block/black_luckyblock",
+    "west": "palamod:block/black_luckyblock",
+    "particle": "palamod:block/black_luckyblock"
+  },
+  "render_type": "solid"
 }

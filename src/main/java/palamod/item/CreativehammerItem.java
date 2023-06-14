@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.SmeltplusProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.common.ToolAction;
 
@@ -54,7 +52,7 @@ public class CreativehammerItem extends TieredItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of();
 			}
-		}, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, new Item.Properties());
 	}
 
 	@Override

@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.HyperjumpstickprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
@@ -28,7 +26,7 @@ import com.google.common.collect.ImmutableMultimap;
 
 public class HyperjumpstickItem extends Item {
 	public HyperjumpstickItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PVPCREATIVETAB).durability(5));
+		super(new Item.Properties().durability(5));
 	}
 
 	@Override

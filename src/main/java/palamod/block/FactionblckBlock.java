@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 
 public class FactionblckBlock extends Block {
 	public FactionblckBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(-1, 3600000).noDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(-1, 3600000).noLootTable());
 	}
 
 	@Override

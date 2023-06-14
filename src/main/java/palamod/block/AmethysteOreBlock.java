@@ -16,7 +16,7 @@ import java.util.Collections;
 
 public class AmethysteOreBlock extends Block {
 	public AmethysteOreBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3f, 15.157165665103982f));
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3f, 15.1571656651f));
 	}
 
 	@Override

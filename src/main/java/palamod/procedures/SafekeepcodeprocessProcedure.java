@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -30,31 +29,31 @@ public class SafekeepcodeprocessProcedure {
 		if (entity == null || guistate == null)
 			return;
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putString("safe_code", (guistate.containsKey("text:safe_code") ? ((EditBox) guistate.get("text:safe_code")).getValue() : ""));
+				_blockEntity.getPersistentData().putString("safe_code", (guistate.containsKey("text:safe_code") ? ((EditBox) guistate.get("text:safe_code")).getValue() : ""));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (guistate.containsKey("checkbox:safe_link") ? ((Checkbox) guistate.get("checkbox:safe_link")).selected() : false) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("safe_link", true);
+					_blockEntity.getPersistentData().putBoolean("safe_link", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 		} else {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("safe_link", false);
+					_blockEntity.getPersistentData().putBoolean("safe_link", false);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -63,11 +62,11 @@ public class SafekeepcodeprocessProcedure {
 			_player.closeContainer();
 		{
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = new BlockPos(x, y, z);
-				NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+				BlockPos _bpos = BlockPos.containing(x, y, z);
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return new TextComponent("Safegui");
+						return Component.literal("Safegui");
 					}
 
 					@Override
@@ -78,20 +77,20 @@ public class SafekeepcodeprocessProcedure {
 			}
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putString("name_auth", (entity.getUUID().toString()));
+				_blockEntity.getPersistentData().putString("name_auth", (entity.getUUID().toString()));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("is_setup", true);
+				_blockEntity.getPersistentData().putBoolean("is_setup", true);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

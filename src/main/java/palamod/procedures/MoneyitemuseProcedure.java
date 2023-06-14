@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
 import javax.annotation.Nullable;
@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 public class MoneyitemuseProcedure {
 	@SubscribeEvent
 	public static void onGemDropped(ItemTossEvent event) {
-		execute(event, event.getPlayer().level, event.getPlayer(), event.getEntityItem().getItem());
+		execute(event, event.getPlayer().level, event.getPlayer(), event.getEntity().getItem());
 	}
 
 	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
@@ -44,11 +44,11 @@ public class MoneyitemuseProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
+						_blockEntity.getPersistentData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString())) + itemstack.getOrCreateTag().getDouble("Money_amount")));
@@ -57,7 +57,7 @@ public class MoneyitemuseProcedure {
 				}
 			} else {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("wrong player"), false);
+					_player.displayClientMessage(Component.literal("wrong player"), false);
 			}
 		} else {
 			if (itemstack.getOrCreateTag().getBoolean("destri_money")) {
@@ -71,11 +71,11 @@ public class MoneyitemuseProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
+					_blockEntity.getPersistentData().putDouble(("money_" + entity.getDisplayName().getString()), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString())) + itemstack.getOrCreateTag().getDouble("Money_amount")));

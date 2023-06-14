@@ -4,8 +4,6 @@ package palamod.item;
 import palamod.procedures.LegendarystonestickProcedure;
 import palamod.procedures.Legendarystonepower_add_potionProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
@@ -18,7 +16,7 @@ import net.minecraft.world.InteractionHand;
 
 public class LegendarystonepowerItem extends Item {
 	public LegendarystonepowerItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_LUCKYBLOCKCREATIVETAB).stacksTo(1).rarity(Rarity.EPIC));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC));
 	}
 
 	@Override
@@ -33,7 +31,6 @@ public class LegendarystonepowerItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		Legendarystonepower_add_potionProcedure.execute(entity, itemstack);
 		return ar;
 	}

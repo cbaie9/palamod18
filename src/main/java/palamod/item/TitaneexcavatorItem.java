@@ -3,7 +3,6 @@ package palamod.item;
 
 import palamod.procedures.ExcavatorprocessamethystProcedure;
 
-import palamod.init.PalamodModTabs;
 import palamod.init.PalamodModItems;
 
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,7 +41,7 @@ public class TitaneexcavatorItem extends ShovelItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(PalamodModItems.TITANE_INGOT.get()));
 			}
-		}, 1, -3f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, 1, -3f, new Item.Properties());
 	}
 
 	@Override

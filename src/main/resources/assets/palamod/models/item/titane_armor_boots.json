@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/titane_boots"
+    "layer0": "palamod:item/titane_boots"
   }
 }

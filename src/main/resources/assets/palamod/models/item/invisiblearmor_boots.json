@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/boots_invisible"
+    "layer0": "palamod:item/boots_invisible"
   }
 }

@@ -3,8 +3,6 @@ package palamod.block;
 
 import palamod.procedures.XpbushprocessProcedure;
 
-import palamod.init.PalamodModBlocks;
-
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -21,13 +19,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.util.RandomSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.Minecraft;
 
-import java.util.Random;
 import java.util.List;
 import java.util.Collections;
 
@@ -61,7 +57,7 @@ public class XpbushBlock extends Block {
 	}
 
 	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, Random random) {
+	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
 		super.tick(blockstate, world, pos, random);
 		int x = pos.getX();
 		int y = pos.getY();
@@ -72,17 +68,12 @@ public class XpbushBlock extends Block {
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
-	public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random random) {
+	public void animateTick(BlockState blockstate, Level world, BlockPos pos, RandomSource random) {
 		super.animateTick(blockstate, world, pos, random);
 		Player entity = Minecraft.getInstance().player;
 		int x = pos.getX();
 		int y = pos.getY();
 		int z = pos.getZ();
 		XpbushprocessProcedure.execute(world, x, y, z);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.XPBUSH.get(), renderType -> renderType == RenderType.cutoutMipped());
 	}
 }

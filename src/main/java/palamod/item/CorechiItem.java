@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.CorechiRightClickedInAirProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.UseOnContext;
@@ -19,7 +17,7 @@ import net.minecraft.world.InteractionHand;
 
 public class CorechiItem extends Item {
 	public CorechiItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.EPIC));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.EPIC));
 	}
 
 	@Override
@@ -39,7 +37,6 @@ public class CorechiItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		CorechiRightClickedInAirProcedure.execute(entity, itemstack);
 		return ar;
 	}

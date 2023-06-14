@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Stickgui7Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -90,43 +87,41 @@ public class Stickgui7Screen extends AbstractContainerScreen<Stickgui7Menu> {
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stickgui_7.label_damage_stick_cre_un_effet_de"), 3, 33, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stickgui_7.label_craft_du_spike_en_paladium"), 264, 60, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.stickgui_7.label_empty"), 349, 73, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stickgui_7.label_damage_stick_cre_un_effet_de"), 3, 33, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stickgui_7.label_craft_du_spike_en_paladium"), 264, 60, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.stickgui_7.label_empty"), 349, 73, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_stick_prcdant = new Button(this.leftPos + 7, this.topPos + 8, 100, 20, new TranslatableComponent("gui.palamod.stickgui_7.button_stick_prcdant"), e -> {
+		button_stick_prcdant = Button.builder(Component.translatable("gui.palamod.stickgui_7.button_stick_prcdant"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Stickgui7ButtonMessage(0, x, y, z));
 				Stickgui7ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 7, this.topPos + 8, 100, 20).build();
 		guistate.put("button:button_stick_prcdant", button_stick_prcdant);
 		this.addRenderableWidget(button_stick_prcdant);
-		button_item_menu = new Button(this.leftPos + 125, this.topPos + 7, 70, 20, new TranslatableComponent("gui.palamod.stickgui_7.button_item_menu"), e -> {
+		button_item_menu = Button.builder(Component.translatable("gui.palamod.stickgui_7.button_item_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Stickgui7ButtonMessage(1, x, y, z));
 				Stickgui7ButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 125, this.topPos + 7, 70, 20).build();
 		guistate.put("button:button_item_menu", button_item_menu);
 		this.addRenderableWidget(button_item_menu);
-		button_menu = new Button(this.leftPos + 212, this.topPos + 7, 45, 20, new TranslatableComponent("gui.palamod.stickgui_7.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.stickgui_7.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Stickgui7ButtonMessage(2, x, y, z));
 				Stickgui7ButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 212, this.topPos + 7, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

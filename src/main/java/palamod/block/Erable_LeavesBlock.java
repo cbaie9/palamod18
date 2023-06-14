@@ -17,7 +17,7 @@ import net.minecraft.core.BlockPos;
 
 public class Erable_LeavesBlock extends LeavesBlock {
 	public Erable_LeavesBlock() {
-		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion().noDrops());
+		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion().noLootTable());
 	}
 
 	@Override

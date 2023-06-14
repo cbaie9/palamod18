@@ -11,7 +11,7 @@ import java.util.Map;
 public class LavaobsidianprocessProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		{
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockState _bs = Blocks.LAVA.defaultBlockState();
 			BlockState _bso = world.getBlockState(_bp);
 			for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {

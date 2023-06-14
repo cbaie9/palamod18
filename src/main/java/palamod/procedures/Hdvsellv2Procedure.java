@@ -3,7 +3,7 @@ package palamod.procedures;
 import org.checkerframework.checker.units.qual.s;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,14 +13,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.gui.components.EditBox;
 
 import java.util.function.Supplier;
-import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -35,7 +35,7 @@ public class Hdvsellv2Procedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_buyed" + nloop))) == true) {
@@ -49,7 +49,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putString(("market_pr" + nslot), (entity.getDisplayName().getString()));
+				_blockEntity.getPersistentData().putString(("market_pr" + nslot), (entity.getDisplayName().getString()));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -58,7 +58,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("market_price" + nslot), new Object() {
+				_blockEntity.getPersistentData().putDouble(("market_price" + nslot), new Object() {
 					double convert(String s) {
 						try {
 							return Double.parseDouble(s.trim());
@@ -75,7 +75,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("market_hash" + nslot), (Mth.nextInt(new Random(), 1, 100000)));
+				_blockEntity.getPersistentData().putDouble(("market_hash" + nslot), (Mth.nextInt(RandomSource.create(), 1, 100000)));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -84,7 +84,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("market_num" + nslot), (new Object() {
+				_blockEntity.getPersistentData().putDouble(("market_num" + nslot), (new Object() {
 					public int getAmount(int sltid) {
 						if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 							ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
@@ -102,7 +102,7 @@ public class Hdvsellv2Procedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean(("market_buyed" + nslot), false);
+				_blockEntity.getPersistentData().putBoolean(("market_buyed" + nslot), false);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -121,7 +121,7 @@ public class Hdvsellv2Procedure {
 						return 0;
 					}
 				}.getAmount(0));
-				_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+				_ent.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 					if (capability instanceof IItemHandlerModifiable)
 						((IItemHandlerModifiable) capability).setStackInSlot(_slotid, _setstack);
 				});
@@ -132,27 +132,27 @@ public class Hdvsellv2Procedure {
 			_player.containerMenu.broadcastChanges();
 		}
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("resume"), false);
+			_player.displayClientMessage(Component.literal("resume"), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Seller - pr - " + (new Object() {
+			_player.displayClientMessage(Component.literal(("Seller - pr - " + (new Object() {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getString(tag);
+						return blockEntity.getPersistentData().getString(tag);
 					return "";
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_pr" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Number - num - " + (new Object() {
+			_player.displayClientMessage(Component.literal(("Number - num - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_num" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Number - num - 2" + (new Object() {
+			_player.displayClientMessage(Component.literal(("Number - num - 2" + (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 						ItemStack stack = ((Slot) _slots.get(sltid)).getItem();
@@ -163,24 +163,24 @@ public class Hdvsellv2Procedure {
 				}
 			}.getAmount(0)))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("transation - hash - " + (new Object() {
+			_player.displayClientMessage(Component.literal(("transation - hash - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_hash" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("Price - " + (new Object() {
+			_player.displayClientMessage(Component.literal(("Price - " + (new Object() {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), ("market_price" + nslot))))), false);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent(("NSLOT - " + nslot)), false);
+			_player.displayClientMessage(Component.literal(("NSLOT - " + nslot)), false);
 	}
 }

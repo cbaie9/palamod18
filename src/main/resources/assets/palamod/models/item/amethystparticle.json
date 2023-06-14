@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/particle_amethyst"
+    "layer0": "palamod:item/particle_amethyst"
   }
 }

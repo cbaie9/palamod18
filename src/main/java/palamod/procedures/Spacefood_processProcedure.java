@@ -20,9 +20,9 @@ public class Spacefood_processProcedure {
 		double yval = 0;
 		yval = y;
 		for (int index0 = 0; index0 < 900; index0++) {
-			world.setBlock(new BlockPos(x, yval + 1, z), Blocks.AIR.defaultBlockState(), 3);
-			world.setBlock(new BlockPos(x, yval + 2, z), Blocks.AIR.defaultBlockState(), 3);
-			world.setBlock(new BlockPos(x, yval, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, yval + 1, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, yval + 2, z), Blocks.AIR.defaultBlockState(), 3);
+			world.setBlock(BlockPos.containing(x, yval, z), Blocks.AIR.defaultBlockState(), 3);
 			if (world instanceof ServerLevel _level)
 				_level.sendParticles((SimpleParticleType) (PalamodModParticleTypes.FLYPARTICLE.get()), x, y, z, 2, 3, 3, 3, 1);
 			{

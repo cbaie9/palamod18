@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.ItemmenupalahelpMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -98,53 +95,51 @@ public class ItemmenupalahelpScreen extends AbstractContainerScreen<Itemmenupala
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.itemmenupalahelp.label_item_menu"), 69, 7, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.itemmenupalahelp.label_item_menu"), 69, 7, -65536);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 3, this.topPos + 141, 45, 20, new TranslatableComponent("gui.palamod.itemmenupalahelp.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.itemmenupalahelp.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ItemmenupalahelpButtonMessage(0, x, y, z));
 				ItemmenupalahelpButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 3, this.topPos + 141, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_legendary_stone = new Button(this.leftPos + 65, this.topPos + 26, 100, 20, new TranslatableComponent("gui.palamod.itemmenupalahelp.button_legendary_stone"), e -> {
+		button_legendary_stone = Button.builder(Component.translatable("gui.palamod.itemmenupalahelp.button_legendary_stone"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ItemmenupalahelpButtonMessage(1, x, y, z));
 				ItemmenupalahelpButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 65, this.topPos + 26, 100, 20).build();
 		guistate.put("button:button_legendary_stone", button_legendary_stone);
 		this.addRenderableWidget(button_legendary_stone);
-		button_btons = new Button(this.leftPos + 115, this.topPos + 47, 50, 20, new TranslatableComponent("gui.palamod.itemmenupalahelp.button_btons"), e -> {
+		button_btons = Button.builder(Component.translatable("gui.palamod.itemmenupalahelp.button_btons"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ItemmenupalahelpButtonMessage(2, x, y, z));
 				ItemmenupalahelpButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 115, this.topPos + 47, 50, 20).build();
 		guistate.put("button:button_btons", button_btons);
 		this.addRenderableWidget(button_btons);
-		button_armor = new Button(this.leftPos + 115, this.topPos + 68, 50, 20, new TranslatableComponent("gui.palamod.itemmenupalahelp.button_armor"), e -> {
+		button_armor = Button.builder(Component.translatable("gui.palamod.itemmenupalahelp.button_armor"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ItemmenupalahelpButtonMessage(3, x, y, z));
 				ItemmenupalahelpButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 115, this.topPos + 68, 50, 20).build();
 		guistate.put("button:button_armor", button_armor);
 		this.addRenderableWidget(button_armor);
-		button_xp_bush_xp_berries = new Button(this.leftPos + 40, this.topPos + 89, 125, 20, new TranslatableComponent("gui.palamod.itemmenupalahelp.button_xp_bush_xp_berries"), e -> {
-		});
+		button_xp_bush_xp_berries = Button.builder(Component.translatable("gui.palamod.itemmenupalahelp.button_xp_bush_xp_berries"), e -> {
+		}).bounds(this.leftPos + 40, this.topPos + 89, 125, 20).build();
 		guistate.put("button:button_xp_bush_xp_berries", button_xp_bush_xp_berries);
 		this.addRenderableWidget(button_xp_bush_xp_berries);
 	}

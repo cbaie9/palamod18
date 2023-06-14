@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Palaerror0006Menu;
@@ -7,10 +6,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -69,21 +66,19 @@ public class Palaerror0006Screen extends AbstractContainerScreen<Palaerror0006Me
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0006.label_paladium_error_0006"), 39, 5, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0006.label_this_part_is_work_in_progress"), 10, 25, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0006.label_come_soon_to_have_more"), 27, 52, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0006.label_fonction_cb9"), 51, 63, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0006.label_paladium_error_0006"), 39, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0006.label_this_part_is_work_in_progress"), 10, 25, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0006.label_come_soon_to_have_more"), 27, 52, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0006.label_fonction_cb9"), 51, 63, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
 }

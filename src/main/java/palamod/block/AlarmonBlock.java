@@ -3,11 +3,6 @@ package palamod.block;
 
 import palamod.procedures.AlarmoffProcedure;
 
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -21,8 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import java.util.List;
 import java.util.Collections;
@@ -62,10 +55,5 @@ public class AlarmonBlock extends Block {
 		} else {
 			AlarmoffProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.ALARMON.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

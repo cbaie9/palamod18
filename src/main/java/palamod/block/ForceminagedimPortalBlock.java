@@ -4,8 +4,6 @@ package palamod.block;
 import palamod.world.teleporter.ForceminagedimTeleporter;
 import palamod.world.teleporter.ForceminagedimPortalShape;
 
-import palamod.init.PalamodModBlocks;
-
 import org.checkerframework.checker.units.qual.s;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,27 +19,25 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.util.RandomSource;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.Registry;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-import java.util.Random;
 import java.util.Optional;
 
 public class ForceminagedimPortalBlock extends NetherPortalBlock {
 	public ForceminagedimPortalBlock() {
-		super(BlockBehaviour.Properties.of(Material.PORTAL).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel(s -> 7).noDrops());
+		super(BlockBehaviour.Properties.of(Material.PORTAL).noCollission().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel(s -> 7).noLootTable());
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+	public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
 	}
 
 	public static void portalSpawn(Level world, BlockPos pos) {
@@ -61,7 +57,7 @@ public class ForceminagedimPortalBlock extends NetherPortalBlock {
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
-	public void animateTick(BlockState state, Level world, BlockPos pos, Random random) {
+	public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
 		for (int i = 0; i < 4; i++) {
 			double px = pos.getX() + random.nextFloat();
 			double py = pos.getY() + random.nextFloat();
@@ -88,9 +84,9 @@ public class ForceminagedimPortalBlock extends NetherPortalBlock {
 		if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide() && true) {
 			if (entity.isOnPortalCooldown()) {
 				entity.setPortalCooldown();
-			} else if (entity.level.dimension() != ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("palamod:forceminagedim"))) {
+			} else if (entity.level.dimension() != ResourceKey.create(Registries.DIMENSION, new ResourceLocation("palamod:forceminagedim"))) {
 				entity.setPortalCooldown();
-				teleportToDimension(entity, pos, ResourceKey.create(Registry.DIMENSION_REGISTRY, new ResourceLocation("palamod:forceminagedim")));
+				teleportToDimension(entity, pos, ResourceKey.create(Registries.DIMENSION, new ResourceLocation("palamod:forceminagedim")));
 			} else {
 				entity.setPortalCooldown();
 				teleportToDimension(entity, pos, Level.OVERWORLD);
@@ -100,10 +96,5 @@ public class ForceminagedimPortalBlock extends NetherPortalBlock {
 
 	private void teleportToDimension(Entity entity, BlockPos pos, ResourceKey<Level> destinationType) {
 		entity.changeDimension(entity.getServer().getLevel(destinationType), new ForceminagedimTeleporter(entity.getServer().getLevel(destinationType), pos));
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.FORCEMINAGEDIM_PORTAL.get(), renderType -> renderType == RenderType.translucent());
 	}
 }

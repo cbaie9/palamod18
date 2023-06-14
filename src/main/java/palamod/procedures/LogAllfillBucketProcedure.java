@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 public class LogAllfillBucketProcedure {
 	@SubscribeEvent
 	public static void onBucketFill(FillBucketEvent event) {
-		execute(event, event.getWorld(), event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), event.getPlayer());
+		execute(event, event.getLevel(), event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity());
 	}
 
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {

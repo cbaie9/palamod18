@@ -30,7 +30,7 @@ public class CheckwitherimbuetargetProcedure {
 	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
-		if (sourceentity instanceof LivingEntity _livEnt ? _livEnt.hasEffect(PalamodModMobEffects.WITHERIMBU.get()) : false) {
+		if (sourceentity instanceof LivingEntity _livEnt0 && _livEnt0.hasEffect(PalamodModMobEffects.WITHERIMBU.get())) {
 			if (entity instanceof LivingEntity _entity && !_entity.level.isClientSide())
 				_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1, false, false));
 		}

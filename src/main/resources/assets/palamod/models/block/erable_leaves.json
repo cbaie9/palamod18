@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod:blocks/leave.erable",
-    "particle": "palamod:blocks/leave.erable"
+    "all": "palamod:block/leave.erable",
+    "particle": "palamod:block/leave.erable"
   }
 }

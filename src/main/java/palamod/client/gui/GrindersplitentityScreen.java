@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.GrindersplitentityMenu;
@@ -22,11 +21,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -135,19 +132,17 @@ public class GrindersplitentityScreen extends AbstractContainerScreen<Grinderspl
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_code = new Button(this.leftPos + 3, this.topPos + 10, 46, 20, new TranslatableComponent("gui.palamod.grindersplitentity.button_code"), e -> {
+		button_code = Button.builder(Component.translatable("gui.palamod.grindersplitentity.button_code"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new GrindersplitentityButtonMessage(0, x, y, z));
 				GrindersplitentityButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 3, this.topPos + 10, 46, 20).build();
 		guistate.put("button:button_code", button_code);
 		this.addRenderableWidget(button_code);
 	}

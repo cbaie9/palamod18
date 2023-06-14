@@ -5,7 +5,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class PotgtransfertProcedure {
 							.getDouble("Pickaxe_stone") + entity.getPersistentData().getDouble("Pickaxe_stone")));
 			entity.getPersistentData().putDouble("Pickaxe_stone", 0);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Entity potg xp was transfert in the potg in your main hand"), false);
+				_player.displayClientMessage(Component.literal("Entity potg xp was transfert in the potg in your main hand"), false);
 		}
 	}
 }

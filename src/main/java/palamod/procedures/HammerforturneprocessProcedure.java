@@ -3,7 +3,7 @@ package palamod.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.particles.ParticleTypes;
 
 public class HammerforturneprocessProcedure {
@@ -12,6 +12,6 @@ public class HammerforturneprocessProcedure {
 			return;
 		world.addParticle(ParticleTypes.EXPLOSION, x, y, z, 0, 1, 0);
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("Le mode \"fortune\" est actuellement en alpha"), false);
+			_player.displayClientMessage(Component.literal("Le mode \"fortune\" est actuellement en alpha"), false);
 	}
 }

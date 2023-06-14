@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
@@ -29,33 +28,33 @@ public class Megasafechest_openProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "is_setup")) == true) {
+		}.getValue(world, BlockPos.containing(x, y, z), "is_setup")) == true) {
 			if (new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "safe_link")) {
+			}.getValue(world, BlockPos.containing(x, y, z), "safe_link")) {
 				if ((entity.getUUID().toString()).equals(new Object() {
 					public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 						BlockEntity blockEntity = world.getBlockEntity(pos);
 						if (blockEntity != null)
-							return blockEntity.getTileData().getString(tag);
+							return blockEntity.getPersistentData().getString(tag);
 						return "";
 					}
-				}.getValue(world, new BlockPos(x, y, z), "name_auth"))) {
+				}.getValue(world, BlockPos.containing(x, y, z), "name_auth"))) {
 					{
 						if (entity instanceof ServerPlayer _ent) {
-							BlockPos _bpos = new BlockPos(x, y, z);
-							NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+							BlockPos _bpos = BlockPos.containing(x, y, z);
+							NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 								@Override
 								public Component getDisplayName() {
-									return new TextComponent("Safegui");
+									return Component.literal("Safegui");
 								}
 
 								@Override
@@ -68,11 +67,11 @@ public class Megasafechest_openProcedure {
 				} else {
 					{
 						if (entity instanceof ServerPlayer _ent) {
-							BlockPos _bpos = new BlockPos(x, y, z);
-							NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+							BlockPos _bpos = BlockPos.containing(x, y, z);
+							NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 								@Override
 								public Component getDisplayName() {
-									return new TextComponent("Authsafegui");
+									return Component.literal("Authsafegui");
 								}
 
 								@Override
@@ -86,11 +85,11 @@ public class Megasafechest_openProcedure {
 			} else {
 				{
 					if (entity instanceof ServerPlayer _ent) {
-						BlockPos _bpos = new BlockPos(x, y, z);
-						NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+						BlockPos _bpos = BlockPos.containing(x, y, z);
+						NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 							@Override
 							public Component getDisplayName() {
-								return new TextComponent("Authsafegui");
+								return Component.literal("Authsafegui");
 							}
 
 							@Override
@@ -104,11 +103,11 @@ public class Megasafechest_openProcedure {
 		} else {
 			{
 				if (entity instanceof ServerPlayer _ent) {
-					BlockPos _bpos = new BlockPos(x, y, z);
-					NetworkHooks.openGui((ServerPlayer) _ent, new MenuProvider() {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 						@Override
 						public Component getDisplayName() {
-							return new TextComponent("Megasafechestfirstsetup");
+							return Component.literal("Megasafechestfirstsetup");
 						}
 
 						@Override

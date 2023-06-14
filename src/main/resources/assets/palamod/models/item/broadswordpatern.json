@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/broadsword_patern"
+    "layer0": "palamod:item/broadsword_patern"
   }
 }

@@ -23,7 +23,7 @@ import net.minecraft.core.BlockPos;
 
 public class CompactedobsidianBlock extends Block {
 	public CompactedobsidianBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(10f).requiresCorrectToolForDrops().noDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(10f).requiresCorrectToolForDrops().noLootTable());
 	}
 
 	@Override

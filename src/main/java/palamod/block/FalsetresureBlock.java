@@ -19,7 +19,7 @@ import net.minecraft.core.BlockPos;
 
 public class FalsetresureBlock extends Block {
 	public FalsetresureBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GRAVEL).strength(1f, 10f).noDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GRAVEL).strength(1f, 10f).noLootTable());
 	}
 
 	@Override

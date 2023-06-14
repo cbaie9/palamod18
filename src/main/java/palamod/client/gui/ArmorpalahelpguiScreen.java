@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.ArmorpalahelpguiMenu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -137,55 +134,53 @@ public class ArmorpalahelpguiScreen extends AbstractContainerScreen<Armorpalahel
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_45"), 35, 18, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_5"), 36, 51, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_4"), 36, 83, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_451"), 37, 130, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_452"), 82, 16, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_453"), 88, 124, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_51"), 88, 88, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_52"), 90, 51, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_454"), 179, 21, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_night_vision_ii"), 159, 7, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_65"), 183, 50, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_force"), 181, 59, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_55"), 179, 85, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_haste"), 180, 98, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_5_speed"), 179, 124, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_53"), 248, 21, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_7"), 248, 53, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_551"), 243, 87, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_552"), 247, 122, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_night_vision_ii1"), 218, 37, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_force1"), 248, 62, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_haste1"), 249, 96, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.armorpalahelpgui.label_speed"), 253, 131, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_45"), 35, 18, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_5"), 36, 51, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_4"), 36, 83, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_451"), 37, 130, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_452"), 82, 16, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_453"), 88, 124, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_51"), 88, 88, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_52"), 90, 51, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_454"), 179, 21, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_night_vision_ii"), 159, 7, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_65"), 183, 50, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_force"), 181, 59, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_55"), 179, 85, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_haste"), 180, 98, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_5_speed"), 179, 124, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_53"), 248, 21, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_7"), 248, 53, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_551"), 243, 87, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_552"), 247, 122, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_night_vision_ii1"), 218, 37, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_force1"), 248, 62, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_haste1"), 249, 96, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.armorpalahelpgui.label_speed"), 253, 131, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 9, this.topPos + 155, 45, 20, new TranslatableComponent("gui.palamod.armorpalahelpgui.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.armorpalahelpgui.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ArmorpalahelpguiButtonMessage(0, x, y, z));
 				ArmorpalahelpguiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 9, this.topPos + 155, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_menu = new Button(this.leftPos + 62, this.topPos + 155, 45, 20, new TranslatableComponent("gui.palamod.armorpalahelpgui.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.armorpalahelpgui.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new ArmorpalahelpguiButtonMessage(1, x, y, z));
 				ArmorpalahelpguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 62, this.topPos + 155, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

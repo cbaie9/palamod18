@@ -12,11 +12,11 @@ public class Hammer1Procedure {
 		if (entity == null)
 			return;
 		if (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.SMELT.get(), itemstack) != 0 && EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), itemstack) != 0) {
-			if (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), itemstack) == 1) {
+			if (itemstack.getEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get()) == 1) {
 				HamsfProcedure.execute(world, x, y, z, entity);
-			} else if (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), itemstack) == 2) {
+			} else if (itemstack.getEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get()) == 2) {
 				Hamsf2Procedure.execute(world, x, y, z, entity);
-			} else if (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get(), itemstack) == 3) {
+			} else if (itemstack.getEnchantmentLevel(PalamodModEnchantments.HAMMER_FORTUNE.get()) == 3) {
 				Hamsf3Procedure.execute(world, x, y, z, entity);
 			}
 		} else if (EnchantmentHelper.getItemEnchantmentLevel(PalamodModEnchantments.SMELT.get(), itemstack) != 0) {

@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.FactioncreateguiMenu;
@@ -11,12 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -82,34 +79,32 @@ public class FactioncreateguiScreen extends AbstractContainerScreen<Factioncreat
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_creer_un_faction_coute"), 5, 3, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_100_lingot"), 123, 4, -65536);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_nom"), 54, 53, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_inserer_les_lingot"), 12, 35, -16737946);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_de_paladium"), 5, 14, -65536);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.factioncreategui.label_varfaction_create_ing"), 68, 71, -10027162);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_creer_un_faction_coute"), 5, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_100_lingot"), 123, 4, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_nom"), 54, 53, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_inserer_les_lingot"), 12, 35, -16737946);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_de_paladium"), 5, 14, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.factioncreategui.label_varfaction_create_ing"), 68, 71, -10027162);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		faction_name_input_bow = new EditBox(this.font, this.leftPos + 76, this.topPos + 47, 120, 20, new TranslatableComponent("gui.palamod.factioncreategui.faction_name_input_bow")) {
+		faction_name_input_bow = new EditBox(this.font, this.leftPos + 76, this.topPos + 47, 120, 20, Component.translatable("gui.palamod.factioncreategui.faction_name_input_bow")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.factioncreategui.faction_name_input_bow").getString());
+				setSuggestion(Component.translatable("gui.palamod.factioncreategui.faction_name_input_bow").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.factioncreategui.faction_name_input_bow").getString());
+					setSuggestion(Component.translatable("gui.palamod.factioncreategui.faction_name_input_bow").getString());
 				else
 					setSuggestion(null);
 			}
@@ -118,7 +113,7 @@ public class FactioncreateguiScreen extends AbstractContainerScreen<Factioncreat
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.factioncreategui.faction_name_input_bow").getString());
+					setSuggestion(Component.translatable("gui.palamod.factioncreategui.faction_name_input_bow").getString());
 				else
 					setSuggestion(null);
 			}
@@ -126,16 +121,16 @@ public class FactioncreateguiScreen extends AbstractContainerScreen<Factioncreat
 		faction_name_input_bow.setMaxLength(32767);
 		guistate.put("text:faction_name_input_bow", faction_name_input_bow);
 		this.addWidget(this.faction_name_input_bow);
-		button_creer = new Button(this.leftPos + 18, this.topPos + 95, 51, 20, new TranslatableComponent("gui.palamod.factioncreategui.button_creer"), e -> {
-		});
+		button_creer = Button.builder(Component.translatable("gui.palamod.factioncreategui.button_creer"), e -> {
+		}).bounds(this.leftPos + 18, this.topPos + 95, 51, 20).build();
 		guistate.put("button:button_creer", button_creer);
 		this.addRenderableWidget(button_creer);
-		button_annuler = new Button(this.leftPos + 118, this.topPos + 95, 61, 20, new TranslatableComponent("gui.palamod.factioncreategui.button_annuler"), e -> {
+		button_annuler = Button.builder(Component.translatable("gui.palamod.factioncreategui.button_annuler"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new FactioncreateguiButtonMessage(1, x, y, z));
 				FactioncreateguiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 118, this.topPos + 95, 61, 20).build();
 		guistate.put("button:button_annuler", button_annuler);
 		this.addRenderableWidget(button_annuler);
 	}

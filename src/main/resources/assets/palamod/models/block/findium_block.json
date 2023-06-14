@@ -1,7 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod:blocks/findium_block",
-    "particle": "palamod:blocks/findium_block"
-  }
+    "all": "palamod:block/findium_block",
+    "particle": "palamod:block/findium_block"
+  },
+  "render_type": "solid"
 }

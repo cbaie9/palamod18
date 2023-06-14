@@ -19,11 +19,11 @@ public class FactruecreateProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble("number_fac", (new Object() {
+					_blockEntity.getPersistentData().putDouble("number_fac", (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 9, 0), "number_fac") + 1));
@@ -35,11 +35,11 @@ public class FactruecreateProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("fac_id_" + entity.getPersistentData().getString("temp_fact_name")), (new Object() {
+					_blockEntity.getPersistentData().putDouble(("fac_id_" + entity.getPersistentData().getString("temp_fact_name")), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 9, 0), "number_fac") + 1));
@@ -51,7 +51,7 @@ public class FactruecreateProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("fac_xpc_" + entity.getPersistentData().getString("temp_fact_name")), 0);
+					_blockEntity.getPersistentData().putDouble(("fac_xpc_" + entity.getPersistentData().getString("temp_fact_name")), 0);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -60,7 +60,7 @@ public class FactruecreateProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("temp_fact_name")), 50000);
+					_blockEntity.getPersistentData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("temp_fact_name")), 50000);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
@@ -69,7 +69,7 @@ public class FactruecreateProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putString(("fac_" + entity.getPersistentData().getString("temp_fact_name") + "_owner"), (entity.getDisplayName().getString()));
+					_blockEntity.getPersistentData().putString(("fac_" + entity.getPersistentData().getString("temp_fact_name") + "_owner"), (entity.getDisplayName().getString()));
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}

@@ -5,7 +5,6 @@ import palamod.procedures.BigdynaboomProcedure;
 
 import palamod.init.PalamodModEntities;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.network.PlayMessages;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.common.ForgeMod;
@@ -30,11 +29,11 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.util.Mth;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.nbt.CompoundTag;
 
@@ -47,6 +46,7 @@ public class BigdynamiteentityEntity extends Creeper {
 
 	public BigdynamiteentityEntity(EntityType<BigdynamiteentityEntity> type, Level world) {
 		super(type, world);
+		maxUpStep = 0.6f;
 		xpReward = 0;
 		setNoAi(false);
 		setPersistenceRequired();
@@ -86,7 +86,7 @@ public class BigdynamiteentityEntity extends Creeper {
 	}
 
 	@Override
-	public Packet<?> getAddEntityPacket() {
+	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
@@ -112,42 +112,34 @@ public class BigdynamiteentityEntity extends Creeper {
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
-	}
-
-	@Override
-	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
-	}
-
-	@Override
 	public boolean hurt(DamageSource source, float amount) {
+		if (source.is(DamageTypes.IN_FIRE))
+			return false;
 		if (source.getDirectEntity() instanceof AbstractArrow)
 			return false;
 		if (source.getDirectEntity() instanceof Player)
 			return false;
 		if (source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud)
 			return false;
-		if (source == DamageSource.FALL)
+		if (source.is(DamageTypes.FALL))
 			return false;
-		if (source == DamageSource.CACTUS)
+		if (source.is(DamageTypes.CACTUS))
 			return false;
-		if (source == DamageSource.DROWN)
+		if (source.is(DamageTypes.DROWN))
 			return false;
-		if (source == DamageSource.LIGHTNING_BOLT)
+		if (source.is(DamageTypes.LIGHTNING_BOLT))
 			return false;
-		if (source.isExplosion())
+		if (source.is(DamageTypes.EXPLOSION))
 			return false;
-		if (source.getMsgId().equals("trident"))
+		if (source.is(DamageTypes.TRIDENT))
 			return false;
-		if (source == DamageSource.ANVIL)
+		if (source.is(DamageTypes.FALLING_ANVIL))
 			return false;
-		if (source == DamageSource.DRAGON_BREATH)
+		if (source.is(DamageTypes.DRAGON_BREATH))
 			return false;
-		if (source == DamageSource.WITHER)
+		if (source.is(DamageTypes.WITHER))
 			return false;
-		if (source.getMsgId().equals("witherSkull"))
+		if (source.is(DamageTypes.WITHER_SKULL))
 			return false;
 		return super.hurt(source, amount);
 	}

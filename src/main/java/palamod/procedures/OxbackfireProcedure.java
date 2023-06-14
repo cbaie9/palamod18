@@ -22,7 +22,7 @@ public class OxbackfireProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putString("backdown_fire", (ForgeRegistries.ITEMS.getKey((ItemArgument.getItem(arguments, "item").getItem().getDefaultInstance()).getItem()).toString()));
+				_blockEntity.getPersistentData().putString("backdown_fire", (ForgeRegistries.ITEMS.getKey((ItemArgument.getItem(arguments, "item").getItem().getDefaultInstance()).getItem()).toString()));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -31,7 +31,7 @@ public class OxbackfireProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putString("backdown_firename", (StringArgumentType.getString(arguments, "message")));
+				_blockEntity.getPersistentData().putString("backdown_firename", (StringArgumentType.getString(arguments, "message")));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -40,7 +40,7 @@ public class OxbackfireProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble("backdown_firenum", (DoubleArgumentType.getDouble(arguments, "num")));
+				_blockEntity.getPersistentData().putDouble("backdown_firenum", (DoubleArgumentType.getDouble(arguments, "num")));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
@@ -49,7 +49,7 @@ public class OxbackfireProcedure {
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("backdown_state", (BoolArgumentType.getBool(arguments, "activation")));
+				_blockEntity.getPersistentData().putBoolean("backdown_state", (BoolArgumentType.getBool(arguments, "activation")));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

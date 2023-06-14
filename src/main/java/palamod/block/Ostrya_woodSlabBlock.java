@@ -20,7 +20,7 @@ import java.util.Collections;
 
 public class Ostrya_woodSlabBlock extends SlabBlock {
 	public Ostrya_woodSlabBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f).requiresCorrectToolForDrops().dynamicShape());
 	}
 
 	@Override

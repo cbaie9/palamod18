@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.GuardianguiMenu;
@@ -12,12 +11,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -50,7 +47,7 @@ public class GuardianguiScreen extends AbstractContainerScreen<GuardianguiMenu> 
 		super.render(ms, mouseX, mouseY, partialTicks);
 		this.renderTooltip(ms, mouseX, mouseY);
 		if (GuardianentityproviderProcedure.execute(world, x, y, z) instanceof LivingEntity livingEntity) {
-			InventoryScreen.renderEntityInInventory(this.leftPos + 56, this.topPos + 76, 30, 0, 0, livingEntity);
+			InventoryScreen.renderEntityInInventoryFollowsAngle(ms, this.leftPos + 56, this.topPos + 76, 30, 0f, 0, livingEntity);
 		}
 	}
 
@@ -84,12 +81,12 @@ public class GuardianguiScreen extends AbstractContainerScreen<GuardianguiMenu> 
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_degats"), 215, 67, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_pv"), 273, 67, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_golem"), 140, 8, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_level"), 125, 29, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_renommer"), 112, 69, -256);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.guardiangui.label_whitelist"), 158, 70, -65536);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_degats"), 215, 67, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_pv"), 273, 67, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_golem"), 140, 8, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_level"), 125, 29, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_renommer"), 112, 69, -256);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.guardiangui.label_whitelist"), 158, 70, -65536);
 		this.font.draw(poseStack,
 
 				GetguardianlevelProcedure.execute(), 156, 29, -65485);
@@ -101,15 +98,13 @@ public class GuardianguiScreen extends AbstractContainerScreen<GuardianguiMenu> 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_arbre_de_competance = new Button(this.leftPos + 4, this.topPos + 139, 124, 20, new TranslatableComponent("gui.palamod.guardiangui.button_arbre_de_competance"), e -> {
-		});
+		button_arbre_de_competance = Button.builder(Component.translatable("gui.palamod.guardiangui.button_arbre_de_competance"), e -> {
+		}).bounds(this.leftPos + 4, this.topPos + 139, 124, 20).build();
 		guistate.put("button:button_arbre_de_competance", button_arbre_de_competance);
 		this.addRenderableWidget(button_arbre_de_competance);
 	}

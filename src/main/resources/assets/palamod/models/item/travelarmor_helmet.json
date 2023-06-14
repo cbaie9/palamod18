@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "palamod:items/travel_slimy"
+    "layer0": "palamod:item/travel_slimy"
   }
 }

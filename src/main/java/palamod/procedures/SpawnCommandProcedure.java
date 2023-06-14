@@ -16,7 +16,7 @@ import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
@@ -27,11 +27,11 @@ public class SpawnCommandProcedure {
 			return;
 		double dim = 0;
 		String dim_id = "";
-		if ((entity.level.dimension()) == (Level.OVERWORLD)) {
+		if ((entity.level.dimension()) == Level.OVERWORLD) {
 			dim = 0;
-		} else if ((entity.level.dimension()) == (Level.NETHER)) {
+		} else if ((entity.level.dimension()) == Level.NETHER) {
 			dim = 1;
-		} else if ((entity.level.dimension()) == (Level.END)) {
+		} else if ((entity.level.dimension()) == Level.END) {
 			dim = 2;
 		} else {
 			dim = 3;
@@ -41,12 +41,12 @@ public class SpawnCommandProcedure {
 				public String getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getString(tag);
+						return blockEntity.getPersistentData().getString(tag);
 					return "";
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "spawn_dim_id");
 			if ((dim_id).equals("0")) {
-				if (!((entity.level.dimension()) == (Level.OVERWORLD))) {
+				if (!((entity.level.dimension()) == Level.OVERWORLD)) {
 					if (entity instanceof ServerPlayer _player && !_player.level.isClientSide()) {
 						ResourceKey<Level> destinationType = Level.OVERWORLD;
 						if (_player.level.dimension() == destinationType)
@@ -68,21 +68,21 @@ public class SpawnCommandProcedure {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")));
@@ -91,48 +91,48 @@ public class SpawnCommandProcedure {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")), _ent.getYRot(), _ent.getXRot());
 				}
 			} else if ((dim_id).equals("1")) {
-				if ((entity.level.dimension()) == (Level.NETHER)) {
+				if ((entity.level.dimension()) == Level.NETHER) {
 					{
 						Entity _ent = entity;
 						_ent.teleportTo((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")));
@@ -141,21 +141,21 @@ public class SpawnCommandProcedure {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")), _ent.getYRot(), _ent.getXRot());
@@ -181,21 +181,21 @@ public class SpawnCommandProcedure {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")));
@@ -204,49 +204,49 @@ public class SpawnCommandProcedure {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")), _ent.getYRot(), _ent.getXRot());
 					}
 				}
 			} else if ((dim_id).equals("2")) {
-				if ((entity.level.dimension()) == (Level.END)) {
+				if ((entity.level.dimension()) == Level.END) {
 					{
 						Entity _ent = entity;
 						_ent.teleportTo((new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")));
@@ -255,21 +255,21 @@ public class SpawnCommandProcedure {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")), _ent.getYRot(), _ent.getXRot());
@@ -295,21 +295,21 @@ public class SpawnCommandProcedure {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 							public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 								BlockEntity blockEntity = world.getBlockEntity(pos);
 								if (blockEntity != null)
-									return blockEntity.getTileData().getDouble(tag);
+									return blockEntity.getPersistentData().getDouble(tag);
 								return -1;
 							}
 						}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")));
@@ -318,21 +318,21 @@ public class SpawnCommandProcedure {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_x")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_y")), (new Object() {
 								public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 									BlockEntity blockEntity = world.getBlockEntity(pos);
 									if (blockEntity != null)
-										return blockEntity.getTileData().getDouble(tag);
+										return blockEntity.getPersistentData().getDouble(tag);
 									return -1;
 								}
 							}.getValue(world, new BlockPos(0, 10, 0), "spawn_z")), _ent.getYRot(), _ent.getXRot());
@@ -341,7 +341,7 @@ public class SpawnCommandProcedure {
 			}
 		} else {
 			if (world instanceof ServerLevel _level)
-				_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
+				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 						"msg @p Dimension non pris en charge");
 		}
 	}

@@ -1,7 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
 import palamod.init.PalamodModItems;
 
 import net.minecraft.world.item.crafting.Ingredient;
@@ -36,6 +35,6 @@ public class TitaneSwordItem extends SwordItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(PalamodModItems.TITANE_INGOT.get()));
 			}
-		}, 3, -2f, new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD));
+		}, 3, -2f, new Item.Properties());
 	}
 }

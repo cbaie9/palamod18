@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.RingprocessgreenpaladiumProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
@@ -13,7 +11,7 @@ import net.minecraft.world.entity.Entity;
 
 public class SmallringgreenpaladiumItem extends Item {
 	public SmallringgreenpaladiumItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).durability(400).rarity(Rarity.COMMON));
+		super(new Item.Properties().durability(400).rarity(Rarity.COMMON));
 	}
 
 	@Override

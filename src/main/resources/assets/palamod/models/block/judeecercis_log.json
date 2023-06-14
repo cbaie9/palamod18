@@ -1,12 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "palamod:blocks/judeecercis_top",
-    "up": "palamod:blocks/judeecercis_top",
-    "north": "palamod:blocks/judeecercis_log",
-    "east": "palamod:blocks/judeecercis_log",
-    "south": "palamod:blocks/judeecercis_log",
-    "west": "palamod:blocks/judeecercis_log",
-    "particle": "palamod:blocks/judeecercis_top"
-  }
+    "down": "palamod:block/judeecercis_top",
+    "up": "palamod:block/judeecercis_top",
+    "north": "palamod:block/judeecercis_log",
+    "east": "palamod:block/judeecercis_log",
+    "south": "palamod:block/judeecercis_log",
+    "west": "palamod:block/judeecercis_log",
+    "particle": "palamod:block/judeecercis_top"
+  },
+  "render_type": "solid"
 }

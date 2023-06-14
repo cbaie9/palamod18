@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.PalahelptreeMenu;
@@ -20,11 +19,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -127,27 +124,25 @@ public class PalahelptreeScreen extends AbstractContainerScreen<PalahelptreeMenu
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 21, this.topPos + 134, 45, 20, new TranslatableComponent("gui.palamod.palahelptree.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.palahelptree.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelptreeButtonMessage(0, x, y, z));
 				PalahelptreeButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 21, this.topPos + 134, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_menu = new Button(this.leftPos + 67, this.topPos + 134, 45, 20, new TranslatableComponent("gui.palamod.palahelptree.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.palahelptree.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new PalahelptreeButtonMessage(1, x, y, z));
 				PalahelptreeButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 67, this.topPos + 134, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

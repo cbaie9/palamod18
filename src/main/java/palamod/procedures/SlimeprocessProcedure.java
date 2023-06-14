@@ -22,7 +22,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.UP) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.UP) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), (1 + entity.getDeltaMovement().y()), (entity.getDeltaMovement().z())));
 		} else if ((new Object() {
 			public Direction getDirection(BlockState _bs) {
@@ -32,7 +32,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.DOWN) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.DOWN) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), (entity.getDeltaMovement().y() - 1), (entity.getDeltaMovement().z())));
 		} else if ((new Object() {
 			public Direction getDirection(BlockState _bs) {
@@ -42,7 +42,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.NORTH) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.NORTH) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() - 1)));
 		} else if ((new Object() {
 			public Direction getDirection(BlockState _bs) {
@@ -52,7 +52,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.SOUTH) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.SOUTH) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x()), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() + 1)));
 		} else if ((new Object() {
 			public Direction getDirection(BlockState _bs) {
@@ -62,7 +62,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.WEST) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.WEST) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() - 1), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z())));
 		} else if ((new Object() {
 			public Direction getDirection(BlockState _bs) {
@@ -72,7 +72,7 @@ public class SlimeprocessProcedure {
 				_prop = _bs.getBlock().getStateDefinition().getProperty("axis");
 				return _prop instanceof EnumProperty _ep && _ep.getPossibleValues().toArray()[0] instanceof Direction.Axis ? Direction.fromAxisAndDirection((Direction.Axis) _bs.getValue(_ep), Direction.AxisDirection.POSITIVE) : Direction.NORTH;
 			}
-		}.getDirection((world.getBlockState(new BlockPos(x, y, z))))) == Direction.EAST) {
+		}.getDirection((world.getBlockState(BlockPos.containing(x, y, z))))) == Direction.EAST) {
 			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() + 1), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z())));
 		}
 	}

@@ -6,12 +6,12 @@ import palamod.init.PalamodModItems;
 import palamod.client.gui.PhoneguiScreen;
 
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -29,7 +29,7 @@ public class PaladiumphoneInventoryCapability implements ICapabilitySerializable
 	@SubscribeEvent
 	@OnlyIn(Dist.CLIENT)
 	public static void onItemDropped(ItemTossEvent event) {
-		if (event.getEntityItem().getItem().getItem() == PalamodModItems.PALADIUMPHONE.get()) {
+		if (event.getEntity().getItem().getItem() == PalamodModItems.PALADIUMPHONE.get()) {
 			if (Minecraft.getInstance().screen instanceof PhoneguiScreen) {
 				Minecraft.getInstance().player.closeContainer();
 			}
@@ -40,7 +40,7 @@ public class PaladiumphoneInventoryCapability implements ICapabilitySerializable
 
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side) {
-		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? this.inventory.cast() : LazyOptional.empty();
+		return capability == ForgeCapabilities.ITEM_HANDLER ? this.inventory.cast() : LazyOptional.empty();
 	}
 
 	@Override

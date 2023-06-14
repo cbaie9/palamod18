@@ -1,8 +1,9 @@
 {
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "palamod:blocks/ostrya_planks",
-    "top": "palamod:blocks/ostrya_planks",
-    "side": "palamod:blocks/ostrya_planks"
-  }
+    "bottom": "palamod:block/ostrya_planks",
+    "top": "palamod:block/ostrya_planks",
+    "side": "palamod:block/ostrya_planks"
+  },
+  "render_type": "solid"
 }

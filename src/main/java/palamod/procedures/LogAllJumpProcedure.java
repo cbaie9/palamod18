@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 public class LogAllJumpProcedure {
 	@SubscribeEvent
 	public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
-		execute(event, event.getEntityLiving().level, event.getEntityLiving().getX(), event.getEntityLiving().getY(), event.getEntityLiving().getZ(), event.getEntityLiving());
+		execute(event, event.getEntity().level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity());
 	}
 
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {

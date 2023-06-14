@@ -14,9 +14,6 @@ import palamod.PalamodMod;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.Vec2;
@@ -42,7 +39,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
@@ -60,51 +57,29 @@ public class Luckyprocessv1Procedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "Lucky_lock")) == false) {
+		}.getValue(world, BlockPos.containing(x, y, z), "Lucky_lock")) == false) {
 			if (!world.isClientSide()) {
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putBoolean("Lucky_lock", true);
+					_blockEntity.getPersistentData().putBoolean("Lucky_lock", true);
 				if (world instanceof Level _level)
 					_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 			}
 			Random = new Random().nextInt(198300 + 1);
 			if (Random >= 1 && Random <= 11600) {
 				PalamodModVariables.lucky_name = "0 + 0 = La tete a Toto";
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (entity instanceof Player _player)
+						_player.giveExperienceLevels(-(10000));
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " a eu aux lucky block l'event" + "0 + 0 = La tete a Toto"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (entity instanceof Player _player)
-							_player.giveExperienceLevels(-(10000));
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " a eu aux lucky block l'event" + "0 + 0 = La tete a Toto"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 11600 && Random <= 14700) {
@@ -127,35 +102,13 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (entity instanceof Player _player) {
+						ItemStack _setstack = new ItemStack(PalamodModItems.WEIGHTED_BOOTS.get());
+						_setstack.setCount(1);
+						ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (entity instanceof Player _player) {
-							ItemStack _setstack = new ItemStack(PalamodModItems.WEIGHTED_BOOTS.get());
-							_setstack.setCount(1);
-							ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
 					PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + " 20 000 Lieux"));
 				}
@@ -163,13 +116,13 @@ public class Luckyprocessv1Procedure {
 			}
 			if (Random >= 11600 && Random <= 14700) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Adieu Faction ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
+					_player.displayClientMessage(Component.literal("Vous avez eu un event non impl\uFFFDment\uFFFD ( Adieu Faction ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("Lucky_lock", false);
+						_blockEntity.getPersistentData().putBoolean("Lucky_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -198,39 +151,17 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-5 ~-1 ~5 ~5 ~-1 ~-5 minecraft:netherrack");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-5 ~ ~5 ~5 ~ ~-5 minecraft:fire");
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Allumer le feu"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-5 ~-1 ~5 ~5 ~-1 ~-5 minecraft:netherrack");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-5 ~ ~5 ~5 ~ ~-5 minecraft:fire");
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Allumer le feu"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 26300 && Random <= 27500) {
@@ -253,48 +184,26 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(4)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 palamod:amethyste_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-2 ~1 ~2 ~2 ~1 ~-2 palamod:amethyste_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-1 ~2 ~1 ~1 ~2 ~-1 palamod:amethyste_block");
+					world.setBlock(BlockPos.containing(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Amethyste beacon"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 palamod:amethyste_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-2 ~1 ~2 ~2 ~1 ~-2 palamod:amethyste_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-1 ~2 ~1 ~1 ~2 ~-1 palamod:amethyste_block");
-						world.setBlock(new BlockPos(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Amethyste beacon"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 3;
 			}
 			if (Random >= 27500 && Random <= 14700) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("Vous avez eu un event non impl\uFFFDment\uFFFD ( Analyste ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
+					_player.displayClientMessage(Component.literal("Vous avez eu un event non impl\uFFFDment\uFFFD ( Analyste ) ( N\uFFFDgatif ) Vous avez le droit \uFFFD un deuxi\uFFFDme essai"), true);
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(PalamodModItems.CHUNKANASLYSER.get());
 					_setstack.setCount(1);
@@ -319,11 +228,11 @@ public class Luckyprocessv1Procedure {
 					ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
 				}
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putBoolean("Lucky_lock", false);
+						_blockEntity.getPersistentData().putBoolean("Lucky_lock", false);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -352,39 +261,17 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-5 ~-1 ~5 ~5 ~-1 ~-5 minecraft:cobweb");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-5 ~ ~5 ~5 ~ ~-5 minecraft:cobweb");
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Aracno- trap"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-5 ~-1 ~5 ~5 ~-1 ~-5 minecraft:cobweb");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-5 ~ ~5 ~5 ~ ~-5 minecraft:cobweb");
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Aracno- trap"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 26300 && Random <= 35600) {
@@ -394,8 +281,8 @@ public class Luckyprocessv1Procedure {
 						Entity entityToSpawn = new Bat(EntityType.BAT, _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
 						if (entityToSpawn instanceof Mob _mobToSpawn)
-							_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-						world.addFreshEntity(entityToSpawn);
+							_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+						_level.addFreshEntity(entityToSpawn);
 					}
 				}
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
@@ -416,33 +303,11 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Batman Nerveux"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Batman Nerveux"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 35600 && Random <= 81900) {
@@ -470,37 +335,15 @@ public class Luckyprocessv1Procedure {
 						Entity entityToSpawn = new IronGolem(EntityType.IRON_GOLEM, _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
 						if (entityToSpawn instanceof Mob _mobToSpawn)
-							_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-						world.addFreshEntity(entityToSpawn);
+							_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+						_level.addFreshEntity(entityToSpawn);
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Body guard"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Body guard"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 81900 && Random <= 97300) {
@@ -528,37 +371,15 @@ public class Luckyprocessv1Procedure {
 						Entity entityToSpawn = new PaladiumdynamiteEntity(PalamodModEntities.PALADIUMDYNAMITE.get(), _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
 						if (entityToSpawn instanceof Mob _mobToSpawn)
-							_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-						world.addFreshEntity(entityToSpawn);
+							_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+						_level.addFreshEntity(entityToSpawn);
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Boom"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Boom"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 97300 && Random <= 120400) {
@@ -586,37 +407,15 @@ public class Luckyprocessv1Procedure {
 						Entity entityToSpawn = new BigdynamiteentityEntity(PalamodModEntities.BIGDYNAMITEENTITY.get(), _level);
 						entityToSpawn.moveTo(x, y, z, world.getRandom().nextFloat() * 360F, 0);
 						if (entityToSpawn instanceof Mob _mobToSpawn)
-							_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-						world.addFreshEntity(entityToSpawn);
+							_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+						_level.addFreshEntity(entityToSpawn);
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "BOOM"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "BOOM"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 120400 && Random <= 129700) {
@@ -639,43 +438,21 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				world.setBlock(new BlockPos(x, y, z), Blocks.BAMBOO_SAPLING.defaultBlockState(), 3);
+				world.setBlock(BlockPos.containing(x, y, z), Blocks.BAMBOO_SAPLING.defaultBlockState(), 3);
 				for (int index4 = 0; index4 < 5; index4++) {
 					if (world instanceof Level _level) {
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						if (BoneMealItem.growCrop(new ItemStack(Items.BONE_MEAL), _level, _bp) || BoneMealItem.growWaterPlant(new ItemStack(Items.BONE_MEAL), _level, _bp, null)) {
 							if (!_level.isClientSide())
 								_level.levelEvent(2005, _bp, 0);
 						}
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Boo-Ban"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Boo-Ban"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 3;
 			}
 			if (Random >= 129700 && Random <= 139000) {
@@ -699,64 +476,20 @@ public class Luckyprocessv1Procedure {
 					_player.containerMenu.broadcastChanges();
 				}
 				for (int index5 = 0; index5 < 100; index5++) {
-					new Object() {
-						private int ticks = 0;
-						private float waitTicks;
-						private LevelAccessor world;
-
-						public void start(LevelAccessor world, int waitTicks) {
-							this.waitTicks = waitTicks;
-							MinecraftForge.EVENT_BUS.register(this);
-							this.world = world;
+					PalamodMod.queueServerWork(20, () -> {
+						{
+							Entity _ent = entity;
+							_ent.teleportTo(x, (y + 1), z);
+							if (_ent instanceof ServerPlayer _serverPlayer)
+								_serverPlayer.connection.teleport(x, (y + 1), z, _ent.getYRot(), _ent.getXRot());
 						}
-
-						@SubscribeEvent
-						public void tick(TickEvent.ServerTickEvent event) {
-							if (event.phase == TickEvent.Phase.END) {
-								this.ticks += 1;
-								if (this.ticks >= this.waitTicks)
-									run();
-							}
-						}
-
-						private void run() {
-							{
-								Entity _ent = entity;
-								_ent.teleportTo(x, (y + 1), z);
-								if (_ent instanceof ServerPlayer _serverPlayer)
-									_serverPlayer.connection.teleport(x, (y + 1), z, _ent.getYRot(), _ent.getXRot());
-							}
-							MinecraftForge.EVENT_BUS.unregister(this);
-						}
-					}.start(world, 20);
+					});
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Bunny life"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Bunny life"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 139000 && Random <= 143600) {
@@ -781,33 +514,11 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "\"C'est pas pass\uFFFD loin\""));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "\"C'est pas pass\uFFFD loin\""));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 143600 && Random <= 145100) {
@@ -836,33 +547,11 @@ public class Luckyprocessv1Procedure {
 					if (_ent instanceof ServerPlayer _serverPlayer)
 						_serverPlayer.connection.teleport(x, 256, z, _ent.getYRot(), _ent.getXRot());
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "\"C'est tr\uFFFDs haut non ?\""));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "\"C'est tr\uFFFDs haut non ?\""));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 145100 && Random <= 143600) {
@@ -893,37 +582,15 @@ public class Luckyprocessv1Procedure {
 						entityToSpawn.setYHeadRot(0);
 						entityToSpawn.setDeltaMovement(0, 0, 0);
 						if (entityToSpawn instanceof Mob _mobToSpawn)
-							_mobToSpawn.finalizeSpawn(_level, world.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
-						world.addFreshEntity(entityToSpawn);
+							_mobToSpawn.finalizeSpawn(_level, _level.getCurrentDifficultyAt(entityToSpawn.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+						_level.addFreshEntity(entityToSpawn);
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Caballo de la muerte"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Caballo de la muerte"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 145100 && Random <= 147400) {
@@ -948,35 +615,13 @@ public class Luckyprocessv1Procedure {
 					_player.containerMenu.broadcastChanges();
 				}
 				if (world instanceof ServerLevel _level)
-					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
+					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"msg @s Le coffre au tr\uFFFDsor est a X:21000 Y:255 Z:100");
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "carte au tr\uFFFDsor (\uFFFD$\uFFFD$"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "carte au tr\uFFFDsor (\uFFFD$\uFFFD$"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 147400 && Random <= 149700) {
@@ -1001,40 +646,18 @@ public class Luckyprocessv1Procedure {
 					_player.containerMenu.broadcastChanges();
 				}
 				if (world instanceof ServerLevel _level)
-					_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
+					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 							"msg @s Le coffre au tr\uFFFDsor est a X:21000 Y:255 Z:100");
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "carte au tr\uFFFDsor $\uFFFD$"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "carte au tr\uFFFDsor $\uFFFD$"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 149700 && Random <= 151200) {
 				PalamodModVariables.lucky_name = "Au voleur";
-				world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.ALARM.get().defaultBlockState(), 3);
+				world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.ALARM.get().defaultBlockState(), 3);
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(PalamodModBlocks.ALARM.get());
 					_setstack.setCount(1);
@@ -1053,38 +676,16 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Au voleur"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Au voleur"));
-						}
-						PalamodModVariables.Lucky_destroy = 1;
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+					PalamodModVariables.Lucky_destroy = 1;
+				});
 			}
 			if (Random >= 151200 && Random <= 152100) {
 				PalamodModVariables.lucky_name = "Coffre fort ";
-				world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.MEGASAFECHEST.get().defaultBlockState(), 3);
+				world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.MEGASAFECHEST.get().defaultBlockState(), 3);
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(PalamodModBlocks.MEGASAFECHEST.get());
 					_setstack.setCount(1);
@@ -1103,38 +704,16 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Coffre fort"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Coffre fort"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 152100 && Random <= 156700) {
 				PalamodModVariables.lucky_name = "Colorful lamp";
-				world.setBlock(new BlockPos(x, y, z), PalamodModBlocks.COLOREDLAMP.get().defaultBlockState(), 3);
+				world.setBlock(BlockPos.containing(x, y, z), PalamodModBlocks.COLOREDLAMP.get().defaultBlockState(), 3);
 				if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
 					ItemStack _setstack = new ItemStack(PalamodModBlocks.COLOFULLAMP.get());
 					_setstack.setCount(1);
@@ -1153,33 +732,11 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Colorful lamp"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Colorful lamp"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 2;
 			}
 			if (Random >= 156700 && Random <= 157200) {
@@ -1207,33 +764,11 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Comment t'a eu \uFFFDa"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Comment t'a eu \uFFFDa"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 157200 && Random <= 161700) {
@@ -1263,97 +798,53 @@ public class Luckyprocessv1Procedure {
 				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.fall")), SoundSource.MASTER, 2, 1);
+						_level.playSound(null, BlockPos.containing(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.fall")), SoundSource.MASTER, 2, 1);
 					} else {
 						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.anvil.fall")), SoundSource.MASTER, 2, 1, false);
 					}
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Consolation"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Consolation"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 1;
 			}
 			if (Random >= 161700 && Random <= 164000) {
 				PalamodModVariables.lucky_name = "Diamond beacon";
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 minecraft:diamond_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-2 ~1 ~2 ~2 ~1 ~-2 minecraft:diamond_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-1 ~2 ~1 ~1 ~2 ~-1 minecraft:diamond_block");
+					world.setBlock(BlockPos.containing(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
+						_setstack.setCount(1);
+						((Slot) _slots.get(3)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
+						_setstack.setCount(1);
+						((Slot) _slots.get(4)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
 					}
-
-					private void run() {
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 minecraft:diamond_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-2 ~1 ~2 ~2 ~1 ~-2 minecraft:diamond_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-1 ~2 ~1 ~1 ~2 ~-1 minecraft:diamond_block");
-						world.setBlock(new BlockPos(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
-						if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-							ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
-							_setstack.setCount(1);
-							((Slot) _slots.get(3)).set(_setstack);
-							_player.containerMenu.broadcastChanges();
-						}
-						if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-							ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
-							_setstack.setCount(1);
-							((Slot) _slots.get(4)).set(_setstack);
-							_player.containerMenu.broadcastChanges();
-						}
-						if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
-							ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
-							_setstack.setCount(1);
-							((Slot) _slots.get(5)).set(_setstack);
-							_player.containerMenu.broadcastChanges();
-						}
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Diamond beacon"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
+					if (entity instanceof ServerPlayer _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
+						ItemStack _setstack = new ItemStack(Blocks.DIAMOND_BLOCK);
+						_setstack.setCount(1);
+						((Slot) _slots.get(5)).set(_setstack);
+						_player.containerMenu.broadcastChanges();
 					}
-				}.start(world, 100);
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Diamond beacon"));
+					}
+				});
 				PalamodModVariables.Lucky_destroy = 3;
 			}
 			if (Random >= 161700 && Random <= 164000) {
@@ -1376,63 +867,41 @@ public class Luckyprocessv1Procedure {
 					((Slot) _slots.get(5)).set(_setstack);
 					_player.containerMenu.broadcastChanges();
 				}
-				new Object() {
-					private int ticks = 0;
-					private float waitTicks;
-					private LevelAccessor world;
-
-					public void start(LevelAccessor world, int waitTicks) {
-						this.waitTicks = waitTicks;
-						MinecraftForge.EVENT_BUS.register(this);
-						this.world = world;
+				PalamodMod.queueServerWork(100, () -> {
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 minecraft:diamond_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-2 ~1 ~2 ~2 ~1 ~-2 minecraft:diamond_block");
+					if (world instanceof ServerLevel _level)
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"fill ~-1 ~2 ~1 ~1 ~2 ~-1 minecraft:diamond_block");
+					world.setBlock(BlockPos.containing(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
+					if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
+						PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Diamond beacon"));
 					}
-
-					@SubscribeEvent
-					public void tick(TickEvent.ServerTickEvent event) {
-						if (event.phase == TickEvent.Phase.END) {
-							this.ticks += 1;
-							if (this.ticks >= this.waitTicks)
-								run();
-						}
-					}
-
-					private void run() {
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-3 ~-1 ~3 ~3 ~-1 ~-3 minecraft:diamond_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-2 ~1 ~2 ~2 ~1 ~-2 minecraft:diamond_block");
-						if (world instanceof ServerLevel _level)
-							_level.getServer().getCommands().performCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y - 1), z), Vec2.ZERO, _level, 4, "", new TextComponent(""), _level.getServer(), null).withSuppressedOutput(),
-									"fill ~-1 ~2 ~1 ~1 ~2 ~-1 minecraft:diamond_block");
-						world.setBlock(new BlockPos(x, y + 2, z), Blocks.BEACON.defaultBlockState(), 3);
-						if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
-							PalamodMod.LOGGER.info((entity.getDisplayName().getString() + " \uFFFD eu aux lucky block l'event" + "Diamond beacon"));
-						}
-						MinecraftForge.EVENT_BUS.unregister(this);
-					}
-				}.start(world, 100);
+				});
 				PalamodModVariables.Lucky_destroy = 3;
 			}
 			if (Random > 164000) {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putDouble("Random_lucky", Random);
+						_blockEntity.getPersistentData().putDouble("Random_lucky", Random);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
 				Luckyprocessv2Procedure.execute(world, x, y, z, entity);
 			} else {
 				if (!world.isClientSide()) {
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
-						_blockEntity.getTileData().putString("lucky_name", PalamodModVariables.lucky_name);
+						_blockEntity.getPersistentData().putString("lucky_name", PalamodModVariables.lucky_name);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}

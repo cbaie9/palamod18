@@ -22,7 +22,7 @@ public class LuckyexitProcedure {
 		double destroy = 0;
 		if (PalamodModVariables.Lucky_destroy == 1) {
 			{
-				BlockPos _bp = new BlockPos(x, y, z);
+				BlockPos _bp = BlockPos.containing(x, y, z);
 				BlockState _bs = Blocks.AIR.defaultBlockState();
 				BlockState _bso = world.getBlockState(_bp);
 				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {

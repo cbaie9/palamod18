@@ -13,7 +13,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed0")) {
@@ -22,7 +22,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed1")) {
@@ -31,7 +31,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed2")) {
@@ -40,7 +40,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed3")) {
@@ -49,7 +49,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed4")) {
@@ -58,7 +58,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed5")) {
@@ -67,7 +67,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed6")) {
@@ -76,7 +76,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed7")) {
@@ -85,7 +85,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed8")) {
@@ -94,7 +94,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed9")) {
@@ -103,7 +103,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed10")) {
@@ -112,7 +112,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed11")) {
@@ -121,7 +121,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed12")) {
@@ -130,7 +130,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed13")) {
@@ -139,7 +139,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed14")) {
@@ -148,7 +148,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed15")) {
@@ -157,7 +157,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed16")) {
@@ -166,7 +166,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed17")) {
@@ -175,7 +175,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed18")) {
@@ -184,7 +184,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed19")) {
@@ -193,7 +193,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed20")) {
@@ -202,7 +202,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed21")) {
@@ -211,7 +211,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed22")) {
@@ -220,7 +220,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed23")) {
@@ -229,7 +229,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed24")) {
@@ -238,7 +238,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed25")) {
@@ -247,7 +247,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed26")) {
@@ -256,7 +256,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed27")) {
@@ -265,7 +265,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed28")) {
@@ -274,7 +274,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed29")) {
@@ -283,7 +283,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed30")) {
@@ -292,7 +292,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed31")) {
@@ -301,7 +301,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed32")) {
@@ -310,7 +310,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed33")) {
@@ -319,7 +319,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed34")) {
@@ -328,7 +328,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed35")) {
@@ -337,7 +337,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed36")) {
@@ -346,7 +346,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed37")) {
@@ -355,7 +355,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed38")) {
@@ -364,7 +364,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed39")) {
@@ -373,7 +373,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed40")) {
@@ -382,7 +382,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed41")) {
@@ -391,7 +391,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed42")) {
@@ -400,7 +400,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed43")) {
@@ -409,7 +409,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed44")) {
@@ -418,7 +418,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed45")) {
@@ -427,7 +427,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed46")) {
@@ -436,7 +436,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed47")) {
@@ -445,7 +445,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed48")) {
@@ -454,7 +454,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed49")) {
@@ -463,7 +463,7 @@ public class HdvreturnslotProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), "market_buyed50")) {
@@ -473,7 +473,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed51")) {
@@ -482,7 +482,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed52")) {
@@ -491,7 +491,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed53")) {
@@ -500,7 +500,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed54")) {
@@ -509,7 +509,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed55")) {
@@ -518,7 +518,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed56")) {
@@ -527,7 +527,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed57")) {
@@ -536,7 +536,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed58")) {
@@ -545,7 +545,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed59")) {
@@ -554,7 +554,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed60")) {
@@ -563,7 +563,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed61")) {
@@ -572,7 +572,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed62")) {
@@ -581,7 +581,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed63")) {
@@ -590,7 +590,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed64")) {
@@ -599,7 +599,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed65")) {
@@ -608,7 +608,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed66")) {
@@ -617,7 +617,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed67")) {
@@ -626,7 +626,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed68")) {
@@ -635,7 +635,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed69")) {
@@ -644,7 +644,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed70")) {
@@ -653,7 +653,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed71")) {
@@ -662,7 +662,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed72")) {
@@ -671,7 +671,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed73")) {
@@ -680,7 +680,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed74")) {
@@ -689,7 +689,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed75")) {
@@ -698,7 +698,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed76")) {
@@ -707,7 +707,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed77")) {
@@ -716,7 +716,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed78")) {
@@ -725,7 +725,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed79")) {
@@ -734,7 +734,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed80")) {
@@ -743,7 +743,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed81")) {
@@ -752,7 +752,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed82")) {
@@ -761,7 +761,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed83")) {
@@ -770,7 +770,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed84")) {
@@ -779,7 +779,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed85")) {
@@ -788,7 +788,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed86")) {
@@ -797,7 +797,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed87")) {
@@ -806,7 +806,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed88")) {
@@ -815,7 +815,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed89")) {
@@ -824,7 +824,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed90")) {
@@ -833,7 +833,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed91")) {
@@ -842,7 +842,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed92")) {
@@ -851,7 +851,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed93")) {
@@ -860,7 +860,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed94")) {
@@ -869,7 +869,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed95")) {
@@ -878,7 +878,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed96")) {
@@ -887,7 +887,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed97")) {
@@ -896,7 +896,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed98")) {
@@ -905,7 +905,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed99")) {
@@ -914,7 +914,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed100")) {
@@ -923,7 +923,7 @@ public class HdvreturnslotProcedure {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getBoolean(tag);
+						return blockEntity.getPersistentData().getBoolean(tag);
 					return false;
 				}
 			}.getValue(world, new BlockPos(0, 10, 0), "market_buyed101")) {

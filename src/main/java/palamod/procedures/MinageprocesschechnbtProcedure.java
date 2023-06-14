@@ -13,7 +13,7 @@ public class MinageprocesschechnbtProcedure {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getBoolean(tag);
+					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), ("Minage_setlayer_" + entity.getDisplayName().getString()))) {

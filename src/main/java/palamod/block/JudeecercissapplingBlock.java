@@ -3,11 +3,6 @@ package palamod.block;
 
 import palamod.procedures.JudeecercissapplinggrowProcedure;
 
-import palamod.init.PalamodModBlocks;
-
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -24,12 +19,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 public class JudeecercissapplingBlock extends Block {
 	public JudeecercissapplingBlock() {
-		super(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRASS).strength(0f, 10f).noCollission().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).noDrops());
+		super(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRASS).strength(0f, 10f).noCollission().noOcclusion().isRedstoneConductor((bs, br, bp) -> false).noLootTable());
 	}
 
 	@Override
@@ -59,10 +52,5 @@ public class JudeecercissapplingBlock extends Block {
 		Direction direction = hit.getDirection();
 		JudeecercissapplinggrowProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(PalamodModBlocks.JUDEECERCISSAPPLING.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

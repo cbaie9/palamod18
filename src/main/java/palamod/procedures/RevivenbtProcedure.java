@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 public class RevivenbtProcedure {
 	@SubscribeEvent
 	public static void onPlayerRespawned(PlayerEvent.PlayerRespawnEvent event) {
-		execute(event, event.getPlayer().level, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ());
+		execute(event, event.getEntity().level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ());
 	}
 
 	public static void execute(LevelAccessor world, double x, double y, double z) {
@@ -26,11 +26,11 @@ public class RevivenbtProcedure {
 
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z) {
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putBoolean("Palamod.alive", true);
+				_blockEntity.getPersistentData().putBoolean("Palamod.alive", true);
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

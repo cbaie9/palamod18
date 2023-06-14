@@ -2,7 +2,7 @@ package palamod.procedures;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.commands.CommandSourceStack;
 
 import com.mojang.brigadier.context.CommandContext;
@@ -20,6 +20,6 @@ public class SethomeprocessProcedure {
 		entity.getPersistentData().putBoolean((StringArgumentType.getString(arguments, "home_name")), true);
 		entity.getPersistentData().putString(("home_name_" + entity.getPersistentData().getDouble("number_home")), (StringArgumentType.getString(arguments, "home_name")));
 		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(new TextComponent("[ Palamod ] Le home \u00E0 \u00E9t\u00E9 creer a votre position actuel"), false);
+			_player.displayClientMessage(Component.literal("[ Palamod ] Le home \u00E0 \u00E9t\u00E9 creer a votre position actuel"), false);
 	}
 }

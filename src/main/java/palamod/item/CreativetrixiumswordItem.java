@@ -1,8 +1,6 @@
 
 package palamod.item;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -15,7 +13,7 @@ import com.google.common.collect.ImmutableMultimap;
 
 public class CreativetrixiumswordItem extends Item {
 	public CreativetrixiumswordItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(0).fireResistant().rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(0).fireResistant().rarity(Rarity.COMMON));
 	}
 
 	@Override

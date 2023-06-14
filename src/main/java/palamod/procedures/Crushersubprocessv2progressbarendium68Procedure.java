@@ -10,10 +10,10 @@ public class Crushersubprocessv2progressbarendium68Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "crusher_num_endium") == 68) {
+		}.getValue(world, BlockPos.containing(x, y, z), "crusher_num_endium") == 68) {
 			return true;
 		}
 		return false;

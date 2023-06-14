@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Examplecrusherv2Menu;
@@ -238,12 +237,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -1231,7 +1228,7 @@ public class Examplecrusherv2Screen extends AbstractContainerScreen<Examplecrush
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.examplecrusherv_2.label_paladium_crusher"), 121, 3, -3407821);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.examplecrusherv_2.label_paladium_crusher"), 121, 3, -3407821);
 		this.font.draw(poseStack,
 
 				Crushertrans0Procedure.execute(entity), 13, 111, -12829636);
@@ -1244,26 +1241,24 @@ public class Examplecrusherv2Screen extends AbstractContainerScreen<Examplecrush
 		this.font.draw(poseStack,
 
 				Crushertrans1Procedure.execute(entity), 27, 58, -3394816);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.examplecrusherv_2.label_fruits"), 26, 24, -3407668);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.examplecrusherv_2.label_v2004"), 202, 192, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.examplecrusherv_2.label_fruits"), 26, 24, -3407668);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.examplecrusherv_2.label_v2004"), 202, 192, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_return_to_wiki = new Button(this.leftPos + 212, this.topPos + 94, 103, 20, new TranslatableComponent("gui.palamod.examplecrusherv_2.button_return_to_wiki"), e -> {
+		button_return_to_wiki = Button.builder(Component.translatable("gui.palamod.examplecrusherv_2.button_return_to_wiki"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Examplecrusherv2ButtonMessage(0, x, y, z));
 				Examplecrusherv2ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 212, this.topPos + 94, 103, 20).build();
 		guistate.put("button:button_return_to_wiki", button_return_to_wiki);
 		this.addRenderableWidget(button_return_to_wiki);
 		imagebutton_button_blank = new ImageButton(this.leftPos + 214, this.topPos + 48, 92, 20, 0, 0, 20, new ResourceLocation("palamod:textures/screens/atlas/imagebutton_button_blank.png"), 92, 40, e -> {

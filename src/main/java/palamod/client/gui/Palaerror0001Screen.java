@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Palaerror0001Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -75,27 +72,25 @@ public class Palaerror0001Screen extends AbstractContainerScreen<Palaerror0001Me
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0001.label_pala_error_0001"), 48, 3, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0001.label_the_hdv_is_locked_for_organisati"), 6, 18, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0001.label_try_later"), 67, 28, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0001.label_pala_error_0001"), 48, 3, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0001.label_the_hdv_is_locked_for_organisati"), 6, 18, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0001.label_try_later"), 67, 28, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_reconnect_to_hdv = new Button(this.leftPos + 40, this.topPos + 46, 108, 20, new TranslatableComponent("gui.palamod.palaerror_0001.button_reconnect_to_hdv"), e -> {
+		button_reconnect_to_hdv = Button.builder(Component.translatable("gui.palamod.palaerror_0001.button_reconnect_to_hdv"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palaerror0001ButtonMessage(0, x, y, z));
 				Palaerror0001ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 40, this.topPos + 46, 108, 20).build();
 		guistate.put("button:button_reconnect_to_hdv", button_reconnect_to_hdv);
 		this.addRenderableWidget(button_reconnect_to_hdv);
 	}

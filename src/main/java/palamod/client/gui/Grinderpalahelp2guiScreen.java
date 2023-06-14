@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Grinderpalahelp2guiMenu;
@@ -23,11 +22,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -101,8 +98,8 @@ public class Grinderpalahelp2guiScreen extends AbstractContainerScreen<Grinderpa
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grinderpalahelp_2gui.label_22"), 243, 5, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.grinderpalahelp_2gui.label_grinder_wiki"), 133, 6, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grinderpalahelp_2gui.label_22"), 243, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.grinderpalahelp_2gui.label_grinder_wiki"), 133, 6, -12829636);
 		this.font.draw(poseStack,
 
 				Palahelpgrinder20Procedure.execute(entity), 3, 37, -12829636);
@@ -141,27 +138,25 @@ public class Grinderpalahelp2guiScreen extends AbstractContainerScreen<Grinderpa
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_back = new Button(this.leftPos + 260, this.topPos + 169, 45, 20, new TranslatableComponent("gui.palamod.grinderpalahelp_2gui.button_back"), e -> {
+		button_back = Button.builder(Component.translatable("gui.palamod.grinderpalahelp_2gui.button_back"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Grinderpalahelp2guiButtonMessage(0, x, y, z));
 				Grinderpalahelp2guiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 260, this.topPos + 169, 45, 20).build();
 		guistate.put("button:button_back", button_back);
 		this.addRenderableWidget(button_back);
-		button_menu = new Button(this.leftPos + 260, this.topPos + 147, 45, 20, new TranslatableComponent("gui.palamod.grinderpalahelp_2gui.button_menu"), e -> {
+		button_menu = Button.builder(Component.translatable("gui.palamod.grinderpalahelp_2gui.button_menu"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Grinderpalahelp2guiButtonMessage(1, x, y, z));
 				Grinderpalahelp2guiButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 260, this.topPos + 147, 45, 20).build();
 		guistate.put("button:button_menu", button_menu);
 		this.addRenderableWidget(button_menu);
 	}

@@ -10,17 +10,17 @@ public class Forgesubprocessgui15Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "timer") > 70 && new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "timer") > 70 && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "timer") <= 75) {
+		}.getValue(world, BlockPos.containing(x, y, z), "timer") <= 75) {
 			return true;
 		}
 		return false;

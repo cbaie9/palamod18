@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Hdvv3Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -84,51 +81,49 @@ public class Hdvv3Screen extends AbstractContainerScreen<Hdvv3Menu> {
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_acheter = new Button(this.leftPos + 43, this.topPos + 16, 61, 20, new TranslatableComponent("gui.palamod.hdvv_3.button_acheter"), e -> {
+		button_acheter = Button.builder(Component.translatable("gui.palamod.hdvv_3.button_acheter"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Hdvv3ButtonMessage(0, x, y, z));
 				Hdvv3ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 43, this.topPos + 16, 61, 20).build();
 		guistate.put("button:button_acheter", button_acheter);
 		this.addRenderableWidget(button_acheter);
-		button_acheter1 = new Button(this.leftPos + 46, this.topPos + 54, 61, 20, new TranslatableComponent("gui.palamod.hdvv_3.button_acheter1"), e -> {
+		button_acheter1 = Button.builder(Component.translatable("gui.palamod.hdvv_3.button_acheter1"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Hdvv3ButtonMessage(1, x, y, z));
 				Hdvv3ButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 46, this.topPos + 54, 61, 20).build();
 		guistate.put("button:button_acheter1", button_acheter1);
 		this.addRenderableWidget(button_acheter1);
-		button_acheter2 = new Button(this.leftPos + 44, this.topPos + 97, 61, 20, new TranslatableComponent("gui.palamod.hdvv_3.button_acheter2"), e -> {
+		button_acheter2 = Button.builder(Component.translatable("gui.palamod.hdvv_3.button_acheter2"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Hdvv3ButtonMessage(2, x, y, z));
 				Hdvv3ButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 44, this.topPos + 97, 61, 20).build();
 		guistate.put("button:button_acheter2", button_acheter2);
 		this.addRenderableWidget(button_acheter2);
-		button_sell = new Button(this.leftPos + 173, this.topPos + 196, 46, 20, new TranslatableComponent("gui.palamod.hdvv_3.button_sell"), e -> {
+		button_sell = Button.builder(Component.translatable("gui.palamod.hdvv_3.button_sell"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Hdvv3ButtonMessage(3, x, y, z));
 				Hdvv3ButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 173, this.topPos + 196, 46, 20).build();
 		guistate.put("button:button_sell", button_sell);
 		this.addRenderableWidget(button_sell);
-		button_help = new Button(this.leftPos + 114, this.topPos + 198, 46, 20, new TranslatableComponent("gui.palamod.hdvv_3.button_help"), e -> {
+		button_help = Button.builder(Component.translatable("gui.palamod.hdvv_3.button_help"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Hdvv3ButtonMessage(4, x, y, z));
 				Hdvv3ButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 114, this.topPos + 198, 46, 20).build();
 		guistate.put("button:button_help", button_help);
 		this.addRenderableWidget(button_help);
 	}

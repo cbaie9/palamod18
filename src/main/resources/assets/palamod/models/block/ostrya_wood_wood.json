@@ -1,7 +1,8 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "palamod:blocks/ostrya_log",
-    "particle": "palamod:blocks/ostrya_log"
-  }
+    "all": "palamod:block/ostrya_log",
+    "particle": "palamod:block/ostrya_log"
+  },
+  "render_type": "solid"
 }

@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.gui.components.EditBox;
 
@@ -44,7 +44,7 @@ public class AdhoresameProcedure {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent("You cannot bought nothing put a number greater than 0 to continue"), false);
+				_player.displayClientMessage(Component.literal("You cannot bought nothing put a number greater than 0 to continue"), false);
 			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
 				PalamodMod.LOGGER.debug((entity.getDisplayName().getString() + " tried to bought 0 " + item.getDisplayName().getString()));
 			}
@@ -53,7 +53,7 @@ public class AdhoresameProcedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
 		}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString()))) {
@@ -62,11 +62,11 @@ public class AdhoresameProcedure {
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_blockEntity != null)
-					_blockEntity.getTileData().putDouble(("money_" + entity.getDisplayName().getString()), ((new Object() {
+					_blockEntity.getPersistentData().putDouble(("money_" + entity.getDisplayName().getString()), ((new Object() {
 						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
 							if (blockEntity != null)
-								return blockEntity.getTileData().getDouble(tag);
+								return blockEntity.getPersistentData().getDouble(tag);
 							return -1;
 						}
 					}.getValue(world, new BlockPos(0, 10, 0), ("money_" + entity.getDisplayName().getString()))) - n * fac_v));
@@ -81,7 +81,7 @@ public class AdhoresameProcedure {
 			if (entity instanceof Player _player)
 				_player.closeContainer();
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("You succesfuly bought " + n + " " + item.getDisplayName().getString() + " for a total of " + n * fac_v + " $")), false);
+				_player.displayClientMessage(Component.literal(("You succesfuly bought " + n + " " + item.getDisplayName().getString() + " for a total of " + n * fac_v + " $")), false);
 			if (world.getLevelData().getGameRules().getBoolean(PalamodModGameRules.LOGSALL)) {
 				PalamodMod.LOGGER.debug((entity.getDisplayName().getString() + " bought " + n + " " + item.getDisplayName().getString() + " for a total of " + n * fac_v + " $"));
 			}
@@ -90,10 +90,10 @@ public class AdhoresameProcedure {
 				_player.closeContainer();
 			if (1 < n) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("You don't enough money to buy these items"), false);
+					_player.displayClientMessage(Component.literal("You don't enough money to buy these items"), false);
 			} else {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(new TextComponent("You don't enough money to buy this item"), false);
+					_player.displayClientMessage(Component.literal("You don't enough money to buy this item"), false);
 			}
 		}
 	}

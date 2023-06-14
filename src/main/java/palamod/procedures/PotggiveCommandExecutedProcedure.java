@@ -11,6 +11,6 @@ public class PotggiveCommandExecutedProcedure {
 			return;
 		entity.getPersistentData().putDouble("Pickaxe_stone", 20000000);
 		(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getOrCreateTag().putDouble("Pickaxe_stone", 20000000);
-		((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)).enchant(Enchantments.BLOCK_EFFICIENCY, 6);
+		(entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).enchant(Enchantments.BLOCK_EFFICIENCY, 6);
 	}
 }

@@ -46,6 +46,7 @@
     "portalSound": {
       "value": "block.portal.ambient"
     },
+    "enableIgniter": true,
     "igniterName": "Minage Portal Igniter",
     "igniterTab": {
       "value": "CUSTOM:Palamod"

@@ -3,8 +3,6 @@ package palamod.item;
 
 import palamod.procedures.XpberryprocessProcedure;
 
-import palamod.init.PalamodModTabs;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
@@ -16,7 +14,7 @@ import net.minecraft.world.InteractionHand;
 
 public class XpberryItem extends Item {
 	public XpberryItem() {
-		super(new Item.Properties().tab(PalamodModTabs.TAB_PALAMOD).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override
@@ -31,7 +29,6 @@ public class XpberryItem extends Item {
 		double x = entity.getX();
 		double y = entity.getY();
 		double z = entity.getZ();
-
 		XpberryprocessProcedure.execute(entity);
 		return ar;
 	}

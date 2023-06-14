@@ -19,10 +19,10 @@ public class FtrprocessProcedure {
 				public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
 					if (blockEntity != null)
-						return blockEntity.getTileData().getDouble(tag);
+						return blockEntity.getPersistentData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos(x, y, z), "PF_ftr")));
+			}.getValue(world, BlockPos.containing(x, y, z), "PF_ftr")));
 			_player.containerMenu.broadcastChanges();
 		}
 	}

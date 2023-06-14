@@ -12,7 +12,7 @@ import net.minecraft.world.entity.Entity;
 
 public class MoneyotherItem extends Item {
 	public MoneyotherItem() {
-		super(new Item.Properties().tab(null).stacksTo(1).rarity(Rarity.COMMON));
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.COMMON));
 	}
 
 	@Override

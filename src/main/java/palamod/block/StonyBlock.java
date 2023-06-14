@@ -15,7 +15,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 
@@ -23,13 +22,13 @@ import java.util.List;
 
 public class StonyBlock extends Block {
 	public StonyBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).noDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).noLootTable());
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("auto-respawnable block for creating unbreakble wall ( creative )"));
+		list.add(Component.literal("auto-respawnable block for creating unbreakble wall ( creative )"));
 	}
 
 	@Override

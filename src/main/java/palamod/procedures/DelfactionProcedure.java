@@ -14,38 +14,38 @@ public class DelfactionProcedure {
 		entity.getPersistentData().putBoolean("is_fac_deleted", true);
 		entity.getPersistentData().putBoolean("is_fac_member", false);
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("fac_id_" + entity.getPersistentData().getString("fac_member_name")), (-1));
+				_blockEntity.getPersistentData().putDouble(("fac_id_" + entity.getPersistentData().getString("fac_member_name")), (-1));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("fac_xpc_" + entity.getPersistentData().getString("fac_member_name")), (-100));
+				_blockEntity.getPersistentData().putDouble(("fac_xpc_" + entity.getPersistentData().getString("fac_member_name")), (-100));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("fac_member_name")), (-10));
+				_blockEntity.getPersistentData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("fac_member_name")), (-10));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
 		if (!world.isClientSide()) {
-			BlockPos _bp = new BlockPos(x, y, z);
+			BlockPos _bp = BlockPos.containing(x, y, z);
 			BlockEntity _blockEntity = world.getBlockEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_blockEntity != null)
-				_blockEntity.getTileData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("fac_member_name")), (-10));
+				_blockEntity.getPersistentData().putDouble(("fac_xpmlv_" + entity.getPersistentData().getString("fac_member_name")), (-10));
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}

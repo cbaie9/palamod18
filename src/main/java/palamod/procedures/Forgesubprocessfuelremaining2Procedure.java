@@ -10,17 +10,17 @@ public class Forgesubprocessfuelremaining2Procedure {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "fuelRemaining") > 0.1 && new Object() {
+		}.getValue(world, BlockPos.containing(x, y, z), "fuelRemaining") > 0.1 && new Object() {
 			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
-					return blockEntity.getTileData().getDouble(tag);
+					return blockEntity.getPersistentData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos(x, y, z), "fuelRemaining") <= 0.2) {
+		}.getValue(world, BlockPos.containing(x, y, z), "fuelRemaining") <= 0.2) {
 			return true;
 		}
 		return false;

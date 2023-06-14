@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.Palaerror0005Menu;
@@ -11,11 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -75,27 +72,25 @@ public class Palaerror0005Screen extends AbstractContainerScreen<Palaerror0005Me
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0005.label_pala_err0r_0005"), 47, 4, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0005.label_you_dont_have_the_permission_to"), 5, 26, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.palaerror_0005.label_do_that_action"), 5, 36, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0005.label_pala_err0r_0005"), 47, 4, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0005.label_you_dont_have_the_permission_to"), 5, 26, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.palaerror_0005.label_do_that_action"), 5, 36, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_quit = new Button(this.leftPos + 68, this.topPos + 53, 46, 20, new TranslatableComponent("gui.palamod.palaerror_0005.button_quit"), e -> {
+		button_quit = Button.builder(Component.translatable("gui.palamod.palaerror_0005.button_quit"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new Palaerror0005ButtonMessage(0, x, y, z));
 				Palaerror0005ButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 68, this.topPos + 53, 46, 20).build();
 		guistate.put("button:button_quit", button_quit);
 		this.addRenderableWidget(button_quit);
 	}

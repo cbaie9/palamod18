@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.TrixiumdepositMenu;
@@ -13,11 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -85,19 +82,17 @@ public class TrixiumdepositScreen extends AbstractContainerScreen<Trixiumdeposit
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		button_empty = new Button(this.leftPos + 125, this.topPos + 45, 25, 20, new TranslatableComponent("gui.palamod.trixiumdeposit.button_empty"), e -> {
+		button_empty = Button.builder(Component.translatable("gui.palamod.trixiumdeposit.button_empty"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new TrixiumdepositButtonMessage(0, x, y, z));
 				TrixiumdepositButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 125, this.topPos + 45, 25, 20).build();
 		guistate.put("button:button_empty", button_empty);
 		this.addRenderableWidget(button_empty);
 	}

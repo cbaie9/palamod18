@@ -3,7 +3,7 @@ package palamod.procedures;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.commands.CommandSourceStack;
 
 import com.mojang.brigadier.context.CommandContext;
@@ -25,11 +25,11 @@ public class HomeprocessProcedure {
 							(entity.getPersistentData().getDouble(("home_" + StringArgumentType.getString(arguments, "home_name") + "z"))), _ent.getYRot(), _ent.getXRot());
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(new TextComponent(("[ Palamod ] Vous avez \u00E9t\u00E9 t\u00E9l\u00E9port\u00E9 \u00E0 votre home " + StringArgumentType.getString(arguments, "home_name"))), false);
+				_player.displayClientMessage(Component.literal(("[ Palamod ] Vous avez \u00E9t\u00E9 t\u00E9l\u00E9port\u00E9 \u00E0 votre home " + StringArgumentType.getString(arguments, "home_name"))), false);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(
-						new TextComponent(("[ Palamod ] Le home \"" + "" + StringArgumentType.getString(arguments, "home_name") + "\" auquel vous voulez vous t\u00E9l\u00E9port\u00E9( e ) n'exste pas ou \u00E9t\u00E9 supprim\u00E9.")), false);
+						Component.literal(("[ Palamod ] Le home \"" + "" + StringArgumentType.getString(arguments, "home_name") + "\" auquel vous voulez vous t\u00E9l\u00E9port\u00E9( e ) n'exste pas ou \u00E9t\u00E9 supprim\u00E9.")), false);
 		}
 	}
 }

@@ -19,7 +19,7 @@ import java.util.Collections;
 
 public class AmethystslabBlock extends SlabBlock {
 	public AmethystslabBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.1f, 10f).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1.1f, 10f).requiresCorrectToolForDrops().dynamicShape());
 	}
 
 	@Override

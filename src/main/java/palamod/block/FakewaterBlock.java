@@ -6,7 +6,6 @@ import palamod.procedures.FakewaterMobplayerCollidesBlockProcedure;
 import palamod.init.PalamodModFluids;
 
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -16,9 +15,7 @@ import net.minecraft.core.BlockPos;
 
 public class FakewaterBlock extends LiquidBlock {
 	public FakewaterBlock() {
-		super(() -> (FlowingFluid) PalamodModFluids.FAKEWATER.get(), BlockBehaviour.Properties.of(Material.WATER).strength(100f)
-
-		);
+		super(() -> PalamodModFluids.FAKEWATER.get(), BlockBehaviour.Properties.of(Material.WATER).strength(100f).noCollission().noLootTable());
 	}
 
 	@Override

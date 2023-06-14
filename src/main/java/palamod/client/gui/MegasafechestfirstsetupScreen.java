@@ -1,4 +1,3 @@
-
 package palamod.client.gui;
 
 import palamod.world.inventory.MegasafechestfirstsetupMenu;
@@ -11,13 +10,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
@@ -83,34 +80,32 @@ public class MegasafechestfirstsetupScreen extends AbstractContainerScreen<Megas
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_safe_setup"), 55, 6, -13434625);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_1_enter_future_code_of_the_safe"), 4, 25, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_2do_you_want_link_safe_with"), 3, 64, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_this_account_bypass_the_code"), 2, 75, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_it_you"), 3, 85, -12829636);
-		this.font.draw(poseStack, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.label_3_save"), 5, 122, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_safe_setup"), 55, 6, -13434625);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_1_enter_future_code_of_the_safe"), 4, 25, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_2do_you_want_link_safe_with"), 3, 64, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_this_account_bypass_the_code"), 2, 75, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_it_you"), 3, 85, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.megasafechestfirstsetup.label_3_save"), 5, 122, -12829636);
 	}
 
 	@Override
 	public void onClose() {
 		super.onClose();
-		Minecraft.getInstance().keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
-		safe_code = new EditBox(this.font, this.leftPos + 8, this.topPos + 42, 120, 20, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.safe_code")) {
+		safe_code = new EditBox(this.font, this.leftPos + 8, this.topPos + 42, 120, 20, Component.translatable("gui.palamod.megasafechestfirstsetup.safe_code")) {
 			{
-				setSuggestion(new TranslatableComponent("gui.palamod.megasafechestfirstsetup.safe_code").getString());
+				setSuggestion(Component.translatable("gui.palamod.megasafechestfirstsetup.safe_code").getString());
 			}
 
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.megasafechestfirstsetup.safe_code").getString());
+					setSuggestion(Component.translatable("gui.palamod.megasafechestfirstsetup.safe_code").getString());
 				else
 					setSuggestion(null);
 			}
@@ -119,7 +114,7 @@ public class MegasafechestfirstsetupScreen extends AbstractContainerScreen<Megas
 			public void moveCursorTo(int pos) {
 				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
-					setSuggestion(new TranslatableComponent("gui.palamod.megasafechestfirstsetup.safe_code").getString());
+					setSuggestion(Component.translatable("gui.palamod.megasafechestfirstsetup.safe_code").getString());
 				else
 					setSuggestion(null);
 			}
@@ -127,15 +122,15 @@ public class MegasafechestfirstsetupScreen extends AbstractContainerScreen<Megas
 		safe_code.setMaxLength(32767);
 		guistate.put("text:safe_code", safe_code);
 		this.addWidget(this.safe_code);
-		button_save = new Button(this.leftPos + 26, this.topPos + 135, 46, 20, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.button_save"), e -> {
+		button_save = Button.builder(Component.translatable("gui.palamod.megasafechestfirstsetup.button_save"), e -> {
 			if (true) {
 				PalamodMod.PACKET_HANDLER.sendToServer(new MegasafechestfirstsetupButtonMessage(0, x, y, z));
 				MegasafechestfirstsetupButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		});
+		}).bounds(this.leftPos + 26, this.topPos + 135, 46, 20).build();
 		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
-		safe_link = new Checkbox(this.leftPos + 5, this.topPos + 100, 20, 20, new TranslatableComponent("gui.palamod.megasafechestfirstsetup.safe_link"), false);
+		safe_link = new Checkbox(this.leftPos + 5, this.topPos + 100, 20, 20, Component.translatable("gui.palamod.megasafechestfirstsetup.safe_link"), false);
 		guistate.put("checkbox:safe_link", safe_link);
 		this.addRenderableWidget(safe_link);
 	}
