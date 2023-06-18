@@ -3,8 +3,6 @@ package palamod.procedures;
 import palamod.world.inventory.FactionhomeguiMenu;
 import palamod.world.inventory.FactioncreateguiMenu;
 
-import palamod.network.PalamodModVariables;
-
 import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,42 +23,14 @@ public class OpenfhguiProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (entity.getPersistentData().getBoolean("is_fac_member")) {
-			{
-				String _setval = entity.getPersistentData().getString("fac_member_name");
-				entity.getCapability(PalamodModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Faction_name = _setval;
-					capability.syncPlayerVariables(entity);
-				});
+		if (new Object() {
+			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
+				BlockEntity blockEntity = world.getBlockEntity(pos);
+				if (blockEntity != null)
+					return blockEntity.getPersistentData().getBoolean(tag);
+				return false;
 			}
-			{
-				double _setval = new Object() {
-					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-						BlockEntity blockEntity = world.getBlockEntity(pos);
-						if (blockEntity != null)
-							return blockEntity.getPersistentData().getDouble(tag);
-						return -1;
-					}
-				}.getValue(world, new BlockPos(0, 9, 0), ("fac_xpmvl_" + entity.getPersistentData().getString("fac_member_name")));
-				entity.getCapability(PalamodModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Faction_max_xp = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			{
-				double _setval = new Object() {
-					public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-						BlockEntity blockEntity = world.getBlockEntity(pos);
-						if (blockEntity != null)
-							return blockEntity.getPersistentData().getDouble(tag);
-						return -1;
-					}
-				}.getValue(world, new BlockPos(0, 9, 0), ("fac_xpc_" + entity.getPersistentData().getString("fac_member_name")));
-				entity.getCapability(PalamodModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.Faction_xp = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
+		}.getValue(world, new BlockPos(0, 9, 0), ("is_fac_member_" + entity.getUUID().toString()))) {
 			{
 				if (entity instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(x, y, z);

@@ -2,7 +2,10 @@
 package palamod.command;
 
 import palamod.procedures.OpenfhguiProcedure;
+import palamod.procedures.FactionleaveProcedure;
+import palamod.procedures.FactioninviteprocessProcedure;
 import palamod.procedures.FactioncreateProcedure;
+import palamod.procedures.DelfactiontrueProcedure;
 import palamod.procedures.DelfactionProcedure;
 
 import net.minecraftforge.fml.common.Mod;
@@ -13,9 +16,12 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
+import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.Commands;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.arguments.DoubleArgumentType;
+import com.mojang.brigadier.arguments.BoolArgumentType;
 
 @Mod.EventBusSubscriber
 public class FactionCommand {
@@ -23,7 +29,7 @@ public class FactionCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("faction")
 
-				.then(Commands.literal("create").then(Commands.argument("fac_name", StringArgumentType.word()).executes(arguments -> {
+				.then(Commands.literal("create").then(Commands.argument("fac_name", StringArgumentType.string()).then(Commands.argument("Safe_id_mode", BoolArgumentType.bool()).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -35,7 +41,7 @@ public class FactionCommand {
 
 					FactioncreateProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
-				}))).then(Commands.literal("gui").executes(arguments -> {
+				})))).then(Commands.literal("gui").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -59,6 +65,42 @@ public class FactionCommand {
 
 					DelfactionProcedure.execute(world, x, y, z, entity);
 					return 0;
-				})).then(Commands.literal("leave")));
+				}).then(Commands.argument("code", DoubleArgumentType.doubleArg()).executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					DelfactiontrueProcedure.execute(world, x, y, z, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("leave").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					FactionleaveProcedure.execute(world, x, y, z, entity);
+					return 0;
+				})).then(Commands.literal("invite").then(Commands.argument("player", EntityArgument.players()).executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					FactioninviteprocessProcedure.execute(world, x, y, z, arguments, entity);
+					return 0;
+				}))));
 	}
 }

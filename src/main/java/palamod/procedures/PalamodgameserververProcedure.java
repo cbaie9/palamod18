@@ -2,7 +2,7 @@ package palamod.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 
-public class PalamodgameverProcedure {
+public class PalamodgameserververProcedure {
 	public static String execute(LevelAccessor world) {
 		double beta_num = 0;
 		double build = 0;
@@ -54,8 +54,8 @@ public class PalamodgameverProcedure {
 		} else {
 			devloppement_name = "Beta test";
 		}
-		if (world.isClientSide()) {
-			return "Palamod Renew \"" + "" + update_name + " \" " + devloppement_name + " build " + beta_num + version_letter + build_formated;
+		if (!world.isClientSide()) {
+			return "Palamod v" + beta_num + version_letter + build_formated;
 		}
 		return " ";
 	}

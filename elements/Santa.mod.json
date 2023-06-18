@@ -1,0 +1,16 @@
+{
+  "_fv": 43,
+  "_type": "villagerprofession",
+  "definition": {
+    "displayName": "Santa claus",
+    "pointOfInterest": {
+      "value": "CUSTOM:Cloudblock"
+    },
+    "actionSound": {
+      "value": "entity.villager.work_cartographer"
+    },
+    "hat": "Full",
+    "professionTextureFile": "santa-villager.png",
+    "zombifiedProfessionTextureFile": "zombified-santa-villager.png"
+  }
+}

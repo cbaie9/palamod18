@@ -2,6 +2,7 @@
 package palamod.client.screens;
 
 import palamod.procedures.ReturnsnapshotoverlayProcedure;
+import palamod.procedures.PalamodgameserververProcedure;
 import palamod.procedures.DevchecksnapProcedure;
 
 import org.checkerframework.checker.units.qual.h;
@@ -19,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 @Mod.EventBusSubscriber({Dist.CLIENT})
 public class SnapshotOverlay {
-	@SubscribeEvent(priority = EventPriority.NORMAL)
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void eventHandler(RenderGuiEvent.Pre event) {
 		int w = event.getWindow().getGuiScaledWidth();
 		int h = event.getWindow().getGuiScaledHeight();
@@ -38,10 +39,13 @@ public class SnapshotOverlay {
 		}
 		if (true) {
 			if (DevchecksnapProcedure.execute(entity))
-				Minecraft.getInstance().font.draw(event.getPoseStack(), Component.translatable("gui.palamod.snapshot.label_paladium_creator_footage_devlopp"), posX + -211, posY + -107, -26368);
+				Minecraft.getInstance().font.draw(event.getPoseStack(), Component.translatable("gui.palamod.snapshot.label_paladium_creator_footage_devlopp"), posX + -212, posY + -110, -26368);
 			Minecraft.getInstance().font.draw(event.getPoseStack(),
 
-					ReturnsnapshotoverlayProcedure.execute(entity), posX + -210, posY + -117, -3407872);
+					ReturnsnapshotoverlayProcedure.execute(world, entity), posX + -213, posY + -120, -3407872);
+			Minecraft.getInstance().font.draw(event.getPoseStack(),
+
+					PalamodgameserververProcedure.execute(world), posX + 109, posY + 110, -39424);
 		}
 	}
 }

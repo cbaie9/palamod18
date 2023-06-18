@@ -13,6 +13,7 @@
  */
 package palamod;
 
+import palamod.init.PalamodModVillagerProfessions;
 import palamod.init.PalamodModSounds;
 import palamod.init.PalamodModPotions;
 import palamod.init.PalamodModParticleTypes;
@@ -75,7 +76,7 @@ public class PalamodMod {
 		PalamodModEnchantments.REGISTRY.register(bus);
 		PalamodModParticleTypes.REGISTRY.register(bus);
 		PalamodModMenus.REGISTRY.register(bus);
-
+		PalamodModVillagerProfessions.PROFESSIONS.register(bus);
 	}
 
 	private static final String PROTOCOL_VERSION = "1";

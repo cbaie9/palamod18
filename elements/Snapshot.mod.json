@@ -2,7 +2,7 @@
   "_fv": 43,
   "_type": "overlay",
   "definition": {
-    "priority": "NORMAL",
+    "priority": "LOWEST",
     "components": [
       {
         "type": "label",
@@ -18,8 +18,8 @@
           "displayCondition": {
             "name": "Devchecksnap"
           },
-          "x": 2,
-          "y": 13
+          "x": 1,
+          "y": 10
         }
       },
       {
@@ -34,8 +34,24 @@
             "value": -3407872,
             "falpha": 0.0
           },
-          "x": 3,
-          "y": 3
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_palamodgameserverver",
+          "text": {
+            "fixedValue": "",
+            "name": "Palamodgameserverver"
+          },
+          "color": {
+            "value": -39424,
+            "falpha": 0.0
+          },
+          "x": 322,
+          "y": 230
         }
       }
     ],

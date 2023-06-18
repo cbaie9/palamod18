@@ -72,7 +72,7 @@ public class ModelGolem_gplacement_vlegtest<T extends Entity> extends EntityMode
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
 			float headPitch) {
-		this.left_leg.xRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
-		this.right_leg.xRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
+		this.left_leg.xRot = Mth.cos(limbSwing * 0.6662F) * limbSwingAmount;
+		this.right_leg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * limbSwingAmount;
 	}
 }

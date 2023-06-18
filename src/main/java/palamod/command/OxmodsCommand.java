@@ -64,7 +64,7 @@ public class OxmodsCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					OxmodsreturnverProcedure.execute();
+					OxmodsreturnverProcedure.execute(world);
 					return 0;
 				})).then(Commands.literal("disenchant").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();

@@ -1,7 +1,9 @@
 package palamod.procedures;
 
+import net.minecraft.world.level.LevelAccessor;
+
 public class ReturnclassicsnapProcedure {
-	public static String execute() {
-		return PalamodgameverProcedure.execute().replace("Renew \"Cat\"", "");
+	public static String execute(LevelAccessor world) {
+		return PalamodgameverProcedure.execute(world).replace("Renew \"Cat\"", "");
 	}
 }

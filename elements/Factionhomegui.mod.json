@@ -28,21 +28,6 @@
       {
         "type": "label",
         "data": {
-          "name": "label_level_varfaction_max_xp",
-          "text": {
-            "fixedValue": "Level -  <VAR:Faction_max_xp> / <VAR:integer:Faction_max_xp> xp"
-          },
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "x": 69,
-          "y": 51
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "name": "label_empty",
           "text": {
             "fixedValue": ""
