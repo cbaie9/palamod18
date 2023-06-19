@@ -2,7 +2,9 @@
 package palamod.command;
 
 import palamod.procedures.OpenfhguiProcedure;
+import palamod.procedures.FinfofacProcedure;
 import palamod.procedures.FactionleaveProcedure;
+import palamod.procedures.FactionjoinProcedure;
 import palamod.procedures.FactioninviteprocessProcedure;
 import palamod.procedures.FactioncreateProcedure;
 import palamod.procedures.DelfactiontrueProcedure;
@@ -29,7 +31,7 @@ public class FactionCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("faction")
 
-				.then(Commands.literal("create").then(Commands.argument("fac_name", StringArgumentType.string()).then(Commands.argument("Safe_id_mode", BoolArgumentType.bool()).executes(arguments -> {
+				.then(Commands.literal("create").then(Commands.argument("fac_name", StringArgumentType.word()).then(Commands.argument("Safe_id_mode", BoolArgumentType.bool()).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -100,6 +102,30 @@ public class FactionCommand {
 					Direction direction = entity.getDirection();
 
 					FactioninviteprocessProcedure.execute(world, x, y, z, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("join").then(Commands.argument("fac_join_name", StringArgumentType.word()).executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					FactionjoinProcedure.execute(world, x, y, z, arguments, entity);
+					return 0;
+				}))).then(Commands.literal("info").then(Commands.literal("my").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					FinfofacProcedure.execute(world, x, y, z, entity);
 					return 0;
 				}))));
 	}

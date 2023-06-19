@@ -12,9 +12,9 @@ public class PalamodgameserververProcedure {
 		String devloppement_name = "";
 		String version_letter = "";
 		String build_formated = "";
-		minecraft_version = "1.18";
+		minecraft_version = "1.19.4";
 		beta_num = 1.19;
-		build = 1;
+		build = 10036;
 		devloppement_stade = 4;
 		update_name = "Cat";
 		if (build >= 1000) {

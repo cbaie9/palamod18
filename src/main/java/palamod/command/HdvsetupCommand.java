@@ -57,7 +57,7 @@ public class HdvsetupCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					FactionsetupProcedure.execute(world);
+					FactionsetupProcedure.execute(world, entity);
 					return 0;
 				})).then(Commands.literal("trixium").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -81,7 +81,7 @@ public class HdvsetupCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					LunchallsetupProcedure.execute(world);
+					LunchallsetupProcedure.execute(world, entity);
 					return 0;
 				})));
 	}

@@ -35,7 +35,7 @@ public class OpenpalamodgameProcedure {
 		if (entity == null)
 			return;
 		if (!((world.getBlockState(new BlockPos(0, 10, 0))).getBlock() == PalamodModBlocks.NBTBLOCK.get())) {
-			LunchallsetupProcedure.execute(world);
+			LunchallsetupProcedure.execute(world, entity);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal("[ Palamod ] intern-setup are initalised, multiplayer function should work now"), false);
 			if (!world.isClientSide()) {

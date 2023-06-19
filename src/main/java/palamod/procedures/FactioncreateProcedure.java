@@ -25,14 +25,14 @@ public class FactioncreateProcedure {
 		double get_id = 0;
 		boolean fget_id = false;
 		fget_id = false;
-		if (new Object() {
+		if ((new Object() {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
 				if (blockEntity != null)
 					return blockEntity.getPersistentData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos(0, 9, 0), "Faction_unlocked")) {
+		}.getValue(world, new BlockPos(0, 9, 0), "Faction_unlocked")) == true) {
 			if ((new Object() {
 				public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 					BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -89,6 +89,15 @@ public class FactioncreateProcedure {
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
 						_blockEntity.getPersistentData().putBoolean(("Faction_has_" + entity.getUUID().toString()), true);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putBoolean(("Faction_nojoin_" + get_id), true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}
@@ -182,7 +191,7 @@ public class FactioncreateProcedure {
 				Entity _ent = entity;
 				if (!_ent.level.isClientSide() && _ent.getServer() != null) {
 					_ent.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level instanceof ServerLevel ? (ServerLevel) _ent.level : null, 4,
-							_ent.getName().getString(), _ent.getDisplayName(), _ent.level.getServer(), _ent), ("f create " + StringArgumentType.getString(arguments, "fac_name") + " " + BoolArgumentType.getBool(arguments, "Safe_id_mode")));
+							_ent.getName().getString(), _ent.getDisplayName(), _ent.level.getServer(), _ent), ("faction create " + StringArgumentType.getString(arguments, "fac_name") + " " + BoolArgumentType.getBool(arguments, "Safe_id_mode")));
 				}
 			}
 		}
