@@ -28,7 +28,7 @@ import java.util.Collections;
 
 public class TrixiumnbtblockBlock extends Block implements EntityBlock {
 	public TrixiumnbtblockBlock() {
-		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GRAVEL).strength(-1, 3600000).requiresCorrectToolForDrops());
+		super(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(-1, 3600000).requiresCorrectToolForDrops());
 	}
 
 	@Override

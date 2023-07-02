@@ -2,7 +2,7 @@
   "_fv": 43,
   "_type": "block",
   "definition": {
-    "texture": ".sapjudeecercis",
+    "texture": "judeecercis_sapling",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
@@ -14,13 +14,13 @@
     "enablePitch": false,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "itemTexture": "",
+    "itemTexture": "judeecercis_sapling",
     "particleTexture": "",
     "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": true,
     "connectedSides": false,
-    "transparencyType": "SOLID",
+    "transparencyType": "CUTOUT",
     "disableOffset": false,
     "boundingBoxes": [
       {
@@ -99,6 +99,9 @@
     "luminance": 0,
     "unbreakable": false,
     "breakHarvestLevel": 1,
+    "placingCondition": {
+      "name": "SapplingBlockValidPlacementCondition"
+    },
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",

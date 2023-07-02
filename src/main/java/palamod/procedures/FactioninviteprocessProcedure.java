@@ -50,7 +50,7 @@ public class FactioninviteprocessProcedure {
 			for (Entity entityiterator : EntityArgument.getEntities(arguments, "player")) {
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-							("tellraw @p [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\"},{\"text\":\"You resquest " + "" + entityiterator.getDisplayName().getString() + " to join your faction \"}]"));
+							("tellraw @p [\"\",{\"text\":\"[ Palamod ] :\",\"color\":\"dark_red\"},{\"text\":\" You request " + "" + entityiterator.getDisplayName().getString() + " to join your faction\",\"color\":\"gold\"}]"));
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 9, 0);
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);

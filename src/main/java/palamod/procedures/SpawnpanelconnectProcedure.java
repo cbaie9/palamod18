@@ -24,7 +24,7 @@ public class SpawnpanelconnectProcedure {
 			return;
 		if (entity instanceof Player _player)
 			_player.closeContainer();
-		if (entity.hasPermissions(5)) {
+		if (entity.hasPermissions(4)) {
 			{
 				if (entity instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(x, y, z);

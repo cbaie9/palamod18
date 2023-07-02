@@ -29,7 +29,7 @@ public class FeedCommand {
 				entity = FakePlayerFactory.getMinecraft(world);
 			Direction direction = entity.getDirection();
 
-			FeedprocessProcedure.execute(entity);
+			FeedprocessProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}));
 	}

@@ -107,6 +107,21 @@
           "x": 170,
           "y": 78
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_amount",
+          "text": {
+            "fixedValue": "Amount :"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 155,
+          "y": 112
+        }
       }
     ],
     "gridSettings": {

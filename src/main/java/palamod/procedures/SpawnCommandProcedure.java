@@ -342,7 +342,7 @@ public class SpawnCommandProcedure {
 		} else {
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-						"msg @p Dimension non pris en charge");
+						"tellraw @p [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\"},{\"text\":\"Dimension non pris en charge, seul l'overworld est pris en charge a 100%\",\"color\":\"gold\"}]");
 		}
 	}
 }

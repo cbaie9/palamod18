@@ -22,9 +22,18 @@ public class FactioncreateProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, CommandContext<CommandSourceStack> arguments, Entity entity) {
 		if (entity == null)
 			return;
-		double get_id = 0;
 		boolean fget_id = false;
+		double get_id = 0;
+		double nloop = 0;
 		fget_id = false;
+		nloop = new Object() {
+			public double getValue(LevelAccessor world, BlockPos pos, String tag) {
+				BlockEntity blockEntity = world.getBlockEntity(pos);
+				if (blockEntity != null)
+					return blockEntity.getPersistentData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos(0, 9, 0), "Faction_id") + 1;
 		if ((new Object() {
 			public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 				BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -42,14 +51,6 @@ public class FactioncreateProcedure {
 				}
 			}.getValue(world, new BlockPos(0, 9, 0), ("Faction_has_" + entity.getUUID().toString()))) == false) {
 				while (fget_id == false) {
-					get_id = new Object() {
-						public double getValue(LevelAccessor world, BlockPos pos, String tag) {
-							BlockEntity blockEntity = world.getBlockEntity(pos);
-							if (blockEntity != null)
-								return blockEntity.getPersistentData().getDouble(tag);
-							return -1;
-						}
-					}.getValue(world, new BlockPos(0, 9, 0), "Faction_id") + 1;
 					if (!(new Object() {
 						public boolean getValue(LevelAccessor world, BlockPos pos, String tag) {
 							BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -67,10 +68,12 @@ public class FactioncreateProcedure {
 							}
 						}.getValue(world, new BlockPos(0, 9, 0), ("Faction_hbc_" + get_id))) || BoolArgumentType.getBool(arguments, "Safe_id_mode") == false) {
 							fget_id = true;
+							get_id = nloop;
 							break;
 						} else {
 							if (entity instanceof Player _player && !_player.level.isClientSide())
 								_player.displayClientMessage(Component.literal(("Safe mode was on ; retry with another id. Current id : " + get_id)), false);
+							nloop = nloop + 1;
 						}
 					}
 				}
@@ -124,6 +127,33 @@ public class FactioncreateProcedure {
 					BlockEntity _blockEntity = world.getBlockEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putDouble("Faction_id", get_id);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putDouble(("Faction_power_" + get_id), 1000);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putDouble(("Faction_maxpower_" + get_id), 5000);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
 						_blockEntity.getPersistentData().putString(("Faction_leader_" + get_id), (entity.getUUID().toString()));
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
@@ -134,6 +164,33 @@ public class FactioncreateProcedure {
 					BlockState _bs = world.getBlockState(_bp);
 					if (_blockEntity != null)
 						_blockEntity.getPersistentData().putDouble(("Faction_nb-m_" + get_id), 1);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putDouble(("Faction_ownclaim_" + get_id), 0);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putDouble(("Faction_nb-offi_" + get_id), 1);
+					if (world instanceof Level _level)
+						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+				}
+				if (!world.isClientSide()) {
+					BlockPos _bp = new BlockPos(0, 9, 0);
+					BlockEntity _blockEntity = world.getBlockEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_blockEntity != null)
+						_blockEntity.getPersistentData().putBoolean(("Faction_officer_" + entity.getUUID().toString() + "_" + get_id), true);
 					if (world instanceof Level _level)
 						_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 				}

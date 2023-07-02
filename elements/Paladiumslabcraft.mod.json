@@ -8,7 +8,7 @@
     "cookingBookCategory": "MISC",
     "xpReward": 0.0,
     "cookingTime": 200,
-    "craftingBookCategory": "MISC",
+    "craftingBookCategory": "BUILDING",
     "recipeShapeless": false,
     "recipeSlots": [
       {
@@ -21,13 +21,13 @@
         "value": ""
       },
       {
-        "value": "CUSTOM:PaladiumIngot"
+        "value": ""
       },
       {
-        "value": "CUSTOM:PaladiumIngot"
+        "value": ""
       },
       {
-        "value": "CUSTOM:PaladiumIngot"
+        "value": ""
       },
       {
         "value": "CUSTOM:PaladiumIngot"

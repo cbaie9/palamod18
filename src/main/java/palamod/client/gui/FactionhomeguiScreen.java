@@ -2,6 +2,8 @@ package palamod.client.gui;
 
 import palamod.world.inventory.FactionhomeguiMenu;
 
+import palamod.procedures.Factionhomeguisubprocess1Procedure;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -70,6 +72,9 @@ public class FactionhomeguiScreen extends AbstractContainerScreen<Factionhomegui
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
 		this.font.draw(poseStack, Component.translatable("gui.palamod.factionhomegui.label_faction_home"), 116, 3, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.palamod.factionhomegui.label_empty"), 19, 71, -12829636);
+		this.font.draw(poseStack,
+
+				Factionhomeguisubprocess1Procedure.execute(world, entity), 4, 25, -12829636);
 	}
 
 	@Override

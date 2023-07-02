@@ -1,0 +1,19 @@
+{
+  "_fv": 43,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Mii chalenge disc",
+    "texture": "disc_mii",
+    "description": "Koro - Mii chalenge - 2020",
+    "creativeTab": {
+      "value": "CUSTOM:Palamod"
+    },
+    "specialInfo": [],
+    "hasGlow": false,
+    "music": {
+      "value": "CUSTOM:miichallengemusic"
+    },
+    "lengthInTicks": 1100,
+    "analogOutput": 7
+  }
+}

@@ -34,7 +34,7 @@ public class MoneyCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					MoneyprocessProcedure.execute(world, entity);
+					MoneyprocessProcedure.execute(world, x, y, z, entity);
 					return 0;
 				}).then(Commands.literal("set").then(Commands.argument("player", StringArgumentType.word()).then(Commands.argument("money", DoubleArgumentType.doubleArg(0)).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();

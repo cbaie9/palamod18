@@ -50,6 +50,22 @@
           "x": 72,
           "y": 191
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_factionhomeguisubprocess_1",
+          "text": {
+            "fixedValue": "Fax",
+            "name": "Factionhomeguisubprocess1"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 68,
+          "y": 45
+        }
       }
     ],
     "gridSettings": {

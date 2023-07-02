@@ -1,0 +1,19 @@
+{
+  "_fv": 43,
+  "_type": "musicdisc",
+  "definition": {
+    "name": "Fuzedisc",
+    "texture": "disc_fuze",
+    "description": "They called me fuze III - Fuze III",
+    "creativeTab": {
+      "value": "CUSTOM:Palamod"
+    },
+    "specialInfo": [],
+    "hasGlow": true,
+    "music": {
+      "value": "CUSTOM:fuzedisc"
+    },
+    "lengthInTicks": 2700,
+    "analogOutput": 0
+  }
+}

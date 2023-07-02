@@ -4,13 +4,13 @@ license="Custom license, https://pastebin.com/47smwufD"
 
 [[mods]]
 modId="palamod"
-version="1.19.10036"
+version="1.19.10039"
 displayName="Palamod renew"
 credits="Codée par des mecs qui voulais juste sortir de la warzone vivant  , Crédit complet sur le discord "
 displayURL=" https://paladium-pvp.fr, https://discord.com/invite/dVvNDrQENA"
 logoFile="logo.png"
 authors="cb9, FufuBS1( + Paladium Games pour le mod orginale)"
-description="Certifié sans lag ( apparent ) "
+description="Certifié sans lag ( apparent ) ( event spé ver )"
 
 [[dependencies.palamod]]
     modId="minecraft"

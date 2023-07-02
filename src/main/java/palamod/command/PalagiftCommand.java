@@ -40,7 +40,7 @@ public class PalagiftCommand {
 						index++;
 					}
 
-					PalagiftQuandUneCommandeEstExecuteeProcedure.execute(entity);
+					PalagiftQuandUneCommandeEstExecuteeProcedure.execute(world, x, y, z, entity);
 					return 0;
 				})).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -59,7 +59,7 @@ public class PalagiftCommand {
 						index++;
 					}
 
-					PalagiftQuandUneCommandeEstExecuteeProcedure.execute(entity);
+					PalagiftQuandUneCommandeEstExecuteeProcedure.execute(world, x, y, z, entity);
 					return 0;
 				}));
 	}

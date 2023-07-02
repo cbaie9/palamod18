@@ -31,7 +31,7 @@ public class DelhomeCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					DelhomeprocessProcedure.execute(arguments, entity);
+					DelhomeprocessProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
 				})));
 	}

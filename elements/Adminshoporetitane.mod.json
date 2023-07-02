@@ -41,7 +41,7 @@
         "data": {
           "name": "label_mode_set",
           "text": {
-            "fixedValue": "Mode set :"
+            "fixedValue": "Amount :"
           },
           "color": {
             "value": -12829636,

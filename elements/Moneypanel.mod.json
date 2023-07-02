@@ -30,10 +30,10 @@
         "data": {
           "placeholder": "Enter player for change his money",
           "name": "Admin_player_money",
-          "width": 120,
+          "width": 181,
           "height": 20,
-          "x": 130,
-          "y": 84
+          "x": 123,
+          "y": 83
         }
       },
       {
@@ -55,10 +55,10 @@
         "data": {
           "placeholder": "Money to add/remove",
           "name": "Admin_money_change",
-          "width": 120,
+          "width": 180,
           "height": 20,
-          "x": 133,
-          "y": 123
+          "x": 123,
+          "y": 125
         }
       },
       {

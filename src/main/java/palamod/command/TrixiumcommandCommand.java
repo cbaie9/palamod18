@@ -21,7 +21,7 @@ public class TrixiumcommandCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("trxium")
 
-				.then(Commands.literal("deposit").executes(arguments -> {
+				.executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -33,7 +33,7 @@ public class TrixiumcommandCommand {
 
 					ConnecttrxiumdepositProcedure.execute(world, x, y, z, entity);
 					return 0;
-				})).then(Commands.literal("score").executes(arguments -> {
+				}).then(Commands.literal("score").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

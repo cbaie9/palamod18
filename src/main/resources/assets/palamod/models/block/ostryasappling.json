@@ -4,5 +4,5 @@
     "cross": "palamod:block/sap.ostrya",
     "particle": "palamod:block/sap.ostrya"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

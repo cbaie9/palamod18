@@ -2,8 +2,8 @@
 package palamod.command;
 
 import palamod.procedures.TrixiumsetupProcedure;
+import palamod.procedures.SetupclassicProcedure;
 import palamod.procedures.LunchallsetupProcedure;
-import palamod.procedures.Hdvsetup_processProcedure;
 import palamod.procedures.FactionsetupProcedure;
 import palamod.procedures.AdminshoppricesetupProcedure;
 
@@ -23,7 +23,7 @@ public class HdvsetupCommand {
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("$setup")
 
-				.then(Commands.literal("hdv").executes(arguments -> {
+				.then(Commands.literal("classic").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();
@@ -33,7 +33,7 @@ public class HdvsetupCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					Hdvsetup_processProcedure.execute(world);
+					SetupclassicProcedure.execute(world);
 					return 0;
 				})).then(Commands.literal("adminshop").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -57,7 +57,7 @@ public class HdvsetupCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					FactionsetupProcedure.execute(world, entity);
+					FactionsetupProcedure.execute(world);
 					return 0;
 				})).then(Commands.literal("trixium").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -81,7 +81,7 @@ public class HdvsetupCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					LunchallsetupProcedure.execute(world, entity);
+					LunchallsetupProcedure.execute(world);
 					return 0;
 				})));
 	}

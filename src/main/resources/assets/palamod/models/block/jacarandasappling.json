@@ -4,5 +4,5 @@
     "cross": "palamod:block/sap.jacaranda",
     "particle": "palamod:block/sap.jacaranda"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }

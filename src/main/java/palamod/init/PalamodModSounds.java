@@ -16,4 +16,6 @@ import net.minecraft.resources.ResourceLocation;
 public class PalamodModSounds {
 	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, PalamodMod.MODID);
 	public static final RegistryObject<SoundEvent> LUCKY_ALARM = REGISTRY.register("lucky_alarm", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("palamod", "lucky_alarm")));
+	public static final RegistryObject<SoundEvent> MIICHALLENGEMUSIC = REGISTRY.register("miichallengemusic", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("palamod", "miichallengemusic")));
+	public static final RegistryObject<SoundEvent> FUZEDISC = REGISTRY.register("fuzedisc", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation("palamod", "fuzedisc")));
 }

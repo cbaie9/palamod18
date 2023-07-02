@@ -9,14 +9,19 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
@@ -24,20 +29,21 @@ import javax.annotation.Nullable;
 public class OpenpalamodgameProcedure {
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		execute(event, event.getEntity().level, event.getEntity());
+		execute(event, event.getEntity().level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), event.getEntity());
 	}
 
-	public static void execute(LevelAccessor world, Entity entity) {
-		execute(null, world, entity);
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+		execute(null, world, x, y, z, entity);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
+	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
 		if (!((world.getBlockState(new BlockPos(0, 10, 0))).getBlock() == PalamodModBlocks.NBTBLOCK.get())) {
-			LunchallsetupProcedure.execute(world, entity);
-			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("[ Palamod ] intern-setup are initalised, multiplayer function should work now"), false);
+			LunchallsetupProcedure.execute(world);
+			if (world instanceof ServerLevel _level)
+				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+						"tellraw @p {\"text\":\"mip has been started\",\"color\":\"green\"}");
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);
 				BlockEntity _blockEntity = world.getBlockEntity(_bp);
@@ -68,7 +74,7 @@ public class OpenpalamodgameProcedure {
 		}
 		if (world.isClientSide() || 1 <= world.players().size()) {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("Merci d'avoir installer le Palamod"), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("procedure.palamod.thank1").getString())), false);
 			if (world.isClientSide()) {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
 					_player.displayClientMessage(Component.literal(PalamodgameverProcedure.execute(world)), false);
@@ -77,13 +83,13 @@ public class OpenpalamodgameProcedure {
 					_player.displayClientMessage(Component.literal(PalamodgameserververProcedure.execute(world)), false);
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("Cr\u00E9er par cb9 et fufu "), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("procedure.palamod.thank2").getString())), false);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("Aller soutenir le vrai palamod "), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("procedure.palamod.thank3").getString())), false);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("Le mod peut \u00EAtre instable due qu'il soit en beta, penser a le mettre a jour"), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("procedure.palamod.thank5").getString())), false);
 			if (entity instanceof Player _player && !_player.level.isClientSide())
-				_player.displayClientMessage(Component.literal("Bon jeu :)"), false);
+				_player.displayClientMessage(Component.literal((Component.translatable("procedure.palamod.thank4").getString())), false);
 		} else {
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal("Powered by Palamod Renew"), false);
@@ -106,7 +112,7 @@ public class OpenpalamodgameProcedure {
 					}.getValue(world, new BlockPos(0, 10, 0), "servername")))), false);
 			} else {
 				if (entity instanceof Player _player && !_player.level.isClientSide())
-					_player.displayClientMessage(Component.literal("Welcome to [get servername --> Palamodserverconfiog/toml ]"), false);
+					_player.displayClientMessage(Component.literal("Welcome to [get servername --> Palamodserverconfig/toml ]"), false);
 			}
 			if (entity instanceof Player _player && !_player.level.isClientSide())
 				_player.displayClientMessage(Component.literal(PalamodgameserververProcedure.execute(world)), false);

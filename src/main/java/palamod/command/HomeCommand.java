@@ -32,7 +32,7 @@ public class HomeCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					HomeprocessProcedure.execute(arguments, entity);
+					HomeprocessProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
 				})).then(Commands.literal("list").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
@@ -44,7 +44,7 @@ public class HomeCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					HomelistProcedure.execute(entity);
+					HomelistProcedure.execute(world, x, y, z, entity);
 					return 0;
 				})));
 	}

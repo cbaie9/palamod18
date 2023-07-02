@@ -5,6 +5,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
@@ -12,8 +14,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandSource;
 
 import javax.annotation.Nullable;
 
@@ -21,14 +26,14 @@ import javax.annotation.Nullable;
 public class MoneyitemuseProcedure {
 	@SubscribeEvent
 	public static void onGemDropped(ItemTossEvent event) {
-		execute(event, event.getPlayer().level, event.getPlayer(), event.getEntity().getItem());
+		execute(event, event.getPlayer().level, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), event.getPlayer(), event.getEntity().getItem());
 	}
 
-	public static void execute(LevelAccessor world, Entity entity, ItemStack itemstack) {
-		execute(null, world, entity, itemstack);
+	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
+		execute(null, world, x, y, z, entity, itemstack);
 	}
 
-	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity, ItemStack itemstack) {
+	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity, ItemStack itemstack) {
 		if (entity == null)
 			return;
 		if (itemstack.getOrCreateTag().getBoolean("Is_pname")) {
@@ -61,10 +66,9 @@ public class MoneyitemuseProcedure {
 			}
 		} else {
 			if (itemstack.getOrCreateTag().getBoolean("destri_money")) {
-				if (entity instanceof Player _player) {
-					ItemStack _stktoremove = itemstack;
-					_player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1, _player.inventoryMenu.getCraftSlots());
-				}
+				if (world instanceof ServerLevel _level)
+					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+							"kill @e[limit=1,sort=nearest,distance=1..5,type=item]");
 			}
 			if (!world.isClientSide()) {
 				BlockPos _bp = new BlockPos(0, 10, 0);

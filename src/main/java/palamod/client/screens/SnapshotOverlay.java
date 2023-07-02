@@ -42,7 +42,7 @@ public class SnapshotOverlay {
 				Minecraft.getInstance().font.draw(event.getPoseStack(), Component.translatable("gui.palamod.snapshot.label_paladium_creator_footage_devlopp"), posX + -212, posY + -110, -26368);
 			Minecraft.getInstance().font.draw(event.getPoseStack(),
 
-					ReturnsnapshotoverlayProcedure.execute(world, entity), posX + -213, posY + -120, -3407872);
+					ReturnsnapshotoverlayProcedure.execute(world, entity), posX + -214, posY + -122, -3407872);
 			Minecraft.getInstance().font.draw(event.getPoseStack(),
 
 					PalamodgameserververProcedure.execute(world), posX + 109, posY + 110, -39424);

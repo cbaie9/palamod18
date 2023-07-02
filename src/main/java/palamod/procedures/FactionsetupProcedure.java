@@ -7,21 +7,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 
 import java.util.Map;
 
 public class FactionsetupProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
-		if (entity == null)
-			return;
+	public static void execute(LevelAccessor world) {
 		{
 			BlockPos _bp = new BlockPos(0, 9, 0);
-			BlockState _bs = PalamodModBlocks.FACTIONBLCK.get().defaultBlockState();
+			BlockState _bs = PalamodModBlocks.NBTBLOCK.get().defaultBlockState();
 			BlockState _bso = world.getBlockState(_bp);
 			for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
 				Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
@@ -66,7 +61,5 @@ public class FactionsetupProcedure {
 			if (world instanceof Level _level)
 				_level.sendBlockUpdated(_bp, _bs, _bs, 3);
 		}
-		if (entity instanceof Player _player && !_player.level.isClientSide())
-			_player.displayClientMessage(Component.literal("Faction was setuped ready to [Die]"), false);
 	}
 }

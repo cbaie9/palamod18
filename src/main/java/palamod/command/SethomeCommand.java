@@ -31,7 +31,7 @@ public class SethomeCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					SethomeprocessProcedure.execute(x, y, z, arguments, entity);
+					SethomeprocessProcedure.execute(world, x, y, z, arguments, entity);
 					return 0;
 				})));
 	}

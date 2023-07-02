@@ -36,6 +36,6 @@ public class PalalaglunchProcedure {
 		}
 		if (world instanceof ServerLevel _level)
 			_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-					"msg @a [ Palamod | Palalag ] The palalag has been executed");
+					"tellraw @a [\"\",{\"text\":\"[ Palamod | Palalag ] :\",\"color\":\"dark_red\"},{\"text\":\" The Palalag has been executed\",\"color\":\"gold\"}]");
 	}
 }

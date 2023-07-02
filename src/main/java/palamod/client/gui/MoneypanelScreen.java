@@ -97,7 +97,7 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 	@Override
 	public void init() {
 		super.init();
-		Admin_player_money = new EditBox(this.font, this.leftPos + 21, this.topPos + 49, 120, 20, Component.translatable("gui.palamod.moneypanel.Admin_player_money")) {
+		Admin_player_money = new EditBox(this.font, this.leftPos + 14, this.topPos + 48, 181, 20, Component.translatable("gui.palamod.moneypanel.Admin_player_money")) {
 			{
 				setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_player_money").getString());
 			}
@@ -123,7 +123,7 @@ public class MoneypanelScreen extends AbstractContainerScreen<MoneypanelMenu> {
 		Admin_player_money.setMaxLength(32767);
 		guistate.put("text:Admin_player_money", Admin_player_money);
 		this.addWidget(this.Admin_player_money);
-		Admin_money_change = new EditBox(this.font, this.leftPos + 24, this.topPos + 88, 120, 20, Component.translatable("gui.palamod.moneypanel.Admin_money_change")) {
+		Admin_money_change = new EditBox(this.font, this.leftPos + 14, this.topPos + 90, 180, 20, Component.translatable("gui.palamod.moneypanel.Admin_money_change")) {
 			{
 				setSuggestion(Component.translatable("gui.palamod.moneypanel.Admin_money_change").getString());
 			}

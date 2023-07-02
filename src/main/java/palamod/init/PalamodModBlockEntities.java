@@ -20,8 +20,10 @@ import palamod.block.entity.LuckyblockBlockEntity;
 import palamod.block.entity.HdvblockBlockEntity;
 import palamod.block.entity.GrinderblockBlockEntity;
 import palamod.block.entity.GreenpaladiumchestBlockEntity;
+import palamod.block.entity.FactionblckBlockEntity;
 import palamod.block.entity.EndiumchestBlockEntity;
 import palamod.block.entity.DownloaderBlockEntity;
+import palamod.block.entity.CloudblockBlockEntity;
 import palamod.block.entity.AmethystchestBlockEntity;
 
 import palamod.PalamodMod;
@@ -44,6 +46,7 @@ public class PalamodModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> PALADIUMFURNACE = register("paladiumfurnace", PalamodModBlocks.PALADIUMFURNACE, PaladiumfurnaceBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PALADIUMFORGE = register("paladiumforge", PalamodModBlocks.PALADIUMFORGE, PaladiumforgeBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> MEGASAFECHEST = register("megasafechest", PalamodModBlocks.MEGASAFECHEST, MegasafechestBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> CLOUDBLOCK = register("cloudblock", PalamodModBlocks.CLOUDBLOCK, CloudblockBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> UPLOADER = register("uploader", PalamodModBlocks.UPLOADER, UploaderBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> DOWNLOADER = register("downloader", PalamodModBlocks.DOWNLOADER, DownloaderBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> LUCKYBLOCK = register("luckyblock", PalamodModBlocks.LUCKYBLOCK, LuckyblockBlockEntity::new);
@@ -53,6 +56,7 @@ public class PalamodModBlockEntities {
 	public static final RegistryObject<BlockEntityType<?>> NBTBLOCK = register("nbtblock", PalamodModBlocks.NBTBLOCK, NbtblockBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> PALADIUMFURNACEON = register("paladiumfurnaceon", PalamodModBlocks.PALADIUMFURNACEON, PaladiumfurnaceonBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> TRIXIUMNBTBLOCK = register("trixiumnbtblock", PalamodModBlocks.TRIXIUMNBTBLOCK, TrixiumnbtblockBlockEntity::new);
+	public static final RegistryObject<BlockEntityType<?>> FACTIONBLCK = register("factionblck", PalamodModBlocks.FACTIONBLCK, FactionblckBlockEntity::new);
 	public static final RegistryObject<BlockEntityType<?>> HDVBLOCK = register("hdvblock", PalamodModBlocks.HDVBLOCK, HdvblockBlockEntity::new);
 
 	private static RegistryObject<BlockEntityType<?>> register(String registryname, RegistryObject<Block> block, BlockEntityType.BlockEntitySupplier<?> supplier) {

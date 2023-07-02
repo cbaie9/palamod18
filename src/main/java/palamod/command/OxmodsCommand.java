@@ -8,6 +8,7 @@ import palamod.procedures.OxdebugdonotshowfalseProcedure;
 import palamod.procedures.OxcommandProcedure;
 import palamod.procedures.OxbackfireProcedure;
 import palamod.procedures.Luckyprocess1adminProcedure;
+import palamod.procedures.GetuuidProcedure;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -42,7 +43,19 @@ public class OxmodsCommand {
 
 					OxcommandProcedure.execute(arguments, entity);
 					return 0;
-				})))).then(Commands.literal("lucky").then(Commands.argument("random", DoubleArgumentType.doubleArg()).executes(arguments -> {
+				})))).then(Commands.literal("uuid").executes(arguments -> {
+					ServerLevel world = arguments.getSource().getLevel();
+					double x = arguments.getSource().getPosition().x();
+					double y = arguments.getSource().getPosition().y();
+					double z = arguments.getSource().getPosition().z();
+					Entity entity = arguments.getSource().getEntity();
+					if (entity == null)
+						entity = FakePlayerFactory.getMinecraft(world);
+					Direction direction = entity.getDirection();
+
+					GetuuidProcedure.execute(entity);
+					return 0;
+				})).then(Commands.literal("lucky").then(Commands.argument("random", DoubleArgumentType.doubleArg()).executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();
 					double y = arguments.getSource().getPosition().y();

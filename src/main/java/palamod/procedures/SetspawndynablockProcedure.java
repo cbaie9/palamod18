@@ -106,7 +106,7 @@ public class SetspawndynablockProcedure {
 				}
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9");
+							"tellraw @a [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}},{\"text\":\"The spawn has been changed\",\"color\":\"gold\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}}]");
 				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
@@ -251,7 +251,7 @@ public class SetspawndynablockProcedure {
 				}
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9 ");
+							"tellraw @a [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}},{\"text\":\"The spawn has been changed\",\"color\":\"gold\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}}]");
 				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
@@ -396,7 +396,7 @@ public class SetspawndynablockProcedure {
 				}
 				if (world instanceof ServerLevel _level)
 					_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-							"msg @a [serveur] Le spawn a \u00E9t\u00E9 chang\u00E9 ");
+							"tellraw @a [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}},{\"text\":\"The spawn has been changed\",\"color\":\"gold\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/spawn\"}}]");
 				entity.getPersistentData().putBoolean("spawn_warn", false);
 				if (!world.isClientSide()) {
 					BlockPos _bp = new BlockPos(0, 10, 0);
@@ -466,15 +466,6 @@ public class SetspawndynablockProcedure {
 								_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 							}
 						}
-						if (!world.isClientSide()) {
-							BlockPos _bp = new BlockPos(0, 10, 0);
-							BlockEntity _blockEntity = world.getBlockEntity(_bp);
-							BlockState _bs = world.getBlockState(_bp);
-							if (_blockEntity != null)
-								_blockEntity.getPersistentData().putString("spawn_dim_id", "2");
-							if (world instanceof Level _level)
-								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
-						}
 						{
 							BlockPos _bp = new BlockPos(0, 10, 0);
 							BlockState _bs = PalamodModBlocks.NBTBLOCK.get().defaultBlockState();
@@ -495,6 +486,15 @@ public class SetspawndynablockProcedure {
 								}
 							}
 						}
+						if (!world.isClientSide()) {
+							BlockPos _bp = new BlockPos(0, 10, 0);
+							BlockEntity _blockEntity = world.getBlockEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_blockEntity != null)
+								_blockEntity.getPersistentData().putString("spawn_dim_id", "2");
+							if (world instanceof Level _level)
+								_level.sendBlockUpdated(_bp, _bs, _bs, 3);
+						}
 					});
 				});
 			}
@@ -502,7 +502,7 @@ public class SetspawndynablockProcedure {
 			entity.getPersistentData().putBoolean("spawn_warn", true);
 			if (world instanceof ServerLevel _level)
 				_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-						"msg @p [warn] Le spawn semble obsru\u00E9e veuill\u00E9 recommencer la commande pour confimer");
+						"tellraw @p [\"\",{\"text\":\"[ Palamod ] : \",\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/setspawn\"}},{\"text\":\"Your position may be obstructed. Redo the command to confirm the spawn change\",\"color\":\"gold\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/setspawn\"}}]");
 		}
 	}
 }

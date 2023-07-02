@@ -1,14 +1,8 @@
 
 package palamod.command;
 
-import palamod.procedures.ToolresetopenProcedure;
-import palamod.procedures.ToolresetcloseProcedure;
 import palamod.procedures.ToolresetallProcedure;
-import palamod.procedures.ToolopenportProcedure;
-import palamod.procedures.ToollockonProcedure;
-import palamod.procedures.ToolcloseportProcedure;
 import palamod.procedures.Luckyprocess1adminProcedure;
-import palamod.procedures.HdvlockoffProcedure;
 import palamod.procedures.ClearoreProcedure;
 import palamod.procedures.AdminshoppricesetupProcedure;
 
@@ -30,79 +24,7 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 public class PalatoolsCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("palatools").requires(s -> s.hasPermission(4)).then(Commands.literal("hdv").then(Commands.literal("open").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			ToolopenportProcedure.execute(world);
-			return 0;
-		})).then(Commands.literal("close").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			ToolcloseportProcedure.execute(world);
-			return 0;
-		})).then(Commands.literal("reset").then(Commands.literal("open").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			ToolresetopenProcedure.execute(world);
-			return 0;
-		})).then(Commands.literal("close").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			ToolresetcloseProcedure.execute(world);
-			return 0;
-		}))).then(Commands.literal("lock").then(Commands.literal("off").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			ToollockonProcedure.execute(world);
-			return 0;
-		})).then(Commands.literal("on").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null)
-				entity = FakePlayerFactory.getMinecraft(world);
-			Direction direction = entity.getDirection();
-
-			HdvlockoffProcedure.execute(world);
-			return 0;
-		})))).then(Commands.literal("adminshop")
+		event.getDispatcher().register(Commands.literal("palatools").requires(s -> s.hasPermission(4)).then(Commands.literal("adminshop")
 				.then(Commands.literal("price").then(Commands.literal("set").then(Commands.literal("paladium")).then(Commands.literal("paladium"))).then(Commands.literal("reset").then(Commands.literal("all").executes(arguments -> {
 					ServerLevel world = arguments.getSource().getLevel();
 					double x = arguments.getSource().getPosition().x();

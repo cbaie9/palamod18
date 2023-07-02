@@ -20,7 +20,7 @@
     "isItemTinted": false,
     "hasTransparency": true,
     "connectedSides": false,
-    "transparencyType": "SOLID",
+    "transparencyType": "CUTOUT",
     "disableOffset": false,
     "boundingBoxes": [
       {
@@ -99,6 +99,9 @@
     "luminance": 0,
     "unbreakable": false,
     "breakHarvestLevel": 1,
+    "placingCondition": {
+      "name": "SapplingBlockValidPlacementCondition"
+    },
     "isBonemealable": false,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",

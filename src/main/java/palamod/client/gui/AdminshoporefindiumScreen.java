@@ -83,6 +83,7 @@ public class AdminshoporefindiumScreen extends AbstractContainerScreen<Adminshop
 		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporefindium.label_findium"), 58, 6, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporefindium.label_sell_price_85"), 37, 27, -12829636);
 		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporefindium.label_buy_price_90"), 44, 41, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.palamod.adminshoporefindium.label_amount"), 29, 75, -12829636);
 	}
 
 	@Override

@@ -254,6 +254,9 @@ public class PalamodModTabs {
 					tabData.accept(PalamodModItems.ENDIUMSHOVEL.get());
 					tabData.accept(PalamodModBlocks.CAVEBLOCK.get().asItem());
 					tabData.accept(PalamodModBlocks.PROTODEEPSLATE.get().asItem());
+					tabData.accept(PalamodModItems.MIICHALENGE.get());
+					tabData.accept(PalamodModItems.FUZEDISC.get());
+					tabData.accept(PalamodModItems.ENDIUMFRAGMENT.get());
 				})
 
 		);

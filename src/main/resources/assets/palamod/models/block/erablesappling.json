@@ -4,5 +4,5 @@
     "cross": "palamod:block/sap.erable",
     "particle": "palamod:block/sap.erable"
   },
-  "render_type": "solid"
+  "render_type": "cutout"
 }
